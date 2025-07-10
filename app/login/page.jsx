@@ -2,12 +2,11 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import cookie from 'js-cookie';
 
 export default function LoginPage() {
   const router = useRouter();
 
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -18,23 +17,24 @@ export default function LoginPage() {
     setIsLoading(true);
 
     try {
-      const body = new URLSearchParams();
-      body.append('username', username);
-      body.append('password', password);
-
-      const res = await fetch('http://localhost:8000/api/v1/auth/token', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/login`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+          'Content-Type': 'application/json'
         },
-        body: body.toString()
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
       });
 
       if (!res.ok) throw new Error('Giriş başarısız');
 
       const data = await res.json();
-      cookie.set('token', data.access_token);
-      router.push('/dashboard'); // Giriş sonrası yönlendirme
+
+      localStorage.setItem('token', data.access_token);
+
+      router.push('/dashboard');
     } catch (err) {
       setError(err.message || 'Bir hata oluştu');
     } finally {
@@ -52,10 +52,10 @@ export default function LoginPage() {
         {error && <p className="text-red-500 mb-4">{error}</p>}
 
         <input
-          type="text"
-          placeholder="Kullanıcı adı"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          type="email"
+          placeholder="E-posta"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
           className="w-full mb-3 p-2 border rounded"
         />
