@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import cookie from 'js-cookie';
 import { useRouter } from 'next/navigation';
 
 export default function DashboardPage() {
@@ -12,7 +13,7 @@ export default function DashboardPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = cookie.get('token');
     if (!token) {
       router.push('/login');
       return;
@@ -20,14 +21,14 @@ export default function DashboardPage() {
 
     const fetchData = async () => {
       try {
-        const rentalRes = await axios.get('/api/v1/rentals/history', {
+const rentalRes = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/users/me/rentals`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        const paymentRes = await axios.get('/api/v1/payments', {
+        const paymentRes = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/payments`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setRentals(rentalRes.data);
-        setPayments(paymentRes.data);
+        setPayments(paymentRes.data.payments || []);
       } catch (err) {
         setError(err.response?.data?.detail || 'Veriler alınamadı');
       } finally {
@@ -38,8 +39,8 @@ export default function DashboardPage() {
     fetchData();
   }, [router]);
 
-  if (loading) return <div className="p-4">Yükleniyor...</div>;
-  if (error) return <div className="p-4 text-red-600">Hata: {error}</div>;
+  if (loading) return <div className="p-4">Loading...</div>;
+  if (error) return <div className="p-4 text-red-600">Error: {error}</div>;
 
   return (
     <div className="p-4">

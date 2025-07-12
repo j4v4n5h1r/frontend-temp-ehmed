@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useRouter } from 'next/navigation';
+import { AuthContext } from '../../context/AuthContext';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -11,32 +12,16 @@ export default function LoginPage() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  const { login } = useContext(AuthContext);
   const handleLogin = async (e) => {
     e.preventDefault();
     setError(null);
     setIsLoading(true);
-
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password
-        })
-      });
-
-      if (!res.ok) throw new Error('Giriş başarısız');
-
-      const data = await res.json();
-
-      localStorage.setItem('token', data.access_token);
-
+      await login(email, password);
       router.push('/dashboard');
     } catch (err) {
-      setError(err.message || 'Bir hata oluştu');
+      setError(err.message || 'An error occurred');
     } finally {
       setIsLoading(false);
     }
