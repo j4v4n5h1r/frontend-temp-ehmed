@@ -37,7 +37,7 @@ export default function RegisterPage() {
       await registerUser({ firstName, lastName, email, password });
       router.push("/dashboard");
     } catch (err) {
-      setError(err.message || "Kayıt işlemi başarısız oldu");
+      setError(err.message || "Registration failed");
     } finally {
       setLoading(false);
     }
