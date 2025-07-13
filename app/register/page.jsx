@@ -315,6 +315,9 @@ export default function RegisterPage() {
                   color: "#171717",
                   transition: "all 0.3s ease",
                   outline: "none",
+                  boxSizing: "border-box",
+                  minWidth: 0,
+                  maxWidth: "100%",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#22c55e";
@@ -358,6 +361,9 @@ export default function RegisterPage() {
                   color: "#171717",
                   transition: "all 0.3s ease",
                   outline: "none",
+                  boxSizing: "border-box",
+                  minWidth: 0,
+                  maxWidth: "100%",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#22c55e";
@@ -412,6 +418,9 @@ export default function RegisterPage() {
                   color: "#171717",
                   transition: "all 0.3s ease",
                   outline: "none",
+                  boxSizing: "border-box",
+                  minWidth: 0,
+                  maxWidth: "100%",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#22c55e";
