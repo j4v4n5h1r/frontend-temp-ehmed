@@ -18,7 +18,18 @@ export default function Navbar() {
         zIndex: 50,
       }}
     >
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "1rem 1.5rem",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          width: "100%",
+          boxSizing: "border-box",
+        }}
+      >
         <Link href="/">
           <div
             className="flex items-center space-x-2 cursor-pointer group"
