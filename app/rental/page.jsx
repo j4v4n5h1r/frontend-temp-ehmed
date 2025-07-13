@@ -90,7 +90,14 @@ const RentalPage = () => {
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        <div
+          style={{
+            maxWidth: "42rem",
+            margin: "0 auto",
+            width: "100%",
+            boxSizing: "border-box",
+          }}
+        >
           {/* Success Message */}
           {success && (
             <div className="alert-success mb-6 animate-fade-in">
