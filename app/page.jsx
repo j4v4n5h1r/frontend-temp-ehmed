@@ -196,9 +196,9 @@ export default function Home() {
             {[
               {
                 icon: "M13 10V3L4 14h7v7l9-11h-7z",
-                title: "Hızlı Şarj",
+                title: "Fast Charging",
                 description:
-                  "Yüksek kapasiteli power bank'ler ile cihazlarınızı hızla şarj edin",
+                  "Quickly charge your devices with high-capacity power banks",
                 color: "#22c55e",
               },
               {
