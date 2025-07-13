@@ -420,10 +420,24 @@ const RentalPage = () => {
           </div>
 
           {/* Quick Actions */}
-          <div className="grid md:grid-cols-2 gap-4 mt-8">
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              gap: "1rem",
+              marginTop: "2rem",
+              width: "100%",
+              boxSizing: "border-box",
+            }}
+          >
             <button
               onClick={() => (window.location.href = "/dashboard")}
               className="btn-outline w-full justify-center"
+              style={{
+                boxSizing: "border-box",
+                minWidth: 0,
+                maxWidth: "100%",
+              }}
             >
               <span className="flex items-center justify-center">
                 <svg
