@@ -263,7 +263,7 @@ export default function Navbar() {
                       e.target.style.background = "transparent";
                     }}
                   >
-                    Giriş Yap
+                    Login
                   </span>
                 </Link>
                 <Link href="/register">
@@ -299,7 +299,7 @@ export default function Navbar() {
                         "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)";
                     }}
                   >
-                    Kayıt Ol
+                    Register
                   </button>
                 </Link>
               </>
