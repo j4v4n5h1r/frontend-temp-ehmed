@@ -187,7 +187,8 @@ export default function Home() {
                 lineHeight: "1.75",
               }}
             >
-              Modern teknoloji ile güvenli ve hızlı power bank kiralama deneyimi
+              Secure and fast power bank rental experience with modern
+              technology
             </p>
           </div>
 
