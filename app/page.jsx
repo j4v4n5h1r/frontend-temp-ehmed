@@ -100,7 +100,7 @@ export default function Home() {
                     d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                   />
                 </svg>
-                Giriş Yap
+                Log In
               </button>
             </Link>
             <Link href="/register">
@@ -380,7 +380,7 @@ export default function Home() {
               lineHeight: "1.75",
             }}
           >
-            Dakikalar içinde kay��t olun ve power bank kiralama deneyiminizi
+            Dakikalar içinde kayıt olun ve power bank kiralama deneyiminizi
             başlatın
           </p>
           <Link href="/register">
