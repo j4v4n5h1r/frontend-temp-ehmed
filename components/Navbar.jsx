@@ -186,8 +186,8 @@ export default function Navbar() {
                       color: "#404040",
                       fontWeight: "600",
                       fontSize: "0.875rem",
-                      display: window.innerWidth >= 768 ? "block" : "none",
                     }}
+                    className="hidden md:block"
                   >
                     {user.firstName || user.email}
                   </span>
