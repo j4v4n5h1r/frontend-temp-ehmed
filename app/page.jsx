@@ -321,9 +321,9 @@ export default function Home() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-3 gap-8 text-center text-white">
             {[
-              { number: "1000+", label: "Aktif Kullanıcı", delay: 0 },
-              { number: "50+", label: "İstasyon Noktası", delay: 0.2 },
-              { number: "10K+", label: "Başarılı Kiralama", delay: 0.4 },
+              { number: "1000+", label: "Active Users", delay: 0 },
+              { number: "50+", label: "Station Points", delay: 0.2 },
+              { number: "10K+", label: "Successful Rentals", delay: 0.4 },
             ].map((stat, index) => (
               <div
                 key={index}
