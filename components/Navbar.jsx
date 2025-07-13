@@ -7,13 +7,38 @@ export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <nav className="nav-primary sticky top-0 z-50">
+    <nav
+      style={{
+        background: "rgba(255, 255, 255, 0.95)",
+        backdropFilter: "blur(16px)",
+        borderBottom: "1px solid #dcfce7",
+        boxShadow: "0 1px 2px 0 rgba(34, 197, 94, 0.05)",
+        position: "sticky",
+        top: 0,
+        zIndex: 50,
+      }}
+    >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link href="/">
-          <div className="flex items-center space-x-2 cursor-pointer group">
-            <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+          <div
+            className="flex items-center space-x-2 cursor-pointer group"
+            style={{ gap: "0.5rem" }}
+          >
+            <div
+              style={{
+                width: "2.5rem",
+                height: "2.5rem",
+                background: "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
+                borderRadius: "0.5rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 4px 6px -1px rgba(34, 197, 94, 0.3)",
+                transition: "all 0.3s ease",
+              }}
+            >
               <svg
-                className="w-5 h-5 text-white"
+                style={{ width: "1.25rem", height: "1.25rem", color: "white" }}
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -24,37 +49,138 @@ export default function Navbar() {
                 />
               </svg>
             </div>
-            <span className="text-xl font-bold text-neutral-900 group-hover:text-green-600 transition-colors duration-200">
+            <span
+              style={{
+                fontSize: "1.5rem",
+                fontWeight: "800",
+                color: "#171717",
+                transition: "color 0.3s ease",
+                letterSpacing: "-0.025em",
+              }}
+              onMouseEnter={(e) => (e.target.style.color = "#16a34a")}
+              onMouseLeave={(e) => (e.target.style.color = "#171717")}
+            >
               PowerBank
             </span>
           </div>
         </Link>
 
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center" style={{ gap: "2rem" }}>
           {user ? (
             <>
               <Link href="/dashboard">
-                <span className="nav-link">Dashboard</span>
+                <span
+                  style={{
+                    fontWeight: "600",
+                    color: "#404040",
+                    transition: "all 0.3s ease",
+                    padding: "0.5rem 1rem",
+                    borderRadius: "0.5rem",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.color = "#16a34a";
+                    e.target.style.background = "#f0fdf4";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = "#404040";
+                    e.target.style.background = "transparent";
+                  }}
+                >
+                  Dashboard
+                </span>
               </Link>
               <Link href="/rental">
-                <span className="nav-link">Kiralama</span>
+                <span
+                  style={{
+                    fontWeight: "600",
+                    color: "#404040",
+                    transition: "all 0.3s ease",
+                    padding: "0.5rem 1rem",
+                    borderRadius: "0.5rem",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.color = "#16a34a";
+                    e.target.style.background = "#f0fdf4";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = "#404040";
+                    e.target.style.background = "transparent";
+                  }}
+                >
+                  Kiralama
+                </span>
               </Link>
-              <div className="flex items-center space-x-4 pl-4 border-l border-green-200">
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                    <span className="text-green-600 font-medium text-sm">
+              <div
+                className="flex items-center"
+                style={{
+                  gap: "1rem",
+                  paddingLeft: "1rem",
+                  borderLeft: "2px solid #dcfce7",
+                }}
+              >
+                <div className="flex items-center" style={{ gap: "0.5rem" }}>
+                  <div
+                    style={{
+                      width: "2.25rem",
+                      height: "2.25rem",
+                      background:
+                        "linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      border: "2px solid #22c55e",
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: "#16a34a",
+                        fontWeight: "700",
+                        fontSize: "0.875rem",
+                      }}
+                    >
                       {user.firstName?.charAt(0) ||
                         user.email?.charAt(0) ||
                         "U"}
                     </span>
                   </div>
-                  <span className="text-sm font-medium text-neutral-700 hidden md:block">
+                  <span
+                    className="text-sm font-medium hidden md:block"
+                    style={{
+                      color: "#404040",
+                      fontWeight: "600",
+                    }}
+                  >
                     {user.firstName || user.email}
                   </span>
                 </div>
                 <button
                   onClick={() => logout()}
-                  className="btn-danger text-sm px-3 py-1.5"
+                  style={{
+                    padding: "0.5rem 1rem",
+                    fontSize: "0.875rem",
+                    fontWeight: "600",
+                    color: "white",
+                    background:
+                      "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)",
+                    borderRadius: "0.5rem",
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    boxShadow: "0 2px 4px rgba(239, 68, 68, 0.3)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = "translateY(-1px)";
+                    e.target.style.boxShadow =
+                      "0 4px 8px rgba(239, 68, 68, 0.4)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = "translateY(0)";
+                    e.target.style.boxShadow =
+                      "0 2px 4px rgba(239, 68, 68, 0.3)";
+                  }}
                 >
                   Çıkış
                 </button>
@@ -63,10 +189,62 @@ export default function Navbar() {
           ) : (
             <>
               <Link href="/login">
-                <span className="nav-link">Giriş Yap</span>
+                <span
+                  style={{
+                    fontWeight: "600",
+                    color: "#404040",
+                    transition: "all 0.3s ease",
+                    padding: "0.5rem 1rem",
+                    borderRadius: "0.5rem",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.color = "#16a34a";
+                    e.target.style.background = "#f0fdf4";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = "#404040";
+                    e.target.style.background = "transparent";
+                  }}
+                >
+                  Giriş Yap
+                </span>
               </Link>
               <Link href="/register">
-                <span className="btn-primary">Kayıt Ol</span>
+                <button
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "0.75rem 1.5rem",
+                    fontSize: "0.875rem",
+                    fontWeight: "600",
+                    color: "white",
+                    background:
+                      "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
+                    borderRadius: "0.75rem",
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    boxShadow: "0 4px 6px rgba(34, 197, 94, 0.3)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = "translateY(-2px) scale(1.05)";
+                    e.target.style.boxShadow =
+                      "0 8px 15px rgba(34, 197, 94, 0.4)";
+                    e.target.style.background =
+                      "linear-gradient(135deg, #10b981 0%, #059669 100%)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = "translateY(0) scale(1)";
+                    e.target.style.boxShadow =
+                      "0 4px 6px rgba(34, 197, 94, 0.3)";
+                    e.target.style.background =
+                      "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)";
+                  }}
+                >
+                  Kayıt Ol
+                </button>
               </Link>
             </>
           )}
