@@ -370,7 +370,7 @@ export default function LoginPage() {
           {/* Register Link */}
           <div style={{ textAlign: "center" }}>
             <p style={{ color: "#525252", fontSize: "0.875rem" }}>
-              Hesabınız yok mu?{" "}
+              Don't have an account?{" "}
               <Link
                 href="/register"
                 style={{
@@ -382,7 +382,7 @@ export default function LoginPage() {
                 onMouseEnter={(e) => (e.target.style.color = "#15803d")}
                 onMouseLeave={(e) => (e.target.style.color = "#16a34a")}
               >
-                Kayıt olun
+                Sign up
               </Link>
             </p>
           </div>
