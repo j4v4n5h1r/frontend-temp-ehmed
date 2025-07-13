@@ -425,6 +425,17 @@ export default function LoginPage() {
 
       {/* Required animations */}
       <style jsx global>{`
+        * {
+          box-sizing: border-box;
+        }
+
+        @media (max-width: 640px) {
+          body {
+            margin: 0;
+            padding: 0;
+          }
+        }
+
         @keyframes fadeIn {
           from {
             opacity: 0;
