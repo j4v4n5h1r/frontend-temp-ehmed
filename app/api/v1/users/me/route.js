@@ -32,7 +32,7 @@ export async function GET(request) {
       lastName: "Doe",
       name: "John Doe",
       phoneNumber: "+1234567890",
-      role: "user",
+      role: "admin", // Changed to admin for testing
       language: "en",
       currency: "USD",
       status: "active",
