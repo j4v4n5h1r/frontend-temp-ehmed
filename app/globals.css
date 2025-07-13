@@ -1,21 +1,245 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Green Color Palette */
+  --primary-50: #f0fdf4;
+  --primary-100: #dcfce7;
+  --primary-200: #bbf7d0;
+  --primary-300: #86efac;
+  --primary-400: #4ade80;
+  --primary-500: #22c55e;
+  --primary-600: #16a34a;
+  --primary-700: #15803d;
+  --primary-800: #166534;
+  --primary-900: #14532d;
+  --primary-950: #052e16;
+
+  /* Neutral Colors */
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e5e5e5;
+  --neutral-300: #d4d4d4;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-800: #262626;
+  --neutral-900: #171717;
+
+  /* Success, Warning, Error */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  /* Background gradients */
+  --gradient-primary: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  --gradient-light: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  --gradient-dark: linear-gradient(135deg, #166534 0%, #14532d 100%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --primary-50: #14532d;
+    --primary-100: #166534;
+    --primary-200: #15803d;
+    --primary-300: #16a34a;
+    --primary-400: #22c55e;
+    --primary-500: #4ade80;
+    --primary-600: #86efac;
+    --primary-700: #bbf7d0;
+    --primary-800: #dcfce7;
+    --primary-900: #f0fdf4;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--neutral-50);
+  color: var(--neutral-900);
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.6;
+}
+
+/* Custom Components */
+@layer components {
+  /* Button variants */
+  .btn-primary {
+    @apply px-6 py-3 bg-green-600 text-white font-medium rounded-xl hover:bg-green-700 active:bg-green-800 transition-all duration-200 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-white text-green-600 font-medium rounded-xl border-2 border-green-600 hover:bg-green-50 transition-all duration-200 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 bg-transparent text-green-600 font-medium rounded-xl border border-green-300 hover:bg-green-50 hover:border-green-400 transition-all duration-200;
+  }
+
+  .btn-danger {
+    @apply px-4 py-2 bg-red-500 text-white font-medium rounded-lg hover:bg-red-600 transition-all duration-200;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-2xl shadow-lg border border-green-100 p-6 transition-all duration-200 hover:shadow-xl;
+  }
+
+  .card-minimal {
+    @apply bg-white rounded-xl shadow-md border border-neutral-200 p-4 transition-all duration-200 hover:shadow-lg;
+  }
+
+  /* Input styles */
+  .input-primary {
+    @apply w-full px-4 py-3 border-2 border-green-200 rounded-xl focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-100 transition-all duration-200 bg-white placeholder-neutral-400;
+  }
+
+  .input-error {
+    @apply w-full px-4 py-3 border-2 border-red-300 rounded-xl focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-100 transition-all duration-200 bg-white placeholder-neutral-400;
+  }
+
+  /* Typography */
+  .heading-xl {
+    @apply text-4xl md:text-5xl font-bold text-neutral-900 leading-tight;
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-bold text-neutral-900 leading-tight;
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl font-semibold text-neutral-800 leading-tight;
+  }
+
+  .heading-sm {
+    @apply text-xl md:text-2xl font-semibold text-neutral-800 leading-tight;
+  }
+
+  .text-body {
+    @apply text-base text-neutral-600 leading-relaxed;
+  }
+
+  .text-muted {
+    @apply text-sm text-neutral-500;
+  }
+
+  /* Container styles */
+  .container-primary {
+    @apply min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50;
+  }
+
+  .container-auth {
+    @apply min-h-screen bg-gradient-to-br from-green-500 via-green-600 to-green-700 flex items-center justify-center p-4;
+  }
+
+  /* Navigation styles */
+  .nav-primary {
+    @apply bg-white/90 backdrop-blur-lg border-b border-green-100 shadow-sm;
+  }
+
+  .nav-link {
+    @apply font-medium text-neutral-700 hover:text-green-600 transition-colors duration-200 cursor-pointer;
+  }
+
+  .nav-link-active {
+    @apply font-medium text-green-600;
+  }
+
+  /* Status badges */
+  .badge-success {
+    @apply inline-flex items-center px-3 py-1 text-sm font-medium text-green-800 bg-green-100 rounded-full;
+  }
+
+  .badge-warning {
+    @apply inline-flex items-center px-3 py-1 text-sm font-medium text-yellow-800 bg-yellow-100 rounded-full;
+  }
+
+  .badge-error {
+    @apply inline-flex items-center px-3 py-1 text-sm font-medium text-red-800 bg-red-100 rounded-full;
+  }
+
+  /* Loading states */
+  .loading-spinner {
+    @apply inline-block h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent;
+  }
+
+  /* Alert styles */
+  .alert-success {
+    @apply bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-xl;
+  }
+
+  .alert-error {
+    @apply bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-xl;
+  }
+
+  .alert-info {
+    @apply bg-blue-50 border border-blue-200 text-blue-800 px-4 py-3 rounded-xl;
+  }
+}
+
+/* Animation utilities */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounceGentle 2s infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceGentle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-400);
 }
