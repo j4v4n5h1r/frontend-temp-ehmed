@@ -148,7 +148,14 @@ export default function Navbar() {
                   whiteSpace: "nowrap",
                 }}
               >
-                <div className="flex items-center" style={{ gap: "0.5rem" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    flexShrink: 0,
+                  }}
+                >
                   <div
                     style={{
                       width: "2.25rem",
