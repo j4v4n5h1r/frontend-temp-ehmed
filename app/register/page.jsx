@@ -185,11 +185,14 @@ export default function RegisterPage() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr",
+                gridTemplateColumns:
+                  window.innerWidth >= 640 ? "1fr 1fr" : "1fr",
                 gap: "1rem",
+                width: "100%",
+                boxSizing: "border-box",
               }}
             >
-              <div>
+              <div style={{ width: "100%", boxSizing: "border-box" }}>
                 <label
                   htmlFor="firstName"
                   style={{
@@ -219,6 +222,9 @@ export default function RegisterPage() {
                     color: "#171717",
                     transition: "all 0.3s ease",
                     outline: "none",
+                    boxSizing: "border-box",
+                    minWidth: 0,
+                    maxWidth: "100%",
                   }}
                   onFocus={(e) => {
                     e.target.style.borderColor = "#22c55e";
@@ -232,7 +238,7 @@ export default function RegisterPage() {
                 />
               </div>
 
-              <div>
+              <div style={{ width: "100%", boxSizing: "border-box" }}>
                 <label
                   htmlFor="lastName"
                   style={{
@@ -262,6 +268,9 @@ export default function RegisterPage() {
                     color: "#171717",
                     transition: "all 0.3s ease",
                     outline: "none",
+                    boxSizing: "border-box",
+                    minWidth: 0,
+                    maxWidth: "100%",
                   }}
                   onFocus={(e) => {
                     e.target.style.borderColor = "#22c55e";
@@ -276,7 +285,7 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            <div>
+            <div style={{ width: "100%", boxSizing: "border-box" }}>
               <label
                 htmlFor="email"
                 style={{
@@ -318,7 +327,7 @@ export default function RegisterPage() {
               />
             </div>
 
-            <div>
+            <div style={{ width: "100%", boxSizing: "border-box" }}>
               <label
                 htmlFor="password"
                 style={{
@@ -370,7 +379,7 @@ export default function RegisterPage() {
               </p>
             </div>
 
-            <div>
+            <div style={{ width: "100%", boxSizing: "border-box" }}>
               <label
                 htmlFor="confirmPassword"
                 style={{
