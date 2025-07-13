@@ -381,8 +381,7 @@ export default function Home() {
               lineHeight: "1.75",
             }}
           >
-            Dakikalar içinde kayıt olun ve power bank kiralama deneyiminizi
-            başlatın
+            Register in minutes and start your power bank rental experience
           </p>
           <Link href="/register">
             <button
