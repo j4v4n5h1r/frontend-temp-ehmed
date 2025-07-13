@@ -262,6 +262,12 @@ const RentalPage = () => {
                       ? "input-error resize-none"
                       : "input-primary resize-none"
                   }
+                  style={{
+                    boxSizing: "border-box",
+                    minWidth: 0,
+                    maxWidth: "100%",
+                    resize: "none",
+                  }}
                 />
                 {errors.qrCodeData && (
                   <p className="text-red-500 text-sm mt-2 flex items-center">
