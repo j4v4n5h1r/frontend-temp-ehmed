@@ -23,7 +23,7 @@ export default function LoginPage() {
       await login(email, password);
       router.push("/dashboard");
     } catch (err) {
-      setError(err.message || "Giriş yapılırken bir hata oluştu");
+      setError(err.message || "An error occurred during login");
     } finally {
       setIsLoading(false);
     }
