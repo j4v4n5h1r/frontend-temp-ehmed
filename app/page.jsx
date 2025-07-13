@@ -372,7 +372,7 @@ export default function Home() {
               letterSpacing: "-0.025em",
             }}
           >
-            Hemen Başlayın
+            Get Started Now
           </h2>
           <p
             className="text-lg mb-8 max-w-2xl mx-auto"
