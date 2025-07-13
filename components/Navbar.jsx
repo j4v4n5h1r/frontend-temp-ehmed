@@ -157,6 +157,33 @@ export default function Navbar() {
                     Rental
                   </span>
                 </Link>
+                {/* Admin Link - Only show for admin users */}
+                {user?.profile?.data?.user?.role === "admin" && (
+                  <Link href="/admin">
+                    <span
+                      style={{
+                        fontWeight: "600",
+                        color: "#dc2626",
+                        transition: "all 0.3s ease",
+                        padding: "0.5rem 1rem",
+                        borderRadius: "0.5rem",
+                        cursor: "pointer",
+                        border: "1px solid #dc2626",
+                        background: "rgba(220, 38, 38, 0.1)",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.color = "white";
+                        e.target.style.background = "#dc2626";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.target.style.color = "#dc2626";
+                        e.target.style.background = "rgba(220, 38, 38, 0.1)";
+                      }}
+                    >
+                      Admin
+                    </span>
+                  </Link>
+                )}
                 <div
                   style={{
                     display: "flex",
