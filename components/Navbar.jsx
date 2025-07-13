@@ -7,30 +7,43 @@ export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <nav
-      style={{
-        background: "rgba(255, 255, 255, 0.95)",
-        backdropFilter: "blur(16px)",
-        borderBottom: "1px solid #dcfce7",
-        boxShadow: "0 1px 2px 0 rgba(34, 197, 94, 0.05)",
-        position: "sticky",
-        top: 0,
-        zIndex: 50,
-      }}
-    >
-      <div
+    <>
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .hidden-mobile {
+            display: none !important;
+          }
+        }
+        @media (min-width: 768px) {
+          .hidden {
+            display: block !important;
+          }
+        }
+      `}</style>
+      <nav
         style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "1rem 1.5rem",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
+          background: "rgba(255, 255, 255, 0.95)",
+          backdropFilter: "blur(16px)",
+          borderBottom: "1px solid #dcfce7",
+          boxShadow: "0 1px 2px 0 rgba(34, 197, 94, 0.05)",
+          position: "sticky",
+          top: 0,
+          zIndex: 50,
           width: "100%",
-          boxSizing: "border-box",
+          overflow: "hidden"
         }}
       >
-        <Link href="/">
+            <div style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "1rem 1.5rem",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        width: "100%",
+        boxSizing: "border-box"
+      }}>
+                <Link href="/">
           <div
             style={{
               display: "flex",
@@ -38,7 +51,7 @@ export default function Navbar() {
               gap: "0.5rem",
               cursor: "pointer",
               flexShrink: 0,
-              whiteSpace: "nowrap",
+              whiteSpace: "nowrap"
             }}
           >
             <div
@@ -82,15 +95,13 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "1.5rem",
-            flexShrink: 0,
-            whiteSpace: "nowrap",
-          }}
-        >
+                <div style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1.5rem",
+          flexShrink: 0,
+          whiteSpace: "nowrap"
+        }}>
           {user ? (
             <>
               <Link href="/dashboard">
@@ -137,7 +148,7 @@ export default function Navbar() {
                   Kiralama
                 </span>
               </Link>
-              <div
+                            <div
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -145,17 +156,15 @@ export default function Navbar() {
                   paddingLeft: "1rem",
                   borderLeft: "2px solid #dcfce7",
                   flexShrink: 0,
-                  whiteSpace: "nowrap",
+                  whiteSpace: "nowrap"
                 }}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    flexShrink: 0,
-                  }}
-                >
+                                <div style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  flexShrink: 0
+                }}>
                   <div
                     style={{
                       width: "2.25rem",
@@ -181,11 +190,11 @@ export default function Navbar() {
                         "U"}
                     </span>
                   </div>
-                  <span
+                                                      <span
                     style={{
                       color: "#404040",
                       fontWeight: "600",
-                      fontSize: "0.875rem",
+                      fontSize: "0.875rem"
                     }}
                     className="hidden md:block"
                   >
