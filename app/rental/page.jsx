@@ -460,6 +460,11 @@ const RentalPage = () => {
             <button
               onClick={() => (window.location.href = "/")}
               className="btn-secondary w-full justify-center"
+              style={{
+                boxSizing: "border-box",
+                minWidth: 0,
+                maxWidth: "100%",
+              }}
             >
               <span className="flex items-center justify-center">
                 <svg
