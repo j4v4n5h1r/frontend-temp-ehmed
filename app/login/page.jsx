@@ -154,12 +154,12 @@ export default function LoginPage() {
                   marginBottom: "0.75rem",
                 }}
               >
-                E-posta Adresi
+                Email Address
               </label>
               <input
                 id="email"
                 type="email"
-                placeholder="ornek@email.com"
+                placeholder="example@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
