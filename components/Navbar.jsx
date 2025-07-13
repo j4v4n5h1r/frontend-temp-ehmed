@@ -154,7 +154,7 @@ export default function Navbar() {
                       e.target.style.background = "transparent";
                     }}
                   >
-                    Kiralama
+                    Rental
                   </span>
                 </Link>
                 <div
