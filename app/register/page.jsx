@@ -185,12 +185,12 @@ export default function RegisterPage() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns:
-                  window.innerWidth >= 640 ? "1fr 1fr" : "1fr",
+                gridTemplateColumns: "1fr 1fr",
                 gap: "1rem",
                 width: "100%",
                 boxSizing: "border-box",
               }}
+              className="name-grid"
             >
               <div style={{ width: "100%", boxSizing: "border-box" }}>
                 <label
