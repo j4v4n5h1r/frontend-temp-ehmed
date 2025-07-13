@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import cookie from "js-cookie";
 
@@ -9,6 +9,20 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 const DebugPage = () => {
   const [results, setResults] = useState({});
   const [loading, setLoading] = useState({});
+  const [clientInfo, setClientInfo] = useState({
+    hasToken: false,
+    currentUrl: "Loading...",
+    nodeEnv: "unknown",
+  });
+
+  useEffect(() => {
+    // Set client-side only information
+    setClientInfo({
+      hasToken: !!cookie.get("token"),
+      currentUrl: window.location.origin,
+      nodeEnv: process.env.NODE_ENV || "unknown",
+    });
+  }, []);
 
   const testEndpoint = async (name, url, options = {}) => {
     setLoading((prev) => ({ ...prev, [name]: true }));
