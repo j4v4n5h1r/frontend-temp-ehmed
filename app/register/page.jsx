@@ -23,12 +23,12 @@ export default function RegisterPage() {
 
     // Validation
     if (password !== confirmPassword) {
-      setError("Şifreler eşleşmiyor");
+      setError("Passwords do not match");
       return;
     }
 
     if (password.length < 6) {
-      setError("Şifre en az 6 karakter olmalıdır");
+      setError("Password must be at least 6 characters");
       return;
     }
 
