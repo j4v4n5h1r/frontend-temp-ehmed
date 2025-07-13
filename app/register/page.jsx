@@ -678,6 +678,20 @@ export default function RegisterPage() {
 
       {/* Enhanced animations */}
       <style jsx global>{`
+        * {
+          box-sizing: border-box;
+        }
+
+        @media (max-width: 640px) {
+          .name-grid {
+            grid-template-columns: 1fr !important;
+          }
+          body {
+            margin: 0;
+            padding: 0;
+          }
+        }
+
         @keyframes slideUp {
           from {
             opacity: 0;
