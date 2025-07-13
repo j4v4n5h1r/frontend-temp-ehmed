@@ -42,8 +42,8 @@ export default function Home() {
                 lineHeight: "1.75",
               }}
             >
-              Şehirdeki istasyonlardan kolayca power bank kiralayın, ödeme
-              geçmişinizi görün ve cihazınızı şarj edin.
+              Easily rent power banks from stations throughout the city, view
+              your payment history and charge your devices.
             </p>
           </div>
 
@@ -380,7 +380,7 @@ export default function Home() {
               lineHeight: "1.75",
             }}
           >
-            Dakikalar içinde kayıt olun ve power bank kiralama deneyiminizi
+            Dakikalar içinde kay��t olun ve power bank kiralama deneyiminizi
             başlatın
           </p>
           <Link href="/register">
