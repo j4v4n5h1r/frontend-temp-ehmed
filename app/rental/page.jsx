@@ -486,6 +486,35 @@ const RentalPage = () => {
           </div>
         </div>
       </div>
+
+      <style jsx global>{`
+        @media (max-width: 640px) {
+          .container-primary {
+            padding: 1rem;
+          }
+
+          .card {
+            padding: 1.5rem;
+          }
+
+          .btn-primary,
+          .btn-secondary,
+          .btn-outline {
+            padding: 0.875rem 1.5rem;
+            font-size: 1rem;
+          }
+
+          .input-primary,
+          .input-error {
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+          }
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+      `}</style>
     </div>
   );
 };
