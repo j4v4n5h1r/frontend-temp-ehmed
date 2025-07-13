@@ -43,16 +43,49 @@ const ProfilePage = () => {
   const fetchPaymentMethods = async () => {
     try {
       const token = cookie.get("token");
-      // Note: This endpoint might not exist in your API, adjust as needed
+
+      console.log("Fetching payment methods...");
+      console.log("BASE_URL:", BASE_URL);
+      console.log("Token:", token ? "Present" : "Missing");
+
+      // If BASE_URL is not set, use mock data for development
+      if (!BASE_URL) {
+        console.warn("BASE_URL not set, using mock payment methods");
+        const mockPaymentMethods = [
+          {
+            id: "pm_001",
+            lastFour: "4242",
+            cardType: "Visa",
+            expiryDate: "12/25",
+          },
+          {
+            id: "pm_002",
+            lastFour: "1234",
+            cardType: "Mastercard",
+            expiryDate: "06/26",
+          },
+        ];
+        setPaymentMethods(mockPaymentMethods);
+        return;
+      }
+
+      if (!token) {
+        console.warn("No authentication token found");
+        return;
+      }
+
       const response = await axios.get(
         `${BASE_URL}/api/v1/users/me/payment-methods`,
         {
           headers: { Authorization: `Bearer ${token}` },
+          timeout: 10000,
         },
       );
       setPaymentMethods(response.data || []);
     } catch (err) {
       console.error("Error fetching payment methods:", err);
+      // Don't show error for payment methods as it's not critical
+      setPaymentMethods([]);
     }
   };
 
