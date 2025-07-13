@@ -57,7 +57,15 @@ const RentalPage = () => {
 
   return (
     <div className="container-primary">
-      <div className="container mx-auto px-6 py-8">
+      <div
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "2rem 1.5rem",
+          minHeight: "100vh",
+          boxSizing: "border-box",
+        }}
+      >
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-2xl mb-6">
