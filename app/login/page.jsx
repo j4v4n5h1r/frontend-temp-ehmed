@@ -105,7 +105,7 @@ export default function LoginPage() {
               letterSpacing: "-0.025em",
             }}
           >
-            Hoş Geldiniz
+            Welcome Back
           </h1>
           <p
             style={{
@@ -114,7 +114,7 @@ export default function LoginPage() {
               fontWeight: "500",
             }}
           >
-            Hesabınıza giriş yapın
+            Sign in to your account
           </p>
         </div>
 
