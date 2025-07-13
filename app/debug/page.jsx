@@ -137,18 +137,14 @@ const DebugPage = () => {
               <strong>BASE_URL:</strong> {BASE_URL || "❌ Not set"}
             </p>
             <p>
-              <strong>Node Environment:</strong>{" "}
-              {process.env.NODE_ENV || "unknown"}
+              <strong>Node Environment:</strong> {clientInfo.nodeEnv}
             </p>
             <p>
               <strong>Token Present:</strong>{" "}
-              {cookie.get("token") ? "✅ Yes" : "❌ No"}
+              {clientInfo.hasToken ? "✅ Yes" : "❌ No"}
             </p>
             <p>
-              <strong>Current URL:</strong>{" "}
-              {typeof window !== "undefined"
-                ? window.location.origin
-                : "Server Side"}
+              <strong>Current URL:</strong> {clientInfo.currentUrl}
             </p>
           </div>
         </div>
