@@ -144,7 +144,7 @@ export default function RegisterPage() {
               letterSpacing: "-0.025em",
             }}
           >
-            Hesap Oluşturun
+            Create Account
           </h1>
           <p
             style={{
@@ -153,7 +153,7 @@ export default function RegisterPage() {
               fontWeight: "500",
             }}
           >
-            Hızlı ve kolay kayıt işlemi
+            Quick and easy registration
           </p>
         </div>
 
