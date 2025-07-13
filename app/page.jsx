@@ -32,7 +32,7 @@ export default function Home() {
                 textShadow: "0 4px 8px rgba(34, 197, 94, 0.3)",
               }}
             >
-              Power Bank Kiralama Sistemi
+              Power Bank Rental System
             </h1>
             <p
               className="text-xl mb-8 max-w-2xl mx-auto leading-relaxed"
@@ -42,8 +42,8 @@ export default function Home() {
                 lineHeight: "1.75",
               }}
             >
-              Şehirdeki istasyonlardan kolayca power bank kiralayın, ödeme
-              geçmişinizi görün ve cihazınızı şarj edin.
+              Easily rent power banks from stations throughout the city, view
+              your payment history and charge your devices.
             </p>
           </div>
 
@@ -100,7 +100,7 @@ export default function Home() {
                     d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                   />
                 </svg>
-                Giriş Yap
+                Log In
               </button>
             </Link>
             <Link href="/register">
@@ -153,7 +153,7 @@ export default function Home() {
                     d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
                   />
                 </svg>
-                Kayıt Ol
+                Sign Up
               </button>
             </Link>
           </div>
@@ -178,7 +178,7 @@ export default function Home() {
                 letterSpacing: "-0.025em",
               }}
             >
-              Neden Bizi Seçmelisiniz?
+              Why Choose Us?
             </h2>
             <p
               className="text-lg max-w-2xl mx-auto"
@@ -187,7 +187,8 @@ export default function Home() {
                 lineHeight: "1.75",
               }}
             >
-              Modern teknoloji ile güvenli ve hızlı power bank kiralama deneyimi
+              Secure and fast power bank rental experience with modern
+              technology
             </p>
           </div>
 
@@ -195,23 +196,23 @@ export default function Home() {
             {[
               {
                 icon: "M13 10V3L4 14h7v7l9-11h-7z",
-                title: "Hızlı Şarj",
+                title: "Fast Charging",
                 description:
-                  "Yüksek kapasiteli power bank'ler ile cihazlarınızı hızla şarj edin",
+                  "Quickly charge your devices with high-capacity power banks",
                 color: "#22c55e",
               },
               {
                 icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z",
-                title: "Kolay Erişim",
+                title: "Easy Access",
                 description:
-                  "Şehrin her yerinde bulunan istasyonlardan kolayca kiralayın",
+                  "Easily rent from stations located throughout the city",
                 color: "#10b981",
               },
               {
                 icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
-                title: "Güvenli Ödeme",
+                title: "Secure Payment",
                 description:
-                  "Güvenli ödeme sistemi ile endişesiz kullanım deneyimi",
+                  "Worry-free usage experience with secure payment system",
                 color: "#14b8a6",
               },
             ].map((feature, index) => (
@@ -320,9 +321,9 @@ export default function Home() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-3 gap-8 text-center text-white">
             {[
-              { number: "1000+", label: "Aktif Kullanıcı", delay: 0 },
-              { number: "50+", label: "İstasyon Noktası", delay: 0.2 },
-              { number: "10K+", label: "Başarılı Kiralama", delay: 0.4 },
+              { number: "1000+", label: "Active Users", delay: 0 },
+              { number: "50+", label: "Station Points", delay: 0.2 },
+              { number: "10K+", label: "Successful Rentals", delay: 0.4 },
             ].map((stat, index) => (
               <div
                 key={index}
@@ -371,7 +372,7 @@ export default function Home() {
               letterSpacing: "-0.025em",
             }}
           >
-            Hemen Başlayın
+            Get Started Now
           </h2>
           <p
             className="text-lg mb-8 max-w-2xl mx-auto"
@@ -380,8 +381,7 @@ export default function Home() {
               lineHeight: "1.75",
             }}
           >
-            Dakikalar içinde kayıt olun ve power bank kiralama deneyiminizi
-            başlatın
+            Register in minutes and start your power bank rental experience
           </p>
           <Link href="/register">
             <button
@@ -416,7 +416,7 @@ export default function Home() {
                   "0 20px 40px rgba(34, 197, 94, 0.4), 0 0 50px rgba(16, 185, 129, 0.3)";
               }}
             >
-              Ücretsiz Kayıt Ol
+              Sign Up Free
               <svg
                 style={{ width: "1.5rem", height: "1.5rem" }}
                 fill="none"
