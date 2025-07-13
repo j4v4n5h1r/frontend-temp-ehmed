@@ -32,7 +32,7 @@ export default function Home() {
                 textShadow: "0 4px 8px rgba(34, 197, 94, 0.3)",
               }}
             >
-              Power Bank Kiralama Sistemi
+              Power Bank Rental System
             </h1>
             <p
               className="text-xl mb-8 max-w-2xl mx-auto leading-relaxed"
