@@ -55,6 +55,7 @@ export default function RegisterPage() {
         padding: "1rem",
         position: "relative",
         overflow: "hidden",
+        boxSizing: "border-box",
       }}
     >
       {/* Animated Background Elements */}
@@ -95,9 +96,18 @@ export default function RegisterPage() {
         }}
       />
 
-      <div className="w-full max-w-lg relative z-10">
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "32rem",
+          position: "relative",
+          zIndex: 10,
+          margin: "0 auto",
+          boxSizing: "border-box",
+        }}
+      >
         {/* Logo and Header */}
-        <div className="text-center mb-8">
+        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
           <div
             style={{
               display: "inline-flex",
@@ -152,16 +162,25 @@ export default function RegisterPage() {
           style={{
             background: "rgba(255, 255, 255, 0.95)",
             borderRadius: "1.5rem",
-            padding: "2.5rem",
+            padding: "2rem",
             boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
             backdropFilter: "blur(20px)",
             animation: "slideUp 0.8s ease-out",
             border: "1px solid rgba(255, 255, 255, 0.3)",
+            width: "100%",
+            boxSizing: "border-box",
+            overflow: "hidden",
           }}
         >
           <form
             onSubmit={handleSubmit}
-            style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.25rem",
+              width: "100%",
+              boxSizing: "border-box",
+            }}
           >
             <div
               style={{
