@@ -238,7 +238,7 @@ export default function Navbar() {
                         "0 2px 4px rgba(239, 68, 68, 0.3)";
                     }}
                   >
-                    Çıkış
+                    Logout
                   </button>
                 </div>
               </>
