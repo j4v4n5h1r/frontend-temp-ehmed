@@ -138,11 +138,14 @@ export default function Navbar() {
                 </span>
               </Link>
               <div
-                className="flex items-center"
                 style={{
+                  display: "flex",
+                  alignItems: "center",
                   gap: "1rem",
                   paddingLeft: "1rem",
                   borderLeft: "2px solid #dcfce7",
+                  flexShrink: 0,
+                  whiteSpace: "nowrap",
                 }}
               >
                 <div className="flex items-center" style={{ gap: "0.5rem" }}>
