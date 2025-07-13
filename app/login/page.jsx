@@ -56,9 +56,18 @@ export default function LoginPage() {
         }}
       />
 
-      <div className="w-full max-w-md relative z-10">
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "28rem",
+          position: "relative",
+          zIndex: 10,
+          margin: "0 auto",
+          boxSizing: "border-box",
+        }}
+      >
         {/* Logo and Header */}
-        <div className="text-center mb-8">
+        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
           <div
             style={{
               display: "inline-flex",
@@ -113,11 +122,14 @@ export default function LoginPage() {
           style={{
             background: "white",
             borderRadius: "1.5rem",
-            padding: "2.5rem",
+            padding: "2rem",
             boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
             border: "1px solid rgba(255, 255, 255, 0.2)",
             animation: "slideUp 0.8s ease-out",
             backdropFilter: "blur(20px)",
+            width: "100%",
+            boxSizing: "border-box",
+            overflow: "hidden",
           }}
         >
           <form
