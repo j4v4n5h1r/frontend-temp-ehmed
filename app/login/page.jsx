@@ -134,9 +134,15 @@ export default function LoginPage() {
         >
           <form
             onSubmit={handleLogin}
-            style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.5rem",
+              width: "100%",
+              boxSizing: "border-box",
+            }}
           >
-            <div>
+            <div style={{ width: "100%", boxSizing: "border-box" }}>
               <label
                 htmlFor="email"
                 style={{
@@ -158,7 +164,7 @@ export default function LoginPage() {
                 required
                 style={{
                   width: "100%",
-                  padding: "1rem 1.25rem",
+                  padding: "0.875rem 1rem",
                   fontSize: "1rem",
                   border: error ? "2px solid #ef4444" : "2px solid #dcfce7",
                   borderRadius: "0.75rem",
@@ -166,6 +172,9 @@ export default function LoginPage() {
                   color: "#171717",
                   transition: "all 0.3s ease",
                   outline: "none",
+                  boxSizing: "border-box",
+                  minWidth: 0,
+                  maxWidth: "100%",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#22c55e";
@@ -178,7 +187,7 @@ export default function LoginPage() {
               />
             </div>
 
-            <div>
+            <div style={{ width: "100%", boxSizing: "border-box" }}>
               <label
                 htmlFor="password"
                 style={{
@@ -200,7 +209,7 @@ export default function LoginPage() {
                 required
                 style={{
                   width: "100%",
-                  padding: "1rem 1.25rem",
+                  padding: "0.875rem 1rem",
                   fontSize: "1rem",
                   border: error ? "2px solid #ef4444" : "2px solid #dcfce7",
                   borderRadius: "0.75rem",
@@ -208,6 +217,9 @@ export default function LoginPage() {
                   color: "#171717",
                   transition: "all 0.3s ease",
                   outline: "none",
+                  boxSizing: "border-box",
+                  minWidth: 0,
+                  maxWidth: "100%",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#22c55e";
