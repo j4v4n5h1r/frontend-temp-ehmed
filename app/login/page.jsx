@@ -274,7 +274,7 @@ export default function LoginPage() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "1rem 2rem",
+                padding: "0.875rem 1.5rem",
                 fontSize: "1.125rem",
                 fontWeight: "700",
                 color: "white",
@@ -287,6 +287,9 @@ export default function LoginPage() {
                 transition: "all 0.3s ease",
                 gap: "0.75rem",
                 boxShadow: "0 10px 15px -3px rgba(34, 197, 94, 0.5)",
+                boxSizing: "border-box",
+                minWidth: 0,
+                maxWidth: "100%",
               }}
               onMouseEnter={(e) => {
                 if (!isLoading) {
