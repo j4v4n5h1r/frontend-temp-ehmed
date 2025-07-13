@@ -178,7 +178,7 @@ export default function Home() {
                 letterSpacing: "-0.025em",
               }}
             >
-              Neden Bizi Seçmelisiniz?
+              Why Choose Us?
             </h2>
             <p
               className="text-lg max-w-2xl mx-auto"
