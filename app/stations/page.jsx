@@ -19,11 +19,90 @@ const StationsPage = () => {
   const fetchStations = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`${BASE_URL}/api/v1/stations`);
-      setStations(response.data);
+      setError(null);
+
+      // Debug: Check if BASE_URL is set
+      console.log("BASE_URL:", BASE_URL);
+      console.log("Full URL:", `${BASE_URL}/api/v1/stations`);
+
+      // If BASE_URL is not set, use mock data for development
+      if (!BASE_URL) {
+        console.warn("BASE_URL not set, using mock data");
+        // Use mock data for development
+        const mockStations = [
+          {
+            id: "STATION001",
+            name: "Central Station",
+            location: "Downtown Mall, Level 1",
+            status: "ACTIVE",
+            availablePowerbanks: 8,
+            totalPowerbanks: 12,
+          },
+          {
+            id: "STATION002",
+            name: "Airport Terminal",
+            location: "International Airport, Gate A",
+            status: "ACTIVE",
+            availablePowerbanks: 5,
+            totalPowerbanks: 10,
+          },
+          {
+            id: "STATION003",
+            name: "University Campus",
+            location: "Student Center, Main Floor",
+            status: "MAINTENANCE",
+            availablePowerbanks: 0,
+            totalPowerbanks: 8,
+          },
+          {
+            id: "STATION004",
+            name: "Coffee Shop",
+            location: "Main Street Café",
+            status: "OFFLINE",
+            availablePowerbanks: 0,
+            totalPowerbanks: 6,
+          },
+        ];
+        setTimeout(() => {
+          setStations(mockStations);
+          setLoading(false);
+        }, 1000);
+        return;
+      }
+
+      const response = await axios.get(`${BASE_URL}/api/v1/stations`, {
+        timeout: 10000, // 10 second timeout
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      console.log("Stations response:", response);
+      setStations(response.data || []);
     } catch (err) {
-      setError("Failed to load stations");
       console.error("Error fetching stations:", err);
+
+      // More detailed error handling
+      let errorMessage = "Failed to load stations";
+
+      if (err.code === "ECONNABORTED") {
+        errorMessage = "Request timeout - server is taking too long to respond";
+      } else if (err.response) {
+        // Server responded with error status
+        console.error("Server error:", err.response.status, err.response.data);
+        errorMessage = `Server error: ${err.response.status} - ${err.response.data?.message || "Unknown error"}`;
+      } else if (err.request) {
+        // Request was made but no response received
+        console.error("Network error:", err.request);
+        errorMessage =
+          "Network error - please check your connection and try again";
+      } else {
+        // Something else happened
+        console.error("Unexpected error:", err.message);
+        errorMessage = `Unexpected error: ${err.message}`;
+      }
+
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
