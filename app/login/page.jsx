@@ -41,6 +41,7 @@ export default function LoginPage() {
         padding: "1rem",
         position: "relative",
         overflow: "hidden",
+        boxSizing: "border-box",
       }}
     >
       {/* Background Pattern */}
