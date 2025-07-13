@@ -416,7 +416,7 @@ export default function Home() {
                   "0 20px 40px rgba(34, 197, 94, 0.4), 0 0 50px rgba(16, 185, 129, 0.3)";
               }}
             >
-              Ücretsiz Kayıt Ol
+              Sign Up Free
               <svg
                 style={{ width: "1.5rem", height: "1.5rem" }}
                 fill="none"
