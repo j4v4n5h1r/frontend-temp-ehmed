@@ -23,7 +23,7 @@ export default function LoginPage() {
       await login(email, password);
       router.push("/dashboard");
     } catch (err) {
-      setError(err.message || "Giriş yapılırken bir hata oluştu");
+      setError(err.message || "An error occurred during login");
     } finally {
       setIsLoading(false);
     }
@@ -41,6 +41,7 @@ export default function LoginPage() {
         padding: "1rem",
         position: "relative",
         overflow: "hidden",
+        boxSizing: "border-box",
       }}
     >
       {/* Background Pattern */}
@@ -56,9 +57,18 @@ export default function LoginPage() {
         }}
       />
 
-      <div className="w-full max-w-md relative z-10">
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "28rem",
+          position: "relative",
+          zIndex: 10,
+          margin: "0 auto",
+          boxSizing: "border-box",
+        }}
+      >
         {/* Logo and Header */}
-        <div className="text-center mb-8">
+        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
           <div
             style={{
               display: "inline-flex",
@@ -95,7 +105,7 @@ export default function LoginPage() {
               letterSpacing: "-0.025em",
             }}
           >
-            Hoş Geldiniz
+            Welcome Back
           </h1>
           <p
             style={{
@@ -104,7 +114,7 @@ export default function LoginPage() {
               fontWeight: "500",
             }}
           >
-            Hesabınıza giriş yapın
+            Sign in to your account
           </p>
         </div>
 
@@ -113,18 +123,27 @@ export default function LoginPage() {
           style={{
             background: "white",
             borderRadius: "1.5rem",
-            padding: "2.5rem",
+            padding: "2rem",
             boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
             border: "1px solid rgba(255, 255, 255, 0.2)",
             animation: "slideUp 0.8s ease-out",
             backdropFilter: "blur(20px)",
+            width: "100%",
+            boxSizing: "border-box",
+            overflow: "hidden",
           }}
         >
           <form
             onSubmit={handleLogin}
-            style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.5rem",
+              width: "100%",
+              boxSizing: "border-box",
+            }}
           >
-            <div>
+            <div style={{ width: "100%", boxSizing: "border-box" }}>
               <label
                 htmlFor="email"
                 style={{
@@ -135,18 +154,18 @@ export default function LoginPage() {
                   marginBottom: "0.75rem",
                 }}
               >
-                E-posta Adresi
+                Email Address
               </label>
               <input
                 id="email"
                 type="email"
-                placeholder="ornek@email.com"
+                placeholder="example@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 style={{
                   width: "100%",
-                  padding: "1rem 1.25rem",
+                  padding: "0.875rem 1rem",
                   fontSize: "1rem",
                   border: error ? "2px solid #ef4444" : "2px solid #dcfce7",
                   borderRadius: "0.75rem",
@@ -154,6 +173,9 @@ export default function LoginPage() {
                   color: "#171717",
                   transition: "all 0.3s ease",
                   outline: "none",
+                  boxSizing: "border-box",
+                  minWidth: 0,
+                  maxWidth: "100%",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#22c55e";
@@ -166,7 +188,7 @@ export default function LoginPage() {
               />
             </div>
 
-            <div>
+            <div style={{ width: "100%", boxSizing: "border-box" }}>
               <label
                 htmlFor="password"
                 style={{
@@ -177,7 +199,7 @@ export default function LoginPage() {
                   marginBottom: "0.75rem",
                 }}
               >
-                Şifre
+                Password
               </label>
               <input
                 id="password"
@@ -188,7 +210,7 @@ export default function LoginPage() {
                 required
                 style={{
                   width: "100%",
-                  padding: "1rem 1.25rem",
+                  padding: "0.875rem 1rem",
                   fontSize: "1rem",
                   border: error ? "2px solid #ef4444" : "2px solid #dcfce7",
                   borderRadius: "0.75rem",
@@ -196,6 +218,9 @@ export default function LoginPage() {
                   color: "#171717",
                   transition: "all 0.3s ease",
                   outline: "none",
+                  boxSizing: "border-box",
+                  minWidth: 0,
+                  maxWidth: "100%",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#22c55e";
@@ -250,7 +275,7 @@ export default function LoginPage() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "1rem 2rem",
+                padding: "0.875rem 1.5rem",
                 fontSize: "1.125rem",
                 fontWeight: "700",
                 color: "white",
@@ -263,6 +288,9 @@ export default function LoginPage() {
                 transition: "all 0.3s ease",
                 gap: "0.75rem",
                 boxShadow: "0 10px 15px -3px rgba(34, 197, 94, 0.5)",
+                boxSizing: "border-box",
+                minWidth: 0,
+                maxWidth: "100%",
               }}
               onMouseEnter={(e) => {
                 if (!isLoading) {
@@ -295,7 +323,7 @@ export default function LoginPage() {
                       animation: "spin 1s linear infinite",
                     }}
                   />
-                  Giriş yapılıyor...
+                  Signing in...
                 </>
               ) : (
                 <>
@@ -312,7 +340,7 @@ export default function LoginPage() {
                       d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                     />
                   </svg>
-                  Giriş Yap
+                  Sign In
                 </>
               )}
             </button>
@@ -342,7 +370,7 @@ export default function LoginPage() {
           {/* Register Link */}
           <div style={{ textAlign: "center" }}>
             <p style={{ color: "#525252", fontSize: "0.875rem" }}>
-              Hesabınız yok mu?{" "}
+              Don't have an account?{" "}
               <Link
                 href="/register"
                 style={{
@@ -354,7 +382,7 @@ export default function LoginPage() {
                 onMouseEnter={(e) => (e.target.style.color = "#15803d")}
                 onMouseLeave={(e) => (e.target.style.color = "#16a34a")}
               >
-                Kayıt olun
+                Sign up
               </Link>
             </p>
           </div>
@@ -390,13 +418,24 @@ export default function LoginPage() {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            Ana sayfaya dön
+            Back to home
           </Link>
         </div>
       </div>
 
       {/* Required animations */}
       <style jsx global>{`
+        * {
+          box-sizing: border-box;
+        }
+
+        @media (max-width: 640px) {
+          body {
+            margin: 0;
+            padding: 0;
+          }
+        }
+
         @keyframes fadeIn {
           from {
             opacity: 0;

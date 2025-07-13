@@ -23,12 +23,12 @@ export default function RegisterPage() {
 
     // Validation
     if (password !== confirmPassword) {
-      setError("Şifreler eşleşmiyor");
+      setError("Passwords do not match");
       return;
     }
 
     if (password.length < 6) {
-      setError("Şifre en az 6 karakter olmalıdır");
+      setError("Password must be at least 6 characters");
       return;
     }
 
@@ -37,7 +37,7 @@ export default function RegisterPage() {
       await registerUser({ firstName, lastName, email, password });
       router.push("/dashboard");
     } catch (err) {
-      setError(err.message || "Kayıt işlemi başarısız oldu");
+      setError(err.message || "Registration failed");
     } finally {
       setLoading(false);
     }
@@ -55,6 +55,7 @@ export default function RegisterPage() {
         padding: "1rem",
         position: "relative",
         overflow: "hidden",
+        boxSizing: "border-box",
       }}
     >
       {/* Animated Background Elements */}
@@ -95,9 +96,18 @@ export default function RegisterPage() {
         }}
       />
 
-      <div className="w-full max-w-lg relative z-10">
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "32rem",
+          position: "relative",
+          zIndex: 10,
+          margin: "0 auto",
+          boxSizing: "border-box",
+        }}
+      >
         {/* Logo and Header */}
-        <div className="text-center mb-8">
+        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
           <div
             style={{
               display: "inline-flex",
@@ -134,7 +144,7 @@ export default function RegisterPage() {
               letterSpacing: "-0.025em",
             }}
           >
-            Hesap Oluşturun
+            Create Account
           </h1>
           <p
             style={{
@@ -143,7 +153,7 @@ export default function RegisterPage() {
               fontWeight: "500",
             }}
           >
-            Hızlı ve kolay kayıt işlemi
+            Quick and easy registration
           </p>
         </div>
 
@@ -152,25 +162,37 @@ export default function RegisterPage() {
           style={{
             background: "rgba(255, 255, 255, 0.95)",
             borderRadius: "1.5rem",
-            padding: "2.5rem",
+            padding: "2rem",
             boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
             backdropFilter: "blur(20px)",
             animation: "slideUp 0.8s ease-out",
             border: "1px solid rgba(255, 255, 255, 0.3)",
+            width: "100%",
+            boxSizing: "border-box",
+            overflow: "hidden",
           }}
         >
           <form
             onSubmit={handleSubmit}
-            style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.25rem",
+              width: "100%",
+              boxSizing: "border-box",
+            }}
           >
             <div
               style={{
                 display: "grid",
                 gridTemplateColumns: "1fr 1fr",
                 gap: "1rem",
+                width: "100%",
+                boxSizing: "border-box",
               }}
+              className="name-grid"
             >
-              <div>
+              <div style={{ width: "100%", boxSizing: "border-box" }}>
                 <label
                   htmlFor="firstName"
                   style={{
@@ -200,6 +222,9 @@ export default function RegisterPage() {
                     color: "#171717",
                     transition: "all 0.3s ease",
                     outline: "none",
+                    boxSizing: "border-box",
+                    minWidth: 0,
+                    maxWidth: "100%",
                   }}
                   onFocus={(e) => {
                     e.target.style.borderColor = "#22c55e";
@@ -213,7 +238,7 @@ export default function RegisterPage() {
                 />
               </div>
 
-              <div>
+              <div style={{ width: "100%", boxSizing: "border-box" }}>
                 <label
                   htmlFor="lastName"
                   style={{
@@ -243,6 +268,9 @@ export default function RegisterPage() {
                     color: "#171717",
                     transition: "all 0.3s ease",
                     outline: "none",
+                    boxSizing: "border-box",
+                    minWidth: 0,
+                    maxWidth: "100%",
                   }}
                   onFocus={(e) => {
                     e.target.style.borderColor = "#22c55e";
@@ -257,7 +285,7 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            <div>
+            <div style={{ width: "100%", boxSizing: "border-box" }}>
               <label
                 htmlFor="email"
                 style={{
@@ -287,6 +315,9 @@ export default function RegisterPage() {
                   color: "#171717",
                   transition: "all 0.3s ease",
                   outline: "none",
+                  boxSizing: "border-box",
+                  minWidth: 0,
+                  maxWidth: "100%",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#22c55e";
@@ -299,7 +330,7 @@ export default function RegisterPage() {
               />
             </div>
 
-            <div>
+            <div style={{ width: "100%", boxSizing: "border-box" }}>
               <label
                 htmlFor="password"
                 style={{
@@ -330,6 +361,9 @@ export default function RegisterPage() {
                   color: "#171717",
                   transition: "all 0.3s ease",
                   outline: "none",
+                  boxSizing: "border-box",
+                  minWidth: 0,
+                  maxWidth: "100%",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#22c55e";
@@ -351,7 +385,7 @@ export default function RegisterPage() {
               </p>
             </div>
 
-            <div>
+            <div style={{ width: "100%", boxSizing: "border-box" }}>
               <label
                 htmlFor="confirmPassword"
                 style={{
@@ -384,6 +418,9 @@ export default function RegisterPage() {
                   color: "#171717",
                   transition: "all 0.3s ease",
                   outline: "none",
+                  boxSizing: "border-box",
+                  minWidth: 0,
+                  maxWidth: "100%",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#22c55e";
@@ -484,7 +521,7 @@ export default function RegisterPage() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "1rem 2rem",
+                padding: "0.875rem 1.5rem",
                 fontSize: "1.125rem",
                 fontWeight: "700",
                 color: "white",
@@ -498,6 +535,9 @@ export default function RegisterPage() {
                 gap: "0.75rem",
                 boxShadow: "0 10px 15px -3px rgba(34, 197, 94, 0.5)",
                 animation: "pulse 2s infinite",
+                boxSizing: "border-box",
+                minWidth: 0,
+                maxWidth: "100%",
               }}
               onMouseEnter={(e) => {
                 if (!loading) {
@@ -638,6 +678,20 @@ export default function RegisterPage() {
 
       {/* Enhanced animations */}
       <style jsx global>{`
+        * {
+          box-sizing: border-box;
+        }
+
+        @media (max-width: 640px) {
+          .name-grid {
+            grid-template-columns: 1fr !important;
+          }
+          body {
+            margin: 0;
+            padding: 0;
+          }
+        }
+
         @keyframes slideUp {
           from {
             opacity: 0;
