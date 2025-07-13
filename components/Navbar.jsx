@@ -182,10 +182,11 @@ export default function Navbar() {
                     </span>
                   </div>
                   <span
-                    className="text-sm font-medium hidden md:block"
                     style={{
                       color: "#404040",
                       fontWeight: "600",
+                      fontSize: "0.875rem",
+                      display: window.innerWidth >= 768 ? "block" : "none",
                     }}
                   >
                     {user.firstName || user.email}
