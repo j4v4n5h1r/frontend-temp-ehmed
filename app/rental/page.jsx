@@ -194,6 +194,11 @@ const RentalPage = () => {
                     },
                   })}
                   className={errors.stationId ? "input-error" : "input-primary"}
+                  style={{
+                    boxSizing: "border-box",
+                    minWidth: 0,
+                    maxWidth: "100%",
+                  }}
                 />
                 {errors.stationId && (
                   <p className="text-red-500 text-sm mt-2 flex items-center">
