@@ -32,8 +32,14 @@ export default function Navbar() {
       >
         <Link href="/">
           <div
-            className="flex items-center space-x-2 cursor-pointer group"
-            style={{ gap: "0.5rem" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              cursor: "pointer",
+              flexShrink: 0,
+              whiteSpace: "nowrap",
+            }}
           >
             <div
               style={{
