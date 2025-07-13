@@ -199,7 +199,7 @@ export default function LoginPage() {
                   marginBottom: "0.75rem",
                 }}
               >
-                Şifre
+                Password
               </label>
               <input
                 id="password"
