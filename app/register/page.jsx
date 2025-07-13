@@ -44,13 +44,76 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="container-auth">
-      <div className="w-full max-w-md">
+    <div
+      style={{
+        minHeight: "100vh",
+        background:
+          "linear-gradient(135deg, #22c55e 0%, #10b981 25%, #14b8a6 50%, #06b6d4 75%, #3b82f6 100%)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "1rem",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Animated Background Elements */}
+      <div
+        style={{
+          position: "absolute",
+          top: "10%",
+          left: "10%",
+          width: "100px",
+          height: "100px",
+          background: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "50%",
+          animation: "float 8s ease-in-out infinite",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "60%",
+          right: "15%",
+          width: "150px",
+          height: "150px",
+          background: "rgba(255, 255, 255, 0.05)",
+          borderRadius: "50%",
+          animation: "float 10s ease-in-out infinite reverse",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: "20%",
+          left: "20%",
+          width: "80px",
+          height: "80px",
+          background: "rgba(255, 255, 255, 0.08)",
+          borderRadius: "50%",
+          animation: "float 6s ease-in-out infinite",
+        }}
+      />
+
+      <div className="w-full max-w-lg relative z-10">
         {/* Logo and Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-2xl shadow-lg mb-4">
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "5rem",
+              height: "5rem",
+              background: "white",
+              borderRadius: "1.5rem",
+              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+              marginBottom: "1.5rem",
+              animation: "bounce 2s infinite",
+            }}
+          >
             <svg
-              className="w-8 h-8 text-green-600"
+              style={{ width: "2.5rem", height: "2.5rem", color: "#16a34a" }}
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -61,20 +124,62 @@ export default function RegisterPage() {
               />
             </svg>
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">
+          <h1
+            style={{
+              fontSize: "2.25rem",
+              fontWeight: "800",
+              color: "white",
+              marginBottom: "0.75rem",
+              textShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
+              letterSpacing: "-0.025em",
+            }}
+          >
             Hesap Oluşturun
           </h1>
-          <p className="text-green-100">Hızlı ve kolay kayıt işlemi</p>
+          <p
+            style={{
+              color: "rgba(255, 255, 255, 0.9)",
+              fontSize: "1.125rem",
+              fontWeight: "500",
+            }}
+          >
+            Hızlı ve kolay kayıt işlemi
+          </p>
         </div>
 
         {/* Register Form */}
-        <div className="card animate-slide-up">
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div className="grid grid-cols-2 gap-4">
+        <div
+          style={{
+            background: "rgba(255, 255, 255, 0.95)",
+            borderRadius: "1.5rem",
+            padding: "2.5rem",
+            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+            backdropFilter: "blur(20px)",
+            animation: "slideUp 0.8s ease-out",
+            border: "1px solid rgba(255, 255, 255, 0.3)",
+          }}
+        >
+          <form
+            onSubmit={handleSubmit}
+            style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
+          >
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "1rem",
+              }}
+            >
               <div>
                 <label
                   htmlFor="firstName"
-                  className="block text-sm font-medium text-neutral-700 mb-2"
+                  style={{
+                    display: "block",
+                    fontSize: "0.875rem",
+                    fontWeight: "600",
+                    color: "#404040",
+                    marginBottom: "0.5rem",
+                  }}
                 >
                   Ad
                 </label>
@@ -85,14 +190,39 @@ export default function RegisterPage() {
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   required
-                  className={error ? "input-error" : "input-primary"}
+                  style={{
+                    width: "100%",
+                    padding: "0.875rem 1rem",
+                    fontSize: "0.875rem",
+                    border: "2px solid #dcfce7",
+                    borderRadius: "0.75rem",
+                    background: "white",
+                    color: "#171717",
+                    transition: "all 0.3s ease",
+                    outline: "none",
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = "#22c55e";
+                    e.target.style.boxShadow =
+                      "0 0 0 4px rgba(34, 197, 94, 0.1)";
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = "#dcfce7";
+                    e.target.style.boxShadow = "none";
+                  }}
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="lastName"
-                  className="block text-sm font-medium text-neutral-700 mb-2"
+                  style={{
+                    display: "block",
+                    fontSize: "0.875rem",
+                    fontWeight: "600",
+                    color: "#404040",
+                    marginBottom: "0.5rem",
+                  }}
                 >
                   Soyad
                 </label>
@@ -103,7 +233,26 @@ export default function RegisterPage() {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   required
-                  className={error ? "input-error" : "input-primary"}
+                  style={{
+                    width: "100%",
+                    padding: "0.875rem 1rem",
+                    fontSize: "0.875rem",
+                    border: "2px solid #dcfce7",
+                    borderRadius: "0.75rem",
+                    background: "white",
+                    color: "#171717",
+                    transition: "all 0.3s ease",
+                    outline: "none",
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = "#22c55e";
+                    e.target.style.boxShadow =
+                      "0 0 0 4px rgba(34, 197, 94, 0.1)";
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = "#dcfce7";
+                    e.target.style.boxShadow = "none";
+                  }}
                 />
               </div>
             </div>
@@ -111,7 +260,13 @@ export default function RegisterPage() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-neutral-700 mb-2"
+                style={{
+                  display: "block",
+                  fontSize: "0.875rem",
+                  fontWeight: "600",
+                  color: "#404040",
+                  marginBottom: "0.5rem",
+                }}
               >
                 E-posta Adresi
               </label>
@@ -122,14 +277,38 @@ export default function RegisterPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className={error ? "input-error" : "input-primary"}
+                style={{
+                  width: "100%",
+                  padding: "0.875rem 1rem",
+                  fontSize: "0.875rem",
+                  border: "2px solid #dcfce7",
+                  borderRadius: "0.75rem",
+                  background: "white",
+                  color: "#171717",
+                  transition: "all 0.3s ease",
+                  outline: "none",
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderColor = "#22c55e";
+                  e.target.style.boxShadow = "0 0 0 4px rgba(34, 197, 94, 0.1)";
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = "#dcfce7";
+                  e.target.style.boxShadow = "none";
+                }}
               />
             </div>
 
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-neutral-700 mb-2"
+                style={{
+                  display: "block",
+                  fontSize: "0.875rem",
+                  fontWeight: "600",
+                  color: "#404040",
+                  marginBottom: "0.5rem",
+                }}
               >
                 Şifre
               </label>
@@ -141,9 +320,33 @@ export default function RegisterPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 minLength={6}
-                className={error ? "input-error" : "input-primary"}
+                style={{
+                  width: "100%",
+                  padding: "0.875rem 1rem",
+                  fontSize: "0.875rem",
+                  border: "2px solid #dcfce7",
+                  borderRadius: "0.75rem",
+                  background: "white",
+                  color: "#171717",
+                  transition: "all 0.3s ease",
+                  outline: "none",
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderColor = "#22c55e";
+                  e.target.style.boxShadow = "0 0 0 4px rgba(34, 197, 94, 0.1)";
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = "#dcfce7";
+                  e.target.style.boxShadow = "none";
+                }}
               />
-              <p className="text-xs text-neutral-500 mt-1">
+              <p
+                style={{
+                  fontSize: "0.75rem",
+                  color: "#737373",
+                  marginTop: "0.25rem",
+                }}
+              >
                 En az 6 karakter olmalıdır
               </p>
             </div>
@@ -151,7 +354,13 @@ export default function RegisterPage() {
             <div>
               <label
                 htmlFor="confirmPassword"
-                className="block text-sm font-medium text-neutral-700 mb-2"
+                style={{
+                  display: "block",
+                  fontSize: "0.875rem",
+                  fontWeight: "600",
+                  color: "#404040",
+                  marginBottom: "0.5rem",
+                }}
               >
                 Şifre Tekrar
               </label>
@@ -162,15 +371,52 @@ export default function RegisterPage() {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
-                className={error ? "input-error" : "input-primary"}
+                style={{
+                  width: "100%",
+                  padding: "0.875rem 1rem",
+                  fontSize: "0.875rem",
+                  border:
+                    error && error.includes("eşleşmiyor")
+                      ? "2px solid #ef4444"
+                      : "2px solid #dcfce7",
+                  borderRadius: "0.75rem",
+                  background: "white",
+                  color: "#171717",
+                  transition: "all 0.3s ease",
+                  outline: "none",
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderColor = "#22c55e";
+                  e.target.style.boxShadow = "0 0 0 4px rgba(34, 197, 94, 0.1)";
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor =
+                    error && error.includes("eşleşmiyor")
+                      ? "#ef4444"
+                      : "#dcfce7";
+                  e.target.style.boxShadow = "none";
+                }}
               />
             </div>
 
             {error && (
-              <div className="alert-error animate-fade-in">
-                <div className="flex items-center">
+              <div
+                style={{
+                  background: "#fef2f2",
+                  border: "1px solid #fecaca",
+                  color: "#991b1b",
+                  padding: "1rem",
+                  borderRadius: "0.75rem",
+                  animation: "shake 0.5s ease-in-out",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center" }}>
                   <svg
-                    className="w-5 h-5 mr-2"
+                    style={{
+                      width: "1.25rem",
+                      height: "1.25rem",
+                      marginRight: "0.75rem",
+                    }}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -187,13 +433,44 @@ export default function RegisterPage() {
               </div>
             )}
 
-            <div className="text-xs text-neutral-600 bg-neutral-50 p-3 rounded-lg">
+            <div
+              style={{
+                fontSize: "0.75rem",
+                color: "#525252",
+                background: "#f5f5f5",
+                padding: "0.75rem",
+                borderRadius: "0.5rem",
+                border: "1px solid #e5e5e5",
+              }}
+            >
               Kayıt olarak{" "}
-              <a href="#" className="text-green-600 hover:underline">
+              <a
+                href="#"
+                style={{
+                  color: "#16a34a",
+                  textDecoration: "none",
+                  fontWeight: "600",
+                }}
+                onMouseEnter={(e) =>
+                  (e.target.style.textDecoration = "underline")
+                }
+                onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+              >
                 Kullanım Şartları
               </a>{" "}
               ve{" "}
-              <a href="#" className="text-green-600 hover:underline">
+              <a
+                href="#"
+                style={{
+                  color: "#16a34a",
+                  textDecoration: "none",
+                  fontWeight: "600",
+                }}
+                onMouseEnter={(e) =>
+                  (e.target.style.textDecoration = "underline")
+                }
+                onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+              >
                 Gizlilik Politikası
               </a>
               'nı kabul etmiş olursunuz.
@@ -202,17 +479,63 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={loading}
-              className="btn-primary w-full justify-center"
+              style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "1rem 2rem",
+                fontSize: "1.125rem",
+                fontWeight: "700",
+                color: "white",
+                background: loading
+                  ? "linear-gradient(135deg, #a3a3a3 0%, #737373 100%)"
+                  : "linear-gradient(135deg, #22c55e 0%, #10b981 50%, #14b8a6 100%)",
+                borderRadius: "0.75rem",
+                border: "none",
+                cursor: loading ? "not-allowed" : "pointer",
+                transition: "all 0.3s ease",
+                gap: "0.75rem",
+                boxShadow: "0 10px 15px -3px rgba(34, 197, 94, 0.5)",
+                animation: "pulse 2s infinite",
+              }}
+              onMouseEnter={(e) => {
+                if (!loading) {
+                  e.target.style.transform = "translateY(-2px) scale(1.02)";
+                  e.target.style.boxShadow =
+                    "0 20px 25px -5px rgba(34, 197, 94, 0.6)";
+                  e.target.style.background =
+                    "linear-gradient(135deg, #059669 0%, #0f766e 50%, #0d9488 100%)";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!loading) {
+                  e.target.style.transform = "translateY(0) scale(1)";
+                  e.target.style.boxShadow =
+                    "0 10px 15px -3px rgba(34, 197, 94, 0.5)";
+                  e.target.style.background =
+                    "linear-gradient(135deg, #22c55e 0%, #10b981 50%, #14b8a6 100%)";
+                }
+              }}
             >
               {loading ? (
-                <span className="flex items-center justify-center">
-                  <div className="loading-spinner mr-2"></div>
+                <>
+                  <div
+                    style={{
+                      width: "1.25rem",
+                      height: "1.25rem",
+                      border: "2px solid white",
+                      borderTop: "2px solid transparent",
+                      borderRadius: "50%",
+                      animation: "spin 1s linear infinite",
+                    }}
+                  />
                   Hesap oluşturuluyor...
-                </span>
+                </>
               ) : (
-                <span className="flex items-center justify-center">
+                <>
                   <svg
-                    className="w-5 h-5 mr-2"
+                    style={{ width: "1.25rem", height: "1.25rem" }}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -225,25 +548,50 @@ export default function RegisterPage() {
                     />
                   </svg>
                   Hesap Oluştur
-                </span>
+                </>
               )}
             </button>
           </form>
 
           {/* Divider */}
-          <div className="flex items-center my-6">
-            <div className="flex-1 h-px bg-neutral-200"></div>
-            <span className="px-4 text-sm text-neutral-500">veya</span>
-            <div className="flex-1 h-px bg-neutral-200"></div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              margin: "1.5rem 0",
+            }}
+          >
+            <div
+              style={{ flex: 1, height: "1px", background: "#e5e5e5" }}
+            ></div>
+            <span
+              style={{
+                padding: "0 1rem",
+                fontSize: "0.875rem",
+                color: "#737373",
+              }}
+            >
+              veya
+            </span>
+            <div
+              style={{ flex: 1, height: "1px", background: "#e5e5e5" }}
+            ></div>
           </div>
 
           {/* Login Link */}
-          <div className="text-center">
-            <p className="text-neutral-600">
+          <div style={{ textAlign: "center" }}>
+            <p style={{ color: "#525252", fontSize: "0.875rem" }}>
               Zaten hesabınız var mı?{" "}
               <Link
                 href="/login"
-                className="font-medium text-green-600 hover:text-green-700 transition-colors duration-200"
+                style={{
+                  fontWeight: "600",
+                  color: "#16a34a",
+                  textDecoration: "none",
+                  transition: "color 0.2s ease",
+                }}
+                onMouseEnter={(e) => (e.target.style.color = "#15803d")}
+                onMouseLeave={(e) => (e.target.style.color = "#16a34a")}
               >
                 Giriş yapın
               </Link>
@@ -252,13 +600,26 @@ export default function RegisterPage() {
         </div>
 
         {/* Back to Home */}
-        <div className="text-center mt-6">
+        <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
           <Link
             href="/"
-            className="text-green-100 hover:text-white transition-colors duration-200 flex items-center justify-center"
+            style={{
+              color: "rgba(255, 255, 255, 0.9)",
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5rem",
+              transition: "color 0.2s ease",
+              fontSize: "0.875rem",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "white")}
+            onMouseLeave={(e) =>
+              (e.target.style.color = "rgba(255, 255, 255, 0.9)")
+            }
           >
             <svg
-              className="w-4 h-4 mr-2"
+              style={{ width: "1rem", height: "1rem" }}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -274,6 +635,67 @@ export default function RegisterPage() {
           </Link>
         </div>
       </div>
+
+      {/* Enhanced animations */}
+      <style jsx global>{`
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+        }
+        @keyframes bounce {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+        @keyframes pulse {
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.8;
+          }
+        }
+        @keyframes shake {
+          0%,
+          100% {
+            transform: translateX(0);
+          }
+          25% {
+            transform: translateX(-5px);
+          }
+          75% {
+            transform: translateX(5px);
+          }
+        }
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
     </div>
   );
 }
