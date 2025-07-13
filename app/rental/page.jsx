@@ -329,6 +329,11 @@ const RentalPage = () => {
                 type="submit"
                 disabled={loading}
                 className="btn-primary w-full text-lg py-4 justify-center"
+                style={{
+                  boxSizing: "border-box",
+                  minWidth: 0,
+                  maxWidth: "100%",
+                }}
               >
                 {loading ? (
                   <span className="flex items-center justify-center">
