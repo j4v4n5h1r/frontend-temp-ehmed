@@ -82,7 +82,15 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <div className="flex items-center" style={{ gap: "2rem" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "1.5rem",
+            flexShrink: 0,
+            whiteSpace: "nowrap",
+          }}
+        >
           {user ? (
             <>
               <Link href="/dashboard">
