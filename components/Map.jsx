@@ -162,6 +162,91 @@ const Map = ({
     path: "M12 12m-8 0a8,8 0 1,0 16,0a8,8 0 1,0 -16,0",
   });
 
+  // Show fallback UI if no valid API key
+  if (!hasValidApiKey) {
+    return (
+      <div className="w-full">
+        <div
+          className="flex flex-col items-center justify-center bg-gradient-to-br from-primary-50 to-emerald-50 rounded-xl border-2 border-dashed border-primary-200"
+          style={{ height }}
+        >
+          <div className="text-center p-6">
+            <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg
+                className="w-8 h-8 text-primary-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-lg font-semibold text-neutral-800 mb-2">
+              Station Map
+            </h3>
+            <p className="text-neutral-600 mb-4">
+              Interactive map will be available soon
+            </p>
+            <div className="grid grid-cols-2 gap-3 max-w-sm mx-auto">
+              {stations.slice(0, 4).map((station, index) => (
+                <div
+                  key={station.id}
+                  className="bg-white rounded-lg p-3 shadow-sm border"
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    <div
+                      className={`w-2 h-2 rounded-full ${
+                        station.status === "ACTIVE"
+                          ? "bg-green-500"
+                          : station.status === "MAINTENANCE"
+                            ? "bg-yellow-500"
+                            : "bg-red-500"
+                      }`}
+                    ></div>
+                    <span className="text-sm font-medium text-neutral-800">
+                      {station.name}
+                    </span>
+                  </div>
+                  <p className="text-xs text-neutral-600">
+                    {station.availablePowerbanks}/{station.totalPowerbanks}{" "}
+                    available
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Legend */}
+        <div className="mt-4 flex flex-wrap gap-4 text-sm">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+            <span>Active Stations</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+            <span>Under Maintenance</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+            <span>Offline</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (loadError) {
     return (
       <div
