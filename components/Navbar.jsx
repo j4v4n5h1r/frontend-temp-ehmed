@@ -204,6 +204,12 @@ export default function Navbar() {
                 >
                   Rental
                 </Link>
+                <Link
+                  href="/profile"
+                  className="font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-3 py-2 rounded-lg transition-all duration-200"
+                >
+                  Profile
+                </Link>
                 {user?.profile?.data?.user?.role === "admin" && (
                   <Link
                     href="/admin"
