@@ -29,11 +29,16 @@ function ProfileDropdown({ user, logout }) {
       >
         <div className="w-8 h-8 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
           <span className="text-primary-700 font-bold text-sm">
-            {user.firstName?.charAt(0) || user.email?.charAt(0) || "U"}
+            {user.profile?.data?.user?.firstName?.charAt(0) ||
+              user.profile?.data?.user?.name?.charAt(0) ||
+              user.profile?.data?.user?.email?.charAt(0) ||
+              "U"}
           </span>
         </div>
         <span className="text-sm font-medium text-neutral-700 hidden lg:block">
-          {user.firstName || user.email}
+          {user.profile?.data?.user?.firstName ||
+            user.profile?.data?.user?.name ||
+            user.profile?.data?.user?.email}
         </span>
         <svg
           className={`w-4 h-4 text-neutral-600 transition-transform ${
@@ -56,9 +61,14 @@ function ProfileDropdown({ user, logout }) {
         <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
           <div className="px-4 py-3 border-b border-neutral-100">
             <p className="text-sm font-medium text-neutral-900">
-              {user.firstName} {user.lastName}
+              {user.profile?.data?.user?.firstName ||
+                user.profile?.data?.user?.name ||
+                "User"}{" "}
+              {user.profile?.data?.user?.lastName || ""}
             </p>
-            <p className="text-sm text-neutral-600 truncate">{user.email}</p>
+            <p className="text-sm text-neutral-600 truncate">
+              {user.profile?.data?.user?.email}
+            </p>
           </div>
 
           <Link
@@ -279,17 +289,20 @@ export default function Navbar() {
                 <div className="flex items-center gap-3 px-4 py-3 bg-primary-50 rounded-lg mb-4">
                   <div className="w-10 h-10 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
                     <span className="text-primary-700 font-bold">
-                      {user.firstName?.charAt(0) ||
-                        user.email?.charAt(0) ||
+                      {user.profile?.data?.user?.firstName?.charAt(0) ||
+                        user.profile?.data?.user?.name?.charAt(0) ||
+                        user.profile?.data?.user?.email?.charAt(0) ||
                         "U"}
                     </span>
                   </div>
                   <div>
                     <div className="font-semibold text-neutral-900">
-                      {user.firstName || user.email}
+                      {user.profile?.data?.user?.firstName ||
+                        user.profile?.data?.user?.name ||
+                        user.profile?.data?.user?.email}
                     </div>
                     <div className="text-sm text-neutral-600">
-                      {user.role || "User"}
+                      {user.profile?.data?.user?.role || "User"}
                     </div>
                   </div>
                 </div>
