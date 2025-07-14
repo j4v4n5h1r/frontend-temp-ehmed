@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
+import Map from "../../components/Map";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
