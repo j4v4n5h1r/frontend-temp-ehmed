@@ -91,6 +91,8 @@ const Map = ({
       ? process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
       : "dummy-key",
     preventGoogleFontsLoading: !hasValidApiKey,
+    // Only load if we have a valid API key
+    ...(hasValidApiKey ? {} : { googleMapsApiKey: undefined }),
   });
 
   useEffect(() => {
