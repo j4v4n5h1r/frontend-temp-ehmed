@@ -1,269 +1,83 @@
 "use client";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <>
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .hidden-mobile {
-            display: none !important;
-          }
-        }
-        @media (min-width: 768px) {
-          .hidden {
-            display: block !important;
-          }
-        }
-      `}</style>
-      <nav
-        style={{
-          background: "rgba(255, 255, 255, 0.95)",
-          backdropFilter: "blur(16px)",
-          borderBottom: "1px solid #dcfce7",
-          boxShadow: "0 1px 2px 0 rgba(34, 197, 94, 0.05)",
-          position: "sticky",
-          top: 0,
-          zIndex: 50,
-          width: "100%",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "1rem 1.5rem",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            width: "100%",
-            boxSizing: "border-box",
-          }}
-        >
-          <Link href="/">
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                cursor: "pointer",
-                flexShrink: 0,
-                whiteSpace: "nowrap",
-              }}
-            >
-              <div
-                style={{
-                  width: "2.5rem",
-                  height: "2.5rem",
-                  background:
-                    "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
-                  borderRadius: "0.5rem",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  boxShadow: "0 4px 6px -1px rgba(34, 197, 94, 0.3)",
-                  transition: "all 0.3s ease",
-                }}
+    <nav className="bg-white/95 backdrop-blur-lg border-b border-primary-100 shadow-sm sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 sm:h-20">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-md">
+              <svg
+                className="w-4 h-4 sm:w-5 sm:h-5 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
               >
-                <svg
-                  style={{
-                    width: "1.25rem",
-                    height: "1.25rem",
-                    color: "white",
-                  }}
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <span
-                style={{
-                  fontSize: "1.5rem",
-                  fontWeight: "800",
-                  color: "#171717",
-                  transition: "color 0.3s ease",
-                  letterSpacing: "-0.025em",
-                }}
-                onMouseEnter={(e) => (e.target.style.color = "#16a34a")}
-                onMouseLeave={(e) => (e.target.style.color = "#171717")}
-              >
-                PowerBank
-              </span>
+                <path
+                  fillRule="evenodd"
+                  d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </div>
+            <span className="text-lg sm:text-xl font-black text-neutral-900 tracking-tight">
+              PowerBank
+            </span>
           </Link>
 
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "1.5rem",
-              flexShrink: 0,
-              whiteSpace: "nowrap",
-            }}
-          >
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6">
             {user ? (
               <>
-                <Link href="/dashboard">
-                  <span
-                    style={{
-                      fontWeight: "600",
-                      color: "#404040",
-                      transition: "all 0.3s ease",
-                      padding: "0.5rem 1rem",
-                      borderRadius: "0.5rem",
-                      cursor: "pointer",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.color = "#16a34a";
-                      e.target.style.background = "#f0fdf4";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.color = "#404040";
-                      e.target.style.background = "transparent";
-                    }}
-                  >
-                    Dashboard
-                  </span>
+                <Link
+                  href="/dashboard"
+                  className="font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-3 py-2 rounded-lg transition-all duration-200"
+                >
+                  Dashboard
                 </Link>
-                <Link href="/rental">
-                  <span
-                    style={{
-                      fontWeight: "600",
-                      color: "#404040",
-                      transition: "all 0.3s ease",
-                      padding: "0.5rem 1rem",
-                      borderRadius: "0.5rem",
-                      cursor: "pointer",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.color = "#16a34a";
-                      e.target.style.background = "#f0fdf4";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.color = "#404040";
-                      e.target.style.background = "transparent";
-                    }}
-                  >
-                    Rental
-                  </span>
+                <Link
+                  href="/stations"
+                  className="font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-3 py-2 rounded-lg transition-all duration-200"
+                >
+                  Stations
                 </Link>
-                {/* Admin Link - Only show for admin users */}
+                <Link
+                  href="/rental"
+                  className="font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-3 py-2 rounded-lg transition-all duration-200"
+                >
+                  Rental
+                </Link>
                 {user?.profile?.data?.user?.role === "admin" && (
-                  <Link href="/admin">
-                    <span
-                      style={{
-                        fontWeight: "600",
-                        color: "#dc2626",
-                        transition: "all 0.3s ease",
-                        padding: "0.5rem 1rem",
-                        borderRadius: "0.5rem",
-                        cursor: "pointer",
-                        border: "1px solid #dc2626",
-                        background: "rgba(220, 38, 38, 0.1)",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.target.style.color = "white";
-                        e.target.style.background = "#dc2626";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.target.style.color = "#dc2626";
-                        e.target.style.background = "rgba(220, 38, 38, 0.1)";
-                      }}
-                    >
-                      Admin
-                    </span>
+                  <Link
+                    href="/admin"
+                    className="font-semibold text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-3 py-2 rounded-lg transition-all duration-200"
+                  >
+                    Admin
                   </Link>
                 )}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "1rem",
-                    paddingLeft: "1rem",
-                    borderLeft: "2px solid #dcfce7",
-                    flexShrink: 0,
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "0.5rem",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "2.25rem",
-                        height: "2.25rem",
-                        background:
-                          "linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)",
-                        borderRadius: "50%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        border: "2px solid #22c55e",
-                      }}
-                    >
-                      <span
-                        style={{
-                          color: "#16a34a",
-                          fontWeight: "700",
-                          fontSize: "0.875rem",
-                        }}
-                      >
+
+                <div className="flex items-center gap-3 pl-3 border-l border-neutral-200">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
+                      <span className="text-primary-700 font-bold text-sm">
                         {user.firstName?.charAt(0) ||
                           user.email?.charAt(0) ||
                           "U"}
                       </span>
                     </div>
-                    <span
-                      style={{
-                        color: "#404040",
-                        fontWeight: "600",
-                        fontSize: "0.875rem",
-                      }}
-                      className="hidden md:block"
-                    >
+                    <span className="text-sm font-medium text-neutral-700 hidden lg:block">
                       {user.firstName || user.email}
                     </span>
                   </div>
                   <button
                     onClick={() => logout()}
-                    style={{
-                      padding: "0.5rem 1rem",
-                      fontSize: "0.875rem",
-                      fontWeight: "600",
-                      color: "white",
-                      background:
-                        "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)",
-                      borderRadius: "0.5rem",
-                      border: "none",
-                      cursor: "pointer",
-                      transition: "all 0.3s ease",
-                      boxShadow: "0 2px 4px rgba(239, 68, 68, 0.3)",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = "translateY(-1px)";
-                      e.target.style.boxShadow =
-                        "0 4px 8px rgba(239, 68, 68, 0.4)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = "translateY(0)";
-                      e.target.style.boxShadow =
-                        "0 2px 4px rgba(239, 68, 68, 0.3)";
-                    }}
+                    className="bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:from-red-600 hover:to-red-700 hover:-translate-y-0.5 transition-all duration-200 shadow-md"
                   >
                     Logout
                   </button>
@@ -271,69 +85,139 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/login">
-                  <span
-                    style={{
-                      fontWeight: "600",
-                      color: "#404040",
-                      transition: "all 0.3s ease",
-                      padding: "0.5rem 1rem",
-                      borderRadius: "0.5rem",
-                      cursor: "pointer",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.color = "#16a34a";
-                      e.target.style.background = "#f0fdf4";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.color = "#404040";
-                      e.target.style.background = "transparent";
-                    }}
-                  >
-                    Login
-                  </span>
+                <Link
+                  href="/login"
+                  className="font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-3 py-2 rounded-lg transition-all duration-200"
+                >
+                  Login
                 </Link>
-                <Link href="/register">
-                  <button
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      padding: "0.75rem 1.5rem",
-                      fontSize: "0.875rem",
-                      fontWeight: "600",
-                      color: "white",
-                      background:
-                        "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
-                      borderRadius: "0.75rem",
-                      border: "none",
-                      cursor: "pointer",
-                      transition: "all 0.3s ease",
-                      boxShadow: "0 4px 6px rgba(34, 197, 94, 0.3)",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = "translateY(-2px) scale(1.05)";
-                      e.target.style.boxShadow =
-                        "0 8px 15px rgba(34, 197, 94, 0.4)";
-                      e.target.style.background =
-                        "linear-gradient(135deg, #10b981 0%, #059669 100%)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = "translateY(0) scale(1)";
-                      e.target.style.boxShadow =
-                        "0 4px 6px rgba(34, 197, 94, 0.3)";
-                      e.target.style.background =
-                        "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)";
-                    }}
-                  >
-                    Register
-                  </button>
+                <Link
+                  href="/register"
+                  className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-primary-600 hover:to-primary-700 hover:-translate-y-0.5 transition-all duration-200 shadow-md"
+                >
+                  Register
                 </Link>
               </>
             )}
           </div>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 rounded-lg text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-colors"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {isMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
         </div>
-      </nav>
-    </>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden border-t border-neutral-200 py-4 space-y-2">
+            {user ? (
+              <>
+                <div className="flex items-center gap-3 px-4 py-3 bg-primary-50 rounded-lg mb-4">
+                  <div className="w-10 h-10 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
+                    <span className="text-primary-700 font-bold">
+                      {user.firstName?.charAt(0) ||
+                        user.email?.charAt(0) ||
+                        "U"}
+                    </span>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-neutral-900">
+                      {user.firstName || user.email}
+                    </div>
+                    <div className="text-sm text-neutral-600">
+                      {user.role || "User"}
+                    </div>
+                  </div>
+                </div>
+
+                <Link
+                  href="/dashboard"
+                  className="block font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  href="/stations"
+                  className="block font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Stations
+                </Link>
+                <Link
+                  href="/rental"
+                  className="block font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Rental
+                </Link>
+                {user?.profile?.data?.user?.role === "admin" && (
+                  <Link
+                    href="/admin"
+                    className="block font-semibold text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-4 py-3 rounded-lg transition-all duration-200 mx-4"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Admin Panel
+                  </Link>
+                )}
+
+                <div className="pt-4 border-t border-neutral-200 mt-4">
+                  <button
+                    onClick={() => {
+                      logout();
+                      setIsMenuOpen(false);
+                    }}
+                    className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-3 rounded-lg font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-200 shadow-md"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/login"
+                  className="block font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/register"
+                  className="block bg-gradient-to-r from-primary-500 to-primary-600 text-white px-4 py-3 rounded-lg font-semibold hover:from-primary-600 hover:to-primary-700 transition-all duration-200 shadow-md text-center"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Register
+                </Link>
+              </>
+            )}
+          </div>
+        )}
+      </div>
+    </nav>
   );
 }
