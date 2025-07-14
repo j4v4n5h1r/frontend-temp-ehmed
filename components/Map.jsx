@@ -79,10 +79,18 @@ const Map = ({
   const [userLocation, setUserLocation] = useState(null);
   const [mapCenter, setMapCenter] = useState(defaultCenter);
 
+  // Check if Google Maps API key is available
+  const hasValidApiKey =
+    process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY &&
+    process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY !== "YOUR_API_KEY_HERE" &&
+    process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY.length > 10;
+
   const { isLoaded, loadError } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey:
-      process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "YOUR_API_KEY_HERE",
+    googleMapsApiKey: hasValidApiKey
+      ? process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+      : "dummy-key",
+    preventGoogleFontsLoading: !hasValidApiKey,
   });
 
   useEffect(() => {
