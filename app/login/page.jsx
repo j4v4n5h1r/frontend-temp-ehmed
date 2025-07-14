@@ -30,61 +30,23 @@ export default function LoginPage() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background:
-          "linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "1rem",
-        position: "relative",
-        overflow: "hidden",
-        boxSizing: "border-box",
-      }}
-    >
+    <div className="min-h-screen bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 flex items-center justify-center p-4 relative overflow-hidden">
       {/* Background Pattern */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Ccircle cx='53' cy='53' r='5'/%3E%3Ccircle cx='53' cy='7' r='5'/%3E%3Ccircle cx='7' cy='53' r='5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          opacity: 0.5,
-        }}
-      />
+      <div className="absolute inset-0 opacity-10">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Ccircle cx='53' cy='53' r='5'/%3E%3Ccircle cx='53' cy='7' r='5'/%3E%3Ccircle cx='7' cy='53' r='5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
+      </div>
 
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "28rem",
-          position: "relative",
-          zIndex: 10,
-          margin: "0 auto",
-          boxSizing: "border-box",
-        }}
-      >
+      <div className="w-full max-w-md relative z-10">
         {/* Logo and Header */}
-        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "5rem",
-              height: "5rem",
-              background: "white",
-              borderRadius: "1.5rem",
-              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-              marginBottom: "1.5rem",
-              animation: "float 6s ease-in-out infinite",
-            }}
-          >
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-2xl sm:rounded-3xl shadow-2xl mb-6 animate-float">
             <svg
-              style={{ width: "2.5rem", height: "2.5rem", color: "#16a34a" }}
+              className="w-8 h-8 sm:w-10 sm:h-10 text-primary-600"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -95,64 +57,21 @@ export default function LoginPage() {
               />
             </svg>
           </div>
-          <h1
-            style={{
-              fontSize: "2.25rem",
-              fontWeight: "800",
-              color: "white",
-              marginBottom: "0.75rem",
-              textShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
-              letterSpacing: "-0.025em",
-            }}
-          >
+          <h1 className="text-3xl sm:text-4xl font-black text-white mb-2 tracking-tight">
             Welcome Back
           </h1>
-          <p
-            style={{
-              color: "#dcfce7",
-              fontSize: "1.125rem",
-              fontWeight: "500",
-            }}
-          >
+          <p className="text-primary-100 text-base sm:text-lg font-medium">
             Sign in to your account
           </p>
         </div>
 
         {/* Login Form */}
-        <div
-          style={{
-            background: "white",
-            borderRadius: "1.5rem",
-            padding: "2rem",
-            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-            border: "1px solid rgba(255, 255, 255, 0.2)",
-            animation: "slideUp 0.8s ease-out",
-            backdropFilter: "blur(20px)",
-            width: "100%",
-            boxSizing: "border-box",
-            overflow: "hidden",
-          }}
-        >
-          <form
-            onSubmit={handleLogin}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "1.5rem",
-              width: "100%",
-              boxSizing: "border-box",
-            }}
-          >
-            <div style={{ width: "100%", boxSizing: "border-box" }}>
+        <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/20 backdrop-blur-sm animate-slide-up">
+          <form onSubmit={handleLogin} className="space-y-6">
+            <div>
               <label
                 htmlFor="email"
-                style={{
-                  display: "block",
-                  fontSize: "0.875rem",
-                  fontWeight: "600",
-                  color: "#404040",
-                  marginBottom: "0.75rem",
-                }}
+                className="block text-sm font-semibold text-neutral-700 mb-2"
               >
                 Email Address
               </label>
@@ -163,41 +82,18 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                style={{
-                  width: "100%",
-                  padding: "0.875rem 1rem",
-                  fontSize: "1rem",
-                  border: error ? "2px solid #ef4444" : "2px solid #dcfce7",
-                  borderRadius: "0.75rem",
-                  background: "white",
-                  color: "#171717",
-                  transition: "all 0.3s ease",
-                  outline: "none",
-                  boxSizing: "border-box",
-                  minWidth: 0,
-                  maxWidth: "100%",
-                }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = "#22c55e";
-                  e.target.style.boxShadow = "0 0 0 4px rgba(34, 197, 94, 0.1)";
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = error ? "#ef4444" : "#dcfce7";
-                  e.target.style.boxShadow = "none";
-                }}
+                className={`w-full px-4 py-3 sm:py-4 text-base border-2 rounded-xl bg-white text-neutral-900 transition-all duration-200 outline-none ${
+                  error
+                    ? "border-red-500 focus:border-red-600 focus:ring-4 focus:ring-red-100"
+                    : "border-neutral-200 focus:border-primary-500 focus:ring-4 focus:ring-primary-100"
+                }`}
               />
             </div>
 
-            <div style={{ width: "100%", boxSizing: "border-box" }}>
+            <div>
               <label
                 htmlFor="password"
-                style={{
-                  display: "block",
-                  fontSize: "0.875rem",
-                  fontWeight: "600",
-                  color: "#404040",
-                  marginBottom: "0.75rem",
-                }}
+                className="block text-sm font-semibold text-neutral-700 mb-2"
               >
                 Password
               </label>
@@ -208,49 +104,19 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                style={{
-                  width: "100%",
-                  padding: "0.875rem 1rem",
-                  fontSize: "1rem",
-                  border: error ? "2px solid #ef4444" : "2px solid #dcfce7",
-                  borderRadius: "0.75rem",
-                  background: "white",
-                  color: "#171717",
-                  transition: "all 0.3s ease",
-                  outline: "none",
-                  boxSizing: "border-box",
-                  minWidth: 0,
-                  maxWidth: "100%",
-                }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = "#22c55e";
-                  e.target.style.boxShadow = "0 0 0 4px rgba(34, 197, 94, 0.1)";
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = error ? "#ef4444" : "#dcfce7";
-                  e.target.style.boxShadow = "none";
-                }}
+                className={`w-full px-4 py-3 sm:py-4 text-base border-2 rounded-xl bg-white text-neutral-900 transition-all duration-200 outline-none ${
+                  error
+                    ? "border-red-500 focus:border-red-600 focus:ring-4 focus:ring-red-100"
+                    : "border-neutral-200 focus:border-primary-500 focus:ring-4 focus:ring-primary-100"
+                }`}
               />
             </div>
 
             {error && (
-              <div
-                style={{
-                  background: "#fef2f2",
-                  border: "1px solid #fecaca",
-                  color: "#991b1b",
-                  padding: "1rem",
-                  borderRadius: "0.75rem",
-                  animation: "fadeIn 0.3s ease-out",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center" }}>
+              <div className="bg-red-50 border border-red-200 text-red-800 p-4 rounded-xl animate-fade-in">
+                <div className="flex items-center">
                   <svg
-                    style={{
-                      width: "1.25rem",
-                      height: "1.25rem",
-                      marginRight: "0.75rem",
-                    }}
+                    className="w-5 h-5 mr-3 flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -262,7 +128,7 @@ export default function LoginPage() {
                       d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  {error}
+                  <span className="text-sm font-medium">{error}</span>
                 </div>
               </div>
             )}
@@ -270,65 +136,21 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              style={{
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "0.875rem 1.5rem",
-                fontSize: "1.125rem",
-                fontWeight: "700",
-                color: "white",
-                background: isLoading
-                  ? "linear-gradient(135deg, #a3a3a3 0%, #737373 100%)"
-                  : "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
-                borderRadius: "0.75rem",
-                border: "none",
-                cursor: isLoading ? "not-allowed" : "pointer",
-                transition: "all 0.3s ease",
-                gap: "0.75rem",
-                boxShadow: "0 10px 15px -3px rgba(34, 197, 94, 0.5)",
-                boxSizing: "border-box",
-                minWidth: 0,
-                maxWidth: "100%",
-              }}
-              onMouseEnter={(e) => {
-                if (!isLoading) {
-                  e.target.style.transform = "translateY(-2px) scale(1.02)";
-                  e.target.style.boxShadow =
-                    "0 20px 25px -5px rgba(34, 197, 94, 0.6)";
-                  e.target.style.background =
-                    "linear-gradient(135deg, #10b981 0%, #059669 100%)";
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isLoading) {
-                  e.target.style.transform = "translateY(0) scale(1)";
-                  e.target.style.boxShadow =
-                    "0 10px 15px -3px rgba(34, 197, 94, 0.5)";
-                  e.target.style.background =
-                    "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)";
-                }
-              }}
+              className={`w-full flex items-center justify-center px-6 py-3 sm:py-4 text-base sm:text-lg font-bold text-white rounded-xl transition-all duration-300 ${
+                isLoading
+                  ? "bg-gradient-to-r from-neutral-400 to-neutral-500 cursor-not-allowed"
+                  : "bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 hover:-translate-y-0.5 hover:shadow-2xl active:translate-y-0"
+              } shadow-lg`}
             >
               {isLoading ? (
                 <>
-                  <div
-                    style={{
-                      width: "1.25rem",
-                      height: "1.25rem",
-                      border: "2px solid white",
-                      borderTop: "2px solid transparent",
-                      borderRadius: "50%",
-                      animation: "spin 1s linear infinite",
-                    }}
-                  />
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-3" />
                   Signing in...
                 </>
               ) : (
                 <>
                   <svg
-                    style={{ width: "1.25rem", height: "1.25rem" }}
+                    className="w-5 h-5 mr-3"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -347,40 +169,19 @@ export default function LoginPage() {
           </form>
 
           {/* Divider */}
-          <div
-            style={{ display: "flex", alignItems: "center", margin: "2rem 0" }}
-          >
-            <div
-              style={{ flex: 1, height: "1px", background: "#e5e5e5" }}
-            ></div>
-            <span
-              style={{
-                padding: "0 1rem",
-                fontSize: "0.875rem",
-                color: "#737373",
-              }}
-            >
-              veya
-            </span>
-            <div
-              style={{ flex: 1, height: "1px", background: "#e5e5e5" }}
-            ></div>
+          <div className="flex items-center my-6">
+            <div className="flex-1 h-px bg-neutral-200"></div>
+            <span className="px-4 text-sm text-neutral-500">or</span>
+            <div className="flex-1 h-px bg-neutral-200"></div>
           </div>
 
           {/* Register Link */}
-          <div style={{ textAlign: "center" }}>
-            <p style={{ color: "#525252", fontSize: "0.875rem" }}>
+          <div className="text-center">
+            <p className="text-neutral-600 text-sm">
               Don't have an account?{" "}
               <Link
                 href="/register"
-                style={{
-                  fontWeight: "600",
-                  color: "#16a34a",
-                  textDecoration: "none",
-                  transition: "color 0.2s ease",
-                }}
-                onMouseEnter={(e) => (e.target.style.color = "#15803d")}
-                onMouseLeave={(e) => (e.target.style.color = "#16a34a")}
+                className="font-semibold text-primary-600 hover:text-primary-700 transition-colors"
               >
                 Sign up
               </Link>
@@ -389,24 +190,13 @@ export default function LoginPage() {
         </div>
 
         {/* Back to Home */}
-        <div style={{ textAlign: "center", marginTop: "2rem" }}>
+        <div className="text-center mt-8">
           <Link
             href="/"
-            style={{
-              color: "#dcfce7",
-              textDecoration: "none",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "0.5rem",
-              transition: "color 0.2s ease",
-              fontSize: "0.875rem",
-            }}
-            onMouseEnter={(e) => (e.target.style.color = "white")}
-            onMouseLeave={(e) => (e.target.style.color = "#dcfce7")}
+            className="inline-flex items-center gap-2 text-primary-100 hover:text-white transition-colors text-sm font-medium"
           >
             <svg
-              style={{ width: "1rem", height: "1rem" }}
+              className="w-4 h-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -422,58 +212,6 @@ export default function LoginPage() {
           </Link>
         </div>
       </div>
-
-      {/* Required animations */}
-      <style jsx global>{`
-        * {
-          box-sizing: border-box;
-        }
-
-        @media (max-width: 640px) {
-          body {
-            margin: 0;
-            padding: 0;
-          }
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-        @keyframes spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
     </div>
   );
 }
