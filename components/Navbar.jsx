@@ -63,24 +63,7 @@ export default function Navbar() {
                 )}
 
                 <div className="flex items-center gap-3 pl-3 border-l border-neutral-200">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
-                      <span className="text-primary-700 font-bold text-sm">
-                        {user.firstName?.charAt(0) ||
-                          user.email?.charAt(0) ||
-                          "U"}
-                      </span>
-                    </div>
-                    <span className="text-sm font-medium text-neutral-700 hidden lg:block">
-                      {user.firstName || user.email}
-                    </span>
-                  </div>
-                  <button
-                    onClick={() => logout()}
-                    className="bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:from-red-600 hover:to-red-700 hover:-translate-y-0.5 transition-all duration-200 shadow-md"
-                  >
-                    Logout
-                  </button>
+                  <ProfileDropdown user={user} logout={logout} />
                 </div>
               </>
             ) : (
