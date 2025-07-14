@@ -315,6 +315,13 @@ export default function Navbar() {
                 >
                   Rental
                 </Link>
+                <Link
+                  href="/profile"
+                  className="block font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Profile
+                </Link>
                 {user?.profile?.data?.user?.role === "admin" && (
                   <Link
                     href="/admin"
