@@ -31,11 +31,12 @@ const ProfilePage = () => {
   });
 
   useEffect(() => {
-    if (user) {
-      setFirstName(user.firstName || "");
-      setLastName(user.lastName || "");
-      setEmail(user.email || "");
-      setPhone(user.phone || "");
+    if (user?.profile?.data?.user) {
+      const userData = user.profile.data.user;
+      setFirstName(userData.firstName || userData.name || "");
+      setLastName(userData.lastName || "");
+      setEmail(userData.email || "");
+      setPhone(userData.phone || "");
     }
     fetchPaymentMethods();
   }, [user]);
