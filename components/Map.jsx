@@ -85,16 +85,9 @@ const Map = ({
     process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY !== "YOUR_API_KEY_HERE" &&
     process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY.length > 10;
 
-  // Only try to load Google Maps if we have a valid API key
-  const shouldLoadMaps = hasValidApiKey;
   const { isLoaded, loadError } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: shouldLoadMaps
-      ? process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
-      : "",
-    preventGoogleFontsLoading: !shouldLoadMaps,
-    // Prevent loading if no valid key
-    libraries: shouldLoadMaps ? [] : undefined,
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
   });
 
   useEffect(() => {
