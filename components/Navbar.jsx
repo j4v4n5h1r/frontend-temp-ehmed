@@ -29,11 +29,16 @@ function ProfileDropdown({ user, logout }) {
       >
         <div className="w-8 h-8 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
           <span className="text-primary-700 font-bold text-sm">
-            {user.firstName?.charAt(0) || user.email?.charAt(0) || "U"}
+            {user.profile?.data?.user?.firstName?.charAt(0) ||
+              user.profile?.data?.user?.name?.charAt(0) ||
+              user.profile?.data?.user?.email?.charAt(0) ||
+              "U"}
           </span>
         </div>
         <span className="text-sm font-medium text-neutral-700 hidden lg:block">
-          {user.firstName || user.email}
+          {user.profile?.data?.user?.firstName ||
+            user.profile?.data?.user?.name ||
+            user.profile?.data?.user?.email}
         </span>
         <svg
           className={`w-4 h-4 text-neutral-600 transition-transform ${
