@@ -1,13 +1,13 @@
-import './globals.css';
-import { Inter } from 'next/font/google';
-import AuthProvider from '../context/AuthContext';
-import Navbar from '../components/Navbar';
+import "./globals.css";
+import { Inter } from "next/font/google";
+import AuthProvider from "../context/AuthContext";
+import Navbar from "../components/Navbar";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'Power Bank App',
-  description: 'Frontend for power bank rental system',
+  title: "Power Bank App",
+  description: "Frontend for power bank rental system",
 };
 
 export default function RootLayout({ children }) {
@@ -16,9 +16,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <AuthProvider>
           <Navbar />
-          <main className="container mx-auto px-6 py-8">
-            {children}
-          </main>
+          <main>{children}</main>
         </AuthProvider>
       </body>
     </html>
