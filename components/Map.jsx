@@ -449,6 +449,11 @@ const Map = ({
                 >
                   {selectedStation.status}
                 </span>
+                {selectedStation.distance && (
+                  <span className="text-xs text-primary-600 bg-primary-50 px-2 py-1 rounded">
+                    {selectedStation.distance.toFixed(1)}km away
+                  </span>
+                )}
               </div>
               <div className="text-sm text-neutral-700">
                 <span className="font-medium">Available:</span>{" "}
