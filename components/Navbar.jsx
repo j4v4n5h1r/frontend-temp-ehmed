@@ -1,7 +1,158 @@
 "use client";
 import Link from "next/link";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
+
+// Profile Dropdown Component
+function ProfileDropdown({ user, logout }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  return (
+    <div className="relative" ref={dropdownRef}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-2 p-1 rounded-lg hover:bg-primary-50 transition-colors"
+      >
+        <div className="w-8 h-8 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
+          <span className="text-primary-700 font-bold text-sm">
+            {user.firstName?.charAt(0) || user.email?.charAt(0) || "U"}
+          </span>
+        </div>
+        <span className="text-sm font-medium text-neutral-700 hidden lg:block">
+          {user.firstName || user.email}
+        </span>
+        <svg
+          className={`w-4 h-4 text-neutral-600 transition-transform ${
+            isOpen ? "rotate-180" : ""
+          }`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
+
+      {isOpen && (
+        <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
+          <div className="px-4 py-3 border-b border-neutral-100">
+            <p className="text-sm font-medium text-neutral-900">
+              {user.firstName} {user.lastName}
+            </p>
+            <p className="text-sm text-neutral-600 truncate">{user.email}</p>
+          </div>
+
+          <Link
+            href="/profile"
+            className="flex items-center gap-3 px-4 py-2 text-sm text-neutral-700 hover:bg-primary-50 transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              />
+            </svg>
+            Profile Settings
+          </Link>
+
+          <Link
+            href="/my-rentals"
+            className="flex items-center gap-3 px-4 py-2 text-sm text-neutral-700 hover:bg-primary-50 transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V9a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+              />
+            </svg>
+            My Rentals
+          </Link>
+
+          <Link
+            href="/payments"
+            className="flex items-center gap-3 px-4 py-2 text-sm text-neutral-700 hover:bg-primary-50 transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+              />
+            </svg>
+            Payment History
+          </Link>
+
+          <div className="border-t border-neutral-100 mt-1">
+            <button
+              onClick={() => {
+                logout();
+                setIsOpen(false);
+              }}
+              className="flex items-center gap-3 w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                />
+              </svg>
+              Sign Out
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
