@@ -409,12 +409,17 @@ const Map = ({
         )}
 
         {/* Station markers */}
-        {stations.map((station) => (
+        {sortedStations.map((station) => (
           <Marker
             key={station.id}
             position={station.coordinates}
             icon={getMarkerIcon(station.status)}
-            title={station.name}
+            title={
+              station.name +
+              (station.distance
+                ? ` (${station.distance.toFixed(1)}km away)`
+                : "")
+            }
             onClick={() => setSelectedStation(station)}
           />
         ))}
