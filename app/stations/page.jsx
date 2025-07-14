@@ -189,6 +189,36 @@ const StationsPage = () => {
           </div>
         </div>
 
+        {/* Map Section */}
+        <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-lg border border-neutral-200">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg flex items-center justify-center">
+              <svg
+                className="w-5 h-5 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 9m0 8V9m0 0L9 7"
+                />
+              </svg>
+            </div>
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-neutral-900">
+                Station Locations
+              </h2>
+              <p className="text-sm text-neutral-600">
+                Find the closest stations near you
+              </p>
+            </div>
+          </div>
+          <Map stations={stations} showCurrentLocation={true} height="450px" />
+        </div>
+
         {/* Loading State */}
         {loading && (
           <div className="flex justify-center items-center p-8 sm:p-12 bg-white rounded-xl sm:rounded-2xl shadow-lg">
