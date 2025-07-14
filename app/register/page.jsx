@@ -44,86 +44,24 @@ export default function RegisterPage() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background:
-          "linear-gradient(135deg, #22c55e 0%, #10b981 25%, #14b8a6 50%, #06b6d4 75%, #3b82f6 100%)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "1rem",
-        position: "relative",
-        overflow: "hidden",
-        boxSizing: "border-box",
-      }}
-    >
+    <div className="min-h-screen bg-gradient-to-br from-primary-500 via-emerald-500 to-teal-500 to-blue-500 flex items-center justify-center p-4 relative overflow-hidden">
       {/* Animated Background Elements */}
+      <div className="absolute top-[10%] left-[10%] w-20 h-20 sm:w-25 sm:h-25 bg-white/10 rounded-full animate-float" />
       <div
-        style={{
-          position: "absolute",
-          top: "10%",
-          left: "10%",
-          width: "100px",
-          height: "100px",
-          background: "rgba(255, 255, 255, 0.1)",
-          borderRadius: "50%",
-          animation: "float 8s ease-in-out infinite",
-        }}
+        className="absolute top-[60%] right-[15%] w-24 h-24 sm:w-38 sm:h-38 bg-white/5 rounded-full animate-float"
+        style={{ animationDelay: "2s", animationDirection: "reverse" }}
       />
       <div
-        style={{
-          position: "absolute",
-          top: "60%",
-          right: "15%",
-          width: "150px",
-          height: "150px",
-          background: "rgba(255, 255, 255, 0.05)",
-          borderRadius: "50%",
-          animation: "float 10s ease-in-out infinite reverse",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "20%",
-          left: "20%",
-          width: "80px",
-          height: "80px",
-          background: "rgba(255, 255, 255, 0.08)",
-          borderRadius: "50%",
-          animation: "float 6s ease-in-out infinite",
-        }}
+        className="absolute bottom-[20%] left-[20%] w-16 h-16 sm:w-20 sm:h-20 bg-white/8 rounded-full animate-float"
+        style={{ animationDelay: "1s" }}
       />
 
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "32rem",
-          position: "relative",
-          zIndex: 10,
-          margin: "0 auto",
-          boxSizing: "border-box",
-        }}
-      >
+      <div className="w-full max-w-lg relative z-10">
         {/* Logo and Header */}
-        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "5rem",
-              height: "5rem",
-              background: "white",
-              borderRadius: "1.5rem",
-              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-              marginBottom: "1.5rem",
-              animation: "bounce 2s infinite",
-            }}
-          >
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-2xl sm:rounded-3xl shadow-2xl mb-6 animate-bounce-gentle">
             <svg
-              style={{ width: "2.5rem", height: "2.5rem", color: "#16a34a" }}
+              className="w-8 h-8 sm:w-10 sm:h-10 text-primary-600"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -134,214 +72,80 @@ export default function RegisterPage() {
               />
             </svg>
           </div>
-          <h1
-            style={{
-              fontSize: "2.25rem",
-              fontWeight: "800",
-              color: "white",
-              marginBottom: "0.75rem",
-              textShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
-              letterSpacing: "-0.025em",
-            }}
-          >
+          <h1 className="text-3xl sm:text-4xl font-black text-white mb-2 tracking-tight">
             Create Account
           </h1>
-          <p
-            style={{
-              color: "rgba(255, 255, 255, 0.9)",
-              fontSize: "1.125rem",
-              fontWeight: "500",
-            }}
-          >
+          <p className="text-white/90 text-base sm:text-lg font-medium">
             Quick and easy registration
           </p>
         </div>
 
         {/* Register Form */}
-        <div
-          style={{
-            background: "rgba(255, 255, 255, 0.95)",
-            borderRadius: "1.5rem",
-            padding: "2rem",
-            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-            backdropFilter: "blur(20px)",
-            animation: "slideUp 0.8s ease-out",
-            border: "1px solid rgba(255, 255, 255, 0.3)",
-            width: "100%",
-            boxSizing: "border-box",
-            overflow: "hidden",
-          }}
-        >
-          <form
-            onSubmit={handleSubmit}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "1.25rem",
-              width: "100%",
-              boxSizing: "border-box",
-            }}
-          >
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "1rem",
-                width: "100%",
-                boxSizing: "border-box",
-              }}
-              className="name-grid"
-            >
-              <div style={{ width: "100%", boxSizing: "border-box" }}>
+        <div className="bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/30 animate-slide-up">
+          <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Name Fields */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
                 <label
                   htmlFor="firstName"
-                  style={{
-                    display: "block",
-                    fontSize: "0.875rem",
-                    fontWeight: "600",
-                    color: "#404040",
-                    marginBottom: "0.5rem",
-                  }}
+                  className="block text-sm font-semibold text-neutral-700 mb-2"
                 >
-                  Ad
+                  First Name
                 </label>
                 <input
                   id="firstName"
                   type="text"
-                  placeholder="Adınız"
+                  placeholder="Your first name"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   required
-                  style={{
-                    width: "100%",
-                    padding: "0.875rem 1rem",
-                    fontSize: "0.875rem",
-                    border: "2px solid #dcfce7",
-                    borderRadius: "0.75rem",
-                    background: "white",
-                    color: "#171717",
-                    transition: "all 0.3s ease",
-                    outline: "none",
-                    boxSizing: "border-box",
-                    minWidth: 0,
-                    maxWidth: "100%",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "#22c55e";
-                    e.target.style.boxShadow =
-                      "0 0 0 4px rgba(34, 197, 94, 0.1)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "#dcfce7";
-                    e.target.style.boxShadow = "none";
-                  }}
+                  className="w-full px-4 py-3 text-base border-2 border-neutral-200 rounded-xl bg-white text-neutral-900 focus:border-primary-500 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200"
                 />
               </div>
 
-              <div style={{ width: "100%", boxSizing: "border-box" }}>
+              <div>
                 <label
                   htmlFor="lastName"
-                  style={{
-                    display: "block",
-                    fontSize: "0.875rem",
-                    fontWeight: "600",
-                    color: "#404040",
-                    marginBottom: "0.5rem",
-                  }}
+                  className="block text-sm font-semibold text-neutral-700 mb-2"
                 >
-                  Soyad
+                  Last Name
                 </label>
                 <input
                   id="lastName"
                   type="text"
-                  placeholder="Soyadınız"
+                  placeholder="Your last name"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   required
-                  style={{
-                    width: "100%",
-                    padding: "0.875rem 1rem",
-                    fontSize: "0.875rem",
-                    border: "2px solid #dcfce7",
-                    borderRadius: "0.75rem",
-                    background: "white",
-                    color: "#171717",
-                    transition: "all 0.3s ease",
-                    outline: "none",
-                    boxSizing: "border-box",
-                    minWidth: 0,
-                    maxWidth: "100%",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "#22c55e";
-                    e.target.style.boxShadow =
-                      "0 0 0 4px rgba(34, 197, 94, 0.1)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "#dcfce7";
-                    e.target.style.boxShadow = "none";
-                  }}
+                  className="w-full px-4 py-3 text-base border-2 border-neutral-200 rounded-xl bg-white text-neutral-900 focus:border-primary-500 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200"
                 />
               </div>
             </div>
 
-            <div style={{ width: "100%", boxSizing: "border-box" }}>
+            <div>
               <label
                 htmlFor="email"
-                style={{
-                  display: "block",
-                  fontSize: "0.875rem",
-                  fontWeight: "600",
-                  color: "#404040",
-                  marginBottom: "0.5rem",
-                }}
+                className="block text-sm font-semibold text-neutral-700 mb-2"
               >
-                E-posta Adresi
+                Email Address
               </label>
               <input
                 id="email"
                 type="email"
-                placeholder="ornek@email.com"
+                placeholder="example@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                style={{
-                  width: "100%",
-                  padding: "0.875rem 1rem",
-                  fontSize: "0.875rem",
-                  border: "2px solid #dcfce7",
-                  borderRadius: "0.75rem",
-                  background: "white",
-                  color: "#171717",
-                  transition: "all 0.3s ease",
-                  outline: "none",
-                  boxSizing: "border-box",
-                  minWidth: 0,
-                  maxWidth: "100%",
-                }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = "#22c55e";
-                  e.target.style.boxShadow = "0 0 0 4px rgba(34, 197, 94, 0.1)";
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = "#dcfce7";
-                  e.target.style.boxShadow = "none";
-                }}
+                className="w-full px-4 py-3 text-base border-2 border-neutral-200 rounded-xl bg-white text-neutral-900 focus:border-primary-500 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200"
               />
             </div>
 
-            <div style={{ width: "100%", boxSizing: "border-box" }}>
+            <div>
               <label
                 htmlFor="password"
-                style={{
-                  display: "block",
-                  fontSize: "0.875rem",
-                  fontWeight: "600",
-                  color: "#404040",
-                  marginBottom: "0.5rem",
-                }}
+                className="block text-sm font-semibold text-neutral-700 mb-2"
               >
-                Şifre
+                Password
               </label>
               <input
                 id="password"
@@ -351,52 +155,19 @@ export default function RegisterPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 minLength={6}
-                style={{
-                  width: "100%",
-                  padding: "0.875rem 1rem",
-                  fontSize: "0.875rem",
-                  border: "2px solid #dcfce7",
-                  borderRadius: "0.75rem",
-                  background: "white",
-                  color: "#171717",
-                  transition: "all 0.3s ease",
-                  outline: "none",
-                  boxSizing: "border-box",
-                  minWidth: 0,
-                  maxWidth: "100%",
-                }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = "#22c55e";
-                  e.target.style.boxShadow = "0 0 0 4px rgba(34, 197, 94, 0.1)";
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = "#dcfce7";
-                  e.target.style.boxShadow = "none";
-                }}
+                className="w-full px-4 py-3 text-base border-2 border-neutral-200 rounded-xl bg-white text-neutral-900 focus:border-primary-500 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200"
               />
-              <p
-                style={{
-                  fontSize: "0.75rem",
-                  color: "#737373",
-                  marginTop: "0.25rem",
-                }}
-              >
-                En az 6 karakter olmalıdır
+              <p className="text-xs text-neutral-500 mt-1">
+                Must be at least 6 characters
               </p>
             </div>
 
-            <div style={{ width: "100%", boxSizing: "border-box" }}>
+            <div>
               <label
                 htmlFor="confirmPassword"
-                style={{
-                  display: "block",
-                  fontSize: "0.875rem",
-                  fontWeight: "600",
-                  color: "#404040",
-                  marginBottom: "0.5rem",
-                }}
+                className="block text-sm font-semibold text-neutral-700 mb-2"
               >
-                Şifre Tekrar
+                Confirm Password
               </label>
               <input
                 id="confirmPassword"
@@ -405,55 +176,19 @@ export default function RegisterPage() {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
-                style={{
-                  width: "100%",
-                  padding: "0.875rem 1rem",
-                  fontSize: "0.875rem",
-                  border:
-                    error && error.includes("eşleşmiyor")
-                      ? "2px solid #ef4444"
-                      : "2px solid #dcfce7",
-                  borderRadius: "0.75rem",
-                  background: "white",
-                  color: "#171717",
-                  transition: "all 0.3s ease",
-                  outline: "none",
-                  boxSizing: "border-box",
-                  minWidth: 0,
-                  maxWidth: "100%",
-                }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = "#22c55e";
-                  e.target.style.boxShadow = "0 0 0 4px rgba(34, 197, 94, 0.1)";
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor =
-                    error && error.includes("eşleşmiyor")
-                      ? "#ef4444"
-                      : "#dcfce7";
-                  e.target.style.boxShadow = "none";
-                }}
+                className={`w-full px-4 py-3 text-base border-2 rounded-xl bg-white text-neutral-900 outline-none transition-all duration-200 ${
+                  error && error.includes("match")
+                    ? "border-red-500 focus:border-red-600 focus:ring-4 focus:ring-red-100"
+                    : "border-neutral-200 focus:border-primary-500 focus:ring-4 focus:ring-primary-100"
+                }`}
               />
             </div>
 
             {error && (
-              <div
-                style={{
-                  background: "#fef2f2",
-                  border: "1px solid #fecaca",
-                  color: "#991b1b",
-                  padding: "1rem",
-                  borderRadius: "0.75rem",
-                  animation: "shake 0.5s ease-in-out",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center" }}>
+              <div className="bg-red-50 border border-red-200 text-red-800 p-4 rounded-xl animate-fade-in">
+                <div className="flex items-center">
                   <svg
-                    style={{
-                      width: "1.25rem",
-                      height: "1.25rem",
-                      marginRight: "0.75rem",
-                    }}
+                    className="w-5 h-5 mr-3 flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -465,117 +200,47 @@ export default function RegisterPage() {
                       d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  {error}
+                  <span className="text-sm font-medium">{error}</span>
                 </div>
               </div>
             )}
 
-            <div
-              style={{
-                fontSize: "0.75rem",
-                color: "#525252",
-                background: "#f5f5f5",
-                padding: "0.75rem",
-                borderRadius: "0.5rem",
-                border: "1px solid #e5e5e5",
-              }}
-            >
-              Kayıt olarak{" "}
+            <div className="text-xs text-neutral-600 bg-neutral-50 p-3 rounded-lg border border-neutral-200">
+              By registering, you agree to our{" "}
               <a
                 href="#"
-                style={{
-                  color: "#16a34a",
-                  textDecoration: "none",
-                  fontWeight: "600",
-                }}
-                onMouseEnter={(e) =>
-                  (e.target.style.textDecoration = "underline")
-                }
-                onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+                className="font-semibold text-primary-600 hover:text-primary-700 hover:underline transition-colors"
               >
-                Kullanım Şartları
+                Terms of Service
               </a>{" "}
-              ve{" "}
+              and{" "}
               <a
                 href="#"
-                style={{
-                  color: "#16a34a",
-                  textDecoration: "none",
-                  fontWeight: "600",
-                }}
-                onMouseEnter={(e) =>
-                  (e.target.style.textDecoration = "underline")
-                }
-                onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
+                className="font-semibold text-primary-600 hover:text-primary-700 hover:underline transition-colors"
               >
-                Gizlilik Politikası
+                Privacy Policy
               </a>
-              'nı kabul etmiş olursunuz.
+              .
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              style={{
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "0.875rem 1.5rem",
-                fontSize: "1.125rem",
-                fontWeight: "700",
-                color: "white",
-                background: loading
-                  ? "linear-gradient(135deg, #a3a3a3 0%, #737373 100%)"
-                  : "linear-gradient(135deg, #22c55e 0%, #10b981 50%, #14b8a6 100%)",
-                borderRadius: "0.75rem",
-                border: "none",
-                cursor: loading ? "not-allowed" : "pointer",
-                transition: "all 0.3s ease",
-                gap: "0.75rem",
-                boxShadow: "0 10px 15px -3px rgba(34, 197, 94, 0.5)",
-                animation: "pulse 2s infinite",
-                boxSizing: "border-box",
-                minWidth: 0,
-                maxWidth: "100%",
-              }}
-              onMouseEnter={(e) => {
-                if (!loading) {
-                  e.target.style.transform = "translateY(-2px) scale(1.02)";
-                  e.target.style.boxShadow =
-                    "0 20px 25px -5px rgba(34, 197, 94, 0.6)";
-                  e.target.style.background =
-                    "linear-gradient(135deg, #059669 0%, #0f766e 50%, #0d9488 100%)";
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!loading) {
-                  e.target.style.transform = "translateY(0) scale(1)";
-                  e.target.style.boxShadow =
-                    "0 10px 15px -3px rgba(34, 197, 94, 0.5)";
-                  e.target.style.background =
-                    "linear-gradient(135deg, #22c55e 0%, #10b981 50%, #14b8a6 100%)";
-                }
-              }}
+              className={`w-full flex items-center justify-center px-6 py-3 sm:py-4 text-base sm:text-lg font-bold text-white rounded-xl transition-all duration-300 ${
+                loading
+                  ? "bg-gradient-to-r from-neutral-400 to-neutral-500 cursor-not-allowed"
+                  : "bg-gradient-to-r from-primary-500 via-emerald-500 to-teal-500 hover:from-primary-600 hover:via-emerald-600 hover:to-teal-600 hover:-translate-y-0.5 hover:shadow-2xl active:translate-y-0"
+              } shadow-lg`}
             >
               {loading ? (
                 <>
-                  <div
-                    style={{
-                      width: "1.25rem",
-                      height: "1.25rem",
-                      border: "2px solid white",
-                      borderTop: "2px solid transparent",
-                      borderRadius: "50%",
-                      animation: "spin 1s linear infinite",
-                    }}
-                  />
-                  Hesap oluşturuluyor...
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-3" />
+                  Creating account...
                 </>
               ) : (
                 <>
                   <svg
-                    style={{ width: "1.25rem", height: "1.25rem" }}
+                    className="w-5 h-5 mr-3"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -587,79 +252,41 @@ export default function RegisterPage() {
                       d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
                     />
                   </svg>
-                  Hesap Oluştur
+                  Create Account
                 </>
               )}
             </button>
           </form>
 
           {/* Divider */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              margin: "1.5rem 0",
-            }}
-          >
-            <div
-              style={{ flex: 1, height: "1px", background: "#e5e5e5" }}
-            ></div>
-            <span
-              style={{
-                padding: "0 1rem",
-                fontSize: "0.875rem",
-                color: "#737373",
-              }}
-            >
-              veya
-            </span>
-            <div
-              style={{ flex: 1, height: "1px", background: "#e5e5e5" }}
-            ></div>
+          <div className="flex items-center my-6">
+            <div className="flex-1 h-px bg-neutral-200"></div>
+            <span className="px-4 text-sm text-neutral-500">or</span>
+            <div className="flex-1 h-px bg-neutral-200"></div>
           </div>
 
           {/* Login Link */}
-          <div style={{ textAlign: "center" }}>
-            <p style={{ color: "#525252", fontSize: "0.875rem" }}>
-              Zaten hesabınız var mı?{" "}
+          <div className="text-center">
+            <p className="text-neutral-600 text-sm">
+              Already have an account?{" "}
               <Link
                 href="/login"
-                style={{
-                  fontWeight: "600",
-                  color: "#16a34a",
-                  textDecoration: "none",
-                  transition: "color 0.2s ease",
-                }}
-                onMouseEnter={(e) => (e.target.style.color = "#15803d")}
-                onMouseLeave={(e) => (e.target.style.color = "#16a34a")}
+                className="font-semibold text-primary-600 hover:text-primary-700 transition-colors"
               >
-                Giriş yapın
+                Sign in
               </Link>
             </p>
           </div>
         </div>
 
         {/* Back to Home */}
-        <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
+        <div className="text-center mt-6 sm:mt-8">
           <Link
             href="/"
-            style={{
-              color: "rgba(255, 255, 255, 0.9)",
-              textDecoration: "none",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "0.5rem",
-              transition: "color 0.2s ease",
-              fontSize: "0.875rem",
-            }}
-            onMouseEnter={(e) => (e.target.style.color = "white")}
-            onMouseLeave={(e) =>
-              (e.target.style.color = "rgba(255, 255, 255, 0.9)")
-            }
+            className="inline-flex items-center gap-2 text-white/90 hover:text-white transition-colors text-sm font-medium"
           >
             <svg
-              style={{ width: "1rem", height: "1rem" }}
+              className="w-4 h-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -671,85 +298,10 @@ export default function RegisterPage() {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            Ana sayfaya dön
+            Back to home
           </Link>
         </div>
       </div>
-
-      {/* Enhanced animations */}
-      <style jsx global>{`
-        * {
-          box-sizing: border-box;
-        }
-
-        @media (max-width: 640px) {
-          .name-grid {
-            grid-template-columns: 1fr !important;
-          }
-          body {
-            margin: 0;
-            padding: 0;
-          }
-        }
-
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
-        }
-        @keyframes bounce {
-          0%,
-          100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-        @keyframes pulse {
-          0%,
-          100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0.8;
-          }
-        }
-        @keyframes shake {
-          0%,
-          100% {
-            transform: translateX(0);
-          }
-          25% {
-            transform: translateX(-5px);
-          }
-          75% {
-            transform: translateX(5px);
-          }
-        }
-        @keyframes spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
     </div>
   );
 }

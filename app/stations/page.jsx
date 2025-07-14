@@ -129,40 +129,13 @@ const StationsPage = () => {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background:
-          "linear-gradient(135deg, #f0fdf4 0%, white 50%, #ecfdf5 100%)",
-        padding: "2rem 1rem",
-        boxSizing: "border-box",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          width: "100%",
-          boxSizing: "border-box",
-        }}
-      >
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-emerald-50 px-4 py-6 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "4rem",
-              height: "4rem",
-              background: "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
-              borderRadius: "1rem",
-              marginBottom: "1.5rem",
-              animation: "float 6s ease-in-out infinite",
-            }}
-          >
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl mb-6 animate-float">
             <svg
-              style={{ width: "2rem", height: "2rem", color: "white" }}
+              className="w-8 h-8 sm:w-10 sm:h-10 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -181,52 +154,19 @@ const StationsPage = () => {
               />
             </svg>
           </div>
-          <h1
-            style={{
-              fontSize: "2.5rem",
-              fontWeight: "800",
-              color: "#171717",
-              marginBottom: "0.75rem",
-              letterSpacing: "-0.025em",
-            }}
-          >
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 mb-4 tracking-tight">
             Station Locations
           </h1>
-          <p
-            style={{
-              color: "#525252",
-              fontSize: "1.125rem",
-              fontWeight: "500",
-              maxWidth: "600px",
-              margin: "0 auto",
-            }}
-          >
+          <p className="text-neutral-600 text-base sm:text-lg font-medium max-w-2xl mx-auto leading-relaxed">
             Find nearby power bank stations and check their availability
           </p>
         </div>
 
         {/* Search Bar */}
-        <div
-          style={{
-            background: "white",
-            borderRadius: "1rem",
-            padding: "1.5rem",
-            marginBottom: "2rem",
-            boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-            border: "1px solid #e5e7eb",
-          }}
-        >
-          <div style={{ position: "relative" }}>
+        <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-lg border border-neutral-200">
+          <div className="relative">
             <svg
-              style={{
-                position: "absolute",
-                left: "1rem",
-                top: "50%",
-                transform: "translateY(-50%)",
-                width: "1.25rem",
-                height: "1.25rem",
-                color: "#9ca3af",
-              }}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-neutral-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -243,53 +183,16 @@ const StationsPage = () => {
               placeholder="Search stations by name, location, or ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              style={{
-                width: "100%",
-                padding: "0.875rem 1rem 0.875rem 3rem",
-                fontSize: "1rem",
-                border: "2px solid #e5e7eb",
-                borderRadius: "0.75rem",
-                outline: "none",
-                transition: "all 0.3s ease",
-                boxSizing: "border-box",
-              }}
-              onFocus={(e) => {
-                e.target.style.borderColor = "#22c55e";
-                e.target.style.boxShadow = "0 0 0 4px rgba(34, 197, 94, 0.1)";
-              }}
-              onBlur={(e) => {
-                e.target.style.borderColor = "#e5e7eb";
-                e.target.style.boxShadow = "none";
-              }}
+              className="w-full pl-12 pr-4 py-3 sm:py-4 text-base border-2 border-neutral-200 rounded-xl focus:border-primary-500 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200"
             />
           </div>
         </div>
 
         {/* Loading State */}
         {loading && (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "4rem",
-              background: "white",
-              borderRadius: "1rem",
-              boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-            }}
-          >
-            <div
-              style={{
-                width: "2rem",
-                height: "2rem",
-                border: "3px solid #e5e7eb",
-                borderTop: "3px solid #22c55e",
-                borderRadius: "50%",
-                animation: "spin 1s linear infinite",
-                marginRight: "1rem",
-              }}
-            />
-            <span style={{ fontSize: "1.125rem", color: "#525252" }}>
+          <div className="flex justify-center items-center p-8 sm:p-12 bg-white rounded-xl sm:rounded-2xl shadow-lg">
+            <div className="w-8 h-8 border-3 border-neutral-200 border-t-primary-500 rounded-full animate-spin mr-4"></div>
+            <span className="text-lg text-neutral-600">
               Loading stations...
             </span>
           </div>
@@ -297,24 +200,9 @@ const StationsPage = () => {
 
         {/* Error State */}
         {error && (
-          <div
-            style={{
-              background: "#fef2f2",
-              border: "1px solid #fecaca",
-              color: "#991b1b",
-              padding: "2rem",
-              borderRadius: "0.75rem",
-              marginBottom: "2rem",
-              textAlign: "center",
-            }}
-          >
+          <div className="bg-red-50 border border-red-200 text-red-800 p-6 sm:p-8 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 text-center">
             <svg
-              style={{
-                width: "2rem",
-                height: "2rem",
-                margin: "0 auto 1rem",
-                display: "block",
-              }}
+              className="w-12 h-12 mx-auto mb-4 text-red-500"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -326,44 +214,17 @@ const StationsPage = () => {
                 d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <h3
-              style={{
-                fontSize: "1.125rem",
-                fontWeight: "600",
-                marginBottom: "0.5rem",
-              }}
-            >
+            <h3 className="text-lg sm:text-xl font-semibold mb-2">
               Unable to Load Stations
             </h3>
-            <p style={{ margin: "0 0 1.5rem 0", fontSize: "0.875rem" }}>
-              {error}
-            </p>
-            <div
-              style={{
-                display: "flex",
-                gap: "1rem",
-                justifyContent: "center",
-                flexWrap: "wrap",
-              }}
-            >
+            <p className="text-sm sm:text-base mb-6 text-red-700">{error}</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button
                 onClick={fetchStations}
-                style={{
-                  background: "#dc2626",
-                  color: "white",
-                  padding: "0.5rem 1rem",
-                  border: "none",
-                  borderRadius: "0.375rem",
-                  fontSize: "0.875rem",
-                  fontWeight: "600",
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                }}
+                className="flex items-center justify-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition-colors"
               >
                 <svg
-                  style={{ width: "1rem", height: "1rem" }}
+                  className="w-4 h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -379,22 +240,10 @@ const StationsPage = () => {
               </button>
               <Link
                 href="/debug"
-                style={{
-                  background: "white",
-                  color: "#dc2626",
-                  padding: "0.5rem 1rem",
-                  border: "1px solid #dc2626",
-                  borderRadius: "0.375rem",
-                  fontSize: "0.875rem",
-                  fontWeight: "600",
-                  textDecoration: "none",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                }}
+                className="flex items-center justify-center gap-2 bg-white text-red-600 border border-red-600 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-50 transition-colors"
               >
                 <svg
-                  style={{ width: "1rem", height: "1rem" }}
+                  className="w-4 h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -420,78 +269,30 @@ const StationsPage = () => {
 
         {/* Stations Grid */}
         {!loading && !error && (
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(350px, 1fr))",
-              gap: "2rem",
-              marginBottom: "2rem",
-            }}
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mb-8">
             {filteredStations.map((station) => {
               const statusColors = getStatusColor(station.status);
               return (
                 <div
                   key={station.id}
-                  style={{
-                    background: "white",
-                    borderRadius: "1rem",
-                    padding: "1.5rem",
-                    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-                    border: "1px solid #e5e7eb",
-                    transition: "all 0.3s ease",
-                    cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.transform = "translateY(-4px)";
-                    e.target.style.boxShadow =
-                      "0 20px 25px -5px rgba(0, 0, 0, 0.1)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.transform = "translateY(0)";
-                    e.target.style.boxShadow =
-                      "0 4px 6px -1px rgba(0, 0, 0, 0.1)";
-                  }}
+                  className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg border border-neutral-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
                 >
                   {/* Station Header */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "flex-start",
-                      marginBottom: "1rem",
-                    }}
-                  >
-                    <div>
-                      <h3
-                        style={{
-                          fontSize: "1.25rem",
-                          fontWeight: "700",
-                          color: "#171717",
-                          margin: "0 0 0.25rem 0",
-                        }}
-                      >
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg sm:text-xl font-bold text-neutral-900 mb-1 truncate">
                         {station.name || `Station ${station.id}`}
                       </h3>
-                      <p
-                        style={{
-                          fontSize: "0.875rem",
-                          color: "#6b7280",
-                          margin: 0,
-                        }}
-                      >
+                      <p className="text-xs sm:text-sm text-neutral-500 truncate">
                         ID: {station.id}
                       </p>
                     </div>
                     <span
+                      className="px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs font-semibold whitespace-nowrap ml-2"
                       style={{
                         background: statusColors.bg,
                         border: `1px solid ${statusColors.border}`,
                         color: statusColors.text,
-                        padding: "0.25rem 0.75rem",
-                        borderRadius: "9999px",
-                        fontSize: "0.75rem",
-                        fontWeight: "600",
                       }}
                     >
                       {station.status}
@@ -499,21 +300,9 @@ const StationsPage = () => {
                   </div>
 
                   {/* Location */}
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      marginBottom: "1rem",
-                    }}
-                  >
+                  <div className="flex items-start mb-4">
                     <svg
-                      style={{
-                        width: "1rem",
-                        height: "1rem",
-                        color: "#6b7280",
-                        marginRight: "0.5rem",
-                        flexShrink: 0,
-                      }}
+                      className="w-4 h-4 text-neutral-400 mt-0.5 mr-2 flex-shrink-0"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -531,31 +320,15 @@ const StationsPage = () => {
                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                       />
                     </svg>
-                    <span
-                      style={{
-                        fontSize: "0.875rem",
-                        color: "#374151",
-                      }}
-                    >
+                    <span className="text-sm text-neutral-600 leading-tight">
                       {station.location || "Location not specified"}
                     </span>
                   </div>
 
                   {/* Power Banks Count */}
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      marginBottom: "1.5rem",
-                    }}
-                  >
+                  <div className="flex items-center mb-6">
                     <svg
-                      style={{
-                        width: "1rem",
-                        height: "1rem",
-                        color: "#6b7280",
-                        marginRight: "0.5rem",
-                      }}
+                      className="w-4 h-4 text-neutral-400 mr-2 flex-shrink-0"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -565,50 +338,26 @@ const StationsPage = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span
-                      style={{
-                        fontSize: "0.875rem",
-                        color: "#374151",
-                      }}
-                    >
+                    <span className="text-sm text-neutral-600">
                       {station.availablePowerbanks || 0} /{" "}
                       {station.totalPowerbanks || 0} Available
                     </span>
                   </div>
 
                   {/* Action Button */}
-                  <Link href={`/rental?stationId=${station.id}`}>
+                  <Link
+                    href={`/rental?stationId=${station.id}`}
+                    className="block"
+                  >
                     <button
-                      style={{
-                        width: "100%",
-                        padding: "0.75rem",
-                        background:
-                          "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
-                        color: "white",
-                        border: "none",
-                        borderRadius: "0.5rem",
-                        fontSize: "0.875rem",
-                        fontWeight: "600",
-                        cursor: "pointer",
-                        transition: "all 0.3s ease",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "0.5rem",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.target.style.background =
-                          "linear-gradient(135deg, #16a34a 0%, #15803d 100%)";
-                        e.target.style.transform = "translateY(-1px)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.target.style.background =
-                          "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)";
-                        e.target.style.transform = "translateY(0)";
-                      }}
+                      className="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white py-3 rounded-lg text-sm font-semibold hover:from-primary-600 hover:to-primary-700 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
+                      disabled={
+                        station.status !== "ACTIVE" ||
+                        (station.availablePowerbanks || 0) === 0
+                      }
                     >
                       <svg
-                        style={{ width: "1rem", height: "1rem" }}
+                        className="w-4 h-4"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -620,7 +369,14 @@ const StationsPage = () => {
                           d="M13 10V3L4 14h7v7l9-11h-7z"
                         />
                       </svg>
-                      Rent from this Station
+                      {station.status === "ACTIVE" &&
+                      (station.availablePowerbanks || 0) > 0
+                        ? "Rent from Station"
+                        : station.status === "MAINTENANCE"
+                          ? "Under Maintenance"
+                          : station.status === "OFFLINE"
+                            ? "Station Offline"
+                            : "Not Available"}
                     </button>
                   </Link>
                 </div>
@@ -631,22 +387,9 @@ const StationsPage = () => {
 
         {/* Empty State */}
         {!loading && !error && filteredStations.length === 0 && (
-          <div
-            style={{
-              background: "white",
-              borderRadius: "1rem",
-              padding: "3rem",
-              textAlign: "center",
-              boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-            }}
-          >
+          <div className="bg-white rounded-xl sm:rounded-2xl p-8 sm:p-12 text-center shadow-lg">
             <svg
-              style={{
-                width: "4rem",
-                height: "4rem",
-                color: "#d1d5db",
-                margin: "0 auto 1rem",
-              }}
+              className="w-16 h-16 text-neutral-300 mx-auto mb-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -658,22 +401,10 @@ const StationsPage = () => {
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
             </svg>
-            <h3
-              style={{
-                fontSize: "1.25rem",
-                fontWeight: "600",
-                color: "#374151",
-                marginBottom: "0.5rem",
-              }}
-            >
+            <h3 className="text-xl font-semibold text-neutral-700 mb-2">
               No stations found
             </h3>
-            <p
-              style={{
-                color: "#6b7280",
-                fontSize: "0.875rem",
-              }}
-            >
+            <p className="text-neutral-500 text-sm sm:text-base">
               {searchTerm
                 ? "Try adjusting your search terms"
                 : "No stations are available at this time"}
@@ -682,34 +413,13 @@ const StationsPage = () => {
         )}
 
         {/* Back to Dashboard */}
-        <div style={{ textAlign: "center", marginTop: "3rem" }}>
+        <div className="text-center mt-8 sm:mt-12">
           <Link
             href="/dashboard"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              padding: "0.75rem 1.5rem",
-              background: "white",
-              color: "#16a34a",
-              border: "2px solid #22c55e",
-              borderRadius: "0.75rem",
-              textDecoration: "none",
-              fontSize: "0.875rem",
-              fontWeight: "600",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.background = "#f0fdf4";
-              e.target.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "white";
-              e.target.style.transform = "translateY(0)";
-            }}
+            className="inline-flex items-center gap-2 bg-white text-primary-600 border-2 border-primary-500 px-6 py-3 rounded-xl text-sm font-semibold hover:bg-primary-50 hover:-translate-y-0.5 transition-all duration-200"
           >
             <svg
-              style={{ width: "1rem", height: "1rem" }}
+              className="w-4 h-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -725,30 +435,6 @@ const StationsPage = () => {
           </Link>
         </div>
       </div>
-
-      {/* Animations */}
-      <style jsx global>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-        @keyframes spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
     </div>
   );
 };

@@ -36,7 +36,7 @@ export default function DashboardPage() {
         setRentals(rentalRes.data);
         setPayments(paymentRes.data.payments || []);
       } catch (err) {
-        setError(err.response?.data?.detail || "Veriler alınamadı");
+        setError(err.response?.data?.detail || "Failed to load data");
       } finally {
         setLoading(false);
       }
@@ -47,22 +47,22 @@ export default function DashboardPage() {
 
   const getStatusBadge = (rental) => {
     if (rental.end_time) {
-      return <span className="badge-success">Tamamlandı</span>;
+      return <span className="badge-success">Completed</span>;
     }
-    return <span className="badge-warning">Devam Ediyor</span>;
+    return <span className="badge-warning">Active</span>;
   };
 
   const formatCurrency = (amount) => {
-    return new Intl.NumberFormat("tr-TR", {
+    return new Intl.NumberFormat("en-US", {
       style: "currency",
-      currency: "TRY",
+      currency: "USD",
     }).format(amount);
   };
 
   const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleString("tr-TR", {
+    return new Date(dateString).toLocaleString("en-US", {
       year: "numeric",
-      month: "long",
+      month: "short",
       day: "numeric",
       hour: "2-digit",
       minute: "2-digit",
@@ -71,12 +71,12 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <div className="container-primary">
-        <div className="container mx-auto px-6 py-16">
-          <div className="flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-emerald-50 px-4 py-6 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-center min-h-[60vh]">
             <div className="text-center">
-              <div className="loading-spinner w-8 h-8 border-green-600 mx-auto mb-4"></div>
-              <p className="text-neutral-600">Veriler yükleniyor...</p>
+              <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin mx-auto mb-4"></div>
+              <p className="text-neutral-600 text-lg">Loading your data...</p>
             </div>
           </div>
         </div>
@@ -86,24 +86,29 @@ export default function DashboardPage() {
 
   if (error) {
     return (
-      <div className="container-primary">
-        <div className="container mx-auto px-6 py-16">
-          <div className="alert-error max-w-md mx-auto">
-            <div className="flex items-center">
-              <svg
-                className="w-5 h-5 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              Hata: {error}
+      <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-emerald-50 px-4 py-6 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-center min-h-[60vh]">
+            <div className="bg-red-50 border border-red-200 text-red-800 p-6 rounded-xl max-w-md">
+              <div className="flex items-center">
+                <svg
+                  className="w-6 h-6 mr-3 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <div>
+                  <h3 className="font-semibold">Error</h3>
+                  <p className="text-sm">{error}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -112,22 +117,24 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="container-primary">
-      <div className="container mx-auto px-6 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-emerald-50 px-4 py-6 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8 animate-fade-in">
-          <h1 className="heading-lg mb-2">Dashboard</h1>
-          <p className="text-body">
-            Kiralama geçmişinizi ve ödemelerinizi görüntüleyin
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 mb-2 tracking-tight">
+            Dashboard
+          </h1>
+          <p className="text-neutral-600 text-base sm:text-lg leading-relaxed">
+            View your rental history and payments
           </p>
         </div>
 
         {/* Quick Stats */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8 animate-slide-up">
-          <div className="card text-center">
-            <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 animate-slide-up">
+          <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg border border-neutral-200 text-center hover:shadow-xl transition-shadow duration-300">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-3">
               <svg
-                className="w-6 h-6 text-green-600"
+                className="w-6 h-6 sm:w-7 sm:h-7 text-primary-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -140,16 +147,18 @@ export default function DashboardPage() {
                 />
               </svg>
             </div>
-            <div className="text-2xl font-bold text-neutral-900 mb-1">
+            <div className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-1">
               {rentals.length}
             </div>
-            <div className="text-neutral-600">Toplam Kiralama</div>
+            <div className="text-neutral-600 text-sm sm:text-base">
+              Total Rentals
+            </div>
           </div>
 
-          <div className="card text-center">
-            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+          <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg border border-neutral-200 text-center hover:shadow-xl transition-shadow duration-300">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-3">
               <svg
-                className="w-6 h-6 text-blue-600"
+                className="w-6 h-6 sm:w-7 sm:h-7 text-blue-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -162,16 +171,18 @@ export default function DashboardPage() {
                 />
               </svg>
             </div>
-            <div className="text-2xl font-bold text-neutral-900 mb-1">
+            <div className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-1">
               {payments.length}
             </div>
-            <div className="text-neutral-600">Toplam Ödeme</div>
+            <div className="text-neutral-600 text-sm sm:text-base">
+              Total Payments
+            </div>
           </div>
 
-          <div className="card text-center">
-            <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+          <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg border border-neutral-200 text-center hover:shadow-xl transition-shadow duration-300 sm:col-span-2 lg:col-span-1">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-3">
               <svg
-                className="w-6 h-6 text-purple-600"
+                className="w-6 h-6 sm:w-7 sm:h-7 text-purple-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -184,21 +195,25 @@ export default function DashboardPage() {
                 />
               </svg>
             </div>
-            <div className="text-2xl font-bold text-neutral-900 mb-1">
+            <div className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-1">
               {rentals.filter((rental) => !rental.end_time).length}
             </div>
-            <div className="text-neutral-600">Aktif Kiralama</div>
+            <div className="text-neutral-600 text-sm sm:text-base">
+              Active Rentals
+            </div>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {/* Rental History */}
           <section className="animate-slide-up">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="heading-sm">Kiralama Geçmişi</h2>
-              <div className="flex items-center text-green-600">
+              <h2 className="text-xl sm:text-2xl font-bold text-neutral-900">
+                Rental History
+              </h2>
+              <div className="flex items-center text-primary-600">
                 <svg
-                  className="w-5 h-5 mr-1"
+                  className="w-5 h-5 mr-2"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -211,13 +226,13 @@ export default function DashboardPage() {
                   />
                 </svg>
                 <span className="text-sm font-medium">
-                  {rentals.length} Kiralama
+                  {rentals.length} Rentals
                 </span>
               </div>
             </div>
 
             {rentals.length === 0 ? (
-              <div className="card text-center py-8">
+              <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg border border-neutral-200 text-center">
                 <div className="w-16 h-16 bg-neutral-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <svg
                     className="w-8 h-8 text-neutral-400"
@@ -233,28 +248,31 @@ export default function DashboardPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="font-semibold text-neutral-900 mb-2">
-                  Henüz kiralama yok
+                <h3 className="text-lg font-semibold text-neutral-900 mb-2">
+                  No rentals yet
                 </h3>
-                <p className="text-neutral-600 mb-4">
-                  İlk power bank kiralamanızı yapın
+                <p className="text-neutral-600 mb-6">
+                  Start your first power bank rental
                 </p>
                 <button
                   onClick={() => router.push("/rental")}
-                  className="btn-primary"
+                  className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-primary-600 hover:to-primary-700 transition-all duration-200 hover:-translate-y-0.5"
                 >
-                  Hemen Kirala
+                  Rent Now
                 </button>
               </div>
             ) : (
               <div className="space-y-4">
                 {rentals.map((rental) => (
-                  <div key={rental.id} className="card-minimal">
+                  <div
+                    key={rental.id}
+                    className="bg-white rounded-xl p-4 sm:p-5 shadow-md border border-neutral-200 hover:shadow-lg transition-shadow duration-200"
+                  >
                     <div className="flex items-start justify-between mb-3">
-                      <div className="flex items-center">
-                        <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                      <div className="flex items-center min-w-0 flex-1">
+                        <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
                           <svg
-                            className="w-5 h-5 text-green-600"
+                            className="w-5 h-5 text-primary-600"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -273,21 +291,23 @@ export default function DashboardPage() {
                             />
                           </svg>
                         </div>
-                        <div>
-                          <div className="font-semibold text-neutral-900">
-                            İstasyon #{rental.station_id}
+                        <div className="min-w-0 flex-1">
+                          <div className="font-semibold text-neutral-900 truncate">
+                            Station #{rental.station_id}
                           </div>
-                          <div className="text-sm text-neutral-600">
+                          <div className="text-xs sm:text-sm text-neutral-600">
                             {formatDate(rental.start_time)}
                           </div>
                         </div>
                       </div>
-                      {getStatusBadge(rental)}
+                      <div className="ml-2 flex-shrink-0">
+                        {getStatusBadge(rental)}
+                      </div>
                     </div>
 
                     {rental.end_time && (
-                      <div className="text-sm text-neutral-600">
-                        <strong>Bitiş:</strong> {formatDate(rental.end_time)}
+                      <div className="text-xs sm:text-sm text-neutral-600 pl-13">
+                        <strong>Ended:</strong> {formatDate(rental.end_time)}
                       </div>
                     )}
                   </div>
@@ -302,10 +322,12 @@ export default function DashboardPage() {
             style={{ animationDelay: "0.1s" }}
           >
             <div className="flex items-center justify-between mb-6">
-              <h2 className="heading-sm">Ödeme Geçmişi</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-neutral-900">
+                Payment History
+              </h2>
               <div className="flex items-center text-blue-600">
                 <svg
-                  className="w-5 h-5 mr-1"
+                  className="w-5 h-5 mr-2"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -318,13 +340,13 @@ export default function DashboardPage() {
                   />
                 </svg>
                 <span className="text-sm font-medium">
-                  {payments.length} Ödeme
+                  {payments.length} Payments
                 </span>
               </div>
             </div>
 
             {payments.length === 0 ? (
-              <div className="card text-center py-8">
+              <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg border border-neutral-200 text-center">
                 <div className="w-16 h-16 bg-neutral-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <svg
                     className="w-8 h-8 text-neutral-400"
@@ -340,20 +362,23 @@ export default function DashboardPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="font-semibold text-neutral-900 mb-2">
-                  Henüz ödeme yok
+                <h3 className="text-lg font-semibold text-neutral-900 mb-2">
+                  No payments yet
                 </h3>
                 <p className="text-neutral-600">
-                  Ödemeleriniz burada görünecek
+                  Your payments will appear here
                 </p>
               </div>
             ) : (
               <div className="space-y-4">
                 {payments.map((payment) => (
-                  <div key={payment.id} className="card-minimal">
+                  <div
+                    key={payment.id}
+                    className="bg-white rounded-xl p-4 sm:p-5 shadow-md border border-neutral-200 hover:shadow-lg transition-shadow duration-200"
+                  >
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center">
-                        <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                      <div className="flex items-center min-w-0 flex-1">
+                        <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
                           <svg
                             className="w-5 h-5 text-blue-600"
                             fill="none"
@@ -368,16 +393,18 @@ export default function DashboardPage() {
                             />
                           </svg>
                         </div>
-                        <div>
+                        <div className="min-w-0 flex-1">
                           <div className="font-semibold text-neutral-900">
                             {formatCurrency(payment.amount)}
                           </div>
-                          <div className="text-sm text-neutral-600">
+                          <div className="text-xs sm:text-sm text-neutral-600">
                             {formatDate(payment.timestamp)}
                           </div>
                         </div>
                       </div>
-                      <span className="badge-success">Başarılı</span>
+                      <span className="badge-success ml-2 flex-shrink-0">
+                        Success
+                      </span>
                     </div>
                   </div>
                 ))}
