@@ -78,6 +78,8 @@ const Map = ({
   const [selectedStation, setSelectedStation] = useState(null);
   const [userLocation, setUserLocation] = useState(null);
   const [mapCenter, setMapCenter] = useState(defaultCenter);
+  const [locationPermission, setLocationPermission] = useState("asking"); // 'asking', 'granted', 'denied'
+  const [sortedStations, setSortedStations] = useState(stations);
 
   // Check if Google Maps API key is available
   const hasValidApiKey =
@@ -90,8 +92,24 @@ const Map = ({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
   });
 
+  // Calculate distance between two coordinates
+  const calculateDistance = (lat1, lon1, lat2, lon2) => {
+    const R = 6371; // Radius of the Earth in kilometers
+    const dLat = ((lat2 - lat1) * Math.PI) / 180;
+    const dLon = ((lon2 - lon1) * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos((lat1 * Math.PI) / 180) *
+        Math.cos((lat2 * Math.PI) / 180) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c; // Distance in kilometers
+  };
+
   useEffect(() => {
     if (showCurrentLocation && navigator.geolocation) {
+      setLocationPermission("asking");
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const location = {
@@ -100,14 +118,34 @@ const Map = ({
           };
           setUserLocation(location);
           setMapCenter(location);
+          setLocationPermission("granted");
+
+          // Sort stations by distance from user location
+          const stationsWithDistance = stations
+            .map((station) => ({
+              ...station,
+              distance: calculateDistance(
+                location.lat,
+                location.lng,
+                station.coordinates.lat,
+                station.coordinates.lng,
+              ),
+            }))
+            .sort((a, b) => a.distance - b.distance);
+
+          setSortedStations(stationsWithDistance);
         },
         (error) => {
           console.warn("Geolocation error:", error);
-          // Use default center if geolocation fails
+          setLocationPermission("denied");
+          // Use all stations in default order if location denied
+          setSortedStations(stations);
         },
       );
+    } else {
+      setSortedStations(stations);
     }
-  }, [showCurrentLocation]);
+  }, [showCurrentLocation, stations]);
 
   const getMarkerIcon = (status) => {
     switch (status) {
