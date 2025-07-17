@@ -311,7 +311,7 @@ export default function HowToUsePage() {
               <div className="flex items-center gap-3">
                 <div className="w-[370px] h-[280px] rounded-3xl overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1605349952427-e45b297d6a4a?w=400&h=300&fit=crop&crop=center"
+                    src="https://images.pexels.com/photos/9800036/pexels-photo-9800036.jpeg?w=400&h=300&fit=crop&crop=center"
                     alt="Return Power Bank"
                     className="w-full h-full object-cover"
                   />
