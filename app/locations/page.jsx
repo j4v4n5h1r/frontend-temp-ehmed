@@ -77,29 +77,87 @@ export default function LocationsPage() {
         </div>
       </section>
 
-      {/* Station Map Section */}
-      <section className="py-16 bg-white">
+      {/* Interactive Map Section */}
+      <section className="py-8 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Find Stations Near You
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Explore our growing network of power bank stations. Click on any
-              location to see available power banks and station details.
-            </p>
-          </div>
+          {/* Map Container with Google Maps Style */}
+          <div className="relative bg-white rounded-lg shadow-lg overflow-hidden">
+            {/* Map Controls Overlay */}
+            <div className="absolute top-4 left-4 z-20 flex flex-col gap-2">
+              <div className="bg-white rounded-lg shadow-md p-3">
+                <div className="flex items-center gap-2">
+                  <svg
+                    className="w-5 h-5 text-blue-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                  <input
+                    type="text"
+                    placeholder="Search locations..."
+                    className="bg-transparent text-sm text-gray-700 placeholder-gray-500 outline-none w-48"
+                  />
+                </div>
+              </div>
 
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border">
-            <Map showCurrentLocation={true} height="500px" />
-          </div>
+              <div className="bg-white rounded-lg shadow-md p-2">
+                <button className="w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-lg transition-colors">
+                  <svg
+                    className="w-5 h-5 text-gray-700"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
+                  </svg>
+                </button>
+                <button className="w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-lg transition-colors">
+                  <svg
+                    className="w-5 h-5 text-gray-700"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M20 12H4"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
 
-          <div className="mt-8 text-center">
-            <Link href="/stations">
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto">
-                View All Stations
+            {/* Map View Controls */}
+            <div className="absolute top-4 right-4 z-20">
+              <div className="bg-white rounded-lg shadow-md p-2 flex flex-col gap-1">
+                <button className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded transition-colors">
+                  Map
+                </button>
+                <button className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded transition-colors">
+                  Satellite
+                </button>
+              </div>
+            </div>
+
+            {/* Current Location Button */}
+            <div className="absolute bottom-20 right-4 z-20">
+              <button className="w-12 h-12 bg-white rounded-lg shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
                 <svg
-                  className="w-4 h-4"
+                  className="w-6 h-6 text-blue-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -108,11 +166,69 @@ export default function LocationsPage() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
                   />
                 </svg>
               </button>
-            </Link>
+            </div>
+
+            {/* Station Info Card */}
+            <div className="absolute bottom-4 left-4 z-20 bg-white rounded-lg shadow-lg p-4 max-w-xs">
+              <div className="flex items-start gap-3">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg
+                    className="w-6 h-6 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-gray-900 text-sm">
+                    Times Square Station
+                  </h3>
+                  <p className="text-gray-600 text-xs mb-2">
+                    1564 Broadway, New York, NY
+                  </p>
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                      8 Available
+                    </span>
+                    <span className="text-xs text-gray-500">24/7</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Main Map */}
+            <div className="relative">
+              <Map showCurrentLocation={true} height="600px" />
+            </div>
+          </div>
+
+          {/* Legend */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              <span>Available Stations</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+              <span>Low Stock</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+              <span>Out of Stock</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+              <span>Your Location</span>
+            </div>
           </div>
         </div>
       </section>
