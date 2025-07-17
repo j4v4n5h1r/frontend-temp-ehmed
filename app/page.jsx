@@ -12,12 +12,31 @@ export default function Home() {
       }}
     >
       {/* Hero Section */}
-      <section
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
-        style={{
-          background: "linear-gradient(135deg, #f1f5f9 0%, #e0f7fa 100%)",
-        }}
-      >
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            src="https://framerusercontent.com/assets/9iupb2w1hpCaqeMtQoCnSX6RW4s.mp4"
+            loop
+            preload="auto"
+            poster="https://framerusercontent.com/images/k8Hkm7dmWSk151V66VOruDBQIw.png"
+            playsInline
+            autoPlay
+            muted
+            className="w-full h-full object-cover"
+          />
+          {/* Colorful animated overlay */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(0, 206, 255, 0.3) 0%, rgba(173, 65, 187, 0.2) 25%, rgba(255, 221, 0, 0.3) 50%, rgba(255, 60, 164, 0.2) 75%, rgba(0, 206, 255, 0.3) 100%)",
+              backgroundSize: "200% 200%",
+              animation: "colorShift 8s ease-in-out infinite",
+            }}
+          />
+        </div>
+
         {/* Background Pattern */}
         <div
           className="absolute inset-0"
@@ -288,139 +307,150 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 lg:py-24" style={{ background: "#f8fafc" }}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2
-              className="mb-6 font-bold"
+      {/* Animated Colorful Shapes Section */}
+      <section
+        className="py-16 lg:py-24 overflow-hidden"
+        style={{ background: "white" }}
+      >
+        <div className="max-w-screen-xl mx-auto">
+          <div
+            style={{
+              flexDirection: "column",
+              gap: "20px",
+              width: "100%",
+              backgroundColor: "rgb(255, 255, 255)",
+            }}
+          >
+            <div
               style={{
-                fontSize: "clamp(2rem, 4vw, 3rem)",
-                color: "#1e293b",
+                display: "flex",
+                flexDirection: "column",
+                overflowX: "hidden",
+                overflowY: "hidden",
+                width: "100%",
               }}
             >
-              Why Choose PowerShare?
-            </h2>
-            <p
-              className="max-w-2xl mx-auto"
-              style={{
-                fontSize: "1.125rem",
-                color: "#64748b",
-              }}
-            >
-              Experience the future of portable charging with our premium
-              features
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {[
-              {
-                title: "24/7 Access",
-                description: "Available round the clock, wherever you are",
-                icon: (
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                ),
-                color: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
-              },
-              {
-                title: "Fast Charging",
-                description: "High-speed charging for all your devices",
-                icon: (
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                ),
-                color: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
-              },
-              {
-                title: "App Integration",
-                description: "Seamless experience with our mobile app",
-                icon: (
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-                    />
-                  </svg>
-                ),
-                color: "linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)",
-              },
-              {
-                title: "Affordable",
-                description: "Competitive pricing with flexible plans",
-                icon: (
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-                    />
-                  </svg>
-                ),
-                color: "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)",
-              },
-            ].map((feature, index) => (
+              {/* First Row */}
               <div
-                key={index}
-                className="rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-2"
-                style={{ background: "white" }}
+                className="flex items-center py-2"
+                style={{
+                  paddingBottom: "10px",
+                  paddingTop: "10px",
+                  transformStyle: "preserve-3d",
+                  willChange: "transform",
+                  animation: "slideLeft 20s linear infinite",
+                }}
               >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform"
-                  style={{ background: feature.color }}
-                >
-                  {feature.icon}
-                </div>
-                <h3
-                  className="text-lg font-semibold mb-2"
-                  style={{ color: "#1e293b" }}
-                >
-                  {feature.title}
-                </h3>
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: "#64748b" }}
-                >
-                  {feature.description}
-                </p>
+                {[
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190112e59fe7dc8_squircle-5-p-500.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011bbbefe7dc3_squircle-6-p-800.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190113f42fe7dd2_squircle-7-p-500.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190113c39fe7dcd_squircle-8-p-500.png",
+                ]
+                  .concat([
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190112e59fe7dc8_squircle-5-p-500.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011bbbefe7dc3_squircle-6-p-800.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190113f42fe7dd2_squircle-7-p-500.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190113c39fe7dcd_squircle-8-p-500.png",
+                  ])
+                  .map((src, index) => (
+                    <img
+                      key={index}
+                      loading="eager"
+                      alt=""
+                      src={src}
+                      className="flex-shrink-0"
+                      style={{
+                        height: "200px",
+                        marginRight: "20px",
+                        maxWidth: "100%",
+                        verticalAlign: "middle",
+                      }}
+                    />
+                  ))}
               </div>
-            ))}
+
+              {/* Second Row */}
+              <div
+                className="flex items-center py-2"
+                style={{
+                  paddingBottom: "10px",
+                  paddingTop: "10px",
+                  transformStyle: "preserve-3d",
+                  willChange: "transform",
+                  animation: "slideRight 25s linear infinite",
+                }}
+              >
+                {[
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901163fafe7dc0_squircle-3-p-500.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011f13ffe7dbb_squircle-4-p-800.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190116205fe7db6_squircle-2-p-800.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190111464fe7db1_squircle-1-p-500.png",
+                ]
+                  .concat([
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011f13ffe7dbb_squircle-4-p-800.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901163fafe7dc0_squircle-3-p-500.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190116205fe7db6_squircle-2-p-800.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190111464fe7db1_squircle-1-p-500.png",
+                  ])
+                  .map((src, index) => (
+                    <img
+                      key={index}
+                      loading="eager"
+                      alt=""
+                      src={src}
+                      className="flex-shrink-0"
+                      style={{
+                        height: "200px",
+                        marginRight: "20px",
+                        maxWidth: "100%",
+                        verticalAlign: "middle",
+                      }}
+                    />
+                  ))}
+              </div>
+
+              {/* Third Row */}
+              <div
+                className="flex items-center py-2"
+                style={{
+                  paddingBottom: "10px",
+                  paddingTop: "10px",
+                  transformStyle: "preserve-3d",
+                  willChange: "transform",
+                  animation: "slideLeft 30s linear infinite",
+                }}
+              >
+                {[
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901145ecfe7de6_squircle-10-p-500.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901165d1fe7ddb_squircle-9-p-500.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190115f5dfe7de0_squircle-11-p-500.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011cca2fe7dd6_squircle-12-p-500.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011fc87fe7dec_squircle-13-p-500.png",
+                ]
+                  .concat([
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901165d1fe7ddb_squircle-9-p-500.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901145ecfe7de6_squircle-10-p-500.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190115f5dfe7de0_squircle-11-p-500.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901165d1fe7ddb_squircle-9-p-500.png",
+                  ])
+                  .map((src, index) => (
+                    <img
+                      key={index}
+                      loading="eager"
+                      alt=""
+                      src={src}
+                      className="flex-shrink-0"
+                      style={{
+                        height: "200px",
+                        marginRight: "20px",
+                        maxWidth: "100%",
+                        verticalAlign: "middle",
+                      }}
+                    />
+                  ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -915,14 +945,270 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
-                <div
-                  className="w-8 h-8 rounded-lg"
+                <div className="relative">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 200 80"
+                    width="120"
+                    height="48"
+                    className="hover:scale-105 transition-transform duration-300"
+                  >
+                    <defs>
+                      <clipPath id="footer_logo_clip">
+                        <rect width="200" height="80" x="0" y="0"></rect>
+                      </clipPath>
+                    </defs>
+                    <g clipPath="url(#footer_logo_clip)">
+                      {/* First Layer - Cyan */}
+                      <g
+                        className="animate-pulse"
+                        style={{
+                          animationDelay: "0s",
+                          animationDuration: "2s",
+                        }}
+                      >
+                        <g transform="matrix(1,0,0,1,186.5,13)" opacity="1">
+                          <circle cx="0" cy="0" r="6.5" fill="rgb(0,206,255)" />
+                        </g>
+                        <g transform="matrix(1,0,0,1,186.637,48.5)" opacity="1">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="miter"
+                            fillOpacity="0"
+                            strokeMiterlimit="10"
+                            stroke="rgb(0,206,255)"
+                            strokeOpacity="1"
+                            strokeWidth="11.339"
+                            d=" M0,19 C0,19 0,-19 0,-19"
+                          />
+                        </g>
+                        <g
+                          transform="matrix(1,0,0,1,151.86,48.791)"
+                          opacity="1"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="miter"
+                            fillOpacity="0"
+                            strokeMiterlimit="10"
+                            stroke="rgb(0,206,255)"
+                            strokeOpacity="1"
+                            strokeWidth="11.339"
+                            d=" M7.631,-18.709 C7.631,-18.709 -11.14,-1.528 -11.14,-1.528 C-11.14,-1.528 11.14,18.709 11.14,18.709"
+                          />
+                        </g>
+                        <g
+                          transform="matrix(1,0,0,1,131.726,39.871)"
+                          opacity="1"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="miter"
+                            fillOpacity="0"
+                            strokeMiterlimit="10"
+                            stroke="rgb(0,206,255)"
+                            strokeOpacity="1"
+                            strokeWidth="11.339"
+                            d=" M0,27.629 C0,27.629 0,-27.629 0,-27.629"
+                          />
+                        </g>
+                        <g transform="matrix(1,0,0,1,100,40)" opacity="1">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="miter"
+                            fillOpacity="0"
+                            strokeMiterlimit="10"
+                            stroke="rgb(0,206,255)"
+                            strokeOpacity="1"
+                            strokeWidth="11.339"
+                            d=" M7.877,10.053 C7.719,12.108 7.237,14.091 6.437,15.966 C5.462,18.261 4.068,20.323 2.296,22.095 C0.545,23.843 -1.533,25.224 -3.883,26.2 C-6.234,27.175 -8.73,27.669 -11.304,27.669 C-13.854,27.669 -16.335,27.169 -18.672,26.187 C-20.995,25.212 -23.057,23.835 -24.803,22.088 C-26.552,20.336 -27.942,18.302 -28.939,16.031 C-29.967,13.676 -30.488,11.155 -30.488,8.541 C-30.488,5.923 -29.966,3.402 -28.935,1.043 C-27.941,-1.224 -26.55,-3.26 -24.802,-5.008 C-23.062,-6.75 -21,-8.129 -18.67,-9.107 C-16.323,-10.09 -13.844,-10.59 -11.304,-10.59 C-8.737,-10.59 -6.243,-10.096 -3.875,-9.117 C-1.525,-8.138 0.553,-6.756 2.296,-5.013 C4.065,-3.246 5.46,-1.185 6.436,1.11 C7.431,3.447 7.935,5.946 7.935,8.541 C7.935,8.541 7.935,27.476 7.935,27.476"
+                          />
+                        </g>
+                        <g
+                          transform="matrix(1,0,0,1,28.661,48.501)"
+                          opacity="1"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="miter"
+                            fillOpacity="0"
+                            strokeMiterlimit="10"
+                            stroke="rgb(0,206,255)"
+                            strokeOpacity="1"
+                            strokeWidth="11.339"
+                            d=" M-18.826,18.999 C-18.826,18.999 -18.822,-0.936 -18.822,-0.936 C-18.762,-3.397 -18.239,-5.768 -17.265,-7.987 C-16.305,-10.167 -14.987,-12.103 -13.364,-13.724 C-11.72,-15.379 -9.736,-16.69 -7.464,-17.62 C-5.228,-18.535 -2.855,-18.999 -0.409,-18.999 C2.023,-18.999 4.418,-18.532 6.705,-17.613 C8.981,-16.702 11.028,-15.403 12.719,-13.815 C14.58,-12.126 16.058,-10.123 17.115,-7.865 C17.757,-6.493 18.226,-5.041 18.509,-3.552 C18.509,-3.552 18.532,-3.429 18.532,-3.429 C18.532,-3.429 18.736,-2.033 18.736,-2.033 C18.736,-2.033 18.824,-0.615 18.824,-0.615 C18.824,-0.615 18.826,18.988 18.826,18.988"
+                          />
+                        </g>
+                      </g>
+
+                      {/* Second Layer - Purple */}
+                      <g
+                        className="animate-pulse"
+                        style={{
+                          animationDelay: "0.5s",
+                          animationDuration: "2s",
+                        }}
+                      >
+                        <g transform="matrix(1,0,0,1,186.5,13)" opacity="0.8">
+                          <circle
+                            cx="0"
+                            cy="0"
+                            r="6.5"
+                            fill="rgb(173,65,187)"
+                          />
+                        </g>
+                        <g
+                          transform="matrix(1,0,0,1,186.637,48.5)"
+                          opacity="0.8"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="miter"
+                            fillOpacity="0"
+                            strokeMiterlimit="10"
+                            stroke="rgb(173,65,187)"
+                            strokeOpacity="1"
+                            strokeWidth="11.339"
+                            d=" M0,-19 C0,-19 0,19 0,19"
+                          />
+                        </g>
+                        <g
+                          transform="matrix(1,0,0,1,151.86,48.791)"
+                          opacity="0.8"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="miter"
+                            fillOpacity="0"
+                            strokeMiterlimit="10"
+                            stroke="rgb(173,65,187)"
+                            strokeOpacity="1"
+                            strokeWidth="11.339"
+                            d=" M11.14,18.709 C11.14,18.709 -11.14,-1.528 -11.14,-1.528 C-11.14,-1.528 7.631,-18.709 7.631,-18.709"
+                          />
+                        </g>
+                        <g
+                          transform="matrix(1,0,0,1,131.726,39.871)"
+                          opacity="0.8"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="miter"
+                            fillOpacity="0"
+                            strokeMiterlimit="10"
+                            stroke="rgb(173,65,187)"
+                            strokeOpacity="1"
+                            strokeWidth="11.339"
+                            d=" M0,-27.629 C0,-27.629 0,27.629 0,27.629"
+                          />
+                        </g>
+                        <g transform="matrix(1,0,0,1,100,40)" opacity="0.8">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="miter"
+                            fillOpacity="0"
+                            strokeMiterlimit="10"
+                            stroke="rgb(173,65,187)"
+                            strokeOpacity="1"
+                            strokeWidth="11.339"
+                            d=" M7.935,27.476 C7.935,27.476 7.935,8.541 7.935,8.541 C7.935,5.946 7.431,3.447 6.436,1.11 C5.46,-1.185 4.065,-3.246 2.296,-5.013 C0.553,-6.756 -1.525,-8.138 -3.875,-9.117 C-6.243,-10.096 -8.737,-10.59 -11.304,-10.59 C-13.844,-10.59 -16.323,-10.09 -18.67,-9.107 C-21,-8.129 -23.062,-6.75 -24.802,-5.008 C-26.55,-3.26 -27.941,-1.224 -28.935,1.043 C-29.966,3.402 -30.488,5.923 -30.488,8.541 C-30.488,11.155 -29.967,13.676 -28.939,16.031 C-27.942,18.302 -26.552,20.336 -24.803,22.088 C-23.057,23.835 -20.995,25.212 -18.672,26.187 C-16.335,27.169 -13.854,27.669 -11.304,27.669 C-8.73,27.669 -6.234,27.175 -3.883,26.2 C-1.533,25.224 0.545,23.843 2.296,22.095 C4.068,20.323 5.462,18.261 6.437,15.966 C7.237,14.091 7.719,12.108 7.877,10.053"
+                          />
+                        </g>
+                        <g
+                          transform="matrix(1,0,0,1,28.661,48.501)"
+                          opacity="0.8"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="miter"
+                            fillOpacity="0"
+                            strokeMiterlimit="10"
+                            stroke="rgb(173,65,187)"
+                            strokeOpacity="1"
+                            strokeWidth="11.339"
+                            d=" M18.826,18.988 C18.826,18.988 18.824,-0.615 18.824,-0.615 C18.824,-0.615 18.736,-2.033 18.736,-2.033 C18.736,-2.033 18.532,-3.429 18.532,-3.429 C18.532,-3.429 18.509,-3.552 18.509,-3.552 C18.226,-5.041 17.757,-6.493 17.115,-7.865 C16.058,-10.123 14.58,-12.126 12.719,-13.815 C11.028,-15.403 8.981,-16.702 6.705,-17.613 C4.418,-18.532 2.023,-18.999 -0.409,-18.999 C-2.855,-18.999 -5.228,-18.535 -7.464,-17.62 C-9.736,-16.69 -11.72,-15.379 -13.364,-13.724 C-14.987,-12.103 -16.305,-10.167 -17.265,-7.987 C-18.239,-5.768 -18.762,-3.397 -18.822,-0.936 C-18.822,-0.936 -18.826,18.999 -18.826,18.999"
+                          />
+                        </g>
+                      </g>
+
+                      {/* Third Layer - Yellow */}
+                      <g
+                        className="animate-pulse"
+                        style={{
+                          animationDelay: "1s",
+                          animationDuration: "2s",
+                        }}
+                      >
+                        <g transform="matrix(1,0,0,1,186.5,13)" opacity="0.6">
+                          <circle cx="0" cy="0" r="6.5" fill="rgb(255,221,0)" />
+                        </g>
+                        <g
+                          transform="matrix(1,0,0,1,186.637,48.5)"
+                          opacity="0.6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="miter"
+                            fillOpacity="0"
+                            strokeMiterlimit="10"
+                            stroke="rgb(255,221,0)"
+                            strokeOpacity="1"
+                            strokeWidth="11.339"
+                            d=" M0,19 C0,19 0,-19 0,-19"
+                          />
+                        </g>
+                        <g
+                          transform="matrix(1,0,0,1,151.86,48.791)"
+                          opacity="0.6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="miter"
+                            fillOpacity="0"
+                            strokeMiterlimit="10"
+                            stroke="rgb(255,221,0)"
+                            strokeOpacity="1"
+                            strokeWidth="11.339"
+                            d=" M7.631,-18.709 C7.631,-18.709 -11.14,-1.528 -11.14,-1.528 C-11.14,-1.528 11.14,18.709 11.14,18.709"
+                          />
+                        </g>
+                      </g>
+
+                      {/* Fourth Layer - Pink */}
+                      <g
+                        className="animate-pulse"
+                        style={{
+                          animationDelay: "1.5s",
+                          animationDuration: "2s",
+                        }}
+                      >
+                        <g transform="matrix(1,0,0,1,186.5,13)" opacity="0.4">
+                          <circle
+                            cx="0"
+                            cy="0"
+                            r="6.5"
+                            fill="rgb(255,60,164)"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+                <span
+                  className="text-xl font-bold"
                   style={{
                     background:
-                      "linear-gradient(135deg, #2563eb 0%, #10b981 100%)",
+                      "linear-gradient(135deg, rgb(0,206,255) 0%, rgb(173,65,187) 25%, rgb(255,221,0) 50%, rgb(255,60,164) 75%, rgb(0,206,255) 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    backgroundSize: "200% 200%",
+                    animation:
+                      "colorShift 3s ease-in-out infinite, logoText 3s ease-in-out infinite",
                   }}
-                ></div>
-                <span className="text-xl font-bold">PowerShare</span>
+                >
+                  PowerShare
+                </span>
               </div>
               <p className="mb-6 max-w-md" style={{ color: "#cbd5e1" }}>
                 The most convenient way to stay charged. Rent power banks from
