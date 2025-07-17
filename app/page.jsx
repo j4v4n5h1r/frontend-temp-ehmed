@@ -847,54 +847,10 @@ export default function Home() {
       <footer style={{ background: "#1e293b", color: "white" }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-                            <div className="mb-4">
+                        <div className="md:col-span-2">
+              <div className="mb-4">
                 <h2 className="text-4xl font-bold text-white">PowerShare</h2>
-                            </div>
-                        <g transform="matrix(1,0,0,1,186.5,13)" opacity="1">
-                          <circle cx="0" cy="0" r="6.5" fill="rgb(0,206,255)" />
-                        </g>
-                        <g transform="matrix(1,0,0,1,186.637,48.5)" opacity="1">
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="miter"
-                            fillOpacity="0"
-                            strokeMiterlimit="10"
-                            stroke="rgb(0,206,255)"
-                            strokeOpacity="1"
-                            strokeWidth="11.339"
-                            d=" M0,19 C0,19 0,-19 0,-19"
-                          />
-                        </g>
-                        <g
-                          transform="matrix(1,0,0,1,151.86,48.791)"
-                          opacity="1"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="miter"
-                            fillOpacity="0"
-                            strokeMiterlimit="10"
-                            stroke="rgb(0,206,255)"
-                            strokeOpacity="1"
-                            strokeWidth="11.339"
-                            d=" M7.631,-18.709 C7.631,-18.709 -11.14,-1.528 -11.14,-1.528 C-11.14,-1.528 11.14,18.709 11.14,18.709"
-                          />
-                        </g>
-                        <g
-                          transform="matrix(1,0,0,1,131.726,39.871)"
-                          opacity="1"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="miter"
-                            fillOpacity="0"
-                            strokeMiterlimit="10"
-                            stroke="rgb(0,206,255)"
-                            strokeOpacity="1"
-                            strokeWidth="11.339"
-                            d=" M0,27.629 C0,27.629 0,-27.629 0,-27.629"
-                          />
+              </div>
                         </g>
                         <g transform="matrix(1,0,0,1,100,40)" opacity="1">
                           <path
