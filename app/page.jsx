@@ -848,9 +848,9 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <div className="mb-4">
-                <h2 className="text-4xl font-bold text-white">PowerShare</h2>
-                
+              <div className="flex items-center gap-2 mb-4">
+                <div className="relative">
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 200 80"
                     width="120"
