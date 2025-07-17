@@ -36,7 +36,7 @@ export default function GlassNav() {
           borderRadius: "30px",
           display: "flex",
           flexShrink: "0",
-          gap: "40px",
+          gap: "24px",
           height: "min-content",
           justifyContent: "center",
           position: "relative",
