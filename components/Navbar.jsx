@@ -355,7 +355,9 @@ export default function Navbar() {
                 </div>
               </>
             ) : (
-              <></>
+              <div className="px-4 py-3">
+                <LanguageSelector />
+              </div>
             )}
           </div>
         )}
