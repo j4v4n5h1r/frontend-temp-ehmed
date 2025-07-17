@@ -182,9 +182,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Glassmorphic Navigation */}
-      <GlassNav />
-
       {/* How It Works Section */}
       <section className="py-16 lg:py-24" style={{ background: "white" }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
