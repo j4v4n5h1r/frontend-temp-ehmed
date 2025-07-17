@@ -91,31 +91,6 @@ export default function Home() {
               Fast, convenient, and always available when you need it most.
             </p>
 
-            {/* Video Section */}
-            <div className="mb-12">
-              <div
-                className="relative mx-auto max-w-4xl rounded-2xl overflow-hidden shadow-2xl"
-                style={{
-                  aspectRatio: "1.77778",
-                  backgroundColor: "rgb(254, 254, 254)",
-                }}
-              >
-                <video
-                  src="https://framerusercontent.com/assets/9iupb2w1hpCaqeMtQoCnSX6RW4s.mp4"
-                  loop
-                  preload="auto"
-                  poster="https://framerusercontent.com/images/k8Hkm7dmWSk151V66VOruDBQIw.png"
-                  playsInline
-                  autoPlay
-                  muted
-                  className="w-full h-full object-cover"
-                  style={{
-                    backgroundColor: "rgba(247, 247, 247, 0)",
-                  }}
-                />
-              </div>
-            </div>
-
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
               <Link href="/stations">
                 <button
