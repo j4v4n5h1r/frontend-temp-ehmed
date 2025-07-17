@@ -850,27 +850,7 @@ export default function Home() {
             <div className="md:col-span-2">
                             <div className="mb-4">
                 <h2 className="text-4xl font-bold text-white">PowerShare</h2>
-              </div>
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 200 80"
-                    width="120"
-                    height="48"
-                    className="hover:scale-105 transition-transform duration-300"
-                  >
-                    <defs>
-                      <clipPath id="footer_logo_clip">
-                        <rect width="200" height="80" x="0" y="0"></rect>
-                      </clipPath>
-                    </defs>
-                    <g clipPath="url(#footer_logo_clip)">
-                      {/* First Layer - Cyan */}
-                      <g
-                        className="animate-pulse"
-                        style={{
-                          animationDelay: "0s",
-                          animationDuration: "2s",
-                        }}
-                      >
+                            </div>
                         <g transform="matrix(1,0,0,1,186.5,13)" opacity="1">
                           <circle cx="0" cy="0" r="6.5" fill="rgb(0,206,255)" />
                         </g>
