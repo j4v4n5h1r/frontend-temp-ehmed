@@ -356,7 +356,7 @@ export default function HowToUsePage() {
               <div className="flex flex-col gap-8 items-center">
                 <div className="w-[290px] h-[290px] rounded-3xl overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=400&fit=crop&crop=center"
+                    src="https://images.pexels.com/photos/9800036/pexels-photo-9800036.jpeg?w=400&h=400&fit=crop&crop=center"
                     alt="Station"
                     className="w-full h-full object-cover"
                   />
@@ -376,7 +376,7 @@ export default function HowToUsePage() {
               <div className="flex flex-col gap-8 items-center">
                 <div className="w-[290px] h-[290px] rounded-3xl overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=400&fit=crop&crop=center"
+                    src="https://images.pexels.com/photos/14528919/pexels-photo-14528919.jpeg?w=400&h=400&fit=crop&crop=center"
                     alt="Vending Machine"
                     className="w-full h-full object-cover"
                   />
