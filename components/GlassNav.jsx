@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function GlassNav() {
   return (
     <div
-      className="fixed top-20 left-1/2 transform -translate-x-1/2 z-40"
+      className="hidden md:flex ml-8"
       style={{
         alignContent: "center",
         alignItems: "center",
@@ -19,15 +19,13 @@ export default function GlassNav() {
           "rgba(0, 0, 0, 0.18) 0px 0.602187px 1.25px, rgba(0, 0, 0, 0.16) 0px 2.28853px 2.5px, rgba(0, 0, 0, 0.06) 0px 10px 3.75px",
         display: "flex",
         flexShrink: "0",
-        gap: "60px",
+        gap: "30px",
         height: "min-content",
         justifyContent: "center",
-        overflowX: "hidden",
-        overflowY: "hidden",
-        paddingBottom: "8px",
-        paddingLeft: "20px",
-        paddingRight: "20px",
-        paddingTop: "8px",
+        paddingBottom: "6px",
+        paddingLeft: "16px",
+        paddingRight: "16px",
+        paddingTop: "6px",
         position: "relative",
       }}
     >
