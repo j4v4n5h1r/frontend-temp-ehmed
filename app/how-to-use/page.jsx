@@ -117,7 +117,7 @@ export default function HowToUsePage() {
         </svg>
       ),
       image:
-        "https://images.unsplash.com/photo-1605349952427-e45b297d6a4a?w=400&h=300&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center",
     },
     {
       step: "06",
