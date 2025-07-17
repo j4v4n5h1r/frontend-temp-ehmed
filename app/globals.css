@@ -556,6 +556,15 @@ body {
   }
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 /* Enhanced Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
