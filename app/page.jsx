@@ -848,7 +848,15 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-                            <div className="mb-4">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="relative">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 200 80"
+                    width="120"
+                    height="48"
+                    className="hover:scale-105 transition-transform duration-300"
+                  >
                     <defs>
                       <clipPath id="footer_logo_clip">
                         <rect width="200" height="80" x="0" y="0"></rect>
@@ -1090,7 +1098,21 @@ export default function Home() {
                     </g>
                   </svg>
                 </div>
-                <h2 className="text-4xl font-bold text-white">PowerShare</h2>
+                <span
+                  className="text-xl font-bold"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgb(0,206,255) 0%, rgb(173,65,187) 25%, rgb(255,221,0) 50%, rgb(255,60,164) 75%, rgb(0,206,255) 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    backgroundSize: "200% 200%",
+                    animation:
+                      "colorShift 3s ease-in-out infinite, logoText 3s ease-in-out infinite",
+                  }}
+                >
+                  PowerShare
+                </span>
               </div>
               <p className="mb-6 max-w-md" style={{ color: "#cbd5e1" }}>
                 The most convenient way to stay charged. Rent power banks from
