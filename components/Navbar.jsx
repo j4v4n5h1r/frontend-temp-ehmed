@@ -234,20 +234,7 @@ export default function Navbar() {
                 </div>
               </>
             ) : (
-              <>
-                <Link
-                  href="/login"
-                  className="font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-3 py-2 rounded-lg transition-all duration-200"
-                >
-                  Login
-                </Link>
-                <Link
-                  href="/register"
-                  className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-primary-600 hover:to-primary-700 hover:-translate-y-0.5 transition-all duration-200 shadow-md"
-                >
-                  Register
-                </Link>
-              </>
+              <></>
             )}
           </div>
 
