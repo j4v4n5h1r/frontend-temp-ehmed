@@ -77,74 +77,42 @@ export default function LocationsPage() {
         </div>
       </section>
 
-      {/* Countries Grid Section */}
+      {/* Station Map Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Available Countries
+              Find Stations Near You
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We're expanding rapidly across multiple countries. Here's where
-              you can find our stations today.
+              Explore our growing network of power bank stations. Click on any
+              location to see available power banks and station details.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {countries.map((country, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="text-4xl">{country.flag}</span>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">
-                      {country.name}
-                    </h3>
-                    <p className="text-gray-600">{country.description}</p>
-                  </div>
-                </div>
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border">
+            <Map showCurrentLocation={true} height="500px" />
+          </div>
 
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">
-                    Major Cities:
-                  </h4>
-                  <div className="grid grid-cols-2 gap-2">
-                    {country.cities.map((city, cityIndex) => (
-                      <div
-                        key={cityIndex}
-                        className="flex items-center gap-2 p-2 bg-white/70 rounded-lg"
-                      >
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                        <span className="text-gray-700 font-medium">
-                          {city}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <Link href="/stations">
-                  <button className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-emerald-700 transition-all duration-300 flex items-center justify-center gap-2">
-                    View Stations
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </button>
-                </Link>
-              </div>
-            ))}
+          <div className="mt-8 text-center">
+            <Link href="/stations">
+              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto">
+                View All Stations
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </button>
+            </Link>
           </div>
         </div>
       </section>
