@@ -1185,6 +1185,7 @@ export default function Home() {
                     </g>
                   </svg>
                 </div>
+                <span className="text-xl font-bold text-white">PowerShare</span>
               </div>
               <p className="mb-6 max-w-md" style={{ color: "#cbd5e1" }}>
                 The most convenient way to stay charged. Rent power banks from
