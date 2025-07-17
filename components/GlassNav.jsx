@@ -110,7 +110,7 @@ export default function GlassNav() {
             }}
           >
             <Link
-              href="/stations"
+              href="/locations"
               className="hover:text-primary-300 transition-colors duration-200"
               style={{
                 cursor: "pointer",
