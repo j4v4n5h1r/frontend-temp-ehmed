@@ -117,7 +117,7 @@ export default function HowToUsePage() {
         </svg>
       ),
       image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=300&fit=crop&crop=center",
     },
     {
       step: "06",
@@ -140,7 +140,7 @@ export default function HowToUsePage() {
         </svg>
       ),
       image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop&crop=center",
     },
   ];
 
