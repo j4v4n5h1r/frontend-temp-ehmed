@@ -463,6 +463,58 @@ body {
   }
 }
 
+@keyframes logoGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow:
+      0 0 20px rgba(16, 185, 129, 0.8),
+      0 0 30px rgba(37, 99, 235, 0.6);
+    transform: scale(1.1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+    transform: scale(1);
+  }
+}
+
+@keyframes logoPulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes logoText {
+  0% {
+    transform: translateY(0px);
+    text-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+  }
+  25% {
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  }
+  50% {
+    transform: translateY(0px);
+    text-shadow: 0 0 15px rgba(37, 99, 235, 0.7);
+  }
+  75% {
+    transform: translateY(-1px);
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  }
+  100% {
+    transform: translateY(0px);
+    text-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+  }
+}
+
 /* Enhanced Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
