@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Map from "../components/Map";
-import GlassNav from "../components/GlassNav";
 
 export default function Home() {
   return (
