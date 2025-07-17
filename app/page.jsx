@@ -25,12 +25,14 @@ export default function Home() {
             muted
             className="w-full h-full object-cover"
           />
-          {/* Overlay for better text readability */}
+          {/* Colorful animated overlay */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(135deg, rgba(241, 245, 249, 0.7) 0%, rgba(224, 247, 250, 0.7) 100%)",
+                "linear-gradient(135deg, rgba(0, 206, 255, 0.3) 0%, rgba(173, 65, 187, 0.2) 25%, rgba(255, 221, 0, 0.3) 50%, rgba(255, 60, 164, 0.2) 75%, rgba(0, 206, 255, 0.3) 100%)",
+              backgroundSize: "200% 200%",
+              animation: "colorShift 8s ease-in-out infinite",
             }}
           />
         </div>
