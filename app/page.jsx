@@ -848,15 +848,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="relative">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 200 80"
-                    width="120"
-                    height="48"
-                    className="hover:scale-105 transition-transform duration-300"
-                  >
+                            <div className="mb-4">
                     <defs>
                       <clipPath id="footer_logo_clip">
                         <rect width="200" height="80" x="0" y="0"></rect>
