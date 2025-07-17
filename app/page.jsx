@@ -12,12 +12,29 @@ export default function Home() {
       }}
     >
       {/* Hero Section */}
-      <section
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
-        style={{
-          background: "linear-gradient(135deg, #f1f5f9 0%, #e0f7fa 100%)",
-        }}
-      >
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            src="https://framerusercontent.com/assets/9iupb2w1hpCaqeMtQoCnSX6RW4s.mp4"
+            loop
+            preload="auto"
+            poster="https://framerusercontent.com/images/k8Hkm7dmWSk151V66VOruDBQIw.png"
+            playsInline
+            autoPlay
+            muted
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay for better text readability */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(241, 245, 249, 0.7) 0%, rgba(224, 247, 250, 0.7) 100%)",
+            }}
+          />
+        </div>
+
         {/* Background Pattern */}
         <div
           className="absolute inset-0"
