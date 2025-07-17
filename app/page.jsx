@@ -1098,21 +1098,7 @@ export default function Home() {
                     </g>
                   </svg>
                 </div>
-                <span
-                  className="text-xl font-bold"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgb(0,206,255) 0%, rgb(173,65,187) 25%, rgb(255,221,0) 50%, rgb(255,60,164) 75%, rgb(0,206,255) 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    backgroundSize: "200% 200%",
-                    animation:
-                      "colorShift 3s ease-in-out infinite, logoText 3s ease-in-out infinite",
-                  }}
-                >
-                  PowerShare
-                </span>
+                <h2 className="text-4xl font-bold text-white">PowerShare</h2>
               </div>
               <p className="mb-6 max-w-md" style={{ color: "#cbd5e1" }}>
                 The most convenient way to stay charged. Rent power banks from
