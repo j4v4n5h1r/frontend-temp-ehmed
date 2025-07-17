@@ -455,6 +455,130 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pricing Section */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-12 flex items-center justify-center gap-12">
+          <div className="flex flex-col max-w-2xl gap-6 pr-12">
+            <p className="text-xs font-medium tracking-wider text-gray-500 uppercase mb-2">
+              PRICING
+            </p>
+            <h1
+              className="text-5xl font-extrabold leading-tight text-gray-900"
+              style={{ fontFamily: "Montserrat, sans-serif" }}
+            >
+              Smart service, affordable price.
+            </h1>
+            <p className="text-base leading-relaxed text-gray-600 mb-2">
+              <span>Pay per minutes or flat price.</span>
+              <br />
+              <span>Just choose the way you're more comfortable with.</span>
+            </p>
+            <div className="mt-4">
+              <img
+                loading="lazy"
+                alt="Payment methods"
+                src="https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a860fbe797cade50ce5d1_payment%20methods.svg"
+                className="inline-block max-w-full"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col max-w-lg gap-6">
+            {/* Pay as you go card */}
+            <div className="bg-gray-100 rounded-3xl p-8 flex flex-col gap-3 relative overflow-hidden">
+              <div className="flex items-center justify-between">
+                <h4
+                  className="text-xl font-extrabold text-gray-900 mb-2"
+                  style={{ fontFamily: "Montserrat, sans-serif" }}
+                >
+                  Pay as you go
+                </h4>
+                <div className="text-xs font-medium tracking-wider text-gray-500 uppercase">
+                  WITH POWERSHARE APPS
+                </div>
+              </div>
+              <div className="text-base leading-relaxed text-gray-700">
+                Rent a PowerShare power bank with the PowerShare app or web app
+                and pay just the minutes of usage.
+              </div>
+              <div className="flex flex-col items-end">
+                <div className="flex items-center gap-4 justify-start mb-6 pt-4">
+                  <Link
+                    href="/pricing"
+                    className="flex items-center gap-2 px-4 py-2 rounded-2xl text-[#22dd88] hover:bg-gray-200 transition-colors"
+                  >
+                    <div className="text-sm font-medium tracking-wide">
+                      Learn more
+                    </div>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path
+                        d="M1 6h10M7 2l4 4-4 4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+              <img
+                loading="lazy"
+                alt="3D Mobile"
+                src="https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a860fbe797c51180ce5d2_3d-mobile.png"
+                className="absolute bottom-[-73px] left-[-6px] h-40 w-auto z-10"
+              />
+            </div>
+
+            {/* Flat price card */}
+            <div className="bg-gray-100 rounded-3xl p-8 flex flex-col gap-3 relative overflow-hidden">
+              <div className="flex items-center justify-between">
+                <h4
+                  className="text-xl font-extrabold text-gray-900 mb-2"
+                  style={{ fontFamily: "Montserrat, sans-serif" }}
+                >
+                  Flat price
+                </h4>
+                <div className="text-xs font-medium tracking-wider text-gray-500 uppercase">
+                  WITH CARDS
+                </div>
+              </div>
+              <div className="text-base leading-relaxed text-gray-700">
+                Tap your card on the PowerShare Station payment terminal or pay
+                with Apple Pay or Google Pay.
+              </div>
+              <div className="flex flex-col items-end">
+                <div className="flex items-center gap-4 justify-start mb-6 pt-4">
+                  <Link
+                    href="/pricing"
+                    className="flex items-center gap-2 px-4 py-2 rounded-2xl text-[#22dd88] hover:bg-gray-200 transition-colors"
+                  >
+                    <div className="text-sm font-medium tracking-wide">
+                      Learn more
+                    </div>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path
+                        d="M1 6h10M7 2l4 4-4 4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+              <img
+                loading="lazy"
+                alt="3D Cards"
+                src="https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a860fbe797c54870ce5d4_3d-cards.png"
+                className="absolute bottom-[-73px] left-[-6px] h-40 w-auto z-10"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* App Download Section */}
       <section
         className="py-16 lg:py-24"
