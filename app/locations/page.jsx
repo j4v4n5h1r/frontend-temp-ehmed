@@ -77,25 +77,6 @@ export default function LocationsPage() {
         </div>
       </section>
 
-      {/* Interactive Map Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Interactive Station Map
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Explore our growing network of power bank stations. Click on any
-              location to see available power banks and station details.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <Map showCurrentLocation={true} height="500px" />
-          </div>
-        </div>
-      </section>
-
       {/* Countries Grid Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
