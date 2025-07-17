@@ -199,52 +199,221 @@ export default function HowToUsePage() {
       </section>
 
       {/* Steps Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Step-by-Step Guide
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Follow these simple steps to start your PowerShare experience
-            </p>
-          </div>
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="flex flex-col gap-24">
+            {/* Step 1 */}
+            <div className="flex items-center gap-16">
+              <div className="flex items-center gap-3">
+                <div className="w-[370px] h-[280px] rounded-3xl overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?w=400&h=300&fit=crop&crop=center"
+                    alt="Find a Station"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
 
-          <div className="space-y-16">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
-              >
-                <div className="flex-1">
-                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div className="flex items-center gap-3">
+                <div className="flex flex-col items-center">
+                  <div className="w-[5px] h-[200px] bg-[#76b82c]"></div>
+                  <div className="w-12 h-12 bg-[#76b82c] rounded-3xl flex items-center justify-center">
+                    <h1 className="text-white text-2xl font-bold">1</h1>
+                  </div>
+                  <div className="w-[5px] h-[200px] bg-[#76b82c]"></div>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3 max-w-[370px]">
+                <h1 className="text-2xl font-bold text-gray-900">
+                  Find a PowerShare Station
+                </h1>
+                <p className="text-base text-gray-600 leading-6">
+                  PowerShare is available at thousands of convenience stores,
+                  malls, airports, and charging stations worldwide. Use our app
+                  or website to find the nearest location.
+                  <br />
+                  <br />
+                  <Link href="/locations" className="underline">
+                    Find the closest location here
+                  </Link>
+                </p>
+
+                {/* Partner logos */}
+                <div className="mt-4 flex items-center gap-2 overflow-hidden h-14">
+                  <div className="flex items-center gap-2 animate-scroll">
                     <img
-                      src={step.image}
-                      alt={step.title}
-                      className="w-full h-64 object-cover"
+                      src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=80&h=27&fit=crop"
+                      alt="Partner 1"
+                      className="h-6 w-auto"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1614680376739-414d95ff43df?w=65&h=22&fit=crop"
+                      alt="Partner 2"
+                      className="h-5 w-auto"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=79&h=27&fit=crop"
+                      alt="Partner 3"
+                      className="h-6 w-auto"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=80&h=27&fit=crop"
+                      alt="Partner 4"
+                      className="h-6 w-auto"
                     />
                   </div>
                 </div>
+              </div>
+            </div>
 
-                <div className="flex-1 text-center lg:text-left">
-                  <div className="relative inline-block mb-6">
-                    <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
-                      {step.icon}
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-orange-400 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-md">
-                      {step.step}
-                    </div>
+            {/* Step 2 */}
+            <div className="flex items-center gap-16">
+              <div className="flex flex-col gap-5 max-w-[370px] text-right">
+                <h1 className="text-2xl font-bold text-gray-900">
+                  Grab a PowerShare power bank and charge on the go
+                </h1>
+                <p className="text-base text-gray-600 leading-6">
+                  No app needed. Renting a PowerShare costs just $2 to $8
+                  depending on your rental duration, along with a returnable
+                  deposit of $15.
+                </p>
+                <p className="text-base text-gray-600 leading-6">
+                  <Link href="/pricing" className="underline">
+                    (Tap here to see detailed pricing.)
+                  </Link>
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="flex flex-col items-center">
+                  <div className="w-[5px] h-[200px] bg-[#76b82c]"></div>
+                  <div className="w-12 h-12 bg-[#76b82c] rounded-3xl flex items-center justify-center">
+                    <h1 className="text-white text-2xl font-bold">2</h1>
                   </div>
+                  <div className="w-[5px] h-[200px] bg-[#76b82c]"></div>
+                </div>
+              </div>
 
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                    {step.title}
-                  </h3>
-                  <p className="text-lg text-gray-600 leading-relaxed">
-                    {step.description}
+              <div className="flex items-center gap-3">
+                <div className="w-[370px] h-[280px] rounded-3xl overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1616430435423-53dd9d4d73b7?w=400&h=300&fit=crop&crop=center"
+                    alt="Grab Power Bank"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="flex items-center gap-16">
+              <div className="flex items-center gap-3">
+                <div className="w-[370px] h-[280px] rounded-3xl overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1605349952427-e45b297d6a4a?w=400&h=300&fit=crop&crop=center"
+                    alt="Return Power Bank"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="flex flex-col items-center">
+                  <div className="w-[5px] h-[200px] bg-[#76b82c]"></div>
+                  <div className="w-12 h-12 bg-[#76b82c] rounded-3xl flex items-center justify-center">
+                    <h1 className="text-white text-2xl font-bold">3</h1>
+                  </div>
+                  <div className="w-[5px] h-[200px] bg-[#76b82c]"></div>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3 max-w-[370px]">
+                <h1 className="text-2xl font-bold text-gray-900">
+                  Return in 7 days, get your deposit back — maybe grab another?
+                  😉
+                </h1>
+                <p className="text-base text-gray-600 leading-6">
+                  You have 7 days from the time you rent PowerShare to return
+                  it, so there's no rush. And when you do return it on-time,
+                  we'll give you back your full deposit. Every week that you're
+                  late, we deduct $2 from your deposit, the max is $15.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Additional Info Section */}
+        <div className="max-w-6xl mx-auto px-8 mt-24">
+          <div className="flex flex-col gap-10">
+            <h1 className="text-4xl font-bold text-gray-900">
+              PowerShare is also available outside of convenience stores.
+            </h1>
+
+            <div className="flex justify-between gap-8">
+              {/* Station */}
+              <div className="flex flex-col gap-8 items-center">
+                <div className="w-[290px] h-[290px] rounded-3xl overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=400&fit=crop&crop=center"
+                    alt="Station"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-center">
+                  <h2 className="text-xl font-bold text-gray-900 mb-3">
+                    Station
+                  </h2>
+                  <p className="text-base text-gray-600 leading-6">
+                    Scan the QR code or simply tap your card to rent a power
+                    bank, then return it to any convenience store or station.
                   </p>
                 </div>
               </div>
-            ))}
+
+              {/* Vending Machine */}
+              <div className="flex flex-col gap-8 items-center">
+                <div className="w-[290px] h-[290px] rounded-3xl overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=400&fit=crop&crop=center"
+                    alt="Vending Machine"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-center">
+                  <h2 className="text-xl font-bold text-gray-900 mb-3">
+                    Vending Machine
+                  </h2>
+                  <p className="text-base text-gray-600 leading-6">
+                    Getting a PowerShare from a vending machine is like getting
+                    a water bottle from a vending machine, except you also pay a
+                    deposit. Return your PowerShare to any convenience store.
+                  </p>
+                </div>
+              </div>
+
+              {/* Events */}
+              <div className="flex flex-col gap-8 items-center">
+                <div className="w-[290px] h-[290px] rounded-3xl overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&h=400&fit=crop&crop=center"
+                    alt="Events"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-center">
+                  <h2 className="text-xl font-bold text-gray-900 mb-3">
+                    Events
+                  </h2>
+                  <p className="text-base text-gray-600 leading-6">
+                    PowerShare is often used at festivals and events around the
+                    world. Don't be surprised if you see us out and about at
+                    your favorite big event.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
