@@ -307,139 +307,150 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 lg:py-24" style={{ background: "#f8fafc" }}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2
-              className="mb-6 font-bold"
+      {/* Animated Colorful Shapes Section */}
+      <section
+        className="py-16 lg:py-24 overflow-hidden"
+        style={{ background: "white" }}
+      >
+        <div className="max-w-screen-xl mx-auto">
+          <div
+            style={{
+              flexDirection: "column",
+              gap: "20px",
+              width: "100%",
+              backgroundColor: "rgb(255, 255, 255)",
+            }}
+          >
+            <div
               style={{
-                fontSize: "clamp(2rem, 4vw, 3rem)",
-                color: "#1e293b",
+                display: "flex",
+                flexDirection: "column",
+                overflowX: "hidden",
+                overflowY: "hidden",
+                width: "100%",
               }}
             >
-              Why Choose PowerShare?
-            </h2>
-            <p
-              className="max-w-2xl mx-auto"
-              style={{
-                fontSize: "1.125rem",
-                color: "#64748b",
-              }}
-            >
-              Experience the future of portable charging with our premium
-              features
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {[
-              {
-                title: "24/7 Access",
-                description: "Available round the clock, wherever you are",
-                icon: (
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                ),
-                color: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
-              },
-              {
-                title: "Fast Charging",
-                description: "High-speed charging for all your devices",
-                icon: (
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                ),
-                color: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
-              },
-              {
-                title: "App Integration",
-                description: "Seamless experience with our mobile app",
-                icon: (
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-                    />
-                  </svg>
-                ),
-                color: "linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)",
-              },
-              {
-                title: "Affordable",
-                description: "Competitive pricing with flexible plans",
-                icon: (
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-                    />
-                  </svg>
-                ),
-                color: "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)",
-              },
-            ].map((feature, index) => (
+              {/* First Row */}
               <div
-                key={index}
-                className="rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-2"
-                style={{ background: "white" }}
+                className="flex items-center py-2"
+                style={{
+                  paddingBottom: "10px",
+                  paddingTop: "10px",
+                  transformStyle: "preserve-3d",
+                  willChange: "transform",
+                  animation: "slideLeft 20s linear infinite",
+                }}
               >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform"
-                  style={{ background: feature.color }}
-                >
-                  {feature.icon}
-                </div>
-                <h3
-                  className="text-lg font-semibold mb-2"
-                  style={{ color: "#1e293b" }}
-                >
-                  {feature.title}
-                </h3>
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: "#64748b" }}
-                >
-                  {feature.description}
-                </p>
+                {[
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190112e59fe7dc8_squircle-5-p-500.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011bbbefe7dc3_squircle-6-p-800.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190113f42fe7dd2_squircle-7-p-500.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190113c39fe7dcd_squircle-8-p-500.png",
+                ]
+                  .concat([
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190112e59fe7dc8_squircle-5-p-500.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011bbbefe7dc3_squircle-6-p-800.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190113f42fe7dd2_squircle-7-p-500.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190113c39fe7dcd_squircle-8-p-500.png",
+                  ])
+                  .map((src, index) => (
+                    <img
+                      key={index}
+                      loading="eager"
+                      alt=""
+                      src={src}
+                      className="flex-shrink-0"
+                      style={{
+                        height: "200px",
+                        marginRight: "20px",
+                        maxWidth: "100%",
+                        verticalAlign: "middle",
+                      }}
+                    />
+                  ))}
               </div>
-            ))}
+
+              {/* Second Row */}
+              <div
+                className="flex items-center py-2"
+                style={{
+                  paddingBottom: "10px",
+                  paddingTop: "10px",
+                  transformStyle: "preserve-3d",
+                  willChange: "transform",
+                  animation: "slideRight 25s linear infinite",
+                }}
+              >
+                {[
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901163fafe7dc0_squircle-3-p-500.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011f13ffe7dbb_squircle-4-p-800.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190116205fe7db6_squircle-2-p-800.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190111464fe7db1_squircle-1-p-500.png",
+                ]
+                  .concat([
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011f13ffe7dbb_squircle-4-p-800.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901163fafe7dc0_squircle-3-p-500.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190116205fe7db6_squircle-2-p-800.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190111464fe7db1_squircle-1-p-500.png",
+                  ])
+                  .map((src, index) => (
+                    <img
+                      key={index}
+                      loading="eager"
+                      alt=""
+                      src={src}
+                      className="flex-shrink-0"
+                      style={{
+                        height: "200px",
+                        marginRight: "20px",
+                        maxWidth: "100%",
+                        verticalAlign: "middle",
+                      }}
+                    />
+                  ))}
+              </div>
+
+              {/* Third Row */}
+              <div
+                className="flex items-center py-2"
+                style={{
+                  paddingBottom: "10px",
+                  paddingTop: "10px",
+                  transformStyle: "preserve-3d",
+                  willChange: "transform",
+                  animation: "slideLeft 30s linear infinite",
+                }}
+              >
+                {[
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901145ecfe7de6_squircle-10-p-500.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901165d1fe7ddb_squircle-9-p-500.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190115f5dfe7de0_squircle-11-p-500.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011cca2fe7dd6_squircle-12-p-500.png",
+                  "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011fc87fe7dec_squircle-13-p-500.png",
+                ]
+                  .concat([
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901165d1fe7ddb_squircle-9-p-500.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901145ecfe7de6_squircle-10-p-500.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190115f5dfe7de0_squircle-11-p-500.png",
+                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901165d1fe7ddb_squircle-9-p-500.png",
+                  ])
+                  .map((src, index) => (
+                    <img
+                      key={index}
+                      loading="eager"
+                      alt=""
+                      src={src}
+                      className="flex-shrink-0"
+                      style={{
+                        height: "200px",
+                        marginRight: "20px",
+                        maxWidth: "100%",
+                        verticalAlign: "middle",
+                      }}
+                    />
+                  ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
