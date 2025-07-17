@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useContext, useState, useRef, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
+import GlassNav from "./GlassNav";
 
 // Profile Dropdown Component
 function ProfileDropdown({ user, logout }) {
