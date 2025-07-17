@@ -455,98 +455,125 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Map/Location Section */}
-      <section className="py-16 lg:py-24" style={{ background: "white" }}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2
-              className="mb-6 font-bold"
-              style={{
-                fontSize: "clamp(2rem, 4vw, 3rem)",
-                color: "#1e293b",
-              }}
-            >
-              Find Stations Near You
-            </h2>
-            <p
-              className="max-w-2xl mx-auto"
-              style={{
-                fontSize: "1.125rem",
-                color: "#64748b",
-              }}
-            >
-              Over 500 stations across major cities and growing every day
+      {/* Pricing Section */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-12 flex items-center justify-center gap-12">
+          <div className="flex flex-col max-w-2xl gap-6 pr-12">
+            <p className="text-xs font-medium tracking-wider text-gray-500 uppercase mb-2">
+              PRICING
             </p>
+            <h1
+              className="text-5xl font-extrabold leading-tight text-gray-900"
+              style={{ fontFamily: "Montserrat, sans-serif" }}
+            >
+              Smart service, affordable price.
+            </h1>
+            <p className="text-base leading-relaxed text-gray-600 mb-2">
+              <span>Pay per minutes or flat price.</span>
+              <br />
+              <span>Just choose the way you're more comfortable with.</span>
+            </p>
+            <div className="mt-4">
+              <img
+                loading="lazy"
+                alt="Payment methods"
+                src="https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a860fbe797cade50ce5d1_payment%20methods.svg"
+                className="inline-block max-w-full"
+              />
+            </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Map showCurrentLocation={true} height="320px" />
+          <div className="flex flex-col max-w-lg gap-6">
+            {/* Pay as you go card */}
+            <div className="bg-gray-100 rounded-3xl p-8 flex flex-col gap-3 relative overflow-hidden">
+              <div className="flex items-center justify-between">
+                <h4
+                  className="text-xl font-extrabold text-gray-900 mb-2"
+                  style={{ fontFamily: "Montserrat, sans-serif" }}
+                >
+                  Pay as you go
+                </h4>
+                <div className="text-xs font-medium tracking-wider text-gray-500 uppercase">
+                  WITH POWERSHARE APPS
+                </div>
+              </div>
+              <div className="text-base leading-relaxed text-gray-700">
+                Rent a PowerShare power bank with the PowerShare app or web app
+                and pay just the minutes of usage.
+              </div>
+              <div className="flex flex-col items-end">
+                <div className="flex items-center gap-4 justify-start mb-6 pt-4">
+                  <Link
+                    href="/pricing"
+                    className="flex items-center gap-2 px-4 py-2 rounded-2xl text-[#22dd88] hover:bg-gray-200 transition-colors"
+                  >
+                    <div className="text-sm font-medium tracking-wide">
+                      Learn more
+                    </div>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path
+                        d="M1 6h10M7 2l4 4-4 4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+              <img
+                loading="lazy"
+                alt="3D Mobile"
+                src="https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a860fbe797c51180ce5d2_3d-mobile.png"
+                className="absolute bottom-[-73px] left-[-6px] h-40 w-auto z-10"
+              />
             </div>
 
-            <div>
-              <h3
-                className="text-2xl font-bold mb-6"
-                style={{ color: "#1e293b" }}
-              >
-                Available Cities
-              </h3>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  "New York",
-                  "Los Angeles",
-                  "Chicago",
-                  "Houston",
-                  "Phoenix",
-                  "Philadelphia",
-                  "San Antonio",
-                  "San Diego",
-                ].map((city, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-3 p-3 rounded-lg transition-colors"
-                    style={{ background: "#f8fafc" }}
-                    onMouseEnter={(e) =>
-                      (e.target.style.background = "#f1f5f9")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.target.style.background = "#f8fafc")
-                    }
-                  >
-                    <div
-                      className="w-2 h-2 rounded-full"
-                      style={{ background: "#10b981" }}
-                    ></div>
-                    <span className="font-medium" style={{ color: "#374151" }}>
-                      {city}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <Link href="/stations">
-                <button
-                  className="mt-6 px-6 py-3 font-semibold rounded-xl transition-colors flex items-center gap-2"
-                  style={{ background: "#2563eb", color: "white" }}
-                  onMouseEnter={(e) => (e.target.style.background = "#1d4ed8")}
-                  onMouseLeave={(e) => (e.target.style.background = "#2563eb")}
+            {/* Flat price card */}
+            <div className="bg-gray-100 rounded-3xl p-8 flex flex-col gap-3 relative overflow-hidden">
+              <div className="flex items-center justify-between">
+                <h4
+                  className="text-xl font-extrabold text-gray-900 mb-2"
+                  style={{ fontFamily: "Montserrat, sans-serif" }}
                 >
-                  View All Locations
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  Flat price
+                </h4>
+                <div className="text-xs font-medium tracking-wider text-gray-500 uppercase">
+                  WITH CARDS
+                </div>
+              </div>
+              <div className="text-base leading-relaxed text-gray-700">
+                Tap your card on the PowerShare Station payment terminal or pay
+                with Apple Pay or Google Pay.
+              </div>
+              <div className="flex flex-col items-end">
+                <div className="flex items-center gap-4 justify-start mb-6 pt-4">
+                  <Link
+                    href="/pricing"
+                    className="flex items-center gap-2 px-4 py-2 rounded-2xl text-[#22dd88] hover:bg-gray-200 transition-colors"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </button>
-              </Link>
+                    <div className="text-sm font-medium tracking-wide">
+                      Learn more
+                    </div>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path
+                        d="M1 6h10M7 2l4 4-4 4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+              <img
+                loading="lazy"
+                alt="3D Cards"
+                src="https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a860fbe797c54870ce5d4_3d-cards.png"
+                className="absolute bottom-[-73px] left-[-6px] h-40 w-auto z-10"
+              />
             </div>
           </div>
         </div>
@@ -620,56 +647,95 @@ export default function Home() {
             </div>
 
             <div className="flex justify-center lg:justify-end">
+              {/* Clean Phone Mockup */}
               <div className="relative">
-                <div
-                  className="w-64 h-96 rounded-3xl p-2 shadow-2xl"
-                  style={{ background: "#1e293b" }}
-                >
+                {/* Decorative Background Elements */}
+                <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-white/10 to-white/5 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-gradient-to-br from-emerald-300/20 to-blue-300/20 rounded-full blur-lg"></div>
+
+                {/* Main Phone Mockup */}
+                <div className="relative z-10">
                   <div
-                    className="w-full h-full rounded-2xl flex items-center justify-center"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #2563eb 0%, #10b981 100%)",
-                    }}
+                    className="w-72 h-[450px] rounded-[2.5rem] p-3 shadow-2xl"
+                    style={{ background: "rgba(30, 41, 59, 0.95)" }}
                   >
-                    <div className="text-center text-white">
-                      <svg
-                        className="w-16 h-16 mx-auto mb-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-                        />
-                      </svg>
-                      <p className="font-semibold">PowerShare App</p>
-                      <p className="text-sm opacity-80">Coming Soon</p>
+                    <div
+                      className="w-full h-full rounded-[2rem] flex flex-col items-center justify-center relative overflow-hidden border border-white/10"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, #2563eb 0%, #10b981 100%)",
+                      }}
+                    >
+                      {/* Phone Screen Header */}
+                      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-white/30 rounded-full"></div>
+
+                      {/* Phone Screen Content */}
+                      <div className="text-center text-white px-8">
+                        <div className="mb-8">
+                          <div className="w-24 h-24 mx-auto mb-6 bg-white/15 rounded-3xl flex items-center justify-center backdrop-blur-sm border border-white/20">
+                            <svg
+                              className="w-12 h-12 text-white"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <h3 className="font-bold text-2xl mb-3">PowerShare</h3>
+                        <p className="text-lg opacity-90 mb-6">Mobile App</p>
+
+                        {/* Feature List */}
+                        <div className="space-y-3 text-left bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                          <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-emerald-300 rounded-full"></div>
+                            <span className="text-sm">
+                              Find nearby stations
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-blue-300 rounded-full"></div>
+                            <span className="text-sm">
+                              Real-time availability
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
+                            <span className="text-sm">Instant QR scanning</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Floating UI Elements */}
+                      <div className="absolute top-8 right-6 w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 17h5l-5 5v-5z"
+                          />
+                        </svg>
+                      </div>
+                      <div className="absolute bottom-8 left-6 w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                        <div className="w-3 h-3 bg-emerald-300 rounded-full"></div>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div
-                  className="absolute -top-4 -right-4 rounded-full p-3 shadow-lg animate-bounce"
-                  style={{ background: "white" }}
-                >
-                  <svg
-                    className="w-6 h-6"
-                    style={{ color: "#10b981" }}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 17h5l-5 5v-5z M5 7h14l-9-3z"
-                    />
-                  </svg>
+                  {/* Download Badge */}
+                  <div className="absolute -top-3 -right-3 bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                    Coming Soon
+                  </div>
                 </div>
               </div>
             </div>
@@ -771,168 +837,6 @@ export default function Home() {
                 <p className="leading-relaxed" style={{ color: "#64748b" }}>
                   {testimonial.content}
                 </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section className="py-16 lg:py-24" style={{ background: "white" }}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2
-              className="mb-6 font-bold"
-              style={{
-                fontSize: "clamp(2rem, 4vw, 3rem)",
-                color: "#1e293b",
-              }}
-            >
-              Simple, Transparent Pricing
-            </h2>
-            <p
-              className="max-w-2xl mx-auto"
-              style={{
-                fontSize: "1.125rem",
-                color: "#64748b",
-              }}
-            >
-              Pay only for what you use. No hidden fees, no subscription
-              required.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {[
-              {
-                name: "Hourly",
-                price: "$2",
-                period: "per hour",
-                description: "Perfect for short trips and quick charges",
-                features: [
-                  "Fast charging cables included",
-                  "Return to any station",
-                  "24/7 customer support",
-                  "Mobile app access",
-                ],
-                popular: false,
-              },
-              {
-                name: "Daily",
-                price: "$8",
-                period: "per day",
-                description: "Best value for all-day adventures",
-                features: [
-                  "All hourly features",
-                  "Up to 24 hours usage",
-                  "Priority customer support",
-                  "Multiple device charging",
-                ],
-                popular: true,
-              },
-              {
-                name: "Weekly",
-                price: "$25",
-                period: "per week",
-                description: "Extended stays and business trips",
-                features: [
-                  "All daily features",
-                  "Up to 7 days usage",
-                  "Dedicated account manager",
-                  "Bulk rental discounts",
-                ],
-                popular: false,
-              },
-            ].map((plan, index) => (
-              <div
-                key={index}
-                className={`relative rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 ${plan.popular ? "transform scale-105" : ""}`}
-                style={{
-                  background: "white",
-                  border: plan.popular
-                    ? "2px solid #2563eb"
-                    : "1px solid #e2e8f0",
-                }}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span
-                      className="px-4 py-1 rounded-full text-sm font-semibold"
-                      style={{ background: "#2563eb", color: "white" }}
-                    >
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-
-                <div className="text-center mb-8">
-                  <h3
-                    className="text-xl font-bold mb-2"
-                    style={{ color: "#1e293b" }}
-                  >
-                    {plan.name}
-                  </h3>
-                  <div className="mb-2">
-                    <span
-                      className="text-4xl font-bold"
-                      style={{ color: "#1e293b" }}
-                    >
-                      {plan.price}
-                    </span>
-                    <span className="ml-1" style={{ color: "#64748b" }}>
-                      {plan.period}
-                    </span>
-                  </div>
-                  <p className="text-sm" style={{ color: "#64748b" }}>
-                    {plan.description}
-                  </p>
-                </div>
-
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center gap-3">
-                      <svg
-                        className="w-5 h-5 flex-shrink-0"
-                        style={{ color: "#10b981" }}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span style={{ color: "#64748b" }}>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link href="/register">
-                  <button
-                    className="w-full py-3 rounded-xl font-semibold transition-all duration-300"
-                    style={{
-                      background: plan.popular ? "#2563eb" : "#f1f5f9",
-                      color: plan.popular ? "white" : "#1e293b",
-                    }}
-                    onMouseEnter={(e) => {
-                      if (plan.popular) {
-                        e.target.style.background = "#1d4ed8";
-                      } else {
-                        e.target.style.background = "#e2e8f0";
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.background = plan.popular
-                        ? "#2563eb"
-                        : "#f1f5f9";
-                    }}
-                  >
-                    Get Started
-                  </button>
-                </Link>
               </div>
             ))}
           </div>
