@@ -933,13 +933,22 @@ export default function Home() {
             <div className="md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
                 <div
-                  className="w-8 h-8 rounded-lg"
+                  className="w-8 h-8 rounded-lg animate-pulse"
                   style={{
                     background:
                       "linear-gradient(135deg, #2563eb 0%, #10b981 100%)",
+                    animation:
+                      "logoGlow 2s ease-in-out infinite alternate, logoPulse 1.5s ease-in-out infinite",
                   }}
                 ></div>
-                <span className="text-xl font-bold">PowerShare</span>
+                <span
+                  className="text-xl font-bold"
+                  style={{
+                    animation: "logoText 3s ease-in-out infinite",
+                  }}
+                >
+                  PowerShare
+                </span>
               </div>
               <p className="mb-6 max-w-md" style={{ color: "#cbd5e1" }}>
                 The most convenient way to stay charged. Rent power banks from
