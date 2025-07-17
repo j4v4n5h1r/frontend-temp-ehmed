@@ -88,6 +88,7 @@ module.exports = {
         "bounce-gentle": "bounceGentle 3s infinite",
         float: "float 6s ease-in-out infinite",
         glow: "glow 2s ease-in-out infinite alternate",
+        scroll: "scroll 15s linear infinite",
       },
       keyframes: {
         fadeIn: {
