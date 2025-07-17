@@ -77,157 +77,94 @@ export default function LocationsPage() {
         </div>
       </section>
 
-      {/* Interactive Map Section */}
-      <section className="py-8 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Map Container with Google Maps Style */}
-          <div className="relative bg-white rounded-lg shadow-lg overflow-hidden">
-            {/* Map Controls Overlay */}
-            <div className="absolute top-4 left-4 z-20 flex flex-col gap-2">
-              <div className="bg-white rounded-lg shadow-md p-3">
-                <div className="flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5 text-blue-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                  <input
-                    type="text"
-                    placeholder="Search locations..."
-                    className="bg-transparent text-sm text-gray-700 placeholder-gray-500 outline-none w-48"
-                  />
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-md p-2">
-                <button className="w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-lg transition-colors">
-                  <svg
-                    className="w-5 h-5 text-gray-700"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                    />
-                  </svg>
-                </button>
-                <button className="w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-lg transition-colors">
-                  <svg
-                    className="w-5 h-5 text-gray-700"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M20 12H4"
-                    />
-                  </svg>
-                </button>
-              </div>
+      {/* Locations Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-10">
+          <div className="flex flex-col gap-8">
+            {/* Header */}
+            <div className="flex flex-col gap-2">
+              <h2 className="text-[#76b82c] font-medium text-2xl font-rubik">
+                Find Us at Over 500+ Locations
+              </h2>
+              <h1
+                className="text-5xl font-bold uppercase tracking-wider"
+                style={{ fontFamily: "Bebas Neue, sans-serif" }}
+              >
+                LOCATIONS
+              </h1>
             </div>
 
-            {/* Map View Controls */}
-            <div className="absolute top-4 right-4 z-20">
-              <div className="bg-white rounded-lg shadow-md p-2 flex flex-col gap-1">
-                <button className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded transition-colors">
-                  Map
-                </button>
-                <button className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded transition-colors">
-                  Satellite
-                </button>
-              </div>
-            </div>
-
-            {/* Current Location Button */}
-            <div className="absolute bottom-20 right-4 z-20">
-              <button className="w-12 h-12 bg-white rounded-lg shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
-                <svg
-                  className="w-6 h-6 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                  />
-                </svg>
+            {/* Country Filter Tabs */}
+            <div className="flex flex-wrap gap-5 items-center">
+              <button className="px-4 py-3 text-[#76b82c] font-medium hover:bg-gray-50 rounded-lg transition-colors">
+                Closest Location
+              </button>
+              <button className="px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors">
+                United States
+              </button>
+              <button className="px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors">
+                Canada
+              </button>
+              <button className="px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors">
+                United Kingdom
+              </button>
+              <button className="px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors">
+                Germany
               </button>
             </div>
 
-            {/* Station Info Card */}
-            <div className="absolute bottom-4 left-4 z-20 bg-white rounded-lg shadow-lg p-4 max-w-xs">
-              <div className="flex items-start gap-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg
-                    className="w-6 h-6 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+            {/* Embedded Map */}
+            <div className="relative w-full h-[619px] bg-gray-100 rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387194.0622732494!2d-74.30932777004716!3d40.69701928188069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sus!4v1635959472632!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              ></iframe>
+
+              {/* Overlay for custom styling */}
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/5 to-transparent"></div>
+            </div>
+
+            {/* Description */}
+            <div className="bg-white pt-8">
+              <p className="text-gray-700 text-base leading-relaxed max-w-4xl">
+                Rent and return at more than 500 locations in major cities
+                worldwide. Our growing network ensures you'll always find a
+                PowerShare station when you need it most.
+              </p>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-[#76b82c] mb-2">
+                  500+
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-gray-900 text-sm">
-                    Times Square Station
-                  </h3>
-                  <p className="text-gray-600 text-xs mb-2">
-                    1564 Broadway, New York, NY
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                      8 Available
-                    </span>
-                    <span className="text-xs text-gray-500">24/7</span>
-                  </div>
-                </div>
+                <div className="text-gray-600 text-sm">Locations</div>
               </div>
-            </div>
-
-            {/* Main Map */}
-            <div className="relative">
-              <Map showCurrentLocation={true} height="600px" />
-            </div>
-          </div>
-
-          {/* Legend */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span>Available Stations</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-              <span>Low Stock</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-              <span>Out of Stock</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-              <span>Your Location</span>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-[#76b82c] mb-2">
+                  50+
+                </div>
+                <div className="text-gray-600 text-sm">Cities</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-[#76b82c] mb-2">
+                  24/7
+                </div>
+                <div className="text-gray-600 text-sm">Available</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-[#76b82c] mb-2">
+                  100K+
+                </div>
+                <div className="text-gray-600 text-sm">Happy Users</div>
+              </div>
             </div>
           </div>
         </div>
