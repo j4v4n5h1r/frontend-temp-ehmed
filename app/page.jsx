@@ -646,150 +646,96 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex justify-center lg:justify-end relative">
-              {/* Animated Background Shapes */}
-              <div className="absolute inset-0 overflow-hidden">
-                <div
-                  className="flex items-center py-2"
-                  style={{
-                    transformStyle: "preserve-3d",
-                    willChange: "transform",
-                    animation: "slideLeft 20s linear infinite",
-                  }}
-                >
-                  {[
-                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190112e59fe7dc8_squircle-5-p-500.png",
-                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011bbbefe7dc3_squircle-6-p-800.png",
-                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190113f42fe7dd2_squircle-7-p-500.png",
-                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190113c39fe7dcd_squircle-8-p-500.png",
-                  ]
-                    .concat([
-                      "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190112e59fe7dc8_squircle-5-p-500.png",
-                      "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011bbbefe7dc3_squircle-6-p-800.png",
-                    ])
-                    .map((src, index) => (
-                      <img
-                        key={index}
-                        loading="eager"
-                        alt=""
-                        src={src}
-                        className="flex-shrink-0 opacity-30"
-                        style={{
-                          height: "150px",
-                          marginRight: "15px",
-                          maxWidth: "100%",
-                          verticalAlign: "middle",
-                        }}
-                      />
-                    ))}
-                </div>
+            <div className="flex justify-center lg:justify-end">
+              {/* Clean Phone Mockup */}
+              <div className="relative">
+                {/* Decorative Background Elements */}
+                <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-white/10 to-white/5 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-gradient-to-br from-emerald-300/20 to-blue-300/20 rounded-full blur-lg"></div>
 
-                <div
-                  className="flex items-center py-2"
-                  style={{
-                    transformStyle: "preserve-3d",
-                    willChange: "transform",
-                    animation: "slideRight 25s linear infinite",
-                    marginTop: "10px",
-                  }}
-                >
-                  {[
-                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901163fafe7dc0_squircle-3-p-500.png",
-                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011f13ffe7dbb_squircle-4-p-800.png",
-                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190116205fe7db6_squircle-2-p-800.png",
-                    "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad0190111464fe7db1_squircle-1-p-500.png",
-                  ]
-                    .concat([
-                      "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad019011f13ffe7dbb_squircle-4-p-800.png",
-                      "https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a84ad01901163fafe7dc0_squircle-3-p-500.png",
-                    ])
-                    .map((src, index) => (
-                      <img
-                        key={index}
-                        loading="eager"
-                        alt=""
-                        src={src}
-                        className="flex-shrink-0 opacity-25"
-                        style={{
-                          height: "120px",
-                          marginRight: "15px",
-                          maxWidth: "100%",
-                          verticalAlign: "middle",
-                        }}
-                      />
-                    ))}
-                </div>
-              </div>
-
-              {/* Main Phone Mockup */}
-              <div className="relative z-10">
-                <div
-                  className="w-64 h-96 rounded-3xl p-2 shadow-2xl backdrop-blur-sm"
-                  style={{ background: "rgba(30, 41, 59, 0.9)" }}
-                >
+                {/* Main Phone Mockup */}
+                <div className="relative z-10">
                   <div
-                    className="w-full h-full rounded-2xl flex items-center justify-center relative overflow-hidden"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #2563eb 0%, #10b981 100%)",
-                    }}
+                    className="w-72 h-[450px] rounded-[2.5rem] p-3 shadow-2xl"
+                    style={{ background: "rgba(30, 41, 59, 0.95)" }}
                   >
-                    {/* Phone Screen Content */}
-                    <div className="text-center text-white z-10">
-                      <div className="mb-6">
-                        <div className="w-20 h-20 mx-auto mb-4 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
-                          <svg
-                            className="w-10 h-10 text-white"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
+                    <div
+                      className="w-full h-full rounded-[2rem] flex flex-col items-center justify-center relative overflow-hidden border border-white/10"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, #2563eb 0%, #10b981 100%)",
+                      }}
+                    >
+                      {/* Phone Screen Header */}
+                      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-white/30 rounded-full"></div>
+
+                      {/* Phone Screen Content */}
+                      <div className="text-center text-white px-8">
+                        <div className="mb-8">
+                          <div className="w-24 h-24 mx-auto mb-6 bg-white/15 rounded-3xl flex items-center justify-center backdrop-blur-sm border border-white/20">
+                            <svg
+                              className="w-12 h-12 text-white"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <h3 className="font-bold text-2xl mb-3">PowerShare</h3>
+                        <p className="text-lg opacity-90 mb-6">Mobile App</p>
+
+                        {/* Feature List */}
+                        <div className="space-y-3 text-left bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                          <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-emerald-300 rounded-full"></div>
+                            <span className="text-sm">
+                              Find nearby stations
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-blue-300 rounded-full"></div>
+                            <span className="text-sm">
+                              Real-time availability
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
+                            <span className="text-sm">Instant QR scanning</span>
+                          </div>
                         </div>
                       </div>
-                      <p className="font-bold text-lg mb-2">PowerShare</p>
-                      <p className="text-sm opacity-90 mb-4">Mobile App</p>
-                      <div className="flex justify-center space-x-2">
-                        <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                        <div
-                          className="w-2 h-2 bg-white/60 rounded-full animate-pulse"
-                          style={{ animationDelay: "0.2s" }}
-                        ></div>
-                        <div
-                          className="w-2 h-2 bg-white/40 rounded-full animate-pulse"
-                          style={{ animationDelay: "0.4s" }}
-                        ></div>
+
+                      {/* Floating UI Elements */}
+                      <div className="absolute top-8 right-6 w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 17h5l-5 5v-5z"
+                          />
+                        </svg>
+                      </div>
+                      <div className="absolute bottom-8 left-6 w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                        <div className="w-3 h-3 bg-emerald-300 rounded-full"></div>
                       </div>
                     </div>
-
-                    {/* Floating Elements inside phone */}
-                    <div className="absolute top-4 right-4 w-8 h-8 bg-white/20 rounded-full animate-pulse"></div>
-                    <div
-                      className="absolute bottom-6 left-4 w-6 h-6 bg-white/15 rounded-full animate-pulse"
-                      style={{ animationDelay: "1s" }}
-                    ></div>
                   </div>
-                </div>
 
-                <div className="absolute -top-4 -right-4 rounded-full p-3 shadow-lg animate-bounce bg-white">
-                  <svg
-                    className="w-6 h-6"
-                    style={{ color: "#10b981" }}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 17h5l-5 5v-5z M5 7h14l-9-3z"
-                    />
-                  </svg>
+                  {/* Download Badge */}
+                  <div className="absolute -top-3 -right-3 bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                    Coming Soon
+                  </div>
                 </div>
               </div>
             </div>
