@@ -780,7 +780,7 @@ export default function Home() {
                 color: "#1e293b",
               }}
             >
-              What Our Users Say
+              {t("home.testimonials.title", "What Our Users Say")}
             </h2>
             <p
               className="max-w-2xl mx-auto"
@@ -789,8 +789,10 @@ export default function Home() {
                 color: "#64748b",
               }}
             >
-              Join thousands of satisfied customers who never worry about
-              battery life
+              {t(
+                "home.testimonials.subtitle",
+                "Join thousands of satisfied customers who never worry about battery life",
+              )}
             </p>
           </div>
 
