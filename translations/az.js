@@ -42,13 +42,99 @@ export default {
 
   // Homepage
   home: {
-    title: "PowerBank İcarə Sistemi",
+    title: "Heç Vaxt Enerjiniz Bitməsin",
     subtitle: "İstənilən vaxt, istənilən yerdə PowerBank icarəyə alın",
     description:
-      "Ən yaxın şarj stansiyasını tapın və dərhal powerbank icarəyə alın",
-    findStations: "Stansiyaları Tap",
+      "Saniyələr ərzində hər yerdə powerbank icarəyə alın. Sürətli, rahat və ən çox ehtiyacınız olanda həmişə əlçatandır.",
+    findStations: "Stansiya Tap",
     howItWorks: "Necə İşləyir",
     getStarted: "Başla",
+    downloadApp: "Tətbiqi Yüklə",
+    steps: {
+      step1: {
+        title: "QR Kodu Skan Et",
+        description:
+          "Stansiya tapın və telefon kameranız və ya tətbiqimizlə QR kodu skan edin",
+      },
+      step2: {
+        title: "PowerBank Seç",
+        description:
+          "Stansiyadan mövcud powerbank seçin və dərhal şarj etməyə başlayın",
+      },
+      step3: {
+        title: "İstənilən Yerdə Qaytarın",
+        description:
+          "İşiniz bitdikdə powerbank-ı istənilən stansiyaya qaytarın. Bu qədər sadə!",
+      },
+    },
+    subtitle2: "Üç sadə addımda enerjini artır",
+    pricing: {
+      title: "Ağıllı xidmət, münasib qiymət.",
+      subtitle:
+        "Dəqiqə başına və ya sabit qiymət ödəyin. Sadəcə özünüzə daha uyğun olanı seçin.",
+      payAsYouGo: "İstifadə etdikcə ödə",
+      payAsYouGoDesc:
+        "PowerShare tətbiqi və ya web tətbiqi ilə PowerShare powerbank icarəyə alın və sadəcə istifadə dəqiqələrini ödəyin.",
+      flatPrice: "Sabit qiymət",
+      flatPriceDesc:
+        "Kartınızı PowerShare Stansiya ödəniş terminalına toxundurun və ya Apple Pay və ya Google Pay ilə ödəyin.",
+      learnMore: "Ətraflı öyrən",
+      withApps: "POWERSHARE TƏTBİQLƏRİ İLƏ",
+      withCards: "KARTLARLA",
+    },
+    app: {
+      title: "PowerShare Tətbiqini Əldə Et",
+      description:
+        "Stansiyaları tapmaq, powerbank icarəyə almaq və hesabınızı idarə etməyin ən sürətli yolu üçün tətbiqimizi yükləyin.",
+      appStore: "App Store",
+      googlePlay: "Google Play",
+      downloadOn: "Yüklə",
+      getItOn: "Əldə et",
+      features: {
+        findStations: "Yaxın stansiyaları tap",
+        realTime: "Real vaxt mövcudluq",
+        qrScanning: "Ani QR skan",
+      },
+      comingSoon: "Tezliklə",
+    },
+    testimonials: {
+      title: "İstifadəçilərimiz Nə Deyir",
+      subtitle:
+        "Batareya həyatı üçün narahat olmayan minlərlə məmnun müştəriyə qoşul",
+      sarah: {
+        name: "Sarah Johnson",
+        role: "Tez-tez Səyahət Edən",
+        content:
+          "PowerShare səyahətimi xilas etdi! Hava limanında düz stansiya tapdım və bütün səyahət boyu telefonumu şarj saxladım. Səyahətçilər üçün tamamilə vacibdir.",
+      },
+      mike: {
+        name: "Mike Chen",
+        role: "Kollec Tələbəsi",
+        content:
+          "Super münasib və rahat. Düz kampusda stansiya var və tətbiq icarəyə almağı və qaytarmağı belə asanlaşdırır. Tələbələr üçün oyunu dəyişdirən!",
+      },
+      emma: {
+        name: "Emma Davis",
+        role: "Biznes M��təxəssisi",
+        content:
+          "Etibarlılıq mükəmməldir. Konfrans və uzun görüşlər zamanı PowerShare istifadə edirəm. Heç vaxt mövcud powerbank tapmaqla bağlı problem yaşamadım.",
+      },
+    },
+    footer: {
+      description:
+        "Şarjda qalmanın ən rahat yolu. Ölkə daxilindəki stansiyalardan powerbank icarəyə alın və heç vaxt batareyanız bitməsin.",
+      company: "Şirkət",
+      aboutUs: "Haqqımızda",
+      careers: "Karyera",
+      contact: "Əlaqə",
+      blog: "Bloq",
+      support: "Dəstək",
+      helpCenter: "Yardım Mərkəzi",
+      termsOfService: "Xidmət Şərtləri",
+      privacyPolicy: "Məxfilik Siyasəti",
+      account: "Hesab",
+      allRightsReserved: "Bütün hüquqlar qorunur",
+    },
   },
 
   // Auth
