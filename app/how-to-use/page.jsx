@@ -238,7 +238,7 @@ export default function HowToUsePage() {
 
               <div className="order-3 lg:order-3 flex flex-col gap-3 w-full lg:max-w-[370px] text-center lg:text-left">
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
-                  Find a PowerShare Station
+                  {t("howToUse.steps.step1.title", "Find a PowerShare Station")}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
                   PowerShare is available at thousands of convenience stores,
@@ -303,7 +303,10 @@ export default function HowToUsePage() {
 
               <div className="order-3 lg:order-1 flex flex-col gap-3 w-full lg:max-w-[370px] text-center lg:text-right">
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
-                  Grab a PowerShare power bank and charge on the go
+                  {t(
+                    "howToUse.steps.step2.title",
+                    "Grab a PowerShare power bank and charge on the go",
+                  )}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
                   No app needed. Renting a PowerShare costs just $2 to $8
@@ -347,8 +350,10 @@ export default function HowToUsePage() {
 
               <div className="order-3 lg:order-3 flex flex-col gap-3 w-full lg:max-w-[370px] text-center lg:text-left">
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
-                  Return in 7 days, get your deposit back — maybe grab another?
-                  😉
+                  {t(
+                    "howToUse.steps.step3.title",
+                    "Return in 7 days, get your deposit back — maybe grab another? 😉",
+                  )}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
                   You have 7 days from the time you rent PowerShare to return
@@ -365,7 +370,10 @@ export default function HowToUsePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20 lg:mt-24">
           <div className="flex flex-col gap-8 sm:gap-10">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 text-center">
-              PowerShare is also available outside of convenience stores.
+              {t(
+                "howToUse.additionalInfo",
+                "PowerShare is also available outside of convenience stores.",
+              )}
             </h1>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -380,7 +388,7 @@ export default function HowToUsePage() {
                 </div>
                 <div className="text-center">
                   <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
-                    Station
+                    {t("howToUse.stationTypes.station", "Station")}
                   </h2>
                   <p className="text-sm sm:text-base text-gray-600 leading-6 px-4">
                     Scan the QR code or simply tap your card to rent a power
@@ -400,7 +408,10 @@ export default function HowToUsePage() {
                 </div>
                 <div className="text-center">
                   <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
-                    Vending Machine
+                    {t(
+                      "howToUse.stationTypes.vendingMachine",
+                      "Vending Machine",
+                    )}
                   </h2>
                   <p className="text-sm sm:text-base text-gray-600 leading-6 px-4">
                     Getting a PowerShare from a vending machine is like getting
@@ -421,7 +432,7 @@ export default function HowToUsePage() {
                 </div>
                 <div className="text-center">
                   <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
-                    Events
+                    {t("howToUse.stationTypes.events", "Events")}
                   </h2>
                   <p className="text-sm sm:text-base text-gray-600 leading-6 px-4">
                     PowerShare is often used at festivals and events around the
