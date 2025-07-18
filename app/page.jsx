@@ -459,18 +459,19 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="flex flex-col gap-6">
               <p className="text-xs font-medium tracking-wider text-gray-500 uppercase mb-2">
-                PRICING
+                {t("nav.pricing", "PRICING").toUpperCase()}
               </p>
               <h1
                 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
-                Smart service, affordable price.
+                {t("home.pricing.title", "Smart service, affordable price.")}
               </h1>
               <p className="text-base leading-relaxed text-gray-600 mb-2">
-                <span>Pay per minutes or flat price.</span>
-                <br />
-                <span>Just choose the way you're more comfortable with.</span>
+                {t(
+                  "home.pricing.subtitle",
+                  "Pay per minutes or flat price. Just choose the way you're more comfortable with.",
+                )}
               </p>
               <div className="mt-4">
                 <img
@@ -490,15 +491,17 @@ export default function Home() {
                     className="text-lg sm:text-xl font-extrabold text-gray-900"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
-                    Pay as you go
+                    {t("home.pricing.payAsYouGo", "Pay as you go")}
                   </h4>
                   <div className="text-xs font-medium tracking-wider text-gray-500 uppercase">
-                    WITH POWERSHARE APPS
+                    {t("home.pricing.withApps", "WITH POWERSHARE APPS")}
                   </div>
                 </div>
                 <div className="text-sm sm:text-base leading-relaxed text-gray-700 pr-16 sm:pr-20">
-                  Rent a PowerShare power bank with the PowerShare app or web
-                  app and pay just the minutes of usage.
+                  {t(
+                    "home.pricing.payAsYouGoDesc",
+                    "Rent a PowerShare power bank with the PowerShare app or web app and pay just the minutes of usage.",
+                  )}
                 </div>
                 <div className="flex items-center gap-4 justify-start pt-2">
                   <Link
