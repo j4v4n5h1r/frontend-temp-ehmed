@@ -29,21 +29,22 @@ function ProfileDropdown({ user, logout }) {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 p-1 rounded-lg hover:bg-primary-50 transition-colors"
       >
-        <div className="w-8 h-8 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
+        <div className="w-9 h-9 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
           <span className="text-primary-700 font-bold text-sm">
-            {user.profile?.data?.user?.firstName?.charAt(0) ||
-              user.profile?.data?.user?.name?.charAt(0) ||
-              user.profile?.data?.user?.email?.charAt(0) ||
+            {user?.profile?.data?.user?.firstName?.charAt(0) ||
+              user?.profile?.data?.user?.name?.charAt(0) ||
+              user?.profile?.data?.user?.email?.charAt(0) ||
               "U"}
           </span>
         </div>
         <span className="text-sm font-medium text-neutral-700 hidden lg:block">
-          {user.profile?.data?.user?.firstName ||
-            user.profile?.data?.user?.name ||
-            user.profile?.data?.user?.email}
+          {user?.profile?.data?.user?.firstName ||
+            user?.profile?.data?.user?.name ||
+            user?.profile?.data?.user?.email ||
+            "User"}
         </span>
         <svg
-          className={`w-4 h-4 text-neutral-600 transition-transform ${
+          className={`w-5 h-5 text-neutral-600 transition-transform ${
             isOpen ? "rotate-180" : ""
           }`}
           fill="none"
@@ -63,23 +64,23 @@ function ProfileDropdown({ user, logout }) {
         <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
           <div className="px-4 py-3 border-b border-neutral-100">
             <p className="text-sm font-medium text-neutral-900">
-              {user.profile?.data?.user?.firstName ||
-                user.profile?.data?.user?.name ||
+              {user?.profile?.data?.user?.firstName ||
+                user?.profile?.data?.user?.name ||
                 "User"}{" "}
-              {user.profile?.data?.user?.lastName || ""}
+              {user?.profile?.data?.user?.lastName || ""}
             </p>
             <p className="text-sm text-neutral-600 truncate">
-              {user.profile?.data?.user?.email}
+              {user?.profile?.data?.user?.email || ""}
             </p>
           </div>
 
           <Link
             href="/profile"
-            className="flex items-center gap-3 px-4 py-2 text-sm text-neutral-700 hover:bg-primary-50 transition-colors"
+            className="flex items-center gap-3 px-4 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-black transition-colors"
             onClick={() => setIsOpen(false)}
           >
             <svg
-              className="w-4 h-4"
+              className="w-5 h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -96,11 +97,11 @@ function ProfileDropdown({ user, logout }) {
 
           <Link
             href="/my-rentals"
-            className="flex items-center gap-3 px-4 py-2 text-sm text-neutral-700 hover:bg-primary-50 transition-colors"
+            className="flex items-center gap-3 px-4 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-black transition-colors"
             onClick={() => setIsOpen(false)}
           >
             <svg
-              className="w-4 h-4"
+              className="w-5 h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -117,11 +118,11 @@ function ProfileDropdown({ user, logout }) {
 
           <Link
             href="/payments"
-            className="flex items-center gap-3 px-4 py-2 text-sm text-neutral-700 hover:bg-primary-50 transition-colors"
+            className="flex items-center gap-3 px-4 py-2 text-sm text-neutral-700 hover:bg-primary-50 hover:text-black transition-colors"
             onClick={() => setIsOpen(false)}
           >
             <svg
-              className="w-4 h-4"
+              className="w-5 h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -142,10 +143,10 @@ function ProfileDropdown({ user, logout }) {
                 logout();
                 setIsOpen(false);
               }}
-              className="flex items-center gap-3 w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+              className="flex items-center gap-3 w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-black transition-colors"
             >
               <svg
-                className="w-4 h-4"
+                className="w-5 h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -169,17 +170,40 @@ function ProfileDropdown({ user, logout }) {
 export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        // Scrolling down and past 100px
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY.current) {
+        // Scrolling up
+        setIsVisible(true);
+      }
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="bg-white/95 backdrop-blur-lg border-b border-primary-100 shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 sm:h-20">
+    <nav
+      className={`bg-white/95 backdrop-blur-lg border-b border-primary-100 shadow-sm fixed top-0 w-full z-50 transition-transform duration-300 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
+      <div className="w-full mx-auto px-4 sm:px-8 lg:px-16">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           <div className="flex items-center gap-4">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-md">
+            <Link href="/" className="flex items-center gap-3 flex-shrink-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-md">
                 <svg
-                  className="w-4 h-4 sm:w-5 sm:h-5 text-white"
+                  className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -190,71 +214,68 @@ export default function Navbar() {
                   />
                 </svg>
               </div>
-              <span className="text-lg sm:text-xl font-black text-neutral-900 tracking-tight">
+              <span className="text-xl sm:text-2xl font-black text-neutral-900 tracking-tight">
                 PowerShare
               </span>
             </Link>
-
-            {/* Glassmorphic Navigation */}
-            <GlassNav />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
-            {user ? (
-              <>
-                <Link
-                  href="/dashboard"
-                  className="font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-3 py-2 rounded-lg transition-all duration-200"
-                >
-                  Dashboard
-                </Link>
-                <Link
-                  href="/stations"
-                  className="font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-3 py-2 rounded-lg transition-all duration-200"
-                >
-                  Stations
-                </Link>
-                <Link
-                  href="/rental"
-                  className="font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-3 py-2 rounded-lg transition-all duration-200"
-                >
-                  Rental
-                </Link>
-                <Link
-                  href="/profile"
-                  className="font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-3 py-2 rounded-lg transition-all duration-200"
-                >
-                  Profile
-                </Link>
-                {user?.profile?.data?.user?.role === "admin" && (
+          <div className="hidden md:flex items-center justify-center flex-1">
+            <div className="flex items-center gap-10">
+              <GlassNav />
+              {user && (
+                <>
                   <Link
-                    href="/admin"
-                    className="font-semibold text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-3 py-2 rounded-lg transition-all duration-200"
+                    href="/dashboard"
+                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-2 rounded-lg transition-all duration-200"
                   >
-                    Admin
+                    Dashboard
                   </Link>
-                )}
+                  <Link
+                    href="/stations"
+                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-2 rounded-lg transition-all duration-200"
+                  >
+                    Stations
+                  </Link>
+                  <Link
+                    href="/rental"
+                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-2 rounded-lg transition-all duration-200"
+                  >
+                    Rental
+                  </Link>
+                  <Link
+                    href="/profile"
+                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-2 rounded-lg transition-all duration-200"
+                  >
+                    Profile
+                  </Link>
+                  {user?.profile?.data?.user?.role === "admin" && (
+                    <Link
+                      href="/admin"
+                      className="font-semibold text-red-600 hover:text-black hover:bg-red-50 border border-red-600 px-4 py-2 rounded-lg transition-all duration-200"
+                    >
+                      Admin
+                    </Link>
+                  )}
+                </>
+              )}
+            </div>
+          </div>
 
-                <div className="flex items-center gap-3 pl-3 border-l border-neutral-200">
-                  <LanguageSelector />
-                  <ProfileDropdown user={user} logout={logout} />
-                </div>
-              </>
-            ) : (
-              <div className="flex items-center gap-3">
-                <LanguageSelector />
-              </div>
-            )}
+          {/* Right-aligned Language Selector and Profile */}
+          <div className="flex items-center gap-4">
+            <LanguageSelector />
+            {user && <ProfileDropdown user={user} logout={logout} />}
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-colors"
+            className="md:hidden p-2 rounded-lg text-neutral-600 hover:text-black hover:bg-primary-50 transition-colors"
           >
             <svg
-              className="w-6 h-6"
+              className="w-7 h-7"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -284,50 +305,51 @@ export default function Navbar() {
             {user ? (
               <>
                 <div className="flex items-center gap-3 px-4 py-3 bg-primary-50 rounded-lg mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
-                    <span className="text-primary-700 font-bold">
-                      {user.profile?.data?.user?.firstName?.charAt(0) ||
-                        user.profile?.data?.user?.name?.charAt(0) ||
-                        user.profile?.data?.user?.email?.charAt(0) ||
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
+                    <span className="text-primary-700 font-bold text-lg">
+                      {user?.profile?.data?.user?.firstName?.charAt(0) ||
+                        user?.profile?.data?.user?.name?.charAt(0) ||
+                        user?.profile?.data?.user?.email?.charAt(0) ||
                         "U"}
                     </span>
                   </div>
                   <div>
-                    <div className="font-semibold text-neutral-900">
-                      {user.profile?.data?.user?.firstName ||
-                        user.profile?.data?.user?.name ||
-                        user.profile?.data?.user?.email}
+                    <div className="font-semibold text-neutral-900 text-lg">
+                      {user?.profile?.data?.user?.firstName ||
+                        user?.profile?.data?.user?.name ||
+                        user?.profile?.data?.user?.email ||
+                        "User"}
                     </div>
                     <div className="text-sm text-neutral-600">
-                      {user.profile?.data?.user?.role || "User"}
+                      {user?.profile?.data?.user?.role || "User"}
                     </div>
                   </div>
                 </div>
 
                 <Link
                   href="/dashboard"
-                  className="block font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                  className="block font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Dashboard
                 </Link>
                 <Link
                   href="/stations"
-                  className="block font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                  className="block font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Stations
                 </Link>
                 <Link
                   href="/rental"
-                  className="block font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                  className="block font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Rental
                 </Link>
                 <Link
                   href="/profile"
-                  className="block font-semibold text-neutral-700 hover:text-primary-600 hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                  className="block font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Profile
@@ -335,7 +357,7 @@ export default function Navbar() {
                 {user?.profile?.data?.user?.role === "admin" && (
                   <Link
                     href="/admin"
-                    className="block font-semibold text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-4 py-3 rounded-lg transition-all duration-200 mx-4"
+                    className="block font-semibold text-red-600 hover:text-black hover:bg-red-50 border border-red-600 px-4 py-3 rounded-lg transition-all duration-200 mx-4"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Admin Panel
