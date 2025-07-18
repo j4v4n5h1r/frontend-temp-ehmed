@@ -43,11 +43,11 @@ export default function LocationsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 overflow-hidden">
+      <section className="relative pt-16 sm:pt-20 pb-12 sm:pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-emerald-600/10"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
                 Find Us at Over
               </span>
@@ -56,19 +56,19 @@ export default function LocationsPage() {
                 500+ Locations
               </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
               PowerShare stations are available in major cities worldwide.
               <br className="hidden sm:block" />
               Find a station near you and never run out of power again.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/stations">
-                <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
                   Find Nearest Station
                 </button>
               </Link>
               <Link href="/register">
-                <button className="px-8 py-4 bg-white text-gray-700 font-semibold rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-700 font-semibold rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
                   Get Started
                 </button>
               </Link>
@@ -78,16 +78,16 @@ export default function LocationsPage() {
       </section>
 
       {/* Locations Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-10">
-          <div className="flex flex-col gap-8">
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="flex flex-col gap-6 sm:gap-8">
             {/* Header */}
-            <div className="flex flex-col gap-2">
-              <h2 className="text-[#76b82c] font-medium text-2xl font-rubik">
+            <div className="flex flex-col gap-2 text-center sm:text-left">
+              <h2 className="text-[#76b82c] font-medium text-xl sm:text-2xl font-rubik">
                 Find Us at Over 500+ Locations
               </h2>
               <h1
-                className="text-5xl font-bold uppercase tracking-wider"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wider"
                 style={{ fontFamily: "Bebas Neue, sans-serif" }}
               >
                 LOCATIONS
@@ -95,26 +95,26 @@ export default function LocationsPage() {
             </div>
 
             {/* Country Filter Tabs */}
-            <div className="flex flex-wrap gap-5 items-center">
-              <button className="px-4 py-3 text-[#76b82c] font-medium hover:bg-gray-50 rounded-lg transition-colors">
+            <div className="flex flex-wrap gap-3 sm:gap-5 items-center justify-center sm:justify-start">
+              <button className="px-3 sm:px-4 py-2 sm:py-3 text-[#76b82c] font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
                 Closest Location
               </button>
-              <button className="px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors">
+              <button className="px-3 sm:px-4 py-2 sm:py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
                 United States
               </button>
-              <button className="px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors">
+              <button className="px-3 sm:px-4 py-2 sm:py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
                 Canada
               </button>
-              <button className="px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors">
+              <button className="px-3 sm:px-4 py-2 sm:py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
                 United Kingdom
               </button>
-              <button className="px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors">
+              <button className="px-3 sm:px-4 py-2 sm:py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
                 Germany
               </button>
             </div>
 
             {/* Embedded Map */}
-            <div className="relative w-full h-[619px] bg-gray-100 rounded-lg overflow-hidden">
+            <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[619px] bg-gray-100 rounded-lg overflow-hidden">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387194.0622732494!2d-74.30932777004716!3d40.69701928188069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sus!4v1635959472632!5m2!1sen!2sus"
                 width="100%"
@@ -131,8 +131,8 @@ export default function LocationsPage() {
             </div>
 
             {/* Description */}
-            <div className="bg-white pt-8">
-              <p className="text-gray-700 text-base leading-relaxed max-w-4xl">
+            <div className="bg-white pt-6 sm:pt-8">
+              <p className="text-gray-700 text-sm sm:text-base leading-relaxed max-w-4xl text-center sm:text-left mx-auto sm:mx-0 px-4 sm:px-0">
                 Rent and return at more than 500 locations in major cities
                 worldwide. Our growing network ensures you'll always find a
                 PowerShare station when you need it most.
@@ -140,45 +140,107 @@ export default function LocationsPage() {
             </div>
 
             {/* Quick Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-4">
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#76b82c] mb-2">
+                <div className="text-2xl sm:text-3xl font-bold text-[#76b82c] mb-1 sm:mb-2">
                   500+
                 </div>
-                <div className="text-gray-600 text-sm">Locations</div>
+                <div className="text-gray-600 text-xs sm:text-sm">
+                  Locations
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#76b82c] mb-2">
+                <div className="text-2xl sm:text-3xl font-bold text-[#76b82c] mb-1 sm:mb-2">
                   50+
                 </div>
-                <div className="text-gray-600 text-sm">Cities</div>
+                <div className="text-gray-600 text-xs sm:text-sm">Cities</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#76b82c] mb-2">
+                <div className="text-2xl sm:text-3xl font-bold text-[#76b82c] mb-1 sm:mb-2">
                   24/7
                 </div>
-                <div className="text-gray-600 text-sm">Available</div>
+                <div className="text-gray-600 text-xs sm:text-sm">
+                  Available
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#76b82c] mb-2">
+                <div className="text-2xl sm:text-3xl font-bold text-[#76b82c] mb-1 sm:mb-2">
                   100K+
                 </div>
-                <div className="text-gray-600 text-sm">Happy Users</div>
+                <div className="text-gray-600 text-xs sm:text-sm">
+                  Happy Users
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Country Details Section */}
+      <section className="py-12 sm:py-16 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Available Countries
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+              We're expanding rapidly to serve you better
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {countries.map((country, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-shadow"
+              >
+                <div className="text-center mb-4">
+                  <div className="text-3xl sm:text-4xl mb-2">
+                    {country.flag}
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
+                    {country.name}
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-4">
+                    {country.description}
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-gray-900 text-sm sm:text-base">
+                    Major Cities:
+                  </h4>
+                  <div className="flex flex-wrap gap-1 sm:gap-2">
+                    {country.cities.slice(0, 4).map((city, cityIndex) => (
+                      <span
+                        key={cityIndex}
+                        className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium"
+                      >
+                        {city}
+                      </span>
+                    ))}
+                    {country.cities.length > 4 && (
+                      <span className="text-gray-500 text-xs">
+                        +{country.cities.length - 4} more
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Statistics Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-emerald-600">
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-blue-600 to-emerald-600">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12">
               Our Growing Network
             </h2>
 
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
               {[
                 { number: "500+", label: "Stations" },
                 { number: "50+", label: "Cities" },
@@ -186,10 +248,12 @@ export default function LocationsPage() {
                 { number: "24/7", label: "Available" },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-4xl md:text-5xl font-bold mb-2">
+                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-lg opacity-90">{stat.label}</div>
+                  <div className="text-sm sm:text-lg opacity-90">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -198,24 +262,24 @@ export default function LocationsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
               Ready to Get Started?
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 px-4">
               Join thousands of users who never worry about battery life. Find a
               station near you and experience the convenience of PowerShare.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/stations">
-                <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
                   Find Station Now
                 </button>
               </Link>
               <Link href="/register">
-                <button className="px-8 py-4 bg-white text-gray-700 font-semibold rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-700 font-semibold rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
                   Create Account
                 </button>
               </Link>
