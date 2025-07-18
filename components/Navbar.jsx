@@ -8,6 +8,7 @@ import LanguageSelector from "./LanguageSelector";
 
 // Profile Dropdown Component
 function ProfileDropdown({ user, logout }) {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -93,7 +94,7 @@ function ProfileDropdown({ user, logout }) {
                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
               />
             </svg>
-            Profile Settings
+            {t("profile.title", "Profile Settings")}
           </Link>
 
           <Link
@@ -114,7 +115,7 @@ function ProfileDropdown({ user, logout }) {
                 d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V9a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
               />
             </svg>
-            My Rentals
+            {t("rentals.title", "My Rentals")}
           </Link>
 
           <Link
@@ -135,7 +136,7 @@ function ProfileDropdown({ user, logout }) {
                 d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
               />
             </svg>
-            Payment History
+            {t("payments.title", "Payment History")}
           </Link>
 
           <div className="border-t border-neutral-100 mt-1">
@@ -159,7 +160,7 @@ function ProfileDropdown({ user, logout }) {
                   d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                 />
               </svg>
-              Sign Out
+              {t("auth.signOut", "Sign Out")}
             </button>
           </div>
         </div>
@@ -170,6 +171,7 @@ function ProfileDropdown({ user, logout }) {
 
 export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
