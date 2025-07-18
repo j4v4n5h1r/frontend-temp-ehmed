@@ -96,20 +96,20 @@ export default function LocationsPage() {
             {/* Header */}
             <div className="flex flex-col gap-2 text-center sm:text-left">
               <h2 className="text-[#76b82c] font-medium text-xl sm:text-2xl font-rubik">
-                Find Us at Over 500+ Locations
+                {t("locations.title", "Find Us at Over 500+ Locations")}
               </h2>
               <h1
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wider"
                 style={{ fontFamily: "Bebas Neue, sans-serif" }}
               >
-                LOCATIONS
+                {t("locations.locationsTitle", "LOCATIONS")}
               </h1>
             </div>
 
             {/* Country Filter Tabs */}
             <div className="flex flex-wrap gap-3 sm:gap-5 items-center justify-center sm:justify-start">
               <button className="px-3 sm:px-4 py-2 sm:py-3 text-[#76b82c] font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
-                Closest Location
+                {t("locations.closestLocation", "Closest Location")}
               </button>
               <button className="px-3 sm:px-4 py-2 sm:py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
                 United States
@@ -145,9 +145,10 @@ export default function LocationsPage() {
             {/* Description */}
             <div className="bg-white pt-6 sm:pt-8">
               <p className="text-gray-700 text-sm sm:text-base leading-relaxed max-w-4xl text-center sm:text-left mx-auto sm:mx-0 px-4 sm:px-0">
-                Rent and return at more than 500 locations in major cities
-                worldwide. Our growing network ensures you'll always find a
-                PowerShare station when you need it most.
+                {t(
+                  "locations.description",
+                  "Rent and return at more than 500 locations in major cities worldwide. Our growing network ensures you'll always find a PowerShare station when you need it most.",
+                )}
               </p>
             </div>
 
