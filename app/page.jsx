@@ -149,7 +149,7 @@ export default function Home() {
                     d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
                   />
                 </svg>
-                Download App
+                {t("home.downloadApp", "Download App")}
               </button>
             </div>
           </div>
@@ -196,7 +196,7 @@ export default function Home() {
                 color: "#64748b",
               }}
             >
-              Get powered up in three simple steps
+              {t("home.subtitle2", "Get powered up in three simple steps")}
             </p>
           </div>
 
@@ -204,9 +204,11 @@ export default function Home() {
             {[
               {
                 step: "01",
-                title: "Scan QR Code",
-                description:
+                title: t("home.steps.step1.title", "Scan QR Code"),
+                description: t(
+                  "home.steps.step1.description",
                   "Find a station and scan the QR code with your phone camera or our app",
+                ),
                 icon: (
                   <svg
                     className="w-6 h-6"
@@ -225,9 +227,11 @@ export default function Home() {
               },
               {
                 step: "02",
-                title: "Pick Power Bank",
-                description:
+                title: t("home.steps.step2.title", "Pick Power Bank"),
+                description: t(
+                  "home.steps.step2.description",
                   "Choose an available power bank from the station and start charging immediately",
+                ),
                 icon: (
                   <svg
                     className="w-6 h-6"
@@ -246,9 +250,11 @@ export default function Home() {
               },
               {
                 step: "03",
-                title: "Return Anywhere",
-                description:
+                title: t("home.steps.step3.title", "Return Anywhere"),
+                description: t(
+                  "home.steps.step3.description",
                   "Return the power bank to any station when you're done. It's that simple!",
+                ),
                 icon: (
                   <svg
                     className="w-6 h-6"
