@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslation } from "../../context/TranslationContext";
 import Map from "../../components/Map";
 
 export default function LocationsPage() {
+  const { t } = useTranslation();
+
   const countries = [
     {
-      name: "United States",
+      name: t("locations.countries.unitedStates.name", "United States"),
       flag: "🇺🇸",
       cities: [
         "New York",
@@ -18,25 +21,37 @@ export default function LocationsPage() {
         "San Antonio",
         "San Diego",
       ],
-      description: "Over 300 stations across major cities",
+      description: t(
+        "locations.countries.unitedStates.description",
+        "Over 300 stations across major cities",
+      ),
     },
     {
-      name: "Canada",
+      name: t("locations.countries.canada.name", "Canada"),
       flag: "🇨🇦",
       cities: ["Toronto", "Vancouver", "Montreal", "Calgary"],
-      description: "50+ stations in metropolitan areas",
+      description: t(
+        "locations.countries.canada.description",
+        "50+ stations in metropolitan areas",
+      ),
     },
     {
-      name: "United Kingdom",
+      name: t("locations.countries.unitedKingdom.name", "United Kingdom"),
       flag: "🇬🇧",
       cities: ["London", "Manchester", "Birmingham", "Glasgow"],
-      description: "Expanding coverage in major cities",
+      description: t(
+        "locations.countries.unitedKingdom.description",
+        "Expanding coverage in major cities",
+      ),
     },
     {
-      name: "Germany",
+      name: t("locations.countries.germany.name", "Germany"),
       flag: "🇩🇪",
       cities: ["Berlin", "Munich", "Hamburg", "Frankfurt"],
-      description: "Growing network across Germany",
+      description: t(
+        "locations.countries.germany.description",
+        "Growing network across Germany",
+      ),
     },
   ];
 
