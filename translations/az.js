@@ -121,6 +121,13 @@ export default {
     address: "Ünvan",
   },
 
+  // Payments
+  payments: {
+    title: "Ödəniş Tarixçəsi",
+    methods: "Ödəniş Üsulları",
+    history: "Ödəniş Tarixçəsi",
+  },
+
   // Admin
   admin: {
     title: "Admin Paneli",
