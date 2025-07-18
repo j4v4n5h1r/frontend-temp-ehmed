@@ -42,13 +42,99 @@ export default {
 
   // Homepage
   home: {
-    title: "PowerBank Kiralama Sistemi",
+    title: "Asla Enerjiniz Bitmesin",
     subtitle: "Her zaman, her yerde PowerBank kiralayın",
     description:
-      "En yakın şarj istasyonunu bulun ve anında powerbank kiralayın",
+      "Saniyeler içinde her yerde powerbank kiralayın. Hızlı, kullanışlı ve en çok ihtiyacınız olduğunda her zaman mevcut.",
     findStations: "İstasyon Bul",
     howItWorks: "Nasıl Çalışır",
     getStarted: "Başlayın",
+    downloadApp: "Uygulamayı İndir",
+    steps: {
+      step1: {
+        title: "QR Kodu Tara",
+        description:
+          "Bir istasyon bulun ve telefon kameranız veya uygulamamızla QR kodu tarayın",
+      },
+      step2: {
+        title: "PowerBank Seç",
+        description:
+          "İstasyondan mevcut bir powerbank seçin ve hemen şarj etmeye başlayın",
+      },
+      step3: {
+        title: "Her Yerde İade Edin",
+        description:
+          "İşiniz bittiğinde powerbank'ı herhangi bir istasyona iade edin. Bu kadar basit!",
+      },
+    },
+    subtitle2: "Üç basit adımda enerjini artır",
+    pricing: {
+      title: "Akıllı hizmet, uygun fiyat.",
+      subtitle:
+        "Dakika başına veya sabit fiyat ödeyin. Sadece kendinize daha uygun olanı seçin.",
+      payAsYouGo: "Kullandığın kadar öde",
+      payAsYouGoDesc:
+        "PowerShare uygulaması veya web uygulaması ile PowerShare powerbank kiralayın ve sadece kullanım dakikalarını ödeyin.",
+      flatPrice: "Sabit fiyat",
+      flatPriceDesc:
+        "Kartınızı PowerShare İstasyon ödeme terminaline dokundurun veya Apple Pay veya Google Pay ile ödeyin.",
+      learnMore: "Daha fazla öğren",
+      withApps: "POWERSHARE UYGULAMALARI İLE",
+      withCards: "KARTLARLA",
+    },
+    app: {
+      title: "PowerShare Uygulamasını Alın",
+      description:
+        "İstasyonları bulmak, powerbank kiralamak ve hesabınızı yönetmenin en hızlı yolu için uygulamamızı indirin.",
+      appStore: "App Store",
+      googlePlay: "Google Play",
+      downloadOn: "İndir",
+      getItOn: "Al",
+      features: {
+        findStations: "Yakındaki istasyonları bul",
+        realTime: "Gerçek zamanlı müsaitlik",
+        qrScanning: "Anında QR tarama",
+      },
+      comingSoon: "Çok Yakında",
+    },
+    testimonials: {
+      title: "Kullanıcılarımız Ne Diyor",
+      subtitle:
+        "Batarya ömrü için endişelenmeden binlerce memnun müşteriye katılın",
+      sarah: {
+        name: "Sarah Johnson",
+        role: "Sık Seyahat Eden",
+        content:
+          "PowerShare seyahatimi kurtardı! Havaalanında hemen bir istasyon buldum ve tüm yolculuk boyunca telefonumu şarjlı tuttum. Seyahat edenler için kesinlikle vazgeçilmez.",
+      },
+      mike: {
+        name: "Mike Chen",
+        role: "Üniversite Öğrencisi",
+        content:
+          "Süper uygun fiyatlı ve kullanışlı. Kampüste hemen bir istasyon var ve uygulama kiralama ve iade etmeyi çok kolaylaştırıyor. Öğrenciler için oyunu değiştiren!",
+      },
+      emma: {
+        name: "Emma Davis",
+        role: "İş Uzmanı",
+        content:
+          "Güvenilirlik mükemmel. Konferanslar ve uzun toplantılar sırasında PowerShare kullanıyorum. Mevcut powerbank bulmakta hiç sorun yaşamadım.",
+      },
+    },
+    footer: {
+      description:
+        "Şarjda kalmanın en kullanışlı yolu. Ülke çapındaki istasyonlardan powerbank kiralayın ve asla bataryanız bitmesin.",
+      company: "Şirket",
+      aboutUs: "Hakkımızda",
+      careers: "Kariyer",
+      contact: "İletişim",
+      blog: "Blog",
+      support: "Destek",
+      helpCenter: "Yardım Merkezi",
+      termsOfService: "Hizmet Şartları",
+      privacyPolicy: "Gizlilik Politikası",
+      account: "Hesap",
+      allRightsReserved: "Tüm hakları saklıdır",
+    },
   },
 
   // Auth
