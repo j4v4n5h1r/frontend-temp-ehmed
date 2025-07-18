@@ -38,7 +38,7 @@ export default function AboutPage() {
     {
       icon: (
         <svg
-          className="w-8 h-8"
+          className="w-6 sm:w-8 h-6 sm:h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -58,7 +58,7 @@ export default function AboutPage() {
     {
       icon: (
         <svg
-          className="w-8 h-8"
+          className="w-6 sm:w-8 h-6 sm:h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -78,7 +78,7 @@ export default function AboutPage() {
     {
       icon: (
         <svg
-          className="w-8 h-8"
+          className="w-6 sm:w-8 h-6 sm:h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -98,7 +98,7 @@ export default function AboutPage() {
     {
       icon: (
         <svg
-          className="w-8 h-8"
+          className="w-6 sm:w-8 h-6 sm:h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -148,11 +148,11 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 overflow-hidden">
+      <section className="relative pt-16 sm:pt-20 pb-12 sm:pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-emerald-600/10"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
                 About
               </span>
@@ -161,7 +161,7 @@ export default function AboutPage() {
                 PowerShare
               </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
               We're on a mission to eliminate dead battery anxiety forever.
               <br className="hidden sm:block" />
               Power when you need it, where you need it.
@@ -171,14 +171,14 @@ export default function AboutPage() {
       </section>
 
       {/* Story Section */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 text-center lg:text-left">
                 Our Story
               </h2>
-              <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
+              <div className="space-y-4 text-base sm:text-lg text-gray-600 leading-relaxed">
                 <p>
                   PowerShare was born from a simple frustration: being stranded
                   with a dead phone battery when you need it most. Our founders
@@ -200,11 +200,11 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="order-1 lg:order-2 bg-white rounded-2xl shadow-xl overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop&crop=center"
                 alt="PowerShare team"
-                className="w-full h-80 object-cover"
+                className="w-full h-60 sm:h-80 object-cover"
               />
             </div>
           </div>
@@ -212,27 +212,27 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our Values
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
               The principles that guide everything we do
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {values.map((value, index) => (
               <div key={index} className="text-center group">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                <div className="w-14 sm:w-16 h-14 sm:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-xl sm:rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                   {value.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">
                   {value.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base px-2">
                   {value.description}
                 </p>
               </div>
@@ -242,13 +242,13 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our Journey
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
               Key milestones in the PowerShare story
             </p>
           </div>
@@ -256,24 +256,26 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-emerald-500"></div>
+              <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-emerald-500"></div>
 
-              <div className="space-y-12">
+              <div className="space-y-8 sm:space-y-12">
                 {milestones.map((milestone, index) => (
                   <div key={index} className="relative flex items-start">
-                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg">
+                    <div className="flex-shrink-0 w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg text-sm sm:text-base">
                       {milestone.year.slice(-2)}
                     </div>
-                    <div className="ml-8 bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-sm font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">
+                    <div className="ml-6 sm:ml-8 bg-white rounded-xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-shadow flex-1">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                        <span className="text-xs sm:text-sm font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded w-fit">
                           {milestone.year}
                         </span>
-                        <h3 className="text-xl font-bold text-gray-900">
+                        <h3 className="text-lg sm:text-xl font-bold text-gray-900">
                           {milestone.title}
                         </h3>
                       </div>
-                      <p className="text-gray-600">{milestone.description}</p>
+                      <p className="text-gray-600 text-sm sm:text-base">
+                        {milestone.description}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -283,19 +285,56 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-emerald-600">
+      {/* Team Section */}
+      <section className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-white mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Meet Our Team
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+              The passionate people behind PowerShare
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="text-center group">
+                <div className="mb-4 sm:mb-6">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-24 sm:w-32 h-24 sm:h-32 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+                  />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">
+                  {member.name}
+                </h3>
+                <p className="text-blue-600 font-medium mb-3 text-sm sm:text-base">
+                  {member.role}
+                </p>
+                <p className="text-gray-600 text-sm leading-relaxed px-2">
+                  {member.bio}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-blue-600 to-emerald-600">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-white mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
               PowerShare by the Numbers
             </h2>
-            <p className="text-lg opacity-90">
+            <p className="text-base sm:text-lg opacity-90 px-4">
               The impact we're making together
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8 text-center text-white">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center text-white">
             {[
               { number: "500+", label: "Active Stations" },
               { number: "100K+", label: "Happy Users" },
@@ -303,10 +342,12 @@ export default function AboutPage() {
               { number: "1M+", label: "Charges Delivered" },
             ].map((stat, index) => (
               <div key={index}>
-                <div className="text-4xl md:text-5xl font-bold mb-2">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
                   {stat.number}
                 </div>
-                <div className="text-lg opacity-90">{stat.label}</div>
+                <div className="text-sm sm:text-lg opacity-90">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -314,24 +355,24 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
               Join the PowerShare Community
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 px-4">
               Be part of the charging revolution. Together, we're building a
               world where dead batteries are a thing of the past.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/locations">
-                <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
                   Find Stations
                 </button>
               </Link>
               <Link href="/register">
-                <button className="px-8 py-4 bg-gray-100 text-gray-700 font-semibold rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gray-100 text-gray-700 font-semibold rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
                   Get Started
                 </button>
               </Link>
