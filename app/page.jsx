@@ -457,55 +457,55 @@ export default function Home() {
 
       {/* Pricing Section */}
       <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-12 flex items-center justify-center gap-12">
-          <div className="flex flex-col max-w-2xl gap-6 pr-12">
-            <p className="text-xs font-medium tracking-wider text-gray-500 uppercase mb-2">
-              PRICING
-            </p>
-            <h1
-              className="text-5xl font-extrabold leading-tight text-gray-900"
-              style={{ fontFamily: "Montserrat, sans-serif" }}
-            >
-              Smart service, affordable price.
-            </h1>
-            <p className="text-base leading-relaxed text-gray-600 mb-2">
-              <span>Pay per minutes or flat price.</span>
-              <br />
-              <span>Just choose the way you're more comfortable with.</span>
-            </p>
-            <div className="mt-4">
-              <img
-                loading="lazy"
-                alt="Payment methods"
-                src="https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a860fbe797cade50ce5d1_payment%20methods.svg"
-                className="inline-block max-w-full"
-              />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="flex flex-col gap-6">
+              <p className="text-xs font-medium tracking-wider text-gray-500 uppercase mb-2">
+                PRICING
+              </p>
+              <h1
+                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900"
+                style={{ fontFamily: "Montserrat, sans-serif" }}
+              >
+                Smart service, affordable price.
+              </h1>
+              <p className="text-base leading-relaxed text-gray-600 mb-2">
+                <span>Pay per minutes or flat price.</span>
+                <br />
+                <span>Just choose the way you're more comfortable with.</span>
+              </p>
+              <div className="mt-4">
+                <img
+                  loading="lazy"
+                  alt="Payment methods"
+                  src="https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a860fbe797cade50ce5d1_payment%20methods.svg"
+                  className="inline-block max-w-full h-8 sm:h-10"
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="flex flex-col max-w-lg gap-6">
-            {/* Pay as you go card */}
-            <div className="bg-gray-100 rounded-3xl p-8 flex flex-col gap-3 relative overflow-hidden">
-              <div className="flex items-center justify-between">
-                <h4
-                  className="text-xl font-extrabold text-gray-900 mb-2"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
-                >
-                  Pay as you go
-                </h4>
-                <div className="text-xs font-medium tracking-wider text-gray-500 uppercase">
-                  WITH POWERSHARE APPS
+            <div className="flex flex-col gap-6">
+              {/* Pay as you go card */}
+              <div className="bg-gray-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col gap-3 relative overflow-hidden">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <h4
+                    className="text-lg sm:text-xl font-extrabold text-gray-900"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    Pay as you go
+                  </h4>
+                  <div className="text-xs font-medium tracking-wider text-gray-500 uppercase">
+                    WITH POWERSHARE APPS
+                  </div>
                 </div>
-              </div>
-              <div className="text-base leading-relaxed text-gray-700">
-                Rent a PowerShare power bank with the PowerShare app or web app
-                and pay just the minutes of usage.
-              </div>
-              <div className="flex flex-col items-end">
-                <div className="flex items-center gap-4 justify-start mb-6 pt-4">
+                <div className="text-sm sm:text-base leading-relaxed text-gray-700 pr-16 sm:pr-20">
+                  Rent a PowerShare power bank with the PowerShare app or web
+                  app and pay just the minutes of usage.
+                </div>
+                <div className="flex items-center gap-4 justify-start pt-2">
                   <Link
                     href="/pricing"
-                    className="flex items-center gap-2 px-4 py-2 rounded-2xl text-[#22dd88] hover:bg-gray-200 transition-colors"
+                    className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl sm:rounded-2xl text-[#22dd88] hover:bg-gray-200 transition-colors"
                   >
                     <div className="text-sm font-medium tracking-wide">
                       Learn more
@@ -521,37 +521,35 @@ export default function Home() {
                     </svg>
                   </Link>
                 </div>
+                <img
+                  loading="lazy"
+                  alt="3D Mobile"
+                  src="https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a860fbe797c51180ce5d2_3d-mobile.png"
+                  className="absolute bottom-[-60px] sm:bottom-[-73px] right-2 sm:left-[-6px] h-32 sm:h-40 w-auto z-10"
+                />
               </div>
-              <img
-                loading="lazy"
-                alt="3D Mobile"
-                src="https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a860fbe797c51180ce5d2_3d-mobile.png"
-                className="absolute bottom-[-73px] left-[-6px] h-40 w-auto z-10"
-              />
-            </div>
 
-            {/* Flat price card */}
-            <div className="bg-gray-100 rounded-3xl p-8 flex flex-col gap-3 relative overflow-hidden">
-              <div className="flex items-center justify-between">
-                <h4
-                  className="text-xl font-extrabold text-gray-900 mb-2"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
-                >
-                  Flat price
-                </h4>
-                <div className="text-xs font-medium tracking-wider text-gray-500 uppercase">
-                  WITH CARDS
+              {/* Flat price card */}
+              <div className="bg-gray-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col gap-3 relative overflow-hidden">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <h4
+                    className="text-lg sm:text-xl font-extrabold text-gray-900"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    Flat price
+                  </h4>
+                  <div className="text-xs font-medium tracking-wider text-gray-500 uppercase">
+                    WITH CARDS
+                  </div>
                 </div>
-              </div>
-              <div className="text-base leading-relaxed text-gray-700">
-                Tap your card on the PowerShare Station payment terminal or pay
-                with Apple Pay or Google Pay.
-              </div>
-              <div className="flex flex-col items-end">
-                <div className="flex items-center gap-4 justify-start mb-6 pt-4">
+                <div className="text-sm sm:text-base leading-relaxed text-gray-700 pr-16 sm:pr-20">
+                  Tap your card on the PowerShare Station payment terminal or
+                  pay with Apple Pay or Google Pay.
+                </div>
+                <div className="flex items-center gap-4 justify-start pt-2">
                   <Link
                     href="/pricing"
-                    className="flex items-center gap-2 px-4 py-2 rounded-2xl text-[#22dd88] hover:bg-gray-200 transition-colors"
+                    className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl sm:rounded-2xl text-[#22dd88] hover:bg-gray-200 transition-colors"
                   >
                     <div className="text-sm font-medium tracking-wide">
                       Learn more
@@ -567,13 +565,13 @@ export default function Home() {
                     </svg>
                   </Link>
                 </div>
+                <img
+                  loading="lazy"
+                  alt="3D Cards"
+                  src="https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a860fbe797c54870ce5d4_3d-cards.png"
+                  className="absolute bottom-[-60px] sm:bottom-[-73px] right-2 sm:left-[-6px] h-32 sm:h-40 w-auto z-10"
+                />
               </div>
-              <img
-                loading="lazy"
-                alt="3D Cards"
-                src="https://cdn.prod.website-files.com/62fd35451b4dae51b79595fd/642a860fbe797c54870ce5d4_3d-cards.png"
-                className="absolute bottom-[-73px] left-[-6px] h-40 w-auto z-10"
-              />
             </div>
           </div>
         </div>
@@ -646,35 +644,35 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
               {/* Clean Phone Mockup */}
               <div className="relative">
                 {/* Decorative Background Elements */}
-                <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-white/10 to-white/5 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-gradient-to-br from-emerald-300/20 to-blue-300/20 rounded-full blur-lg"></div>
+                <div className="absolute -top-4 sm:-top-8 -left-4 sm:-left-8 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-white/10 to-white/5 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-4 sm:-bottom-8 -right-4 sm:-right-8 w-16 sm:w-24 h-16 sm:h-24 bg-gradient-to-br from-emerald-300/20 to-blue-300/20 rounded-full blur-lg"></div>
 
                 {/* Main Phone Mockup */}
                 <div className="relative z-10">
                   <div
-                    className="w-72 h-[450px] rounded-[2.5rem] p-3 shadow-2xl"
+                    className="w-64 sm:w-72 h-[400px] sm:h-[450px] rounded-[2rem] sm:rounded-[2.5rem] p-2 sm:p-3 shadow-2xl"
                     style={{ background: "rgba(30, 41, 59, 0.95)" }}
                   >
                     <div
-                      className="w-full h-full rounded-[2rem] flex flex-col items-center justify-center relative overflow-hidden border border-white/10"
+                      className="w-full h-full rounded-[1.5rem] sm:rounded-[2rem] flex flex-col items-center justify-center relative overflow-hidden border border-white/10"
                       style={{
                         background:
                           "linear-gradient(135deg, #2563eb 0%, #10b981 100%)",
                       }}
                     >
                       {/* Phone Screen Header */}
-                      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-white/30 rounded-full"></div>
+                      <div className="absolute top-3 sm:top-4 left-1/2 transform -translate-x-1/2 w-12 sm:w-16 h-1 bg-white/30 rounded-full"></div>
 
                       {/* Phone Screen Content */}
-                      <div className="text-center text-white px-8">
-                        <div className="mb-8">
-                          <div className="w-24 h-24 mx-auto mb-6 bg-white/15 rounded-3xl flex items-center justify-center backdrop-blur-sm border border-white/20">
+                      <div className="text-center text-white px-6 sm:px-8">
+                        <div className="mb-6 sm:mb-8">
+                          <div className="w-20 sm:w-24 h-20 sm:h-24 mx-auto mb-4 sm:mb-6 bg-white/15 rounded-2xl sm:rounded-3xl flex items-center justify-center backdrop-blur-sm border border-white/20">
                             <svg
-                              className="w-12 h-12 text-white"
+                              className="w-10 sm:w-12 h-10 sm:h-12 text-white"
                               fill="currentColor"
                               viewBox="0 0 20 20"
                             >
@@ -686,34 +684,40 @@ export default function Home() {
                             </svg>
                           </div>
                         </div>
-                        <h3 className="font-bold text-2xl mb-3">PowerShare</h3>
-                        <p className="text-lg opacity-90 mb-6">Mobile App</p>
+                        <h3 className="font-bold text-xl sm:text-2xl mb-2 sm:mb-3">
+                          PowerShare
+                        </h3>
+                        <p className="text-base sm:text-lg opacity-90 mb-4 sm:mb-6">
+                          Mobile App
+                        </p>
 
                         {/* Feature List */}
-                        <div className="space-y-3 text-left bg-white/10 rounded-xl p-4 backdrop-blur-sm">
-                          <div className="flex items-center gap-3">
-                            <div className="w-2 h-2 bg-emerald-300 rounded-full"></div>
-                            <span className="text-sm">
+                        <div className="space-y-2 sm:space-y-3 text-left bg-white/10 rounded-lg sm:rounded-xl p-3 sm:p-4 backdrop-blur-sm">
+                          <div className="flex items-center gap-2 sm:gap-3">
+                            <div className="w-2 h-2 bg-emerald-300 rounded-full flex-shrink-0"></div>
+                            <span className="text-xs sm:text-sm">
                               Find nearby stations
                             </span>
                           </div>
-                          <div className="flex items-center gap-3">
-                            <div className="w-2 h-2 bg-blue-300 rounded-full"></div>
-                            <span className="text-sm">
+                          <div className="flex items-center gap-2 sm:gap-3">
+                            <div className="w-2 h-2 bg-blue-300 rounded-full flex-shrink-0"></div>
+                            <span className="text-xs sm:text-sm">
                               Real-time availability
                             </span>
                           </div>
-                          <div className="flex items-center gap-3">
-                            <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
-                            <span className="text-sm">Instant QR scanning</span>
+                          <div className="flex items-center gap-2 sm:gap-3">
+                            <div className="w-2 h-2 bg-purple-300 rounded-full flex-shrink-0"></div>
+                            <span className="text-xs sm:text-sm">
+                              Instant QR scanning
+                            </span>
                           </div>
                         </div>
                       </div>
 
                       {/* Floating UI Elements */}
-                      <div className="absolute top-8 right-6 w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                      <div className="absolute top-6 sm:top-8 right-4 sm:right-6 w-8 sm:w-10 h-8 sm:h-10 bg-white/15 rounded-lg sm:rounded-xl flex items-center justify-center backdrop-blur-sm">
                         <svg
-                          className="w-5 h-5 text-white"
+                          className="w-4 sm:w-5 h-4 sm:h-5 text-white"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -726,14 +730,14 @@ export default function Home() {
                           />
                         </svg>
                       </div>
-                      <div className="absolute bottom-8 left-6 w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center backdrop-blur-sm">
-                        <div className="w-3 h-3 bg-emerald-300 rounded-full"></div>
+                      <div className="absolute bottom-6 sm:bottom-8 left-4 sm:left-6 w-6 sm:w-8 h-6 sm:h-8 bg-white/10 rounded-md sm:rounded-lg flex items-center justify-center backdrop-blur-sm">
+                        <div className="w-2 sm:w-3 h-2 sm:h-3 bg-emerald-300 rounded-full"></div>
                       </div>
                     </div>
                   </div>
 
                   {/* Download Badge */}
-                  <div className="absolute -top-3 -right-3 bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                  <div className="absolute -top-2 sm:-top-3 -right-2 sm:-right-3 bg-emerald-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                     Coming Soon
                   </div>
                 </div>
@@ -850,16 +854,16 @@ export default function Home() {
             <div className="md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
                 <div className="relative">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 200 80"
-    width="120"
-    height="48"
-    className="hover:scale-105 transition-transform duration-300"
-  >
-    ... (çok uzun SVG içeriği) ...
-  </svg>
-</div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 200 80"
+                    width="120"
+                    height="48"
+                    className="hover:scale-105 transition-transform duration-300"
+                  >
+                    ... (çok uzun SVG içeriği) ...
+                  </svg>
+                </div>
 
                 <span
                   className="text-4xl font-bold"
@@ -991,4 +995,4 @@ export default function Home() {
       </footer>
     </div>
   );
-} 
+}
