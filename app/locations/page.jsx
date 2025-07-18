@@ -112,16 +112,16 @@ export default function LocationsPage() {
                 {t("locations.closestLocation", "Closest Location")}
               </button>
               <button className="px-3 sm:px-4 py-2 sm:py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
-                United States
+                {t("locations.countries.unitedStates.name", "United States")}
               </button>
               <button className="px-3 sm:px-4 py-2 sm:py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
-                Canada
+                {t("locations.countries.canada.name", "Canada")}
               </button>
               <button className="px-3 sm:px-4 py-2 sm:py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
-                United Kingdom
+                {t("locations.countries.unitedKingdom.name", "United Kingdom")}
               </button>
               <button className="px-3 sm:px-4 py-2 sm:py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
-                Germany
+                {t("locations.countries.germany.name", "Germany")}
               </button>
             </div>
 
@@ -196,10 +196,13 @@ export default function LocationsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Available Countries
+              {t("locations.availableCountries", "Available Countries")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              We're expanding rapidly to serve you better
+              {t(
+                "locations.expandingDesc",
+                "We're expanding rapidly to serve you better",
+              )}
             </p>
           </div>
 
@@ -223,7 +226,7 @@ export default function LocationsPage() {
 
                 <div className="space-y-2">
                   <h4 className="font-semibold text-gray-900 text-sm sm:text-base">
-                    Major Cities:
+                    {t("locations.majorCities", "Major Cities:")}
                   </h4>
                   <div className="flex flex-wrap gap-1 sm:gap-2">
                     {country.cities.slice(0, 4).map((city, cityIndex) => (
@@ -236,7 +239,8 @@ export default function LocationsPage() {
                     ))}
                     {country.cities.length > 4 && (
                       <span className="text-gray-500 text-xs">
-                        +{country.cities.length - 4} more
+                        +{country.cities.length - 4}{" "}
+                        {t("locations.moreText", "more")}
                       </span>
                     )}
                   </div>
