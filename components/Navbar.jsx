@@ -234,13 +234,13 @@ export default function Navbar() {
                     href="/dashboard"
                     className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
-                    Dashboard
+                    {t("nav.dashboard", "Dashboard")}
                   </Link>
                   <Link
                     href="/stations"
                     className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
-                    Stations
+                    {t("nav.stations", "Stations")}
                   </Link>
                   <Link
                     href="/rental"
@@ -269,13 +269,13 @@ export default function Navbar() {
                     href="/login"
                     className="font-medium text-neutral-700 hover:text-primary-600 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
-                    Sign In
+                    {t("auth.signIn", "Sign In")}
                   </Link>
                   <Link
                     href="/register"
                     className="font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap shadow-md"
                   >
-                    Sign Up
+                    {t("auth.signUp", "Sign Up")}
                   </Link>
                 </>
               )}
