@@ -912,8 +912,10 @@ export default function Home() {
                 </span>
               </div>
               <p className="mb-6 max-w-md" style={{ color: "#cbd5e1" }}>
-                The most convenient way to stay charged. Rent power banks from
-                stations nationwide and never run out of battery again.
+                {t(
+                  "home.footer.description",
+                  "The most convenient way to stay charged. Rent power banks from stations nationwide and never run out of battery again.",
+                )}
               </p>
               <div className="flex gap-4">
                 {[
@@ -960,47 +962,51 @@ export default function Home() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h4 className="font-semibold mb-4">
+                {t("home.footer.company", "Company")}
+              </h4>
               <ul className="space-y-2" style={{ color: "#cbd5e1" }}>
                 <li>
                   <a href="#" className="transition-colors hover:text-white">
-                    About Us
+                    {t("home.footer.aboutUs", "About Us")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="transition-colors hover:text-white">
-                    Careers
+                    {t("home.footer.careers", "Careers")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="transition-colors hover:text-white">
-                    Contact
+                    {t("home.footer.contact", "Contact")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="transition-colors hover:text-white">
-                    Blog
+                    {t("home.footer.blog", "Blog")}
                   </a>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Support</h4>
+              <h4 className="font-semibold mb-4">
+                {t("home.footer.support", "Support")}
+              </h4>
               <ul className="space-y-2" style={{ color: "#cbd5e1" }}>
                 <li>
                   <a href="#" className="transition-colors hover:text-white">
-                    Help Center
+                    {t("home.footer.helpCenter", "Help Center")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="transition-colors hover:text-white">
-                    Terms of Service
+                    {t("home.footer.termsOfService", "Terms of Service")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="transition-colors hover:text-white">
-                    Privacy Policy
+                    {t("home.footer.privacyPolicy", "Privacy Policy")}
                   </a>
                 </li>
                 <li>
@@ -1008,7 +1014,7 @@ export default function Home() {
                     href="/login"
                     className="transition-colors hover:text-white"
                   >
-                    Account
+                    {t("home.footer.account", "Account")}
                   </Link>
                 </li>
               </ul>
@@ -1019,7 +1025,10 @@ export default function Home() {
             className="border-t mt-12 pt-8 text-center"
             style={{ borderColor: "#374151", color: "#94a3b8" }}
           >
-            <p>&copy; 2024 MyPobi. All rights reserved.</p>
+            <p>
+              &copy; 2024 MyPobi.{" "}
+              {t("home.footer.allRightsReserved", "All rights reserved")}.
+            </p>
           </div>
         </div>
       </footer>
