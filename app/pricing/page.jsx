@@ -88,7 +88,7 @@ export default function PricingPage() {
     {
       icon: (
         <svg
-          className="w-8 h-8"
+          className="w-6 sm:w-8 h-6 sm:h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -107,7 +107,7 @@ export default function PricingPage() {
     {
       icon: (
         <svg
-          className="w-8 h-8"
+          className="w-6 sm:w-8 h-6 sm:h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -126,7 +126,7 @@ export default function PricingPage() {
     {
       icon: (
         <svg
-          className="w-8 h-8"
+          className="w-6 sm:w-8 h-6 sm:h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -145,7 +145,7 @@ export default function PricingPage() {
     {
       icon: (
         <svg
-          className="w-8 h-8"
+          className="w-6 sm:w-8 h-6 sm:h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -166,11 +166,11 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 overflow-hidden">
+      <section className="relative pt-16 sm:pt-20 pb-12 sm:pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-emerald-600/10"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
                 Simple, Transparent
               </span>
@@ -179,13 +179,13 @@ export default function PricingPage() {
                 Pricing
               </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
               Pay only for what you use. No hidden fees, no subscription
               required.
               <br className="hidden sm:block" />
               Choose the plan that fits your needs.
             </p>
-            <div className="inline-flex items-center px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full font-medium">
+            <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full font-medium text-sm sm:text-base">
               <svg
                 className="w-4 h-4 mr-2"
                 fill="currentColor"
@@ -204,44 +204,48 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Plans */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid gap-6 sm:gap-8 max-w-6xl mx-auto lg:grid-cols-3">
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className={`relative rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 ${
+                className={`relative rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 ${
                   plan.popular
-                    ? "transform scale-105 bg-gradient-to-br from-emerald-50 to-blue-50 border-2 border-emerald-300"
+                    ? "transform lg:scale-105 bg-gradient-to-br from-emerald-50 to-blue-50 border-2 border-emerald-300"
                     : "bg-white border border-gray-200"
                 }`}
               >
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="px-4 py-1 bg-gradient-to-r from-emerald-500 to-blue-500 text-white rounded-full text-sm font-semibold shadow-lg">
+                  <div className="absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2">
+                    <span className="px-3 sm:px-4 py-1 bg-gradient-to-r from-emerald-500 to-blue-500 text-white rounded-full text-xs sm:text-sm font-semibold shadow-lg">
                       Most Popular
                     </span>
                   </div>
                 )}
 
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <div className="text-center mb-6 sm:mb-8">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                     {plan.name}
                   </h3>
                   <div className="mb-4">
-                    <span className="text-5xl font-bold text-gray-900">
+                    <span className="text-4xl sm:text-5xl font-bold text-gray-900">
                       {plan.price}
                     </span>
-                    <span className="text-gray-600 ml-1">{plan.period}</span>
+                    <span className="text-gray-600 ml-1 text-sm sm:text-base">
+                      {plan.period}
+                    </span>
                   </div>
-                  <p className="text-gray-600">{plan.description}</p>
+                  <p className="text-gray-600 text-sm sm:text-base px-2">
+                    {plan.description}
+                  </p>
                 </div>
 
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                   {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center gap-3">
+                    <li key={featureIndex} className="flex items-start gap-3">
                       <svg
-                        className={`w-5 h-5 flex-shrink-0 ${plan.popular ? "text-emerald-500" : "text-blue-500"}`}
+                        className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.popular ? "text-emerald-500" : "text-blue-500"}`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -253,14 +257,16 @@ export default function PricingPage() {
                           d="M5 13l4 4L19 7"
                         />
                       </svg>
-                      <span className="text-gray-700">{feature}</span>
+                      <span className="text-gray-700 text-sm sm:text-base">
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>
 
                 <Link href="/register">
                   <button
-                    className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
+                    className={`w-full py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base ${
                       plan.popular
                         ? "bg-gradient-to-r from-emerald-500 to-blue-500 text-white shadow-lg hover:shadow-xl"
                         : "bg-gray-100 text-gray-900 hover:bg-gray-200"
@@ -276,28 +282,30 @@ export default function PricingPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               What's Included
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
               Every PowerShare rental includes these premium features at no
               extra cost
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {features.map((feature, index) => (
               <div key={index} className="text-center group">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                <div className="w-14 sm:w-16 h-14 sm:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-xl sm:rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <p className="text-gray-600 text-sm sm:text-base px-2">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
@@ -305,27 +313,29 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Pricing Questions
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
               Common questions about our pricing and billing
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">
                   {faq.question}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </p>
               </div>
             ))}
           </div>
@@ -333,24 +343,24 @@ export default function PricingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-emerald-600">
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-blue-600 to-emerald-600">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
               Ready to Get Started?
             </h2>
-            <p className="text-lg mb-8 opacity-90">
+            <p className="text-base sm:text-lg mb-6 sm:mb-8 opacity-90 px-4">
               Join thousands of users who trust PowerShare for their charging
               needs. No commitment required - pay as you go.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/locations">
-                <button className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
                   Find Stations
                 </button>
               </Link>
               <Link href="/register">
-                <button className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-300">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-300 text-sm sm:text-base">
                   Create Account
                 </button>
               </Link>

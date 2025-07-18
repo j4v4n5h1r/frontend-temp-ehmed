@@ -170,11 +170,11 @@ export default function HowToUsePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 overflow-hidden">
+      <section className="relative pt-16 sm:pt-20 pb-12 sm:pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-emerald-600/10"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
                 How to Use
               </span>
@@ -183,14 +183,14 @@ export default function HowToUsePage() {
                 PowerShare
               </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
               Get powered up in 6 simple steps. It's easier than you think!
               <br className="hidden sm:block" />
               From finding a station to returning your power bank - we've got
               you covered.
             </p>
             <Link href="/locations">
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+              <button className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
                 Find a Station
               </button>
             </Link>
@@ -199,13 +199,13 @@ export default function HowToUsePage() {
       </section>
 
       {/* Steps Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-8">
-          <div className="flex flex-col gap-24">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-12 sm:gap-16 lg:gap-24">
             {/* Step 1 */}
-            <div className="flex items-center gap-16">
-              <div className="flex items-center gap-3">
-                <div className="w-[370px] h-[280px] rounded-3xl overflow-hidden">
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+              <div className="order-1 lg:order-1 w-full lg:w-auto">
+                <div className="w-full max-w-sm lg:w-[370px] h-[250px] sm:h-[280px] rounded-2xl lg:rounded-3xl overflow-hidden mx-auto">
                   <img
                     src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?w=400&h=300&fit=crop&crop=center"
                     alt="Find a Station"
@@ -214,33 +214,38 @@ export default function HowToUsePage() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <div className="flex flex-col items-center">
-                  <div className="w-[5px] h-[200px] bg-[#76b82c]"></div>
-                  <div className="w-12 h-12 bg-[#76b82c] rounded-3xl flex items-center justify-center">
-                    <h1 className="text-white text-2xl font-bold">1</h1>
+              <div className="order-2 lg:order-2 flex items-center justify-center">
+                <div className="flex lg:flex-col items-center gap-3">
+                  <div className="w-12 h-12 bg-[#76b82c] rounded-2xl lg:rounded-3xl flex items-center justify-center">
+                    <h1 className="text-white text-xl sm:text-2xl font-bold">
+                      1
+                    </h1>
                   </div>
-                  <div className="w-[5px] h-[200px] bg-[#76b82c]"></div>
+                  <div className="hidden lg:block w-[5px] h-[100px] bg-[#76b82c]"></div>
+                  <div className="lg:hidden w-[50px] h-[5px] bg-[#76b82c]"></div>
                 </div>
               </div>
 
-              <div className="flex flex-col gap-3 max-w-[370px]">
-                <h1 className="text-2xl font-bold text-gray-900">
+              <div className="order-3 lg:order-3 flex flex-col gap-3 w-full lg:max-w-[370px] text-center lg:text-left">
+                <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
                   Find a PowerShare Station
                 </h1>
-                <p className="text-base text-gray-600 leading-6">
+                <p className="text-sm sm:text-base text-gray-600 leading-6">
                   PowerShare is available at thousands of convenience stores,
                   malls, airports, and charging stations worldwide. Use our app
                   or website to find the nearest location.
                   <br />
                   <br />
-                  <Link href="/locations" className="underline">
+                  <Link
+                    href="/locations"
+                    className="underline text-blue-600 hover:text-blue-700"
+                  >
                     Find the closest location here
                   </Link>
                 </p>
 
                 {/* Partner logos */}
-                <div className="mt-4 flex items-center gap-2 overflow-hidden h-14">
+                <div className="mt-4 flex items-center justify-center lg:justify-start gap-2 overflow-hidden h-14">
                   <div className="flex items-center gap-2 animate-scroll">
                     <img
                       src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=80&h=27&fit=crop"
@@ -257,46 +262,15 @@ export default function HowToUsePage() {
                       alt="Partner 3"
                       className="h-6 w-auto"
                     />
-                    <img
-                      src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=80&h=27&fit=crop"
-                      alt="Partner 4"
-                      className="h-6 w-auto"
-                    />
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Step 2 */}
-            <div className="flex items-center gap-16">
-              <div className="flex flex-col gap-5 max-w-[370px] text-right">
-                <h1 className="text-2xl font-bold text-gray-900">
-                  Grab a PowerShare power bank and charge on the go
-                </h1>
-                <p className="text-base text-gray-600 leading-6">
-                  No app needed. Renting a PowerShare costs just $2 to $8
-                  depending on your rental duration, along with a returnable
-                  deposit of $15.
-                </p>
-                <p className="text-base text-gray-600 leading-6">
-                  <Link href="/pricing" className="underline">
-                    (Tap here to see detailed pricing.)
-                  </Link>
-                </p>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="flex flex-col items-center">
-                  <div className="w-[5px] h-[200px] bg-[#76b82c]"></div>
-                  <div className="w-12 h-12 bg-[#76b82c] rounded-3xl flex items-center justify-center">
-                    <h1 className="text-white text-2xl font-bold">2</h1>
-                  </div>
-                  <div className="w-[5px] h-[200px] bg-[#76b82c]"></div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-[370px] h-[280px] rounded-3xl overflow-hidden">
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+              <div className="order-1 lg:order-3 w-full lg:w-auto">
+                <div className="w-full max-w-sm lg:w-[370px] h-[250px] sm:h-[280px] rounded-2xl lg:rounded-3xl overflow-hidden mx-auto">
                   <img
                     src="https://images.pexels.com/photos/10104281/pexels-photo-10104281.jpeg?w=400&h=300&fit=crop&crop=center"
                     alt="Grab Power Bank"
@@ -304,12 +278,43 @@ export default function HowToUsePage() {
                   />
                 </div>
               </div>
+
+              <div className="order-2 lg:order-2 flex items-center justify-center">
+                <div className="flex lg:flex-col items-center gap-3">
+                  <div className="w-12 h-12 bg-[#76b82c] rounded-2xl lg:rounded-3xl flex items-center justify-center">
+                    <h1 className="text-white text-xl sm:text-2xl font-bold">
+                      2
+                    </h1>
+                  </div>
+                  <div className="hidden lg:block w-[5px] h-[100px] bg-[#76b82c]"></div>
+                  <div className="lg:hidden w-[50px] h-[5px] bg-[#76b82c]"></div>
+                </div>
+              </div>
+
+              <div className="order-3 lg:order-1 flex flex-col gap-3 w-full lg:max-w-[370px] text-center lg:text-right">
+                <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
+                  Grab a PowerShare power bank and charge on the go
+                </h1>
+                <p className="text-sm sm:text-base text-gray-600 leading-6">
+                  No app needed. Renting a PowerShare costs just $2 to $8
+                  depending on your rental duration, along with a returnable
+                  deposit of $15.
+                </p>
+                <p className="text-sm sm:text-base text-gray-600 leading-6">
+                  <Link
+                    href="/pricing"
+                    className="underline text-blue-600 hover:text-blue-700"
+                  >
+                    (Tap here to see detailed pricing.)
+                  </Link>
+                </p>
+              </div>
             </div>
 
             {/* Step 3 */}
-            <div className="flex items-center gap-16">
-              <div className="flex items-center gap-3">
-                <div className="w-[370px] h-[280px] rounded-3xl overflow-hidden">
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+              <div className="order-1 lg:order-1 w-full lg:w-auto">
+                <div className="w-full max-w-sm lg:w-[370px] h-[250px] sm:h-[280px] rounded-2xl lg:rounded-3xl overflow-hidden mx-auto">
                   <img
                     src="https://images.pexels.com/photos/9800036/pexels-photo-9800036.jpeg?w=400&h=300&fit=crop&crop=center"
                     alt="Return Power Bank"
@@ -318,22 +323,24 @@ export default function HowToUsePage() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <div className="flex flex-col items-center">
-                  <div className="w-[5px] h-[200px] bg-[#76b82c]"></div>
-                  <div className="w-12 h-12 bg-[#76b82c] rounded-3xl flex items-center justify-center">
-                    <h1 className="text-white text-2xl font-bold">3</h1>
+              <div className="order-2 lg:order-2 flex items-center justify-center">
+                <div className="flex lg:flex-col items-center gap-3">
+                  <div className="w-12 h-12 bg-[#76b82c] rounded-2xl lg:rounded-3xl flex items-center justify-center">
+                    <h1 className="text-white text-xl sm:text-2xl font-bold">
+                      3
+                    </h1>
                   </div>
-                  <div className="w-[5px] h-[200px] bg-[#76b82c]"></div>
+                  <div className="hidden lg:block w-[5px] h-[100px] bg-[#76b82c]"></div>
+                  <div className="lg:hidden w-[50px] h-[5px] bg-[#76b82c]"></div>
                 </div>
               </div>
 
-              <div className="flex flex-col gap-3 max-w-[370px]">
-                <h1 className="text-2xl font-bold text-gray-900">
+              <div className="order-3 lg:order-3 flex flex-col gap-3 w-full lg:max-w-[370px] text-center lg:text-left">
+                <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
                   Return in 7 days, get your deposit back — maybe grab another?
                   😉
                 </h1>
-                <p className="text-base text-gray-600 leading-6">
+                <p className="text-sm sm:text-base text-gray-600 leading-6">
                   You have 7 days from the time you rent PowerShare to return
                   it, so there's no rush. And when you do return it on-time,
                   we'll give you back your full deposit. Every week that you're
@@ -345,16 +352,16 @@ export default function HowToUsePage() {
         </div>
 
         {/* Additional Info Section */}
-        <div className="max-w-6xl mx-auto px-8 mt-24">
-          <div className="flex flex-col gap-10">
-            <h1 className="text-4xl font-bold text-gray-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20 lg:mt-24">
+          <div className="flex flex-col gap-8 sm:gap-10">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 text-center">
               PowerShare is also available outside of convenience stores.
             </h1>
 
-            <div className="flex justify-between gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {/* Station */}
-              <div className="flex flex-col gap-8 items-center">
-                <div className="w-[290px] h-[290px] rounded-3xl overflow-hidden">
+              <div className="flex flex-col gap-6 sm:gap-8 items-center text-center">
+                <div className="w-full max-w-xs sm:w-[250px] lg:w-[290px] h-[200px] sm:h-[250px] lg:h-[290px] rounded-2xl lg:rounded-3xl overflow-hidden mx-auto">
                   <img
                     src="https://images.pexels.com/photos/9800036/pexels-photo-9800036.jpeg?w=400&h=400&fit=crop&crop=center"
                     alt="Station"
@@ -362,10 +369,10 @@ export default function HowToUsePage() {
                   />
                 </div>
                 <div className="text-center">
-                  <h2 className="text-xl font-bold text-gray-900 mb-3">
+                  <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
                     Station
                   </h2>
-                  <p className="text-base text-gray-600 leading-6">
+                  <p className="text-sm sm:text-base text-gray-600 leading-6 px-4">
                     Scan the QR code or simply tap your card to rent a power
                     bank, then return it to any convenience store or station.
                   </p>
@@ -373,8 +380,8 @@ export default function HowToUsePage() {
               </div>
 
               {/* Vending Machine */}
-              <div className="flex flex-col gap-8 items-center">
-                <div className="w-[290px] h-[290px] rounded-3xl overflow-hidden">
+              <div className="flex flex-col gap-6 sm:gap-8 items-center text-center">
+                <div className="w-full max-w-xs sm:w-[250px] lg:w-[290px] h-[200px] sm:h-[250px] lg:h-[290px] rounded-2xl lg:rounded-3xl overflow-hidden mx-auto">
                   <img
                     src="https://images.pexels.com/photos/14528919/pexels-photo-14528919.jpeg?w=400&h=400&fit=crop&crop=center"
                     alt="Vending Machine"
@@ -382,10 +389,10 @@ export default function HowToUsePage() {
                   />
                 </div>
                 <div className="text-center">
-                  <h2 className="text-xl font-bold text-gray-900 mb-3">
+                  <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
                     Vending Machine
                   </h2>
-                  <p className="text-base text-gray-600 leading-6">
+                  <p className="text-sm sm:text-base text-gray-600 leading-6 px-4">
                     Getting a PowerShare from a vending machine is like getting
                     a water bottle from a vending machine, except you also pay a
                     deposit. Return your PowerShare to any convenience store.
@@ -394,8 +401,8 @@ export default function HowToUsePage() {
               </div>
 
               {/* Events */}
-              <div className="flex flex-col gap-8 items-center">
-                <div className="w-[290px] h-[290px] rounded-3xl overflow-hidden">
+              <div className="flex flex-col gap-6 sm:gap-8 items-center text-center sm:col-span-2 lg:col-span-1">
+                <div className="w-full max-w-xs sm:w-[250px] lg:w-[290px] h-[200px] sm:h-[250px] lg:h-[290px] rounded-2xl lg:rounded-3xl overflow-hidden mx-auto">
                   <img
                     src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&h=400&fit=crop&crop=center"
                     alt="Events"
@@ -403,10 +410,10 @@ export default function HowToUsePage() {
                   />
                 </div>
                 <div className="text-center">
-                  <h2 className="text-xl font-bold text-gray-900 mb-3">
+                  <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
                     Events
                   </h2>
-                  <p className="text-base text-gray-600 leading-6">
+                  <p className="text-sm sm:text-base text-gray-600 leading-6 px-4">
                     PowerShare is often used at festivals and events around the
                     world. Don't be surprised if you see us out and about at
                     your favorite big event.
@@ -419,28 +426,30 @@ export default function HowToUsePage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
               Got questions? We've got answers. Here are the most common
               questions about using PowerShare.
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
+                className="bg-gray-50 rounded-xl p-4 sm:p-6 hover:bg-gray-100 transition-colors"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">
                   {faq.question}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </p>
               </div>
             ))}
           </div>
@@ -448,24 +457,24 @@ export default function HowToUsePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-emerald-600">
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-blue-600 to-emerald-600">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
               Ready to Never Run Out of Power?
             </h2>
-            <p className="text-lg mb-8 opacity-90">
+            <p className="text-base sm:text-lg mb-6 sm:mb-8 opacity-90 px-4">
               Join thousands of users who have made PowerShare part of their
               daily routine. Get started today and experience the convenience.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/locations">
-                <button className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
                   Find Stations
                 </button>
               </Link>
               <Link href="/register">
-                <button className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-300">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-300 text-sm sm:text-base">
                   Sign Up Now
                 </button>
               </Link>

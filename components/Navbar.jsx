@@ -196,8 +196,8 @@ export default function Navbar() {
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="w-full mx-auto px-4 sm:px-8 lg:px-16">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           <div className="flex items-center gap-4">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0">
@@ -222,165 +222,262 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center justify-center flex-1">
-            <div className="flex items-center gap-10">
+            <div className="flex items-center gap-6 lg:gap-10">
               <GlassNav />
-              {user && (
+              {user ? (
                 <>
                   <Link
                     href="/dashboard"
-                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-2 rounded-lg transition-all duration-200"
+                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
                     Dashboard
                   </Link>
                   <Link
                     href="/stations"
-                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-2 rounded-lg transition-all duration-200"
+                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
                     Stations
                   </Link>
                   <Link
                     href="/rental"
-                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-2 rounded-lg transition-all duration-200"
+                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
                     Rental
                   </Link>
                   <Link
                     href="/profile"
-                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-2 rounded-lg transition-all duration-200"
+                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
                     Profile
                   </Link>
                   {user?.profile?.data?.user?.role === "admin" && (
                     <Link
                       href="/admin"
-                      className="font-semibold text-red-600 hover:text-black hover:bg-red-50 border border-red-600 px-4 py-2 rounded-lg transition-all duration-200"
+                      className="font-semibold text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                     >
                       Admin
                     </Link>
                   )}
                 </>
+              ) : (
+                <>
+                  <Link
+                    href="/login"
+                    className="font-medium text-neutral-700 hover:text-primary-600 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    href="/register"
+                    className="font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap shadow-md"
+                  >
+                    Sign Up
+                  </Link>
+                </>
               )}
             </div>
           </div>
 
-          {/* Right-aligned Language Selector and Profile */}
-          <div className="flex items-center gap-4">
-            <LanguageSelector />
-            {user && <ProfileDropdown user={user} logout={logout} />}
-          </div>
+          {/* Right-aligned items */}
+          <div className="flex items-center gap-2 sm:gap-4">
+            {/* Desktop Language Selector and Profile */}
+            <div className="hidden md:flex items-center gap-4">
+              <LanguageSelector />
+              {user && <ProfileDropdown user={user} logout={logout} />}
+            </div>
 
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-neutral-600 hover:text-black hover:bg-primary-50 transition-colors"
-          >
-            <svg
-              className="w-7 h-7"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 rounded-lg text-neutral-600 hover:text-black hover:bg-primary-50 transition-colors"
             >
-              {isMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-neutral-200 py-4 space-y-2">
-            {user ? (
-              <>
-                <div className="flex items-center gap-3 px-4 py-3 bg-primary-50 rounded-lg mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
-                    <span className="text-primary-700 font-bold text-lg">
-                      {user?.profile?.data?.user?.firstName?.charAt(0) ||
-                        user?.profile?.data?.user?.name?.charAt(0) ||
-                        user?.profile?.data?.user?.email?.charAt(0) ||
-                        "U"}
-                    </span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-neutral-900 text-lg">
-                      {user?.profile?.data?.user?.firstName ||
-                        user?.profile?.data?.user?.name ||
-                        user?.profile?.data?.user?.email ||
-                        "User"}
-                    </div>
-                    <div className="text-sm text-neutral-600">
-                      {user?.profile?.data?.user?.role || "User"}
-                    </div>
-                  </div>
-                </div>
-
+          <div className="md:hidden border-t border-neutral-200">
+            <div className="py-4 space-y-1">
+              {/* Mobile GlassNav Links */}
+              <div className="space-y-1 pb-3 border-b border-neutral-200">
                 <Link
-                  href="/dashboard"
-                  className="block font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                  href="/how-to-use"
+                  className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Dashboard
+                  How to use
                 </Link>
                 <Link
-                  href="/stations"
-                  className="block font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                  href="/locations"
+                  className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Stations
+                  Locations
                 </Link>
                 <Link
-                  href="/rental"
-                  className="block font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                  href="/pricing"
+                  className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Rental
+                  Pricing
                 </Link>
                 <Link
-                  href="/profile"
-                  className="block font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                  href="/about"
+                  className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Profile
+                  About Us
                 </Link>
-                {user?.profile?.data?.user?.role === "admin" && (
-                  <Link
-                    href="/admin"
-                    className="block font-semibold text-red-600 hover:text-black hover:bg-red-50 border border-red-600 px-4 py-3 rounded-lg transition-all duration-200 mx-4"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Admin Panel
-                  </Link>
-                )}
-
-                <div className="pt-4 border-t border-neutral-200 mt-4">
-                  <button
-                    onClick={() => {
-                      logout();
-                      setIsMenuOpen(false);
-                    }}
-                    className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-3 rounded-lg font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-200 shadow-md"
-                  >
-                    Logout
-                  </button>
-                </div>
-              </>
-            ) : (
-              <div className="px-4 py-3">
-                <LanguageSelector />
               </div>
-            )}
+
+              {user ? (
+                <>
+                  {/* User Profile Section */}
+                  <div className="flex items-center gap-3 px-4 py-3 bg-primary-50 rounded-lg my-4">
+                    <div className="w-10 h-10 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
+                      <span className="text-primary-700 font-bold text-sm">
+                        {user?.profile?.data?.user?.firstName?.charAt(0) ||
+                          user?.profile?.data?.user?.name?.charAt(0) ||
+                          user?.profile?.data?.user?.email?.charAt(0) ||
+                          "U"}
+                      </span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-semibold text-neutral-900 text-sm truncate">
+                        {user?.profile?.data?.user?.firstName ||
+                          user?.profile?.data?.user?.name ||
+                          "User"}
+                      </div>
+                      <div className="text-xs text-neutral-600 truncate">
+                        {user?.profile?.data?.user?.email || ""}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* User Navigation Links */}
+                  <div className="space-y-1">
+                    <Link
+                      href="/dashboard"
+                      className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Dashboard
+                    </Link>
+                    <Link
+                      href="/stations"
+                      className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Stations
+                    </Link>
+                    <Link
+                      href="/rental"
+                      className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Rental
+                    </Link>
+                    <Link
+                      href="/my-rentals"
+                      className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      My Rentals
+                    </Link>
+                    <Link
+                      href="/payments"
+                      className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Payment History
+                    </Link>
+                    <Link
+                      href="/profile"
+                      className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Profile Settings
+                    </Link>
+
+                    {user?.profile?.data?.user?.role === "admin" && (
+                      <Link
+                        href="/admin"
+                        className="block font-medium text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-4 py-3 rounded-lg transition-all duration-200 mt-2"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        Admin Panel
+                      </Link>
+                    )}
+                  </div>
+
+                  {/* Mobile Language Selector and Logout */}
+                  <div className="pt-4 border-t border-neutral-200 mt-4 space-y-3">
+                    <div className="px-4">
+                      <LanguageSelector />
+                    </div>
+                    <button
+                      onClick={() => {
+                        logout();
+                        setIsMenuOpen(false);
+                      }}
+                      className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-3 rounded-lg font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-200 shadow-md"
+                    >
+                      Sign Out
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* Guest Navigation */}
+                  <div className="space-y-1">
+                    <Link
+                      href="/login"
+                      className="block font-medium text-primary-600 hover:text-white hover:bg-primary-600 border border-primary-600 px-4 py-3 rounded-lg transition-all duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Sign In
+                    </Link>
+                    <Link
+                      href="/register"
+                      className="block font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 px-4 py-3 rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-200 shadow-md text-center"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Sign Up
+                    </Link>
+                  </div>
+
+                  {/* Mobile Language Selector for guests */}
+                  <div className="pt-4 border-t border-neutral-200 mt-4">
+                    <div className="px-4">
+                      <LanguageSelector />
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         )}
       </div>
