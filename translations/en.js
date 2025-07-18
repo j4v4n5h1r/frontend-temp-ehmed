@@ -243,4 +243,195 @@ export default {
     created: "Item created successfully",
     updated: "Item updated successfully",
   },
+
+  // Locations Page
+  locations: {
+    title: "Find Us at Over 500+ Locations",
+    subtitle:
+      "PowerShare stations are available in major cities worldwide. Find a station near you and never run out of power again.",
+    findNearestStation: "Find Nearest Station",
+    getStarted: "Get Started",
+    locationsTitle: "LOCATIONS",
+    closestLocation: "Closest Location",
+    availableCountries: "Available Countries",
+    expandingDesc: "We're expanding rapidly to serve you better",
+    majorCities: "Major Cities:",
+    moreText: "more",
+    description:
+      "Rent and return at more than 500 locations in major cities worldwide. Our growing network ensures you'll always find a PowerShare station when you need it most.",
+    stats: {
+      locations: "Locations",
+      cities: "Cities",
+      countries: "Countries",
+      available: "Available",
+      stations: "Stations",
+      happyUsers: "Happy Users",
+    },
+    network: {
+      title: "Our Growing Network",
+      readyTitle: "Ready to Get Started?",
+      readyDesc:
+        "Join thousands of users who never worry about battery life. Find a station near you and experience the convenience of PowerShare.",
+      findStationNow: "Find Station Now",
+      createAccount: "Create Account",
+    },
+    countries: {
+      unitedStates: {
+        name: "United States",
+        description: "Over 300 stations across major cities",
+      },
+      canada: {
+        name: "Canada",
+        description: "50+ stations in metropolitan areas",
+      },
+      unitedKingdom: {
+        name: "United Kingdom",
+        description: "Expanding coverage in major cities",
+      },
+      germany: {
+        name: "Germany",
+        description: "Growing network across Germany",
+      },
+    },
+  },
+
+  // How to Use Page
+  howToUse: {
+    title: "How to Use PowerShare",
+    subtitle: "Rent a power bank in just a few simple steps",
+    description: "Our simple process gets you powered up in minutes",
+    steps: {
+      step1: {
+        title: "Find a Station",
+        description:
+          "Use our app or website to locate the nearest PowerShare station",
+      },
+      step2: {
+        title: "Scan QR Code",
+        description: "Scan the QR code on the station with your phone",
+      },
+      step3: {
+        title: "Pick a Power Bank",
+        description: "Choose an available power bank from the station",
+      },
+      step4: {
+        title: "Charge Your Device",
+        description: "Use the included cables to charge your phone or device",
+      },
+      step5: {
+        title: "Return When Done",
+        description: "Return the power bank to any PowerShare station",
+      },
+      step6: {
+        title: "Payment Complete",
+        description: "Payment is automatically processed based on usage time",
+      },
+    },
+    faq: {
+      title: "Frequently Asked Questions",
+      q1: "How much does it cost?",
+      a1: "Pricing starts at $2 per hour with daily and weekly options available.",
+      q2: "What devices are supported?",
+      a2: "All major smartphones and devices with USB charging are supported.",
+      q3: "How do I return the power bank?",
+      a3: "Simply return it to any PowerShare station when you're done.",
+      q4: "What if I lose the power bank?",
+      a4: "A replacement fee will be charged to your account if not returned within 24 hours.",
+    },
+  },
+
+  // About Page
+  about: {
+    title: "About PowerShare",
+    subtitle: "Powering your life, one charge at a time",
+    description: "We're on a mission to eliminate battery anxiety forever",
+    story: {
+      title: "Our Story",
+      content:
+        "Founded in 2023, PowerShare was born from a simple frustration - dead phones when you need them most. We're building the world's largest network of power bank sharing stations.",
+    },
+    mission: {
+      title: "Our Mission",
+      content:
+        "To provide convenient, accessible power solutions that keep people connected to what matters most.",
+    },
+    values: {
+      title: "Our Values",
+      convenience: "Convenience First",
+      convenienceDesc: "Simple, fast, and always available when you need it",
+      reliability: "Reliability",
+      reliabilityDesc: "Consistent service you can count on",
+      sustainability: "Sustainability",
+      sustainabilityDesc: "Eco-friendly solutions for a better tomorrow",
+    },
+    team: {
+      title: "Meet Our Team",
+      ceo: "CEO & Founder",
+      cto: "CTO & Co-founder",
+      cmo: "Chief Marketing Officer",
+    },
+    stats: {
+      title: "By the Numbers",
+      users: "Active Users",
+      stations: "Stations Worldwide",
+      charges: "Charges Completed",
+      uptime: "System Uptime",
+    },
+  },
+
+  // Pricing Page
+  pricing: {
+    title: "Simple, Transparent Pricing",
+    subtitle: "Choose the plan that works best for you",
+    description: "No hidden fees, no subscriptions - pay only for what you use",
+    plans: {
+      hourly: {
+        title: "Hourly Rate",
+        price: "$2",
+        period: "per hour",
+        description: "Perfect for quick charges",
+        features: [
+          "Pay as you go",
+          "No commitment",
+          "All cable types included",
+          "Return to any station",
+        ],
+      },
+      daily: {
+        title: "Daily Pass",
+        price: "$8",
+        period: "per day",
+        description: "Best for all-day usage",
+        features: [
+          "24-hour access",
+          "Unlimited swaps",
+          "Priority support",
+          "All cable types included",
+        ],
+      },
+      weekly: {
+        title: "Weekly Pass",
+        price: "$25",
+        period: "per week",
+        description: "Great for travelers",
+        features: [
+          "7-day access",
+          "Unlimited swaps",
+          "Premium support",
+          "All locations included",
+        ],
+      },
+    },
+    faq: {
+      title: "Pricing FAQ",
+      q1: "Are there any hidden fees?",
+      a1: "No hidden fees. You pay exactly what's shown with no surprises.",
+      q2: "Can I switch between plans?",
+      a2: "Yes, you can upgrade to a daily or weekly pass at any time.",
+      q3: "What happens if I'm late returning?",
+      a3: "Late fees apply after 24 hours to ensure availability for other users.",
+      q4: "Do you offer discounts?",
+      a4: "We offer student discounts and bulk pricing for businesses.",
+    },
+  },
 };
