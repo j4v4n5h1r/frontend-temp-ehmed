@@ -13,6 +13,8 @@ export default {
     login: "Giriş",
     register: "Qeydiyyat",
     logout: "Çıxış",
+    rental: "İcarə",
+    admin: "Admin",
   },
 
   // Common
