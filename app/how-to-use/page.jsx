@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslation } from "../../context/TranslationContext";
 
 export default function HowToUsePage() {
+  const { t } = useTranslation();
+
   const steps = [
     {
       step: "01",
@@ -146,24 +149,35 @@ export default function HowToUsePage() {
 
   const faqs = [
     {
-      question: "How long can I keep a power bank?",
-      answer:
+      question: t("howToUse.faq.q1", "How long can I keep a power bank?"),
+      answer: t(
+        "howToUse.faq.a1",
         "You can rent a power bank for up to 7 days. After that, additional fees may apply. Most users return them within a few hours.",
+      ),
     },
     {
-      question: "What if I lose or damage the power bank?",
-      answer:
+      question: t(
+        "howToUse.faq.q2",
+        "What if I lose or damage the power bank?",
+      ),
+      answer: t(
+        "howToUse.faq.a2",
         "If a power bank is lost or damaged, a replacement fee will be charged to your account. The fee varies by location but is typically around $30-50.",
+      ),
     },
     {
-      question: "Which devices are compatible?",
-      answer:
+      question: t("howToUse.faq.q3", "Which devices are compatible?"),
+      answer: t(
+        "howToUse.faq.a3",
         "Our power banks work with all smartphones, tablets, and small electronics. They include Lightning, USB-C, and Micro-USB cables built-in.",
+      ),
     },
     {
-      question: "How much does it cost?",
-      answer:
+      question: t("howToUse.faq.q4", "How much does it cost?"),
+      answer: t(
+        "howToUse.faq.a4",
         "Pricing varies by location and duration. Typically, it's $2 per hour, $8 per day, or $25 per week. Check our pricing page for details.",
+      ),
     },
   ];
 
