@@ -256,15 +256,24 @@ export default function LocationsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12">
-              Our Growing Network
+              {t("locations.network.title", "Our Growing Network")}
             </h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
               {[
-                { number: "500+", label: "Stations" },
-                { number: "50+", label: "Cities" },
-                { number: "10+", label: "Countries" },
-                { number: "24/7", label: "Available" },
+                {
+                  number: "500+",
+                  label: t("locations.stats.stations", "Stations"),
+                },
+                { number: "50+", label: t("locations.stats.cities", "Cities") },
+                {
+                  number: "10+",
+                  label: t("locations.stats.countries", "Countries"),
+                },
+                {
+                  number: "24/7",
+                  label: t("locations.stats.available", "Available"),
+                },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
@@ -285,21 +294,23 @@ export default function LocationsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Ready to Get Started?
+              {t("locations.network.readyTitle", "Ready to Get Started?")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 px-4">
-              Join thousands of users who never worry about battery life. Find a
-              station near you and experience the convenience of PowerShare.
+              {t(
+                "locations.network.readyDesc",
+                "Join thousands of users who never worry about battery life. Find a station near you and experience the convenience of PowerShare.",
+              )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/stations">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Find Station Now
+                  {t("locations.network.findStationNow", "Find Station Now")}
                 </button>
               </Link>
               <Link href="/register">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-700 font-semibold rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Create Account
+                  {t("locations.network.createAccount", "Create Account")}
                 </button>
               </Link>
             </div>
