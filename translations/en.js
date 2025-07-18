@@ -121,6 +121,13 @@ export default {
     address: "Address",
   },
 
+  // Payments
+  payments: {
+    title: "Payment History",
+    methods: "Payment Methods",
+    history: "Payment History",
+  },
+
   // Admin
   admin: {
     title: "Admin Dashboard",
