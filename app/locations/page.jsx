@@ -159,21 +159,23 @@ export default function LocationsPage() {
                   500+
                 </div>
                 <div className="text-gray-600 text-xs sm:text-sm">
-                  Locations
+                  {t("locations.stats.locations", "Locations")}
                 </div>
               </div>
               <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-[#76b82c] mb-1 sm:mb-2">
                   50+
                 </div>
-                <div className="text-gray-600 text-xs sm:text-sm">Cities</div>
+                <div className="text-gray-600 text-xs sm:text-sm">
+                  {t("locations.stats.cities", "Cities")}
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-[#76b82c] mb-1 sm:mb-2">
                   24/7
                 </div>
                 <div className="text-gray-600 text-xs sm:text-sm">
-                  Available
+                  {t("locations.stats.available", "Available")}
                 </div>
               </div>
               <div className="text-center">
@@ -181,7 +183,7 @@ export default function LocationsPage() {
                   100K+
                 </div>
                 <div className="text-gray-600 text-xs sm:text-sm">
-                  Happy Users
+                  {t("locations.stats.happyUsers", "Happy Users")}
                 </div>
               </div>
             </div>
