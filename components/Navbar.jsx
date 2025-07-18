@@ -388,42 +388,42 @@ export default function Navbar() {
                       className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Dashboard
+                      {t("nav.dashboard", "Dashboard")}
                     </Link>
                     <Link
                       href="/stations"
                       className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Stations
+                      {t("nav.stations", "Stations")}
                     </Link>
                     <Link
                       href="/rental"
                       className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Rental
+                      {t("nav.rental", "Rental")}
                     </Link>
                     <Link
                       href="/my-rentals"
                       className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      My Rentals
+                      {t("nav.myRentals", "My Rentals")}
                     </Link>
                     <Link
                       href="/payments"
                       className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Payment History
+                      {t("payments.title", "Payment History")}
                     </Link>
                     <Link
                       href="/profile"
                       className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Profile Settings
+                      {t("profile.title", "Profile Settings")}
                     </Link>
 
                     {user?.profile?.data?.user?.role === "admin" && (
@@ -432,7 +432,7 @@ export default function Navbar() {
                         className="block font-medium text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-4 py-3 rounded-lg transition-all duration-200 mt-2"
                         onClick={() => setIsMenuOpen(false)}
                       >
-                        Admin Panel
+                        {t("nav.admin", "Admin Panel")}
                       </Link>
                     )}
                   </div>
@@ -449,7 +449,7 @@ export default function Navbar() {
                       }}
                       className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-3 rounded-lg font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-200 shadow-md"
                     >
-                      Sign Out
+                      {t("auth.signOut", "Sign Out")}
                     </button>
                   </div>
                 </>
@@ -462,14 +462,14 @@ export default function Navbar() {
                       className="block font-medium text-primary-600 hover:text-white hover:bg-primary-600 border border-primary-600 px-4 py-3 rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Sign In
+                      {t("auth.signIn", "Sign In")}
                     </Link>
                     <Link
                       href="/register"
                       className="block font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 px-4 py-3 rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-200 shadow-md text-center"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Sign Up
+                      {t("auth.signUp", "Sign Up")}
                     </Link>
                   </div>
 
