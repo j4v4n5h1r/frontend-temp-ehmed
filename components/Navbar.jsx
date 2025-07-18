@@ -222,42 +222,57 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center justify-center flex-1">
-            <div className="flex items-center gap-10">
+            <div className="flex items-center gap-6 lg:gap-10">
               <GlassNav />
-              {user && (
+              {user ? (
                 <>
                   <Link
                     href="/dashboard"
-                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-2 rounded-lg transition-all duration-200"
+                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
                     Dashboard
                   </Link>
                   <Link
                     href="/stations"
-                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-2 rounded-lg transition-all duration-200"
+                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
                     Stations
                   </Link>
                   <Link
                     href="/rental"
-                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-2 rounded-lg transition-all duration-200"
+                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
                     Rental
                   </Link>
                   <Link
                     href="/profile"
-                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-2 rounded-lg transition-all duration-200"
+                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
                     Profile
                   </Link>
                   {user?.profile?.data?.user?.role === "admin" && (
                     <Link
                       href="/admin"
-                      className="font-semibold text-red-600 hover:text-black hover:bg-red-50 border border-red-600 px-4 py-2 rounded-lg transition-all duration-200"
+                      className="font-semibold text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                     >
                       Admin
                     </Link>
                   )}
+                </>
+              ) : (
+                <>
+                  <Link
+                    href="/login"
+                    className="font-medium text-neutral-700 hover:text-primary-600 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    href="/register"
+                    className="font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap shadow-md"
+                  >
+                    Sign Up
+                  </Link>
                 </>
               )}
             </div>
