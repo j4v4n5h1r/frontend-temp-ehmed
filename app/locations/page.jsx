@@ -64,27 +64,24 @@ export default function LocationsPage() {
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-                Find Us at Over
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
-                500+ Locations
+                {t("locations.title", "Find Us at Over 500+ Locations")}
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
-              PowerShare stations are available in major cities worldwide.
-              <br className="hidden sm:block" />
-              Find a station near you and never run out of power again.
+              {t(
+                "locations.subtitle",
+                "PowerShare stations are available in major cities worldwide. Find a station near you and never run out of power again.",
+              )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/stations">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Find Nearest Station
+                  {t("locations.findNearestStation", "Find Nearest Station")}
                 </button>
               </Link>
               <Link href="/register">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-700 font-semibold rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Get Started
+                  {t("locations.getStarted", "Get Started")}
                 </button>
               </Link>
             </div>
