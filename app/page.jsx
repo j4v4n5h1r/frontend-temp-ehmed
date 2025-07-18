@@ -799,26 +799,32 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: "Sarah Johnson",
-                role: "Frequent Traveler",
-                content:
+                name: t("home.testimonials.sarah.name", "Sarah Johnson"),
+                role: t("home.testimonials.sarah.role", "Frequent Traveler"),
+                content: t(
+                  "home.testimonials.sarah.content",
                   "PowerShare saved my trip! Found a station right at the airport and kept my phone charged throughout my journey. Absolutely essential for travelers.",
+                ),
                 rating: 5,
                 avatar: "SJ",
               },
               {
-                name: "Mike Chen",
-                role: "College Student",
-                content:
+                name: t("home.testimonials.mike.name", "Mike Chen"),
+                role: t("home.testimonials.mike.role", "College Student"),
+                content: t(
+                  "home.testimonials.mike.content",
                   "Super affordable and convenient. There's a station right on campus and the app makes it so easy to rent and return. Game changer for students!",
+                ),
                 rating: 5,
                 avatar: "MC",
               },
               {
-                name: "Emma Davis",
-                role: "Business Professional",
-                content:
+                name: t("home.testimonials.emma.name", "Emma Davis"),
+                role: t("home.testimonials.emma.role", "Business Professional"),
+                content: t(
+                  "home.testimonials.emma.content",
                   "The reliability is outstanding. I use PowerShare during conferences and long meetings. Never had an issue finding an available power bank.",
+                ),
                 rating: 5,
                 avatar: "ED",
               },
