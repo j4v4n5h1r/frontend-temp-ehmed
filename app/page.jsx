@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslation } from "../context/TranslationContext";
 import Map from "../components/Map";
 
 export default function Home() {
+  const { t } = useTranslation();
+
   return (
     <div
       className="min-h-screen"
@@ -66,19 +69,7 @@ export default function Home() {
                 backgroundClip: "text",
               }}
             >
-              Never Run Out of
-              <br className="hidden sm:block" />
-              <span
-                style={{
-                  background:
-                    "linear-gradient(135deg, #10b981 0%, #2563eb 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Power Again
-              </span>
+              {t("home.title", "Never Run Out of Power Again")}
             </h1>
 
             <p
@@ -88,9 +79,10 @@ export default function Home() {
                 color: "#475569",
               }}
             >
-              Rent a power bank anytime, anywhere in seconds.
-              <br className="hidden sm:block" />
-              Fast, convenient, and always available when you need it most.
+              {t(
+                "home.description",
+                "Rent a power bank anytime, anywhere in seconds. Fast, convenient, and always available when you need it most.",
+              )}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
@@ -124,7 +116,7 @@ export default function Home() {
                       d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
-                  Find a Station
+                  {t("home.findStations", "Find a Station")}
                 </button>
               </Link>
 
@@ -195,7 +187,7 @@ export default function Home() {
                 color: "#1e293b",
               }}
             >
-              How It Works
+              {t("home.howItWorks", "How It Works")}
             </h2>
             <p
               className="max-w-2xl mx-auto"
