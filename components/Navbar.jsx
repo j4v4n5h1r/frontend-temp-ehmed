@@ -2,11 +2,13 @@
 import Link from "next/link";
 import { useContext, useState, useRef, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { useTranslation } from "../context/TranslationContext";
 import GlassNav from "./GlassNav";
 import LanguageSelector from "./LanguageSelector";
 
 // Profile Dropdown Component
 function ProfileDropdown({ user, logout }) {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -92,7 +94,7 @@ function ProfileDropdown({ user, logout }) {
                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
               />
             </svg>
-            Profile Settings
+            {t("profile.title", "Profile Settings")}
           </Link>
 
           <Link
@@ -113,7 +115,7 @@ function ProfileDropdown({ user, logout }) {
                 d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V9a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
               />
             </svg>
-            My Rentals
+            {t("rentals.title", "My Rentals")}
           </Link>
 
           <Link
@@ -134,7 +136,7 @@ function ProfileDropdown({ user, logout }) {
                 d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
               />
             </svg>
-            Payment History
+            {t("payments.title", "Payment History")}
           </Link>
 
           <div className="border-t border-neutral-100 mt-1">
@@ -158,7 +160,7 @@ function ProfileDropdown({ user, logout }) {
                   d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                 />
               </svg>
-              Sign Out
+              {t("auth.signOut", "Sign Out")}
             </button>
           </div>
         </div>
@@ -169,6 +171,7 @@ function ProfileDropdown({ user, logout }) {
 
 export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
@@ -231,25 +234,25 @@ export default function Navbar() {
                     href="/dashboard"
                     className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
-                    Dashboard
+                    {t("nav.dashboard", "Dashboard")}
                   </Link>
                   <Link
                     href="/stations"
                     className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
-                    Stations
+                    {t("nav.stations", "Stations")}
                   </Link>
                   <Link
                     href="/rental"
                     className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
-                    Rental
+                    {t("nav.rental", "Rental")}
                   </Link>
                   <Link
                     href="/profile"
                     className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
-                    Profile
+                    {t("nav.profile", "Profile")}
                   </Link>
                   {user?.profile?.data?.user?.role === "admin" && (
                     <Link
@@ -266,13 +269,13 @@ export default function Navbar() {
                     href="/login"
                     className="font-medium text-neutral-700 hover:text-primary-600 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
-                    Sign In
+                    {t("auth.signIn", "Sign In")}
                   </Link>
                   <Link
                     href="/register"
                     className="font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap shadow-md"
                   >
-                    Sign Up
+                    {t("auth.signUp", "Sign Up")}
                   </Link>
                 </>
               )}
@@ -329,28 +332,28 @@ export default function Navbar() {
                   className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  How to use
+                  {t("nav.howToUse", "How to use")}
                 </Link>
                 <Link
                   href="/locations"
                   className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Locations
+                  {t("nav.locations", "Locations")}
                 </Link>
                 <Link
                   href="/pricing"
                   className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Pricing
+                  {t("nav.pricing", "Pricing")}
                 </Link>
                 <Link
                   href="/about"
                   className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  About Us
+                  {t("nav.about", "About Us")}
                 </Link>
               </div>
 
@@ -385,42 +388,42 @@ export default function Navbar() {
                       className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Dashboard
+                      {t("nav.dashboard", "Dashboard")}
                     </Link>
                     <Link
                       href="/stations"
                       className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Stations
+                      {t("nav.stations", "Stations")}
                     </Link>
                     <Link
                       href="/rental"
                       className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Rental
+                      {t("nav.rental", "Rental")}
                     </Link>
                     <Link
                       href="/my-rentals"
                       className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      My Rentals
+                      {t("nav.myRentals", "My Rentals")}
                     </Link>
                     <Link
                       href="/payments"
                       className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Payment History
+                      {t("payments.title", "Payment History")}
                     </Link>
                     <Link
                       href="/profile"
                       className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Profile Settings
+                      {t("profile.title", "Profile Settings")}
                     </Link>
 
                     {user?.profile?.data?.user?.role === "admin" && (
@@ -429,7 +432,7 @@ export default function Navbar() {
                         className="block font-medium text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-4 py-3 rounded-lg transition-all duration-200 mt-2"
                         onClick={() => setIsMenuOpen(false)}
                       >
-                        Admin Panel
+                        {t("nav.admin", "Admin Panel")}
                       </Link>
                     )}
                   </div>
@@ -446,7 +449,7 @@ export default function Navbar() {
                       }}
                       className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-3 rounded-lg font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-200 shadow-md"
                     >
-                      Sign Out
+                      {t("auth.signOut", "Sign Out")}
                     </button>
                   </div>
                 </>
@@ -459,14 +462,14 @@ export default function Navbar() {
                       className="block font-medium text-primary-600 hover:text-white hover:bg-primary-600 border border-primary-600 px-4 py-3 rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Sign In
+                      {t("auth.signIn", "Sign In")}
                     </Link>
                     <Link
                       href="/register"
                       className="block font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 px-4 py-3 rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-200 shadow-md text-center"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Sign Up
+                      {t("auth.signUp", "Sign Up")}
                     </Link>
                   </div>
 

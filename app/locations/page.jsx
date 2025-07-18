@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslation } from "../../context/TranslationContext";
 import Map from "../../components/Map";
 
 export default function LocationsPage() {
+  const { t } = useTranslation();
+
   const countries = [
     {
-      name: "United States",
+      name: t("locations.countries.unitedStates.name", "United States"),
       flag: "🇺🇸",
       cities: [
         "New York",
@@ -18,25 +21,37 @@ export default function LocationsPage() {
         "San Antonio",
         "San Diego",
       ],
-      description: "Over 300 stations across major cities",
+      description: t(
+        "locations.countries.unitedStates.description",
+        "Over 300 stations across major cities",
+      ),
     },
     {
-      name: "Canada",
+      name: t("locations.countries.canada.name", "Canada"),
       flag: "🇨🇦",
       cities: ["Toronto", "Vancouver", "Montreal", "Calgary"],
-      description: "50+ stations in metropolitan areas",
+      description: t(
+        "locations.countries.canada.description",
+        "50+ stations in metropolitan areas",
+      ),
     },
     {
-      name: "United Kingdom",
+      name: t("locations.countries.unitedKingdom.name", "United Kingdom"),
       flag: "🇬🇧",
       cities: ["London", "Manchester", "Birmingham", "Glasgow"],
-      description: "Expanding coverage in major cities",
+      description: t(
+        "locations.countries.unitedKingdom.description",
+        "Expanding coverage in major cities",
+      ),
     },
     {
-      name: "Germany",
+      name: t("locations.countries.germany.name", "Germany"),
       flag: "🇩🇪",
       cities: ["Berlin", "Munich", "Hamburg", "Frankfurt"],
-      description: "Growing network across Germany",
+      description: t(
+        "locations.countries.germany.description",
+        "Growing network across Germany",
+      ),
     },
   ];
 
@@ -49,27 +64,24 @@ export default function LocationsPage() {
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-                Find Us at Over
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
-                500+ Locations
+                {t("locations.title", "Find Us at Over 500+ Locations")}
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
-              PowerShare stations are available in major cities worldwide.
-              <br className="hidden sm:block" />
-              Find a station near you and never run out of power again.
+              {t(
+                "locations.subtitle",
+                "PowerShare stations are available in major cities worldwide. Find a station near you and never run out of power again.",
+              )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/stations">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Find Nearest Station
+                  {t("locations.findNearestStation", "Find Nearest Station")}
                 </button>
               </Link>
               <Link href="/register">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-700 font-semibold rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Get Started
+                  {t("locations.getStarted", "Get Started")}
                 </button>
               </Link>
             </div>
@@ -84,32 +96,32 @@ export default function LocationsPage() {
             {/* Header */}
             <div className="flex flex-col gap-2 text-center sm:text-left">
               <h2 className="text-[#76b82c] font-medium text-xl sm:text-2xl font-rubik">
-                Find Us at Over 500+ Locations
+                {t("locations.title", "Find Us at Over 500+ Locations")}
               </h2>
               <h1
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wider"
                 style={{ fontFamily: "Bebas Neue, sans-serif" }}
               >
-                LOCATIONS
+                {t("locations.locationsTitle", "LOCATIONS")}
               </h1>
             </div>
 
             {/* Country Filter Tabs */}
             <div className="flex flex-wrap gap-3 sm:gap-5 items-center justify-center sm:justify-start">
               <button className="px-3 sm:px-4 py-2 sm:py-3 text-[#76b82c] font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
-                Closest Location
+                {t("locations.closestLocation", "Closest Location")}
               </button>
               <button className="px-3 sm:px-4 py-2 sm:py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
-                United States
+                {t("locations.countries.unitedStates.name", "United States")}
               </button>
               <button className="px-3 sm:px-4 py-2 sm:py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
-                Canada
+                {t("locations.countries.canada.name", "Canada")}
               </button>
               <button className="px-3 sm:px-4 py-2 sm:py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
-                United Kingdom
+                {t("locations.countries.unitedKingdom.name", "United Kingdom")}
               </button>
               <button className="px-3 sm:px-4 py-2 sm:py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap">
-                Germany
+                {t("locations.countries.germany.name", "Germany")}
               </button>
             </div>
 
@@ -133,9 +145,10 @@ export default function LocationsPage() {
             {/* Description */}
             <div className="bg-white pt-6 sm:pt-8">
               <p className="text-gray-700 text-sm sm:text-base leading-relaxed max-w-4xl text-center sm:text-left mx-auto sm:mx-0 px-4 sm:px-0">
-                Rent and return at more than 500 locations in major cities
-                worldwide. Our growing network ensures you'll always find a
-                PowerShare station when you need it most.
+                {t(
+                  "locations.description",
+                  "Rent and return at more than 500 locations in major cities worldwide. Our growing network ensures you'll always find a PowerShare station when you need it most.",
+                )}
               </p>
             </div>
 
@@ -146,21 +159,23 @@ export default function LocationsPage() {
                   500+
                 </div>
                 <div className="text-gray-600 text-xs sm:text-sm">
-                  Locations
+                  {t("locations.stats.locations", "Locations")}
                 </div>
               </div>
               <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-[#76b82c] mb-1 sm:mb-2">
                   50+
                 </div>
-                <div className="text-gray-600 text-xs sm:text-sm">Cities</div>
+                <div className="text-gray-600 text-xs sm:text-sm">
+                  {t("locations.stats.cities", "Cities")}
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-[#76b82c] mb-1 sm:mb-2">
                   24/7
                 </div>
                 <div className="text-gray-600 text-xs sm:text-sm">
-                  Available
+                  {t("locations.stats.available", "Available")}
                 </div>
               </div>
               <div className="text-center">
@@ -168,7 +183,7 @@ export default function LocationsPage() {
                   100K+
                 </div>
                 <div className="text-gray-600 text-xs sm:text-sm">
-                  Happy Users
+                  {t("locations.stats.happyUsers", "Happy Users")}
                 </div>
               </div>
             </div>
@@ -181,10 +196,13 @@ export default function LocationsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Available Countries
+              {t("locations.availableCountries", "Available Countries")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              We're expanding rapidly to serve you better
+              {t(
+                "locations.expandingDesc",
+                "We're expanding rapidly to serve you better",
+              )}
             </p>
           </div>
 
@@ -208,7 +226,7 @@ export default function LocationsPage() {
 
                 <div className="space-y-2">
                   <h4 className="font-semibold text-gray-900 text-sm sm:text-base">
-                    Major Cities:
+                    {t("locations.majorCities", "Major Cities:")}
                   </h4>
                   <div className="flex flex-wrap gap-1 sm:gap-2">
                     {country.cities.slice(0, 4).map((city, cityIndex) => (
@@ -221,7 +239,8 @@ export default function LocationsPage() {
                     ))}
                     {country.cities.length > 4 && (
                       <span className="text-gray-500 text-xs">
-                        +{country.cities.length - 4} more
+                        +{country.cities.length - 4}{" "}
+                        {t("locations.moreText", "more")}
                       </span>
                     )}
                   </div>
@@ -237,15 +256,24 @@ export default function LocationsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12">
-              Our Growing Network
+              {t("locations.network.title", "Our Growing Network")}
             </h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
               {[
-                { number: "500+", label: "Stations" },
-                { number: "50+", label: "Cities" },
-                { number: "10+", label: "Countries" },
-                { number: "24/7", label: "Available" },
+                {
+                  number: "500+",
+                  label: t("locations.stats.stations", "Stations"),
+                },
+                { number: "50+", label: t("locations.stats.cities", "Cities") },
+                {
+                  number: "10+",
+                  label: t("locations.stats.countries", "Countries"),
+                },
+                {
+                  number: "24/7",
+                  label: t("locations.stats.available", "Available"),
+                },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
@@ -266,21 +294,23 @@ export default function LocationsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Ready to Get Started?
+              {t("locations.network.readyTitle", "Ready to Get Started?")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 px-4">
-              Join thousands of users who never worry about battery life. Find a
-              station near you and experience the convenience of PowerShare.
+              {t(
+                "locations.network.readyDesc",
+                "Join thousands of users who never worry about battery life. Find a station near you and experience the convenience of PowerShare.",
+              )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/stations">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Find Station Now
+                  {t("locations.network.findStationNow", "Find Station Now")}
                 </button>
               </Link>
               <Link href="/register">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-700 font-semibold rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Create Account
+                  {t("locations.network.createAccount", "Create Account")}
                 </button>
               </Link>
             </div>

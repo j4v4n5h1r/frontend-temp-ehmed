@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslation } from "../context/TranslationContext";
 import Map from "../components/Map";
 
 export default function Home() {
+  const { t } = useTranslation();
+
   return (
     <div
       className="min-h-screen"
@@ -66,19 +69,7 @@ export default function Home() {
                 backgroundClip: "text",
               }}
             >
-              Never Run Out of
-              <br className="hidden sm:block" />
-              <span
-                style={{
-                  background:
-                    "linear-gradient(135deg, #10b981 0%, #2563eb 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Power Again
-              </span>
+              {t("home.title", "Never Run Out of Power Again")}
             </h1>
 
             <p
@@ -88,9 +79,10 @@ export default function Home() {
                 color: "#475569",
               }}
             >
-              Rent a power bank anytime, anywhere in seconds.
-              <br className="hidden sm:block" />
-              Fast, convenient, and always available when you need it most.
+              {t(
+                "home.description",
+                "Rent a power bank anytime, anywhere in seconds. Fast, convenient, and always available when you need it most.",
+              )}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
@@ -124,7 +116,7 @@ export default function Home() {
                       d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
-                  Find a Station
+                  {t("home.findStations", "Find a Station")}
                 </button>
               </Link>
 
@@ -157,7 +149,7 @@ export default function Home() {
                     d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
                   />
                 </svg>
-                Download App
+                {t("home.downloadApp", "Download App")}
               </button>
             </div>
           </div>
@@ -195,7 +187,7 @@ export default function Home() {
                 color: "#1e293b",
               }}
             >
-              How It Works
+              {t("home.howItWorks", "How It Works")}
             </h2>
             <p
               className="max-w-2xl mx-auto"
@@ -204,7 +196,7 @@ export default function Home() {
                 color: "#64748b",
               }}
             >
-              Get powered up in three simple steps
+              {t("home.subtitle2", "Get powered up in three simple steps")}
             </p>
           </div>
 
@@ -212,9 +204,11 @@ export default function Home() {
             {[
               {
                 step: "01",
-                title: "Scan QR Code",
-                description:
+                title: t("home.steps.step1.title", "Scan QR Code"),
+                description: t(
+                  "home.steps.step1.description",
                   "Find a station and scan the QR code with your phone camera or our app",
+                ),
                 icon: (
                   <svg
                     className="w-6 h-6"
@@ -233,9 +227,11 @@ export default function Home() {
               },
               {
                 step: "02",
-                title: "Pick Power Bank",
-                description:
+                title: t("home.steps.step2.title", "Pick Power Bank"),
+                description: t(
+                  "home.steps.step2.description",
                   "Choose an available power bank from the station and start charging immediately",
+                ),
                 icon: (
                   <svg
                     className="w-6 h-6"
@@ -254,9 +250,11 @@ export default function Home() {
               },
               {
                 step: "03",
-                title: "Return Anywhere",
-                description:
+                title: t("home.steps.step3.title", "Return Anywhere"),
+                description: t(
+                  "home.steps.step3.description",
                   "Return the power bank to any station when you're done. It's that simple!",
+                ),
                 icon: (
                   <svg
                     className="w-6 h-6"
@@ -461,18 +459,19 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="flex flex-col gap-6">
               <p className="text-xs font-medium tracking-wider text-gray-500 uppercase mb-2">
-                PRICING
+                {t("nav.pricing", "PRICING").toUpperCase()}
               </p>
               <h1
                 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
-                Smart service, affordable price.
+                {t("home.pricing.title", "Smart service, affordable price.")}
               </h1>
               <p className="text-base leading-relaxed text-gray-600 mb-2">
-                <span>Pay per minutes or flat price.</span>
-                <br />
-                <span>Just choose the way you're more comfortable with.</span>
+                {t(
+                  "home.pricing.subtitle",
+                  "Pay per minutes or flat price. Just choose the way you're more comfortable with.",
+                )}
               </p>
               <div className="mt-4">
                 <img
@@ -492,15 +491,17 @@ export default function Home() {
                     className="text-lg sm:text-xl font-extrabold text-gray-900"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
-                    Pay as you go
+                    {t("home.pricing.payAsYouGo", "Pay as you go")}
                   </h4>
                   <div className="text-xs font-medium tracking-wider text-gray-500 uppercase">
-                    WITH POWERSHARE APPS
+                    {t("home.pricing.withApps", "WITH POWERSHARE APPS")}
                   </div>
                 </div>
                 <div className="text-sm sm:text-base leading-relaxed text-gray-700 pr-16 sm:pr-20">
-                  Rent a PowerShare power bank with the PowerShare app or web
-                  app and pay just the minutes of usage.
+                  {t(
+                    "home.pricing.payAsYouGoDesc",
+                    "Rent a PowerShare power bank with the PowerShare app or web app and pay just the minutes of usage.",
+                  )}
                 </div>
                 <div className="flex items-center gap-4 justify-start pt-2">
                   <Link
@@ -508,7 +509,7 @@ export default function Home() {
                     className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl sm:rounded-2xl text-[#22dd88] hover:bg-gray-200 transition-colors"
                   >
                     <div className="text-sm font-medium tracking-wide">
-                      Learn more
+                      {t("home.pricing.learnMore", "Learn more")}
                     </div>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path
@@ -536,15 +537,17 @@ export default function Home() {
                     className="text-lg sm:text-xl font-extrabold text-gray-900"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
-                    Flat price
+                    {t("home.pricing.flatPrice", "Flat price")}
                   </h4>
                   <div className="text-xs font-medium tracking-wider text-gray-500 uppercase">
-                    WITH CARDS
+                    {t("home.pricing.withCards", "WITH CARDS")}
                   </div>
                 </div>
                 <div className="text-sm sm:text-base leading-relaxed text-gray-700 pr-16 sm:pr-20">
-                  Tap your card on the PowerShare Station payment terminal or
-                  pay with Apple Pay or Google Pay.
+                  {t(
+                    "home.pricing.flatPriceDesc",
+                    "Tap your card on the PowerShare Station payment terminal or pay with Apple Pay or Google Pay.",
+                  )}
                 </div>
                 <div className="flex items-center gap-4 justify-start pt-2">
                   <Link
@@ -552,7 +555,7 @@ export default function Home() {
                     className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl sm:rounded-2xl text-[#22dd88] hover:bg-gray-200 transition-colors"
                   >
                     <div className="text-sm font-medium tracking-wide">
-                      Learn more
+                      {t("home.pricing.learnMore", "Learn more")}
                     </div>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path
@@ -593,14 +596,16 @@ export default function Home() {
                   fontSize: "clamp(2rem, 4vw, 3rem)",
                 }}
               >
-                Get the PowerShare App
+                {t("home.app.title", "Get the PowerShare App")}
               </h2>
               <p
                 className="text-xl mb-8 leading-relaxed"
                 style={{ color: "#bfdbfe" }}
               >
-                Download our app for the fastest way to find stations, rent
-                power banks, and manage your account on the go.
+                {t(
+                  "home.app.description",
+                  "Download our app for the fastest way to find stations, rent power banks, and manage your account on the go.",
+                )}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -618,8 +623,12 @@ export default function Home() {
                     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
                   </svg>
                   <div className="text-left">
-                    <div className="text-xs">Download on the</div>
-                    <div className="text-sm font-semibold">App Store</div>
+                    <div className="text-xs">
+                      {t("home.app.downloadOn", "Download on the")}
+                    </div>
+                    <div className="text-sm font-semibold">
+                      {t("home.app.appStore", "App Store")}
+                    </div>
                   </div>
                 </button>
 
@@ -637,8 +646,12 @@ export default function Home() {
                     <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
                   </svg>
                   <div className="text-left">
-                    <div className="text-xs">Get it on</div>
-                    <div className="text-sm font-semibold">Google Play</div>
+                    <div className="text-xs">
+                      {t("home.app.getItOn", "Get it on")}
+                    </div>
+                    <div className="text-sm font-semibold">
+                      {t("home.app.googlePlay", "Google Play")}
+                    </div>
                   </div>
                 </button>
               </div>
@@ -688,7 +701,7 @@ export default function Home() {
                           PowerShare
                         </h3>
                         <p className="text-base sm:text-lg opacity-90 mb-4 sm:mb-6">
-                          Mobile App
+                          {t("home.app.title", "Mobile App")}
                         </p>
 
                         {/* Feature List */}
@@ -696,19 +709,28 @@ export default function Home() {
                           <div className="flex items-center gap-2 sm:gap-3">
                             <div className="w-2 h-2 bg-emerald-300 rounded-full flex-shrink-0"></div>
                             <span className="text-xs sm:text-sm">
-                              Find nearby stations
+                              {t(
+                                "home.app.features.findStations",
+                                "Find nearby stations",
+                              )}
                             </span>
                           </div>
                           <div className="flex items-center gap-2 sm:gap-3">
                             <div className="w-2 h-2 bg-blue-300 rounded-full flex-shrink-0"></div>
                             <span className="text-xs sm:text-sm">
-                              Real-time availability
+                              {t(
+                                "home.app.features.realTime",
+                                "Real-time availability",
+                              )}
                             </span>
                           </div>
                           <div className="flex items-center gap-2 sm:gap-3">
                             <div className="w-2 h-2 bg-purple-300 rounded-full flex-shrink-0"></div>
                             <span className="text-xs sm:text-sm">
-                              Instant QR scanning
+                              {t(
+                                "home.app.features.qrScanning",
+                                "Instant QR scanning",
+                              )}
                             </span>
                           </div>
                         </div>
@@ -738,7 +760,7 @@ export default function Home() {
 
                   {/* Download Badge */}
                   <div className="absolute -top-2 sm:-top-3 -right-2 sm:-right-3 bg-emerald-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                    Coming Soon
+                    {t("home.app.comingSoon", "Coming Soon")}
                   </div>
                 </div>
               </div>
@@ -758,7 +780,7 @@ export default function Home() {
                 color: "#1e293b",
               }}
             >
-              What Our Users Say
+              {t("home.testimonials.title", "What Our Users Say")}
             </h2>
             <p
               className="max-w-2xl mx-auto"
@@ -767,34 +789,42 @@ export default function Home() {
                 color: "#64748b",
               }}
             >
-              Join thousands of satisfied customers who never worry about
-              battery life
+              {t(
+                "home.testimonials.subtitle",
+                "Join thousands of satisfied customers who never worry about battery life",
+              )}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: "Sarah Johnson",
-                role: "Frequent Traveler",
-                content:
+                name: t("home.testimonials.sarah.name", "Sarah Johnson"),
+                role: t("home.testimonials.sarah.role", "Frequent Traveler"),
+                content: t(
+                  "home.testimonials.sarah.content",
                   "PowerShare saved my trip! Found a station right at the airport and kept my phone charged throughout my journey. Absolutely essential for travelers.",
+                ),
                 rating: 5,
                 avatar: "SJ",
               },
               {
-                name: "Mike Chen",
-                role: "College Student",
-                content:
+                name: t("home.testimonials.mike.name", "Mike Chen"),
+                role: t("home.testimonials.mike.role", "College Student"),
+                content: t(
+                  "home.testimonials.mike.content",
                   "Super affordable and convenient. There's a station right on campus and the app makes it so easy to rent and return. Game changer for students!",
+                ),
                 rating: 5,
                 avatar: "MC",
               },
               {
-                name: "Emma Davis",
-                role: "Business Professional",
-                content:
+                name: t("home.testimonials.emma.name", "Emma Davis"),
+                role: t("home.testimonials.emma.role", "Business Professional"),
+                content: t(
+                  "home.testimonials.emma.content",
                   "The reliability is outstanding. I use PowerShare during conferences and long meetings. Never had an issue finding an available power bank.",
+                ),
                 rating: 5,
                 avatar: "ED",
               },
@@ -882,8 +912,10 @@ export default function Home() {
                 </span>
               </div>
               <p className="mb-6 max-w-md" style={{ color: "#cbd5e1" }}>
-                The most convenient way to stay charged. Rent power banks from
-                stations nationwide and never run out of battery again.
+                {t(
+                  "home.footer.description",
+                  "The most convenient way to stay charged. Rent power banks from stations nationwide and never run out of battery again.",
+                )}
               </p>
               <div className="flex gap-4">
                 {[
@@ -930,47 +962,51 @@ export default function Home() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h4 className="font-semibold mb-4">
+                {t("home.footer.company", "Company")}
+              </h4>
               <ul className="space-y-2" style={{ color: "#cbd5e1" }}>
                 <li>
                   <a href="#" className="transition-colors hover:text-white">
-                    About Us
+                    {t("home.footer.aboutUs", "About Us")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="transition-colors hover:text-white">
-                    Careers
+                    {t("home.footer.careers", "Careers")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="transition-colors hover:text-white">
-                    Contact
+                    {t("home.footer.contact", "Contact")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="transition-colors hover:text-white">
-                    Blog
+                    {t("home.footer.blog", "Blog")}
                   </a>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Support</h4>
+              <h4 className="font-semibold mb-4">
+                {t("home.footer.support", "Support")}
+              </h4>
               <ul className="space-y-2" style={{ color: "#cbd5e1" }}>
                 <li>
                   <a href="#" className="transition-colors hover:text-white">
-                    Help Center
+                    {t("home.footer.helpCenter", "Help Center")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="transition-colors hover:text-white">
-                    Terms of Service
+                    {t("home.footer.termsOfService", "Terms of Service")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="transition-colors hover:text-white">
-                    Privacy Policy
+                    {t("home.footer.privacyPolicy", "Privacy Policy")}
                   </a>
                 </li>
                 <li>
@@ -978,7 +1014,7 @@ export default function Home() {
                     href="/login"
                     className="transition-colors hover:text-white"
                   >
-                    Account
+                    {t("home.footer.account", "Account")}
                   </Link>
                 </li>
               </ul>
@@ -989,7 +1025,10 @@ export default function Home() {
             className="border-t mt-12 pt-8 text-center"
             style={{ borderColor: "#374151", color: "#94a3b8" }}
           >
-            <p>&copy; 2024 MyPobi. All rights reserved.</p>
+            <p>
+              &copy; 2024 MyPobi.{" "}
+              {t("home.footer.allRightsReserved", "All rights reserved")}.
+            </p>
           </div>
         </div>
       </footer>

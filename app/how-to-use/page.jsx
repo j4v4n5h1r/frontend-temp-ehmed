@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslation } from "../../context/TranslationContext";
 
 export default function HowToUsePage() {
+  const { t } = useTranslation();
+
   const steps = [
     {
       step: "01",
@@ -146,24 +149,35 @@ export default function HowToUsePage() {
 
   const faqs = [
     {
-      question: "How long can I keep a power bank?",
-      answer:
+      question: t("howToUse.faq.q1", "How long can I keep a power bank?"),
+      answer: t(
+        "howToUse.faq.a1",
         "You can rent a power bank for up to 7 days. After that, additional fees may apply. Most users return them within a few hours.",
+      ),
     },
     {
-      question: "What if I lose or damage the power bank?",
-      answer:
+      question: t(
+        "howToUse.faq.q2",
+        "What if I lose or damage the power bank?",
+      ),
+      answer: t(
+        "howToUse.faq.a2",
         "If a power bank is lost or damaged, a replacement fee will be charged to your account. The fee varies by location but is typically around $30-50.",
+      ),
     },
     {
-      question: "Which devices are compatible?",
-      answer:
+      question: t("howToUse.faq.q3", "Which devices are compatible?"),
+      answer: t(
+        "howToUse.faq.a3",
         "Our power banks work with all smartphones, tablets, and small electronics. They include Lightning, USB-C, and Micro-USB cables built-in.",
+      ),
     },
     {
-      question: "How much does it cost?",
-      answer:
+      question: t("howToUse.faq.q4", "How much does it cost?"),
+      answer: t(
+        "howToUse.faq.a4",
         "Pricing varies by location and duration. Typically, it's $2 per hour, $8 per day, or $25 per week. Check our pricing page for details.",
+      ),
     },
   ];
 
@@ -176,22 +190,18 @@ export default function HowToUsePage() {
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-                How to Use
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
-                PowerShare
+                {t("howToUse.title", "How to Use PowerShare")}
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
-              Get powered up in 6 simple steps. It's easier than you think!
-              <br className="hidden sm:block" />
-              From finding a station to returning your power bank - we've got
-              you covered.
+              {t(
+                "howToUse.subtitle",
+                "Get powered up in 6 simple steps. It's easier than you think! From finding a station to returning your power bank - we've got you covered.",
+              )}
             </p>
             <Link href="/locations">
               <button className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                Find a Station
+                {t("howToUse.steps.step1.title", "Find a Station")}
               </button>
             </Link>
           </div>
@@ -228,7 +238,7 @@ export default function HowToUsePage() {
 
               <div className="order-3 lg:order-3 flex flex-col gap-3 w-full lg:max-w-[370px] text-center lg:text-left">
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
-                  Find a PowerShare Station
+                  {t("howToUse.steps.step1.title", "Find a PowerShare Station")}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
                   PowerShare is available at thousands of convenience stores,
@@ -293,7 +303,10 @@ export default function HowToUsePage() {
 
               <div className="order-3 lg:order-1 flex flex-col gap-3 w-full lg:max-w-[370px] text-center lg:text-right">
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
-                  Grab a PowerShare power bank and charge on the go
+                  {t(
+                    "howToUse.steps.step2.title",
+                    "Grab a PowerShare power bank and charge on the go",
+                  )}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
                   No app needed. Renting a PowerShare costs just $2 to $8
@@ -337,8 +350,10 @@ export default function HowToUsePage() {
 
               <div className="order-3 lg:order-3 flex flex-col gap-3 w-full lg:max-w-[370px] text-center lg:text-left">
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
-                  Return in 7 days, get your deposit back — maybe grab another?
-                  😉
+                  {t(
+                    "howToUse.steps.step3.title",
+                    "Return in 7 days, get your deposit back — maybe grab another? 😉",
+                  )}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
                   You have 7 days from the time you rent PowerShare to return
@@ -355,7 +370,10 @@ export default function HowToUsePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20 lg:mt-24">
           <div className="flex flex-col gap-8 sm:gap-10">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 text-center">
-              PowerShare is also available outside of convenience stores.
+              {t(
+                "howToUse.additionalInfo",
+                "PowerShare is also available outside of convenience stores.",
+              )}
             </h1>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -370,7 +388,7 @@ export default function HowToUsePage() {
                 </div>
                 <div className="text-center">
                   <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
-                    Station
+                    {t("howToUse.stationTypes.station", "Station")}
                   </h2>
                   <p className="text-sm sm:text-base text-gray-600 leading-6 px-4">
                     Scan the QR code or simply tap your card to rent a power
@@ -390,7 +408,10 @@ export default function HowToUsePage() {
                 </div>
                 <div className="text-center">
                   <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
-                    Vending Machine
+                    {t(
+                      "howToUse.stationTypes.vendingMachine",
+                      "Vending Machine",
+                    )}
                   </h2>
                   <p className="text-sm sm:text-base text-gray-600 leading-6 px-4">
                     Getting a PowerShare from a vending machine is like getting
@@ -411,7 +432,7 @@ export default function HowToUsePage() {
                 </div>
                 <div className="text-center">
                   <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
-                    Events
+                    {t("howToUse.stationTypes.events", "Events")}
                   </h2>
                   <p className="text-sm sm:text-base text-gray-600 leading-6 px-4">
                     PowerShare is often used at festivals and events around the
@@ -430,11 +451,13 @@ export default function HowToUsePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Frequently Asked Questions
+              {t("howToUse.faq.title", "Frequently Asked Questions")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              Got questions? We've got answers. Here are the most common
-              questions about using PowerShare.
+              {t(
+                "howToUse.faq.subtitle",
+                "Got questions? We've got answers. Here are the most common questions about using PowerShare.",
+              )}
             </p>
           </div>
 
@@ -461,21 +484,23 @@ export default function HowToUsePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto text-white">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
-              Ready to Never Run Out of Power?
+              {t("howToUse.cta.title", "Ready to Never Run Out of Power?")}
             </h2>
             <p className="text-base sm:text-lg mb-6 sm:mb-8 opacity-90 px-4">
-              Join thousands of users who have made PowerShare part of their
-              daily routine. Get started today and experience the convenience.
+              {t(
+                "howToUse.cta.description",
+                "Join thousands of users who have made PowerShare part of their daily routine. Get started today and experience the convenience.",
+              )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/locations">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Find Stations
+                  {t("nav.stations", "Find Stations")}
                 </button>
               </Link>
               <Link href="/register">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-300 text-sm sm:text-base">
-                  Sign Up Now
+                  {t("auth.signUp", "Sign Up Now")}
                 </button>
               </Link>
             </div>
