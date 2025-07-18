@@ -13,6 +13,8 @@ export default {
     login: "Login",
     register: "Register",
     logout: "Logout",
+    rental: "Rental",
+    admin: "Admin",
   },
 
   // Common
