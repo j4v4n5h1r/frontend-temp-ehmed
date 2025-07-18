@@ -190,22 +190,18 @@ export default function HowToUsePage() {
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-                How to Use
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
-                PowerShare
+                {t("howToUse.title", "How to Use PowerShare")}
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
-              Get powered up in 6 simple steps. It's easier than you think!
-              <br className="hidden sm:block" />
-              From finding a station to returning your power bank - we've got
-              you covered.
+              {t(
+                "howToUse.subtitle",
+                "Get powered up in 6 simple steps. It's easier than you think! From finding a station to returning your power bank - we've got you covered.",
+              )}
             </p>
             <Link href="/locations">
               <button className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                Find a Station
+                {t("howToUse.steps.step1.title", "Find a Station")}
               </button>
             </Link>
           </div>
