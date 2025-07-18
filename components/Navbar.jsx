@@ -246,13 +246,13 @@ export default function Navbar() {
                     href="/rental"
                     className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
-                    Rental
+                    {t("nav.rental", "Rental")}
                   </Link>
                   <Link
                     href="/profile"
                     className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
                   >
-                    Profile
+                    {t("nav.profile", "Profile")}
                   </Link>
                   {user?.profile?.data?.user?.role === "admin" && (
                     <Link
