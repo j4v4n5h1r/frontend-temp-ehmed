@@ -285,43 +285,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-12 sm:py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Meet Our Team
-            </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              The passionate people behind PowerShare
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="text-center group">
-                <div className="mb-4 sm:mb-6">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-24 sm:w-32 h-24 sm:h-32 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-shadow duration-300"
-                  />
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-blue-600 font-medium mb-3 text-sm sm:text-base">
-                  {member.role}
-                </p>
-                <p className="text-gray-600 text-sm leading-relaxed px-2">
-                  {member.bio}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Stats Section */}
       <section className="py-12 sm:py-16 bg-gradient-to-r from-blue-600 to-emerald-600">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
