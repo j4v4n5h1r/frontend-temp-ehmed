@@ -332,28 +332,28 @@ export default function Navbar() {
                   className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  How to use
+                  {t("nav.howToUse", "How to use")}
                 </Link>
                 <Link
                   href="/locations"
                   className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Locations
+                  {t("nav.locations", "Locations")}
                 </Link>
                 <Link
                   href="/pricing"
                   className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Pricing
+                  {t("nav.pricing", "Pricing")}
                 </Link>
                 <Link
                   href="/about"
                   className="block font-medium text-neutral-700 hover:text-black hover:bg-primary-50 px-4 py-3 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  About Us
+                  {t("nav.about", "About Us")}
                 </Link>
               </div>
 
