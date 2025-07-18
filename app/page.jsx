@@ -509,7 +509,7 @@ export default function Home() {
                     className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl sm:rounded-2xl text-[#22dd88] hover:bg-gray-200 transition-colors"
                   >
                     <div className="text-sm font-medium tracking-wide">
-                      Learn more
+                      {t("home.pricing.learnMore", "Learn more")}
                     </div>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path
@@ -537,15 +537,17 @@ export default function Home() {
                     className="text-lg sm:text-xl font-extrabold text-gray-900"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
-                    Flat price
+                    {t("home.pricing.flatPrice", "Flat price")}
                   </h4>
                   <div className="text-xs font-medium tracking-wider text-gray-500 uppercase">
-                    WITH CARDS
+                    {t("home.pricing.withCards", "WITH CARDS")}
                   </div>
                 </div>
                 <div className="text-sm sm:text-base leading-relaxed text-gray-700 pr-16 sm:pr-20">
-                  Tap your card on the PowerShare Station payment terminal or
-                  pay with Apple Pay or Google Pay.
+                  {t(
+                    "home.pricing.flatPriceDesc",
+                    "Tap your card on the PowerShare Station payment terminal or pay with Apple Pay or Google Pay.",
+                  )}
                 </div>
                 <div className="flex items-center gap-4 justify-start pt-2">
                   <Link
@@ -553,7 +555,7 @@ export default function Home() {
                     className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl sm:rounded-2xl text-[#22dd88] hover:bg-gray-200 transition-colors"
                   >
                     <div className="text-sm font-medium tracking-wide">
-                      Learn more
+                      {t("home.pricing.learnMore", "Learn more")}
                     </div>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path
