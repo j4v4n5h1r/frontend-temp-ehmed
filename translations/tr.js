@@ -121,6 +121,13 @@ export default {
     address: "Adres",
   },
 
+  // Payments
+  payments: {
+    title: "Ödeme Geçmişi",
+    methods: "Ödeme Yöntemleri",
+    history: "Ödeme Geçmişi",
+  },
+
   // Admin
   admin: {
     title: "Admin Paneli",
