@@ -173,22 +173,23 @@ export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        // Scrolling down and past 100px
-        setIsVisible(false);
-      } else if (currentScrollY < lastScrollY.current) {
-        // Scrolling up
-        setIsVisible(true);
-      }
-      lastScrollY.current = currentScrollY;
-    };
+  // Scroll handling disabled to keep navbar always visible
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY;
+  //     if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+  //       // Scrolling down and past 100px
+  //       setIsVisible(false);
+  //     } else if (currentScrollY < lastScrollY.current) {
+  //       // Scrolling up
+  //       setIsVisible(true);
+  //     }
+  //     lastScrollY.current = currentScrollY;
+  //   };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
     <nav
