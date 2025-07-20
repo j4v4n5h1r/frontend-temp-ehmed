@@ -1,0 +1,67 @@
+# .github/workflows/deploy-frontend.yml
+name: Deploy Next.js Frontend
+
+on:
+  push:
+    branches:
+      - main # Trigger this workflow on pushes to the 'main' branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # Use a GitHub-hosted runner with Ubuntu
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4 # Action to check out your repository code
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4 # Action to set up Node.js environment
+      with:
+        node-version: '20' # Specify your Node.js version (e.g., '18', '20')
+        cache: 'npm' # Cache npm dependencies for faster builds
+
+    - name: Install dependencies
+      run: npm ci # 'npm ci' is preferred in CI for cleaner installs based on package-lock.json
+
+    - name: Build Next.js app
+      run: npm run build # Runs the 'next build && next export' command
+      env:
+        # Add any environment variables your Next.js build needs (e.g., API URLs)
+        # NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }} # Example: If you have a public API URL secret
+
+    - name: Deploy to Server via SCP 🚀
+      uses: appleboy/scp-action@v0.1.7 # A popular action for secure copy (SCP)
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        source: "out/" # The directory containing your static Next.js build output
+        # Corrected target path: Ensure it's where your frontend files should live
+        target: "/var/www/html/mypobi/frontend/" # The target directory on your server
+        # If 'out' itself is the content you want directly in 'frontend/', you might use 'strip_components: 1'
+        # Example: source: "out/", target: "/var/www/html/mypobi/frontend/", strip_components: 1
+        # This copies contents of 'out' directly into 'frontend/'
+        # Without strip_components, it would copy 'out/' into 'frontend/out/'
+
+    # Optional: Clean up previous deployment and re-establish symlinks/apache config if needed
+    - name: Sync and Restart Apache2 🌐
+      uses: appleboy/ssh-action@v1.0.3 # A popular action for executing SSH commands
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          # --- Commands to run on your remote server ---
+          # 1. Clean up old files (use with extreme caution!)
+          #    If your 'target' in scp-action overwrites directly, this might not be needed.
+          #    If you manage versions, this needs to be smarter.
+          #    Ensure this path is correct and you understand its implications.
+          # sudo rm -rf /var/www/html/mypobi/frontend/*
+
+          # 2. Ensure correct ownership and permissions after SCP
+          #    Make sure the 'www-data' user (Apache's user) can read the files
+          sudo chown -R www-data:www-data /var/www/html/mypobi/frontend/
+          sudo chmod -R 755 /var/www/html/mypobi/frontend/
+
+          # 3. Restart Apache2 to pick up new files (if needed, or if caching is strong)
+          sudo systemctl restart apache2
