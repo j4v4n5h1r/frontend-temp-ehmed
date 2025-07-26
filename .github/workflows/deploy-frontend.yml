@@ -35,9 +35,10 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: "out/" # The directory containing your static Next.js build output
+        source: "./" # The directory containing your static Next.js build output
         # Corrected target path: Ensure it's where your frontend files should live
         target: "/var/www/html/mypobi/frontend/" # The target directory on your server
+        rm: true
         # If 'out' itself is the content you want directly in 'frontend/', you might use 'strip_components: 1'
         # Example: source: "out/", target: "/var/www/html/mypobi/frontend/", strip_components: 1
         # This copies contents of 'out' directly into 'frontend/'
