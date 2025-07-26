@@ -59,11 +59,13 @@ jobs:
           mkdir -p "$APP_DIR"
           cd "$APP_DIR" || exit 1 # Exit if cd fails
 
+          export PATH="/usr/local/bin:$PATH"
+
           # Install PM2 if not already installed (sudo might be needed)
           npm install -g pm2 || sudo npm install -g pm2
 
           # Stop and delete any existing PM2 process for this app
-          pm2 delete frontend || true # `|| true` prevents the script from failing if the process doesn't exist
+          pm2 delete frontend || true
 
           # Install production dependencies for the Next.js app
           npm install --production # Install only production dependencies
@@ -91,4 +93,4 @@ jobs:
           # sudo chmod -R 755 /var/www/html/mypobi/frontend/
 
           # 3. Restart Apache2 to pick up new files (if needed, or if caching is strong)
-          # sudo systemctl restart apache2
+          sudo systemctl restart apache2
