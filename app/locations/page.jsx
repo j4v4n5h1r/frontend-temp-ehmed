@@ -70,7 +70,7 @@ export default function LocationsPage() {
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
               {t(
                 "locations.subtitle",
-                "PowerShare stations are available in major cities worldwide. Find a station near you and never run out of power again.",
+                "Pobi stations are available in major cities worldwide. Find a station near you and never run out of power again.",
               )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -147,7 +147,7 @@ export default function LocationsPage() {
               <p className="text-gray-700 text-sm sm:text-base leading-relaxed max-w-4xl text-center sm:text-left mx-auto sm:mx-0 px-4 sm:px-0">
                 {t(
                   "locations.description",
-                  "Rent and return at more than 500 locations in major cities worldwide. Our growing network ensures you'll always find a PowerShare station when you need it most.",
+                  "Rent and return at more than 500 locations in major cities worldwide. Our growing network ensures you'll always find a Pobi station when you need it most.",
                 )}
               </p>
             </div>
@@ -299,7 +299,7 @@ export default function LocationsPage() {
             <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 px-4">
               {t(
                 "locations.network.readyDesc",
-                "Join thousands of users who never worry about battery life. Find a station near you and experience the convenience of PowerShare.",
+                "Join thousands of users who never worry about battery life. Find a station near you and experience the convenience of Pobi.",
               )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

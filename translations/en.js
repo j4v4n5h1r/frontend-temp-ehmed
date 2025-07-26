@@ -74,16 +74,16 @@ export default {
         "Pay per minutes or flat price. Just choose the way you're more comfortable with.",
       payAsYouGo: "Pay as you go",
       payAsYouGoDesc:
-        "Rent a PowerShare power bank with the PowerShare app or web app and pay just the minutes of usage.",
+        "Rent a Pobi power bank with the Pobi app or web app and pay just the minutes of usage.",
       flatPrice: "Flat price",
       flatPriceDesc:
-        "Tap your card on the PowerShare Station payment terminal or pay with Apple Pay or Google Pay.",
+        "Tap your card on the Pobi Station payment terminal or pay with Apple Pay or Google Pay.",
       learnMore: "Learn more",
-      withApps: "WITH POWERSHARE APPS",
+      withApps: "WITH POBI APPS",
       withCards: "WITH CARDS",
     },
     app: {
-      title: "Get the PowerShare App",
+      title: "Get the Pobi App",
       description:
         "Download our app for the fastest way to find stations, rent power banks, and manage your account on the go.",
       appStore: "App Store",
@@ -105,7 +105,7 @@ export default {
         name: "Sarah Johnson",
         role: "Frequent Traveler",
         content:
-          "PowerShare saved my trip! Found a station right at the airport and kept my phone charged throughout my journey. Absolutely essential for travelers.",
+          "Pobi saved my trip! Found a station right at the airport and kept my phone charged throughout my journey. Absolutely essential for travelers.",
       },
       mike: {
         name: "Mike Chen",
@@ -117,7 +117,7 @@ export default {
         name: "Emma Davis",
         role: "Business Professional",
         content:
-          "The reliability is outstanding. I use PowerShare during conferences and long meetings. Never had an issue finding an available power bank.",
+          "The reliability is outstanding. I use Pobi during conferences and long meetings. Never had an issue finding an available power bank.",
       },
     },
     footer: {
@@ -248,7 +248,7 @@ export default {
   locations: {
     title: "Find Us at Over 500+ Locations",
     subtitle:
-      "PowerShare stations are available in major cities worldwide. Find a station near you and never run out of power again.",
+      "Pobi stations are available in major cities worldwide. Find a station near you and never run out of power again.",
     findNearestStation: "Find Nearest Station",
     getStarted: "Get Started",
     locationsTitle: "LOCATIONS",
@@ -258,7 +258,7 @@ export default {
     majorCities: "Major Cities:",
     moreText: "more",
     description:
-      "Rent and return at more than 500 locations in major cities worldwide. Our growing network ensures you'll always find a PowerShare station when you need it most.",
+      "Rent and return at more than 500 locations in major cities worldwide. Our growing network ensures you'll always find a Pobi station when you need it most.",
     stats: {
       locations: "Locations",
       cities: "Cities",
@@ -271,7 +271,7 @@ export default {
       title: "Our Growing Network",
       readyTitle: "Ready to Get Started?",
       readyDesc:
-        "Join thousands of users who never worry about battery life. Find a station near you and experience the convenience of PowerShare.",
+        "Join thousands of users who never worry about battery life. Find a station near you and experience the convenience of Pobi.",
       findStationNow: "Find Station Now",
       createAccount: "Create Account",
     },
@@ -297,14 +297,14 @@ export default {
 
   // How to Use Page
   howToUse: {
-    title: "How to Use PowerShare",
+    title: "How to Use Pobi",
     subtitle: "Rent a power bank in just a few simple steps",
     description: "Our simple process gets you powered up in minutes",
     steps: {
       step1: {
         title: "Find a Station",
         description:
-          "Use our app or website to locate the nearest PowerShare station",
+          "Use our app or website to locate the nearest Pobi station",
       },
       step2: {
         title: "Scan QR Code",
@@ -320,7 +320,7 @@ export default {
       },
       step5: {
         title: "Return When Done",
-        description: "Return the power bank to any PowerShare station",
+        description: "Return the power bank to any Pobi station",
       },
       step6: {
         title: "Payment Complete",
@@ -334,7 +334,7 @@ export default {
       q2: "What devices are supported?",
       a2: "All major smartphones and devices with USB charging are supported.",
       q3: "How do I return the power bank?",
-      a3: "Simply return it to any PowerShare station when you're done.",
+      a3: "Simply return it to any Pobi station when you're done.",
       q4: "What if I lose the power bank?",
       a4: "A replacement fee will be charged to your account if not returned within 24 hours.",
     },
@@ -342,13 +342,13 @@ export default {
 
   // About Page
   about: {
-    title: "About PowerShare",
+    title: "About Pobi",
     subtitle: "Powering your life, one charge at a time",
     description: "We're on a mission to eliminate battery anxiety forever",
     story: {
       title: "Our Story",
       content:
-        "Founded in 2023, PowerShare was born from a simple frustration - dead phones when you need them most. We're building the world's largest network of power bank sharing stations.",
+        "Founded in 2023, Pobi was born from a simple frustration - dead phones when you need them most. We're building the world's largest network of power bank sharing stations.",
     },
     mission: {
       title: "Our Mission",

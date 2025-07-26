@@ -219,7 +219,7 @@ export default function Navbar() {
                 </svg>
               </div>
               <span className="text-xl sm:text-2xl font-black text-neutral-900 tracking-tight">
-                PowerShare
+                Pobi
               </span>
             </Link>
           </div>

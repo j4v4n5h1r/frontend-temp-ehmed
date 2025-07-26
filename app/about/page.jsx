@@ -158,7 +158,7 @@ export default function AboutPage() {
               </span>
               <br />
               <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
-                PowerShare
+                Pobi
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
@@ -180,7 +180,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-base sm:text-lg text-gray-600 leading-relaxed">
                 <p>
-                  PowerShare was born from a simple frustration: being stranded
+                  Pobi was born from a simple frustration: being stranded
                   with a dead phone battery when you need it most. Our founders
                   experienced this countless times during business trips, at
                   airports, and while exploring new cities.
@@ -188,7 +188,7 @@ export default function AboutPage() {
                 <p>
                   We realized that in our hyper-connected world, access to power
                   shouldn't be a luxury or a source of anxiety. That's why we
-                  created PowerShare - a reliable, convenient network of power
+                  created Pobi - a reliable, convenient network of power
                   bank stations that ensures you're never without power again.
                 </p>
                 <p>
@@ -203,7 +203,7 @@ export default function AboutPage() {
             <div className="order-1 lg:order-2 bg-white rounded-2xl shadow-xl overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop&crop=center"
-                alt="PowerShare team"
+                alt="Pobi team"
                 className="w-full h-60 sm:h-80 object-cover"
               />
             </div>
@@ -249,7 +249,7 @@ export default function AboutPage() {
               Our Journey
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              Key milestones in the PowerShare story
+              Key milestones in the Pobi story
             </p>
           </div>
 
@@ -290,7 +290,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-              PowerShare by the Numbers
+              Pobi by the Numbers
             </h2>
             <p className="text-base sm:text-lg opacity-90 px-4">
               The impact we're making together
@@ -322,7 +322,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Join the PowerShare Community
+              Join the Pobi Community
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 px-4">
               Be part of the charging revolution. Together, we're building a

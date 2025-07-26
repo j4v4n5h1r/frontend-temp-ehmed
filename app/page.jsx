@@ -494,13 +494,13 @@ export default function Home() {
                     {t("home.pricing.payAsYouGo", "Pay as you go")}
                   </h4>
                   <div className="text-xs font-medium tracking-wider text-gray-500 uppercase">
-                    {t("home.pricing.withApps", "WITH POWERSHARE APPS")}
+                    {t("home.pricing.withApps", "WITH POBI APPS")}
                   </div>
                 </div>
                 <div className="text-sm sm:text-base leading-relaxed text-gray-700 pr-16 sm:pr-20">
                   {t(
                     "home.pricing.payAsYouGoDesc",
-                    "Rent a PowerShare power bank with the PowerShare app or web app and pay just the minutes of usage.",
+                    "Rent a Pobi power bank with the Pobi app or web app and pay just the minutes of usage.",
                   )}
                 </div>
                 <div className="flex items-center gap-4 justify-start pt-2">
@@ -546,7 +546,7 @@ export default function Home() {
                 <div className="text-sm sm:text-base leading-relaxed text-gray-700 pr-16 sm:pr-20">
                   {t(
                     "home.pricing.flatPriceDesc",
-                    "Tap your card on the PowerShare Station payment terminal or pay with Apple Pay or Google Pay.",
+                    "Tap your card on the Pobi Station payment terminal or pay with Apple Pay or Google Pay.",
                   )}
                 </div>
                 <div className="flex items-center gap-4 justify-start pt-2">
@@ -596,7 +596,7 @@ export default function Home() {
                   fontSize: "clamp(2rem, 4vw, 3rem)",
                 }}
               >
-                {t("home.app.title", "Get the PowerShare App")}
+                {t("home.app.title", "Get the Pobi App")}
               </h2>
               <p
                 className="text-xl mb-8 leading-relaxed"
@@ -698,7 +698,7 @@ export default function Home() {
                           </div>
                         </div>
                         <h3 className="font-bold text-xl sm:text-2xl mb-2 sm:mb-3">
-                          PowerShare
+                          Pobi
                         </h3>
                         <p className="text-base sm:text-lg opacity-90 mb-4 sm:mb-6">
                           {t("home.app.title", "Mobile App")}
@@ -803,7 +803,7 @@ export default function Home() {
                 role: t("home.testimonials.sarah.role", "Frequent Traveler"),
                 content: t(
                   "home.testimonials.sarah.content",
-                  "PowerShare saved my trip! Found a station right at the airport and kept my phone charged throughout my journey. Absolutely essential for travelers.",
+                  "Pobi saved my trip! Found a station right at the airport and kept my phone charged throughout my journey. Absolutely essential for travelers.",
                 ),
                 rating: 5,
                 avatar: "SJ",
@@ -823,7 +823,7 @@ export default function Home() {
                 role: t("home.testimonials.emma.role", "Business Professional"),
                 content: t(
                   "home.testimonials.emma.content",
-                  "The reliability is outstanding. I use PowerShare during conferences and long meetings. Never had an issue finding an available power bank.",
+                  "The reliability is outstanding. I use Pobi during conferences and long meetings. Never had an issue finding an available power bank.",
                 ),
                 rating: 5,
                 avatar: "ED",

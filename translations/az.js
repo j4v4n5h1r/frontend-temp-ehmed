@@ -74,16 +74,16 @@ export default {
         "Dəqiqə başına və ya sabit qiymət ödəyin. Sadəcə özünüzə daha uyğun olanı seçin.",
       payAsYouGo: "İstifadə etdikcə ödə",
       payAsYouGoDesc:
-        "PowerShare tətbiqi və ya web tətbiqi ilə PowerShare powerbank icarəyə alın və sadəcə istifadə dəqiqələrini ödəyin.",
+        "Pobi tətbiqi və ya web tətbiqi ilə Pobi powerbank icarəyə alın və sadəcə istifadə dəqiqələrini ödəyin.",
       flatPrice: "Sabit qiymət",
       flatPriceDesc:
-        "Kartınızı PowerShare Stansiya ödəniş terminalına toxundurun və ya Apple Pay və ya Google Pay ilə ödəyin.",
+        "Kartınızı Pobi Stansiya ödəniş terminalına toxundurun və ya Apple Pay və ya Google Pay ilə ödəyin.",
       learnMore: "Ətraflı öyrən",
-      withApps: "POWERSHARE TƏTBİQLƏRİ İLƏ",
+      withApps: "POBI TƏTBİQLƏRİ İLƏ",
       withCards: "KARTLARLA",
     },
     app: {
-      title: "PowerShare Tətbiqini Əldə Et",
+      title: "Pobi Tətbiqini Əldə Et",
       description:
         "Stansiyaları tapmaq, powerbank icarəyə almaq və hesabınızı idarə etməyin ən sürətli yolu üçün tətbiqimizi yükləyin.",
       appStore: "App Store",
@@ -105,7 +105,7 @@ export default {
         name: "Sarah Johnson",
         role: "Tez-tez Səyahət Edən",
         content:
-          "PowerShare səyahətimi xilas etdi! Hava limanında düz stansiya tapdım və bütün səyahət boyu telefonumu şarj saxladım. Səyahətçilər üçün tamamilə vacibdir.",
+          "Pobi səyahətimi xilas etdi! Hava limanında düz stansiya tapdım və bütün səyahət boyu telefonumu şarj saxladım. Səyahətçilər üçün tamamilə vacibdir.",
       },
       mike: {
         name: "Mike Chen",
@@ -117,7 +117,7 @@ export default {
         name: "Emma Davis",
         role: "Biznes Mütəxəssisi",
         content:
-          "Etibarlılıq mükəmməldir. Konfrans və uzun görüşlər zamanı PowerShare istifadə edirəm. Heç vaxt mövcud powerbank tapmaqla bağlı problem yaşamadım.",
+          "Etibarlılıq mükəmməldir. Konfrans və uzun görüşlər zamanı Pobi istifadə edirəm. Heç vaxt mövcud powerbank tapmaqla bağlı problem yaşamadım.",
       },
     },
     footer: {
@@ -248,7 +248,7 @@ export default {
   locations: {
     title: "500+ Məkanda Bizi Tapın",
     subtitle:
-      "PowerShare stansiyaları dünyanın böyük şəhərlərində mövcuddur. Yaxınınızda stansiya tapın və heç vaxt enerjiniz bitməsin.",
+      "Pobi stansiyaları dünyanın böyük şəhərlərində mövcuddur. Yaxınınızda stansiya tapın və heç vaxt enerjiniz bitməsin.",
     findNearestStation: "Ən Yaxın Stansiya",
     getStarted: "Başla",
     locationsTitle: "MƏKANLAR",
@@ -258,7 +258,7 @@ export default {
     majorCities: "Əsas Şəhərlər:",
     moreText: "daha çox",
     description:
-      "Dünyanın böyük şəhərlərindəki 500-dən çox məkanda icarəyə alın və qaytarın. Artan şəbəkəmiz PowerShare stansiyasını ən çox ehtiyacınız olan zaman tapacağınızı təmin edir.",
+      "Dünyanın böyük şəhərlərindəki 500-dən çox məkanda icarəyə alın və qaytarın. Artan şəbəkəmiz Pobi stansiyasını ən çox ehtiyacınız olan zaman tapacağınızı təmin edir.",
     stats: {
       locations: "Məkanlar",
       cities: "Şəhərlər",
@@ -271,7 +271,7 @@ export default {
       title: "Böyüyən Şəbəkəmiz",
       readyTitle: "Başlamağa Hazırsınız?",
       readyDesc:
-        "Batareya həyatı üçün narahat olmayan minlərlə istifadəçiyə qoşulun. Yaxınınızda stansiya tapın və PowerShare rahatlığını yaşayın.",
+        "Batareya həyatı üçün narahat olmayan minlərlə istifadəçiyə qoşulun. Yaxınınızda stansiya tapın və Pobi rahatlığını yaşayın.",
       findStationNow: "İndi Stansiya Tap",
       createAccount: "Hesab Yarat",
     },
@@ -297,14 +297,14 @@ export default {
 
   // How to Use Page
   howToUse: {
-    title: "PowerShare Necə İstifadə Edilir",
+    title: "Pobi Necə İstifadə Edilir",
     subtitle: "Sadə bir neçə addımda powerbank icarəyə alın",
     description: "Sadə prosesimiz sizi dəqiqələr ərzində enerjiləndirir",
     steps: {
       step1: {
         title: "Stansiya Tap",
         description:
-          "Ən yaxın PowerShare stansiyasını tapmaq üçün tətbiqimizi və ya saytımızı istifadə edin",
+          "Ən yaxın Pobi stansiyasını tapmaq üçün tətbiqimizi və ya saytımızı istifadə edin",
       },
       step2: {
         title: "QR Kodu Skan Et",
@@ -321,7 +321,7 @@ export default {
       },
       step5: {
         title: "İşiniz Bitdikdə Qaytarın",
-        description: "PowerBank-ı istənilən PowerShare stansiyasına qaytarın",
+        description: "PowerBank-ı istənilən Pobi stansiyasına qaytarın",
       },
       step6: {
         title: "Ödəniş Tamamlandı",
@@ -335,7 +335,7 @@ export default {
       q2: "Hansı cihazlar dəstəklənir?",
       a2: "USB şarj edən bütün əsas smartfonlar və cihazlar dəstəklənir.",
       q3: "PowerBank-ı necə qaytarım?",
-      a3: "İşiniz bitdikdə sadəcə istənilən PowerShare stansiyasına qaytarın.",
+      a3: "İşiniz bitdikdə sadəcə istənilən Pobi stansiyasına qaytarın.",
       q4: "PowerBank-ı itirsimsə nə olur?",
       a4: "24 saat ərzində qaytarılmazsa hesabınızdan əvəzetmə haqqı tutulacaq.",
     },
@@ -343,14 +343,14 @@ export default {
 
   // About Page
   about: {
-    title: "PowerShare Haqqında",
+    title: "Pobi Haqqında",
     subtitle: "Həyatınızı gücləndirir, hər şarj ilə",
     description:
       "Batareya narahatlığını həmişəlik aradan qaldırma missiyasındayıq",
     story: {
       title: "Bizim Hekayəmiz",
       content:
-        "2023-cü ildə təsis edilən PowerShare sadə bir əsəbilikdən doğdu - ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Dünyanın ən böyük powerbank paylaşım stansiyaları şəbəkəsini qururuq.",
+        "2023-cü ildə təsis edilən Pobi sadə bir əsəbilikdən doğdu - ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Dünyanın ən böyük powerbank paylaşım stansiyaları şəbəkəsini qururuq.",
     },
     mission: {
       title: "Missiyamız",

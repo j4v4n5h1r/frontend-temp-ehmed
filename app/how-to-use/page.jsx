@@ -11,7 +11,7 @@ export default function HowToUsePage() {
       step: "01",
       title: "Find a Station",
       description:
-        "Use our app or website to locate the nearest PowerShare station. Look for our distinctive blue stations in malls, airports, restaurants, and other convenient locations.",
+        "Use our app or website to locate the nearest Pobi station. Look for our distinctive blue stations in malls, airports, restaurants, and other convenient locations.",
       icon: (
         <svg
           className="w-8 h-8"
@@ -34,7 +34,7 @@ export default function HowToUsePage() {
       step: "02",
       title: "Scan QR Code",
       description:
-        "Simply scan the QR code on the station using your phone camera or our PowerShare app. No special equipment needed - just your smartphone!",
+        "Simply scan the QR code on the station using your phone camera or our Pobi app. No special equipment needed - just your smartphone!",
       icon: (
         <svg
           className="w-8 h-8"
@@ -126,7 +126,7 @@ export default function HowToUsePage() {
       step: "06",
       title: "Return Anywhere",
       description:
-        "When you're done, return the power bank to any PowerShare station. It's that simple - no need to return to the original location!",
+        "When you're done, return the power bank to any Pobi station. It's that simple - no need to return to the original location!",
       icon: (
         <svg
           className="w-8 h-8"
@@ -190,7 +190,7 @@ export default function HowToUsePage() {
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-                {t("howToUse.title", "How to Use PowerShare")}
+                {t("howToUse.title", "How to Use Pobi")}
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
@@ -238,10 +238,10 @@ export default function HowToUsePage() {
 
               <div className="order-3 lg:order-3 flex flex-col gap-3 w-full lg:max-w-[370px] text-center lg:text-left">
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
-                  {t("howToUse.steps.step1.title", "Find a PowerShare Station")}
+                  {t("howToUse.steps.step1.title", "Find a Pobi Station")}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
-                  PowerShare is available at thousands of convenience stores,
+                  Pobi is available at thousands of convenience stores,
                   malls, airports, and charging stations worldwide. Use our app
                   or website to find the nearest location.
                   <br />
@@ -305,11 +305,11 @@ export default function HowToUsePage() {
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
                   {t(
                     "howToUse.steps.step2.title",
-                    "Grab a PowerShare power bank and charge on the go",
+                    "Grab a Pobi power bank and charge on the go",
                   )}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
-                  No app needed. Renting a PowerShare costs just $2 to $8
+                  No app needed. Renting a Pobi costs just $2 to $8
                   depending on your rental duration, along with a returnable
                   deposit of $15.
                 </p>
@@ -356,7 +356,7 @@ export default function HowToUsePage() {
                   )}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
-                  You have 7 days from the time you rent PowerShare to return
+                  You have 7 days from the time you rent Pobi to return
                   it, so there's no rush. And when you do return it on-time,
                   we'll give you back your full deposit. Every week that you're
                   late, we deduct $2 from your deposit, the max is $15.
@@ -372,7 +372,7 @@ export default function HowToUsePage() {
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 text-center">
               {t(
                 "howToUse.additionalInfo",
-                "PowerShare is also available outside of convenience stores.",
+                "Pobi is also available outside of convenience stores.",
               )}
             </h1>
 
@@ -414,9 +414,9 @@ export default function HowToUsePage() {
                     )}
                   </h2>
                   <p className="text-sm sm:text-base text-gray-600 leading-6 px-4">
-                    Getting a PowerShare from a vending machine is like getting
+                    Getting a Pobi from a vending machine is like getting
                     a water bottle from a vending machine, except you also pay a
-                    deposit. Return your PowerShare to any convenience store.
+                    deposit. Return your Pobi to any convenience store.
                   </p>
                 </div>
               </div>
@@ -435,7 +435,7 @@ export default function HowToUsePage() {
                     {t("howToUse.stationTypes.events", "Events")}
                   </h2>
                   <p className="text-sm sm:text-base text-gray-600 leading-6 px-4">
-                    PowerShare is often used at festivals and events around the
+                    Pobi is often used at festivals and events around the
                     world. Don't be surprised if you see us out and about at
                     your favorite big event.
                   </p>
@@ -456,7 +456,7 @@ export default function HowToUsePage() {
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
               {t(
                 "howToUse.faq.subtitle",
-                "Got questions? We've got answers. Here are the most common questions about using PowerShare.",
+                "Got questions? We've got answers. Here are the most common questions about using Pobi.",
               )}
             </p>
           </div>
@@ -489,7 +489,7 @@ export default function HowToUsePage() {
             <p className="text-base sm:text-lg mb-6 sm:mb-8 opacity-90 px-4">
               {t(
                 "howToUse.cta.description",
-                "Join thousands of users who have made PowerShare part of their daily routine. Get started today and experience the convenience.",
+                "Join thousands of users who have made Pobi part of their daily routine. Get started today and experience the convenience.",
               )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

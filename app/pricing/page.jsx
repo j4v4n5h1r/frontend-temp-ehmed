@@ -289,7 +289,7 @@ export default function PricingPage() {
               What's Included
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              Every PowerShare rental includes these premium features at no
+              Every Pobi rental includes these premium features at no
               extra cost
             </p>
           </div>
@@ -350,7 +350,7 @@ export default function PricingPage() {
               Ready to Get Started?
             </h2>
             <p className="text-base sm:text-lg mb-6 sm:mb-8 opacity-90 px-4">
-              Join thousands of users who trust PowerShare for their charging
+              Join thousands of users who trust Pobi for their charging
               needs. No commitment required - pay as you go.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
