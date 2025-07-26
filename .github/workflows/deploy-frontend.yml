@@ -52,6 +52,32 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
+          # Define the application directory on the server
+          APP_DIR="/var/www/mypobi/frontend"
+
+          # Ensure the target directory exists and navigate into it
+          mkdir -p "$APP_DIR"
+          cd "$APP_DIR" || exit 1 # Exit if cd fails
+
+          # Install PM2 if not already installed (sudo might be needed)
+          npm install -g pm2 || sudo npm install -g pm2
+
+          # Stop and delete any existing PM2 process for this app
+          pm2 delete frontend || true # `|| true` prevents the script from failing if the process doesn't exist
+
+          # Install production dependencies for the Next.js app
+          npm install --production # Install only production dependencies
+
+          # Start the Next.js application using PM2
+          # Use `npm start` which runs `next start`
+          pm2 start npm --name "frontend" -- start
+          pm2 save # Save PM2 process list to be reloaded on server reboot
+
+          # Optional: Check PM2 status (for debugging during workflow runs)
+          pm2 status
+
+
+
           # --- Commands to run on your remote server ---
           # 1. Clean up old files (use with extreme caution!)
           #    If your 'target' in scp-action overwrites directly, this might not be needed.
@@ -61,8 +87,8 @@ jobs:
 
           # 2. Ensure correct ownership and permissions after SCP
           #    Make sure the 'www-data' user (Apache's user) can read the files
-          sudo chown -R www-data:www-data /var/www/html/mypobi/frontend/
-          sudo chmod -R 755 /var/www/html/mypobi/frontend/
+          # sudo chown -R www-data:www-data /var/www/html/mypobi/frontend/
+          # sudo chmod -R 755 /var/www/html/mypobi/frontend/
 
           # 3. Restart Apache2 to pick up new files (if needed, or if caching is strong)
-          sudo systemctl restart apache2
+          # sudo systemctl restart apache2
