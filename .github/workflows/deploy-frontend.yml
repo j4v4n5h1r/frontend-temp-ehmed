@@ -25,9 +25,9 @@ jobs:
 
     - name: Build Next.js app
       run: npm run build # Runs the 'next build && next export' command
-      # env:
+      env:
         # Add any environment variables your Next.js build needs (e.g., API URLs)
-        # NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }} # Example: If you have a public API URL secret
+        NEXT_PUBLIC_BACKEND_API_URL: ${{ secrets.NEXT_PUBLIC_BACKEND_API_URL }} # Example: If you have a public API URL secret
 
     - name: Deploy to Server via SCP 🚀
       uses: appleboy/scp-action@v0.1.7 # A popular action for secure copy (SCP)
