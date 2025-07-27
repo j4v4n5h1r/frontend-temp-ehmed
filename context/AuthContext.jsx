@@ -14,7 +14,7 @@ export default function AuthProvider({ children }) {
       const token = cookie.get('token');
       if (token) {
         try {
-          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/users/me`, {
+          const res = await fetch('/api/v1/users/me', {
             headers: { Authorization: `Bearer ${token}` },
           });
           if (res.ok) {
@@ -35,7 +35,7 @@ export default function AuthProvider({ children }) {
   }, []);
 
   const login = async (email, password) => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/login`, {
+    const res = await fetch('/api/v1/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
@@ -45,7 +45,7 @@ export default function AuthProvider({ children }) {
     const token = data.accessToken;
     cookie.set('token', token, { expires: 1 });
     // fetch profile
-    const profileRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/users/me`, {
+    const profileRes = await fetch('/api/v1/users/me', {
       headers: { Authorization: `Bearer ${token}` },
     });
     if (profileRes.ok) {
@@ -62,7 +62,7 @@ export default function AuthProvider({ children }) {
   // Register a new user and login
   const register = async ({ firstName, lastName, email, password }) => {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/register`,
+      '/api/v1/auth/register',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -78,7 +78,7 @@ export default function AuthProvider({ children }) {
     cookie.set('token', token, { expires: 1 });
     // fetch profile
     const profileRes = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/users/me`,
+      '/api/v1/users/me',
       { headers: { Authorization: `Bearer ${token}` } }
     );
     if (profileRes.ok) {
