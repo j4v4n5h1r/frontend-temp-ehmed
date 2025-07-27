@@ -11,6 +11,7 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const router = useRouter();
+  const url = "http://164.90.238.202:8000";
 
   useEffect(() => {
     const token = cookie.get("token");
@@ -22,13 +23,13 @@ export default function DashboardPage() {
     const fetchData = async () => {
       try {
         const rentalRes = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/v1/users/me/rentals`,
+          url+'/api/v1/users/me/rentals',
           {
             headers: { Authorization: `Bearer ${token}` },
           },
         );
         const paymentRes = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/v1/payments`,
+          url+'/api/v1/payments',
           {
             headers: { Authorization: `Bearer ${token}` },
           },

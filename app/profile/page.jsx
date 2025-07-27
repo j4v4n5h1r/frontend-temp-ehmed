@@ -6,7 +6,7 @@ import cookie from "js-cookie";
 import { AuthContext } from "../../context/AuthContext";
 import Link from "next/link";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+const BASE_URL = "http://164.90.238.202:8000";
 
 const ProfilePage = () => {
   const { user, setUser } = useContext(AuthContext);

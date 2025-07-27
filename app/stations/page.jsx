@@ -5,7 +5,7 @@ import axios from "axios";
 import Link from "next/link";
 import Map from "../../components/Map";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+const BASE_URL = "http://164.90.238.202:8000";
 
 const StationsPage = () => {
   const [stations, setStations] = useState([]);

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { AuthContext } from "../../context/AuthContext";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+const BASE_URL = "http://164.90.238.202:8000";
 
 export default function ClientComponentUsingSearchParams() {
   const router = useRouter();
