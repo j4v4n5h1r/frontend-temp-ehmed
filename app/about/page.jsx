@@ -130,28 +130,28 @@ export default function AboutPage() {
   const milestones = [
     {
       year: "2020",
-      title: "Company Founded",
-      description: "Started with a vision to solve dead battery problems",
+      title: t("about.milestones.2020.title", "Company Founded"),
+      description: t("about.milestones.2020.description", "Started with a vision to solve dead battery problems"),
     },
     {
       year: "2021",
-      title: "First 50 Stations",
-      description: "Launched our pilot program in major metropolitan areas",
+      title: t("about.milestones.2021.title", "First 50 Stations"),
+      description: t("about.milestones.2021.description", "Launched our pilot program in major metropolitan areas"),
     },
     {
       year: "2022",
-      title: "100K Users",
-      description: "Reached our first major user milestone across 5 cities",
+      title: t("about.milestones.2022.title", "100K Users"),
+      description: t("about.milestones.2022.description", "Reached our first major user milestone across 5 cities"),
     },
     {
       year: "2023",
-      title: "500+ Stations",
-      description: "Expanded to 50+ cities with improved technology",
+      title: t("about.milestones.2023.title", "500+ Stations"),
+      description: t("about.milestones.2023.description", "Expanded to 50+ cities with improved technology"),
     },
     {
       year: "2024",
-      title: "Global Expansion",
-      description: "International rollout and partnership programs",
+      title: t("about.milestones.2024.title", "Global Expansion"),
+      description: t("about.milestones.2024.description", "International rollout and partnership programs"),
     },
   ];
 
