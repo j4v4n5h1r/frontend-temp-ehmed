@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslation } from "../../context/TranslationContext";
 
 export default function AboutPage() {
+  const { t } = useTranslation();
   const teamMembers = [
     {
       name: "Sarah Johnson",
