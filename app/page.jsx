@@ -121,18 +121,18 @@ export default function Home() {
               </Link>
 
               <button
-                className="w-full sm:w-auto px-6 py-3 font-semibold rounded-xl shadow-lg transform transition-all duration-300 flex items-center justify-center gap-2 group hover:scale-105 hover:shadow-xl"
+                className="w-full sm:w-auto px-8 py-4 font-semibold rounded-xl shadow-lg transform transition-all duration-300 flex items-center justify-center gap-2 group hover:scale-105 hover:shadow-xl"
                 style={{
-                  background: "#2563eb",
-                  color: "white",
-                  border: "none",
+                  background: "white",
+                  color: "#475569",
+                  border: "1px solid #e2e8f0",
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.background = "#1d4ed8";
+                  e.target.style.background = "#f8fafc";
                   e.target.style.transform = "translateY(-2px) scale(1.05)";
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.background = "#2563eb";
+                  e.target.style.background = "white";
                   e.target.style.transform = "translateY(0) scale(1)";
                 }}
               >
