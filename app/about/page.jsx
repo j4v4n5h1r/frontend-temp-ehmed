@@ -156,7 +156,7 @@ export default function AboutPage() {
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-                About
+                {t("about.title", "About")}
               </span>
               <br />
               <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
@@ -164,9 +164,12 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
-              We're on a mission to eliminate dead battery anxiety forever.
+              {t(
+                "about.description",
+                "We're on a mission to eliminate dead battery anxiety forever."
+              )}
               <br className="hidden sm:block" />
-              Power when you need it, where you need it.
+              {t("about.subtitle", "Power when you need it, where you need it.")}
             </p>
           </div>
         </div>
@@ -178,26 +181,26 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="order-2 lg:order-1">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 text-center lg:text-left">
-                Our Story
+                {t("about.story.title", "Our Story")}
               </h2>
               <div className="space-y-4 text-base sm:text-lg text-gray-600 leading-relaxed">
                 <p>
-                  Pobi was born from a simple frustration: being stranded
-                  with a dead phone battery when you need it most. Our founders
-                  experienced this countless times during business trips, at
-                  airports, and while exploring new cities.
+                  {t(
+                    "about.story.content",
+                    "Pobi was born from a simple frustration: being stranded with a dead phone battery when you need it most. Our founders experienced this countless times during business trips, at airports, and while exploring new cities."
+                  )}
                 </p>
                 <p>
-                  We realized that in our hyper-connected world, access to power
-                  shouldn't be a luxury or a source of anxiety. That's why we
-                  created Pobi - a reliable, convenient network of power
-                  bank stations that ensures you're never without power again.
+                  {t(
+                    "about.story.mission",
+                    "We realized that in our hyper-connected world, access to power shouldn't be a luxury or a source of anxiety. That's why we created Pobi - a reliable, convenient network of power bank stations that ensures you're never without power again."
+                  )}
                 </p>
                 <p>
-                  Today, we're proud to serve thousands of users across multiple
-                  countries, with a network that's growing every day. But we're
-                  just getting started in our mission to make dead batteries a
-                  thing of the past.
+                  {t(
+                    "about.story.today",
+                    "Today, we're proud to serve thousands of users across multiple countries, with a network that's growing every day. But we're just getting started in our mission to make dead batteries a thing of the past."
+                  )}
                 </p>
               </div>
             </div>
