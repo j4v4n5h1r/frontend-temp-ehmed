@@ -300,6 +300,25 @@ export default {
     title: "How to Use Pobi",
     subtitle: "Rent a power bank in just a few simple steps",
     description: "Our simple process gets you powered up in minutes",
+    findClosestLocation: "Find the closest location here",
+    seeDetailedPricing: "(Tap here to see detailed pricing.)",
+    step1: {
+      detailedDescription: "Pobi is available at thousands of convenience stores, malls, airports, and charging stations worldwide. Use our app or website to find the nearest location.",
+    },
+    step2: {
+      title: "Grab a Pobi power bank and charge on the go",
+      description: "No app needed. Renting a Pobi costs just $2 to $8 depending on your rental duration, along with a returnable deposit of $15.",
+    },
+    step3: {
+      title: "Return in 7 days, get your deposit back — maybe grab another? 😉",
+      description: "You have 7 days from the time you rent Pobi to return it, so there's no rush. And when you do return it on-time, we'll give you back your full deposit. Every week that you're late, we deduct $2 from your deposit, the max is $15.",
+    },
+    additionalInfo: "Pobi is also available outside of convenience stores.",
+    stationTypes: {
+      station: "Station",
+      vendingMachine: "Vending Machine",
+      events: "Events",
+    },
     steps: {
       step1: {
         title: "Find a Station",
@@ -329,6 +348,7 @@ export default {
     },
     faq: {
       title: "Frequently Asked Questions",
+      subtitle: "Got questions? We've got answers. Here are the most common questions about using Pobi.",
       q1: "How much does it cost?",
       a1: "Pricing starts at $2 per hour with daily and weekly options available.",
       q2: "What devices are supported?",
@@ -337,6 +357,10 @@ export default {
       a3: "Simply return it to any Pobi station when you're done.",
       q4: "What if I lose the power bank?",
       a4: "A replacement fee will be charged to your account if not returned within 24 hours.",
+    },
+    cta: {
+      title: "Ready to Never Run Out of Power?",
+      description: "Join thousands of users who have made Pobi part of their daily routine. Get started today and experience the convenience.",
     },
   },
 
