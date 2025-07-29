@@ -372,7 +372,11 @@ export default {
     story: {
       title: "Our Story",
       content:
-        "Founded in 2023, Pobi was born from a simple frustration - dead phones when you need them most. We're building the world's largest network of power bank sharing stations.",
+        "Pobi was born from a simple frustration: being stranded with a dead phone battery when you need it most. Our founders experienced this countless times during business trips, at airports, and while exploring new cities.",
+      mission:
+        "We realized that in our hyper-connected world, access to power shouldn't be a luxury or a source of anxiety. That's why we created Pobi - a reliable, convenient network of power bank stations that ensures you're never without power again.",
+      today:
+        "Today, we're proud to serve thousands of users across multiple countries, with a network that's growing every day. But we're just getting started in our mission to make dead batteries a thing of the past.",
     },
     mission: {
       title: "Our Mission",
