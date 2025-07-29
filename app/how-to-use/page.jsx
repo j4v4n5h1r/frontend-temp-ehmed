@@ -9,9 +9,11 @@ export default function HowToUsePage() {
   const steps = [
     {
       step: "01",
-      title: "Find a Station",
-      description:
-        "Use our app or website to locate the nearest Pobi station. Look for our distinctive blue stations in malls, airports, restaurants, and other convenient locations.",
+      title: t("howToUse.steps.step1.title", "Find a Station"),
+      description: t(
+        "howToUse.steps.step1.description",
+        "Use our app or website to locate the nearest Pobi station. Look for our distinctive blue stations in malls, airports, restaurants, and other convenient locations."
+      ),
       icon: (
         <svg
           className="w-8 h-8"
@@ -32,9 +34,11 @@ export default function HowToUsePage() {
     },
     {
       step: "02",
-      title: "Scan QR Code",
-      description:
-        "Simply scan the QR code on the station using your phone camera or our Pobi app. No special equipment needed - just your smartphone!",
+      title: t("howToUse.steps.step2.title", "Scan QR Code"),
+      description: t(
+        "howToUse.steps.step2.description",
+        "Simply scan the QR code on the station using your phone camera or our Pobi app. No special equipment needed - just your smartphone!"
+      ),
       icon: (
         <svg
           className="w-8 h-8"
@@ -55,9 +59,11 @@ export default function HowToUsePage() {
     },
     {
       step: "03",
-      title: "Choose Your Power Bank",
-      description:
-        "Select an available power bank from the station. Each power bank comes with multiple cable types (Lightning, USB-C, Micro-USB) to charge any device.",
+      title: t("howToUse.steps.step3.title", "Choose Your Power Bank"),
+      description: t(
+        "howToUse.steps.step3.description",
+        "Select an available power bank from the station. Each power bank comes with multiple cable types (Lightning, USB-C, Micro-USB) to charge any device."
+      ),
       icon: (
         <svg
           className="w-8 h-8"
@@ -78,9 +84,11 @@ export default function HowToUsePage() {
     },
     {
       step: "04",
-      title: "Pay Securely",
-      description:
-        "Complete your rental with secure payment through our app or website. We accept all major credit cards, PayPal, and mobile payment methods.",
+      title: t("howToUse.steps.step4.title", "Pay Securely"),
+      description: t(
+        "howToUse.steps.step4.description",
+        "Complete your rental with secure payment through our app or website. We accept all major credit cards, PayPal, and mobile payment methods."
+      ),
       icon: (
         <svg
           className="w-8 h-8"
@@ -101,9 +109,11 @@ export default function HowToUsePage() {
     },
     {
       step: "05",
-      title: "Start Charging",
-      description:
-        "The power bank will automatically unlock and you can start charging your device immediately. Monitor your device's charging progress through our app.",
+      title: t("howToUse.steps.step5.title", "Start Charging"),
+      description: t(
+        "howToUse.steps.step5.description",
+        "The power bank will automatically unlock and you can start charging your device immediately. Monitor your device's charging progress through our app."
+      ),
       icon: (
         <svg
           className="w-8 h-8"
@@ -124,9 +134,11 @@ export default function HowToUsePage() {
     },
     {
       step: "06",
-      title: "Return Anywhere",
-      description:
-        "When you're done, return the power bank to any Pobi station. It's that simple - no need to return to the original location!",
+      title: t("howToUse.steps.step6.title", "Return Anywhere"),
+      description: t(
+        "howToUse.steps.step6.description",
+        "When you're done, return the power bank to any Pobi station. It's that simple - no need to return to the original location!"
+      ),
       icon: (
         <svg
           className="w-8 h-8"
