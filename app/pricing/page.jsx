@@ -174,18 +174,17 @@ export default function PricingPage() {
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-                Simple, Transparent
+                {t("pricing.title", "Simple, Transparent")}
               </span>
               <br />
               <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
-                Pricing
+                {t("nav.pricing", "Pricing")}
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
-              Pay only for what you use. No hidden fees, no subscription
-              required.
+              {t("pricing.description", "Pay only for what you use. No hidden fees, no subscription required.")}
               <br className="hidden sm:block" />
-              Choose the plan that fits your needs.
+              {t("pricing.subtitle", "Choose the plan that fits your needs.")}
             </p>
             <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full font-medium text-sm sm:text-base">
               <svg
