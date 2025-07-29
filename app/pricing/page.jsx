@@ -210,7 +210,7 @@ export default function PricingPage() {
                   clipRule="evenodd"
                 />
               </svg>
-              No Setup Fees • Cancel Anytime
+              {t("pricing.noSetupFees", "No Setup Fees • Cancel Anytime")}
             </div>
           </div>
         </div>
