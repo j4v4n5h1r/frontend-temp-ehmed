@@ -220,7 +220,7 @@ export default {
   // Admin
   admin: {
     title: "Admin Paneli",
-    users: "İstifadə��ilər",
+    users: "İstifadəçilər",
     stations: "Stansiyalar",
     powerbanks: "PowerBank-lar",
     rentals: "İcarələr",
@@ -373,7 +373,7 @@ export default {
     title: "Pobi Haqqında",
     subtitle: "Həyatınızı gücləndirir, hər şarj ilə",
     description:
-      "Batareya narahatlığını həmişəlik aradan qaldırma missiyasındayıq",
+      "Batareya narahatlığını həmişəlik aradan qald��rma missiyasındayıq",
     story: {
       title: "Bizim Hekayəmiz",
       content:
@@ -469,39 +469,33 @@ export default {
         price: "2₼",
         period: "saatda",
         description: "Qısa səyahətlər və sürətli şarjlar üçün mükəmməl",
-        features: [
-          "Sürətli şarj kabelləri daxildir",
-          "İstənilən stansiyaya qaytarın",
-          "7/24 müştəri dəstəyi",
-          "Mobil tətbiq girişi",
-          "Bütün cihazlarla uyğun",
-        ],
+        feature1: "Sürətli şarj kabelləri daxildir",
+        feature2: "İstənilən stansiyaya qaytarın",
+        feature3: "7/24 müştəri dəstəyi",
+        feature4: "Mobil tətbiq girişi",
+        feature5: "Bütün cihazlarla uyğun",
       },
       daily: {
         title: "Günlük",
         price: "8₼",
         period: "gündə",
         description: "Bütün gün macəraları üçün ən yaxşı dəyər",
-        features: [
-          "Bütün saatlıq xüsusiyyətlər",
-          "24 saata qədər istifadə",
-          "Prioritet müştəri dəstəyi",
-          "Çoxlu cihaz şarjı",
-          "24 saat üçün artıq haqq yoxdur",
-        ],
+        feature1: "Bütün saatlıq xüsusiyyətlər",
+        feature2: "24 saata qədər istifadə",
+        feature3: "Prioritet müştəri dəstəyi",
+        feature4: "Çoxlu cihaz şarjı",
+        feature5: "24 saat üçün artıq haqq yoxdur",
       },
       weekly: {
         title: "Həftəlik",
         price: "25₼",
         period: "həftədə",
         description: "Uzun qalmaq və biznes səyahətləri",
-        features: [
-          "Bütün günlük xüsusiyyətlər",
-          "7 günə qədər istifadə",
-          "Xüsusi hesab meneceri",
-          "Toplu icarə endirimlər",
-          "Biznes xərc hesabatı",
-        ],
+        feature1: "Bütün günlük xüsusiyyətlər",
+        feature2: "7 günə qədər istifadə",
+        feature3: "Xüsusi hesab meneceri",
+        feature4: "Toplu icarə endirimlər",
+        feature5: "Biznes xərc hesabatı",
       },
     },
     features: {
