@@ -253,16 +253,17 @@ export default function HowToUsePage() {
                   {t("howToUse.steps.step1.title", "Find a Pobi Station")}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
-                  Pobi is available at thousands of convenience stores,
-                  malls, airports, and charging stations worldwide. Use our app
-                  or website to find the nearest location.
+                  {t(
+                    "howToUse.step1.detailedDescription",
+                    "Pobi is available at thousands of convenience stores, malls, airports, and charging stations worldwide. Use our app or website to find the nearest location."
+                  )}
                   <br />
                   <br />
                   <Link
                     href="/locations"
                     className="underline text-blue-600 hover:text-blue-700"
                   >
-                    Find the closest location here
+                    {t("howToUse.findClosestLocation", "Find the closest location here")}
                   </Link>
                 </p>
 
@@ -316,21 +317,22 @@ export default function HowToUsePage() {
               <div className="order-3 lg:order-1 flex flex-col gap-3 w-full lg:max-w-[370px] text-center lg:text-right">
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
                   {t(
-                    "howToUse.steps.step2.title",
+                    "howToUse.step2.title",
                     "Grab a Pobi power bank and charge on the go",
                   )}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
-                  No app needed. Renting a Pobi costs just $2 to $8
-                  depending on your rental duration, along with a returnable
-                  deposit of $15.
+                  {t(
+                    "howToUse.step2.description",
+                    "No app needed. Renting a Pobi costs just $2 to $8 depending on your rental duration, along with a returnable deposit of $15."
+                  )}
                 </p>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
                   <Link
                     href="/pricing"
                     className="underline text-blue-600 hover:text-blue-700"
                   >
-                    (Tap here to see detailed pricing.)
+                    {t("howToUse.seeDetailedPricing", "(Tap here to see detailed pricing.)")}
                   </Link>
                 </p>
               </div>
@@ -363,15 +365,15 @@ export default function HowToUsePage() {
               <div className="order-3 lg:order-3 flex flex-col gap-3 w-full lg:max-w-[370px] text-center lg:text-left">
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
                   {t(
-                    "howToUse.steps.step3.title",
+                    "howToUse.step3.title",
                     "Return in 7 days, get your deposit back — maybe grab another? 😉",
                   )}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
-                  You have 7 days from the time you rent Pobi to return
-                  it, so there's no rush. And when you do return it on-time,
-                  we'll give you back your full deposit. Every week that you're
-                  late, we deduct $2 from your deposit, the max is $15.
+                  {t(
+                    "howToUse.step3.description",
+                    "You have 7 days from the time you rent Pobi to return it, so there's no rush. And when you do return it on-time, we'll give you back your full deposit. Every week that you're late, we deduct $2 from your deposit, the max is $15."
+                  )}
                 </p>
               </div>
             </div>
