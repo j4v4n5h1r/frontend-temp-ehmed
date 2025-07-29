@@ -285,7 +285,7 @@ export default function PricingPage() {
                         : "bg-gray-100 text-gray-900 hover:bg-gray-200"
                     }`}
                   >
-                    Get Started
+                    {t("common.getStarted", "Get Started")}
                   </button>
                 </Link>
               </div>
@@ -299,11 +299,13 @@ export default function PricingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What's Included
+              {t("pricing.whatsIncluded", "What's Included")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              Every Pobi rental includes these premium features at no
-              extra cost
+              {t(
+                "pricing.premiumFeatures",
+                "Every Pobi rental includes these premium features at no extra cost"
+              )}
             </p>
           </div>
 
