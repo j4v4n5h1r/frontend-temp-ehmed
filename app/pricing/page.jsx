@@ -115,8 +115,8 @@ export default function PricingPage() {
           />
         </svg>
       ),
-      title: "Fast Charging",
-      description: "High-capacity power banks with fast charging technology",
+      title: t("pricing.features.fastCharging.title", "Fast Charging"),
+      description: t("pricing.features.fastCharging.description", "High-capacity power banks with fast charging technology"),
     },
     {
       icon: (
@@ -134,8 +134,8 @@ export default function PricingPage() {
           />
         </svg>
       ),
-      title: "500+ Locations",
-      description: "Extensive network of stations in major cities worldwide",
+      title: t("pricing.features.locations.title", "500+ Locations"),
+      description: t("pricing.features.locations.description", "Extensive network of stations in major cities worldwide"),
     },
     {
       icon: (
@@ -153,8 +153,8 @@ export default function PricingPage() {
           />
         </svg>
       ),
-      title: "Return Anywhere",
-      description: "Pick up at one station, return at any other station",
+      title: t("pricing.features.returnAnywhere.title", "Return Anywhere"),
+      description: t("pricing.features.returnAnywhere.description", "Pick up at one station, return at any other station"),
     },
     {
       icon: (
@@ -172,8 +172,8 @@ export default function PricingPage() {
           />
         </svg>
       ),
-      title: "Secure & Safe",
-      description: "Bank-level security for payments and personal data",
+      title: t("pricing.features.secure.title", "Secure & Safe"),
+      description: t("pricing.features.secure.description", "Bank-level security for payments and personal data"),
     },
   ];
 
