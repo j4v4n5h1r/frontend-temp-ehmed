@@ -388,12 +388,47 @@ export default {
     },
     values: {
       title: "Değerlerimiz",
+      subtitle: "Yaptığımız her şeye rehberlik eden ilkeler",
+      userCentric: {
+        title: "Kullanıcı Odaklı",
+        description: "Aldığımız her karar kullanıcılarımızı önde tutar. Kendimizin kullanmak isteyeceği şarj çözümünü inşa ediyoruz.",
+      },
+      reliability: "Güvenilirlik",
+      reliabilityDesc: "Cihazınızı şarj etmenin ışık anahtarını açmak kadar güvenilir olması gerektiğine inanıyoruz. İhtiyacınız olduğunda her zaman mevcut.",
+      innovation: {
+        title: "İnovasyon",
+        description: "Size daha iyi hizmet etmek için teknolojimizi sürekli geliştiriyor ve ağımızı genişletiyoruz.",
+      },
+      sustainability: "Sürdürülebilirlik",
+      sustainabilityDesc: "Herkese ve gezegene fayda sağlayan paylaşımlı şarj çözümleri sunarak elektronik atıkları azaltıyoruz.",
       convenience: "Kolaylık Öncelik",
       convenienceDesc: "Basit, hızlı ve ihtiyacınız olduğunda her zaman mevcut",
-      reliability: "Güvenilirlik",
-      reliabilityDesc: "Güvenebileceğiniz tutarlı hizmet",
-      sustainability: "Sürdürülebilirlik",
-      sustainabilityDesc: "Daha iyi bir yarın için çevre dostu çözümler",
+    },
+    journey: {
+      title: "Yolculuğumuz",
+      subtitle: "Pobi hikayesindeki önemli kilometre taşları",
+    },
+    milestones: {
+      "2020": {
+        title: "Şirket Kuruldu",
+        description: "Bitmiş batarya sorunlarını çözme vizyonuyla başladık",
+      },
+      "2021": {
+        title: "İlk 50 İstasyon",
+        description: "Büyük metropolitan alanlarda pilot programımızı başlattık",
+      },
+      "2022": {
+        title: "100K Kullanıcı",
+        description: "5 şehirde ilk büyük kullanıcı kilometre taşımıza ulaştık",
+      },
+      "2023": {
+        title: "500+ İstasyon",
+        description: "Gelişmiş teknoloji ile 50+ şehre genişledik",
+      },
+      "2024": {
+        title: "Küresel Genişleme",
+        description: "Uluslararası açılım ve ortaklık programları",
+      },
     },
     team: {
       title: "Ekibimizle Tanışın",
@@ -402,11 +437,17 @@ export default {
       cmo: "Pazarlama Direktörü",
     },
     stats: {
-      title: "Rakamlarla",
-      users: "Aktif Kullanıcılar",
-      stations: "Dünya Çapında İstasyonlar",
+      title: "Rakamlarla Pobi",
+      subtitle: "Birlikte yarattığımız etki",
+      users: "Mutlu Kullanıcılar",
+      stations: "Aktif İstasyonlar",
       charges: "Tamamlanan Şarjlar",
+      cities: "Hizmet Verilen Şehirler",
       uptime: "Sistem Çalışma Süresi",
+    },
+    cta: {
+      title: "Pobi Topluluğuna Katılın",
+      description: "Şarj devriminin bir parçası olun. Birlikte, bitmiş bataryaların geçmişte kaldığı bir dünya inşa ediyoruz.",
     },
   },
 
