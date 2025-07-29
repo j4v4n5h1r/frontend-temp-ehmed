@@ -241,7 +241,7 @@ export default {
     saved: "Dəyişikliklər uğurla saxlanıldı",
     deleted: "Element uğurla silindi",
     created: "Element uğurla yaradıldı",
-    updated: "Element uğurla yenil��ndi",
+    updated: "Element uğurla yeniləndi",
   },
 
   // Locations Page
@@ -358,6 +358,10 @@ export default {
       a3: "İşiniz bitdikdə sadəcə istənilən Pobi stansiyasına qaytarın.",
       q4: "PowerBank-ı itirsimsə nə olur?",
       a4: "24 saat ərzində qaytarılmazsa hesabınızdan əvəzetmə haqqı tutulacaq.",
+    },
+    cta: {
+      title: "Heç Vaxt Enerjiniz Bitməsin?",
+      description: "Pobi-ni gündəlik rutinlərinin bir hissəsi edən minlərlə istifadəçiyə qoşulun. Bu gün başlayın və rahatlığı yaşayın.",
     },
   },
 
