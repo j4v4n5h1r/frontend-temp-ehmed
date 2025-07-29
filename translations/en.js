@@ -38,6 +38,9 @@ export default {
     ok: "OK",
     yes: "Yes",
     no: "No",
+    getStarted: "Get Started",
+    findStations: "Find Stations",
+    createAccount: "Create Account",
   },
 
   // Homepage
