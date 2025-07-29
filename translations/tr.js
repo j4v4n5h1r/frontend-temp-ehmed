@@ -300,6 +300,25 @@ export default {
     title: "Pobi Nasıl Kullanılır",
     subtitle: "Sadece birkaç basit adımda powerbank kiralayın",
     description: "Basit sürecimiz sizi dakikalar içinde enerjilendiriyor",
+    findClosestLocation: "En yakın lokasyonu buradan bulun",
+    seeDetailedPricing: "(Detaylı fiyatlandırmayı görmek için buraya dokunun.)",
+    step1: {
+      detailedDescription: "Pobi dünya çapında binlerce market, alışveriş merkezi, havaalanı ve şarj istasyonunda mevcuttur. En yakın lokasyonu bulmak için uygulamamızı veya web sitemizi kullanın.",
+    },
+    step2: {
+      title: "Bir Pobi powerbank alın ve hareket halindeyken şarj edin",
+      description: "Uygulama gerekmez. Pobi kiralama süresi $2 ile $8 arasında değişir ve 15$ iade edilebilir depozito gerekir.",
+    },
+    step3: {
+      title: "7 gün içinde iade edin, depozitonuzu geri alın — belki başka birini alırsınız? 😉",
+      description: "Pobi'yi kiraladığınız andan itibaren 7 gününüz var, acele etmeye gerek yok. Zamanında iade ettiğinizde tam depozitonuzu geri veririz. Her geç kaldığınız hafta için depozitonuzdan 2$ keseriz, maksimum 15$.",
+    },
+    additionalInfo: "Pobi marketlerin dışında da mevcuttur.",
+    stationTypes: {
+      station: "İstasyon",
+      vendingMachine: "Oto Mat",
+      events: "Etkinlikler",
+    },
     steps: {
       step1: {
         title: "İstasyon Bul",
@@ -331,6 +350,7 @@ export default {
     },
     faq: {
       title: "Sıkça Sorulan Sorular",
+      subtitle: "Sorularınız mı var? Cevaplarımız var. İşte Pobi kullanımı hakkında en yaygın sorular.",
       q1: "Maliyeti ne kadar?",
       a1: "Fiyatlandırma saatte 2 dolardan başlar, günlük ve haftalık seçenekler mevcuttur.",
       q2: "Hangi cihazlar destekleniyor?",
@@ -339,6 +359,10 @@ export default {
       a3: "İşiniz bittiğinde herhangi bir Pobi istasyonuna iade edin.",
       q4: "PowerBank'ı kaybedersem ne olur?",
       a4: "24 saat içinde iade edilmezse hesabınızdan değiştirme ücreti tahsil edilir.",
+    },
+    cta: {
+      title: "Asla Enerjiniz Bitmesin mi?",
+      description: "Pobi'yi günlük rutinlerinin bir parçası haline getiren binlerce kullanıcıya katılın. Bugün başlayın ve kolaylığı deneyimleyin.",
     },
   },
 
