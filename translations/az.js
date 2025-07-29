@@ -241,7 +241,7 @@ export default {
     saved: "Dəyişikliklər uğurla saxlanıldı",
     deleted: "Element uğurla silindi",
     created: "Element uğurla yaradıldı",
-    updated: "Element uğurla yeniləndi",
+    updated: "Element uğurla yenil��ndi",
   },
 
   // Locations Page
@@ -307,7 +307,7 @@ export default {
     },
     step2: {
       title: "Pobi powerbank alın və hərəkətdə şarj edin",
-      description: "Tətbiq lazım deyil. Pobi icarəsi icarə müddətindən asılı olaraq $2 ilə $8 arasında dəyişir və $15 qaytarıla bilən depozit təl��b olunur.",
+      description: "Tətbiq lazım deyil. Pobi icarəsi icarə müddətindən asılı olaraq $2 ilə $8 arasında dəyişir və $15 qaytarıla bilən depozit tələb olunur.",
     },
     step3: {
       title: "7 gün ərzində qaytarın, depozitonuzu geri alın — bəlkə başqasını alırsınız? 😉",
@@ -349,6 +349,7 @@ export default {
     },
     faq: {
       title: "Tez-tez Verilən Suallar",
+      subtitle: "Suallarınız var? Cavablarımız var. Budur Pobi istifadəsi haqqında ən yaygın suallar.",
       q1: "Qiyməti nə qədərdir?",
       a1: "Qiymətlər saatda 2 dollardan başlayır, günlük v�� həftəlik variantlar mövcuddur.",
       q2: "Hansı cihazlar dəstəklənir?",
