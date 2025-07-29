@@ -55,34 +55,46 @@ export default function PricingPage() {
 
   const faqs = [
     {
-      question: "Are there any hidden fees?",
-      answer:
-        "No hidden fees! The prices shown are exactly what you pay. Late return fees only apply if you keep a power bank beyond the 7-day maximum rental period.",
+      question: t("pricing.faq.q1", "Are there any hidden fees?"),
+      answer: t(
+        "pricing.faq.a1",
+        "No hidden fees! The prices shown are exactly what you pay. Late return fees only apply if you keep a power bank beyond the 7-day maximum rental period."
+      ),
     },
     {
-      question: "What happens if I return the power bank late?",
-      answer:
-        "If you return within 24 hours of your plan expiration, you'll be charged for an additional day. After 7 days total, a replacement fee applies.",
+      question: t("pricing.faq.q2", "What happens if I return the power bank late?"),
+      answer: t(
+        "pricing.faq.a2",
+        "If you return within 24 hours of your plan expiration, you'll be charged for an additional day. After 7 days total, a replacement fee applies."
+      ),
     },
     {
-      question: "Can I upgrade my plan while renting?",
-      answer:
-        "Yes! You can upgrade from hourly to daily or weekly at any time through our app. You'll only pay the difference.",
+      question: t("pricing.faq.q3", "Can I upgrade my plan while renting?"),
+      answer: t(
+        "pricing.faq.a3",
+        "Yes! You can upgrade from hourly to daily or weekly at any time through our app. You'll only pay the difference."
+      ),
     },
     {
-      question: "Do you offer business or bulk discounts?",
-      answer:
-        "Yes, we offer special pricing for businesses and organizations. Contact our sales team for custom pricing based on your usage needs.",
+      question: t("pricing.faq.q4", "Do you offer business or bulk discounts?"),
+      answer: t(
+        "pricing.faq.a4",
+        "Yes, we offer special pricing for businesses and organizations. Contact our sales team for custom pricing based on your usage needs."
+      ),
     },
     {
-      question: "What payment methods do you accept?",
-      answer:
-        "We accept all major credit cards, PayPal, Apple Pay, Google Pay, and most mobile payment platforms.",
+      question: t("pricing.faq.q5", "What payment methods do you accept?"),
+      answer: t(
+        "pricing.faq.a5",
+        "We accept all major credit cards, PayPal, Apple Pay, Google Pay, and most mobile payment platforms."
+      ),
     },
     {
-      question: "Can I get a refund if I don't use the full rental period?",
-      answer:
-        "Unfortunately, rentals are non-refundable once started. However, you can return the power bank early without penalty.",
+      question: t("pricing.faq.q6", "Can I get a refund if I don't use the full rental period?"),
+      answer: t(
+        "pricing.faq.a6",
+        "Unfortunately, rentals are non-refundable once started. However, you can return the power bank early without penalty."
+      ),
     },
   ];
 
