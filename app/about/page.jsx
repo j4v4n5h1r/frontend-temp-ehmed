@@ -309,19 +309,22 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-              Pobi by the Numbers
+              {t("about.stats.title", "Pobi by the Numbers")}
             </h2>
             <p className="text-base sm:text-lg opacity-90 px-4">
-              The impact we're making together
+              {t(
+                "about.stats.subtitle",
+                "The impact we're making together"
+              )}
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center text-white">
             {[
-              { number: "500+", label: "Active Stations" },
-              { number: "100K+", label: "Happy Users" },
-              { number: "50+", label: "Cities Served" },
-              { number: "1M+", label: "Charges Delivered" },
+              { number: "500+", label: t("about.stats.stations", "Active Stations") },
+              { number: "100K+", label: t("about.stats.users", "Happy Users") },
+              { number: "50+", label: t("about.stats.cities", "Cities Served") },
+              { number: "1M+", label: t("about.stats.charges", "Charges Delivered") },
             ].map((stat, index) => (
               <div key={index}>
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
@@ -341,11 +344,13 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Join the Pobi Community
+              {t("about.cta.title", "Join the Pobi Community")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 px-4">
-              Be part of the charging revolution. Together, we're building a
-              world where dead batteries are a thing of the past.
+              {t(
+                "about.cta.description",
+                "Be part of the charging revolution. Together, we're building a world where dead batteries are a thing of the past."
+              )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/locations">
