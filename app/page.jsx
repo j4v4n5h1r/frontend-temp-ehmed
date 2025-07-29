@@ -610,7 +610,7 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button
-                  className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg transition-colors"
+                  className="flex items-center justify-center gap-2 px-5 py-3 rounded-lg transition-colors"
                   style={{ background: "white", color: "black", border: "1px solid #e2e8f0" }}
                   onMouseEnter={(e) => (e.target.style.background = "#f8fafc")}
                   onMouseLeave={(e) => (e.target.style.background = "white")}
