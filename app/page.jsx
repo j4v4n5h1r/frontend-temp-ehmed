@@ -634,9 +634,9 @@ export default function Home() {
 
                 <button
                   className="flex items-center justify-center gap-3 px-6 py-3 rounded-xl transition-colors"
-                  style={{ background: "black", color: "white" }}
-                  onMouseEnter={(e) => (e.target.style.background = "#1f2937")}
-                  onMouseLeave={(e) => (e.target.style.background = "black")}
+                  style={{ background: "white", color: "black", border: "1px solid #e2e8f0" }}
+                  onMouseEnter={(e) => (e.target.style.background = "#f8fafc")}
+                  onMouseLeave={(e) => (e.target.style.background = "white")}
                 >
                   <svg
                     className="w-6 h-6"
