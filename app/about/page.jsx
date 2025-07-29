@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslation } from "../../context/TranslationContext";
 
 export default function AboutPage() {
+  const { t } = useTranslation();
   const teamMembers = [
     {
       name: "Sarah Johnson",
@@ -51,9 +53,11 @@ export default function AboutPage() {
           />
         </svg>
       ),
-      title: "User-Centric",
-      description:
-        "Every decision we make puts our users first. We're building the charging solution we'd want to use ourselves.",
+      title: t("about.values.userCentric.title", "User-Centric"),
+      description: t(
+        "about.values.userCentric.description",
+        "Every decision we make puts our users first. We're building the charging solution we'd want to use ourselves."
+      ),
     },
     {
       icon: (
@@ -71,9 +75,11 @@ export default function AboutPage() {
           />
         </svg>
       ),
-      title: "Reliability",
-      description:
-        "We believe charging your device should be as reliable as turning on a light switch. Always available when you need it.",
+      title: t("about.values.reliability", "Reliability"),
+      description: t(
+        "about.values.reliabilityDesc",
+        "We believe charging your device should be as reliable as turning on a light switch. Always available when you need it."
+      ),
     },
     {
       icon: (
@@ -91,9 +97,11 @@ export default function AboutPage() {
           />
         </svg>
       ),
-      title: "Innovation",
-      description:
-        "We're constantly improving our technology and expanding our network to serve you better.",
+      title: t("about.values.innovation.title", "Innovation"),
+      description: t(
+        "about.values.innovation.description",
+        "We're constantly improving our technology and expanding our network to serve you better."
+      ),
     },
     {
       icon: (
@@ -111,37 +119,39 @@ export default function AboutPage() {
           />
         </svg>
       ),
-      title: "Sustainability",
-      description:
-        "Reducing electronic waste by providing shared charging solutions that benefit everyone and the planet.",
+      title: t("about.values.sustainability", "Sustainability"),
+      description: t(
+        "about.values.sustainabilityDesc",
+        "Reducing electronic waste by providing shared charging solutions that benefit everyone and the planet."
+      ),
     },
   ];
 
   const milestones = [
     {
       year: "2020",
-      title: "Company Founded",
-      description: "Started with a vision to solve dead battery problems",
+      title: t("about.milestones.2020.title", "Company Founded"),
+      description: t("about.milestones.2020.description", "Started with a vision to solve dead battery problems"),
     },
     {
       year: "2021",
-      title: "First 50 Stations",
-      description: "Launched our pilot program in major metropolitan areas",
+      title: t("about.milestones.2021.title", "First 50 Stations"),
+      description: t("about.milestones.2021.description", "Launched our pilot program in major metropolitan areas"),
     },
     {
       year: "2022",
-      title: "100K Users",
-      description: "Reached our first major user milestone across 5 cities",
+      title: t("about.milestones.2022.title", "100K Users"),
+      description: t("about.milestones.2022.description", "Reached our first major user milestone across 5 cities"),
     },
     {
       year: "2023",
-      title: "500+ Stations",
-      description: "Expanded to 50+ cities with improved technology",
+      title: t("about.milestones.2023.title", "500+ Stations"),
+      description: t("about.milestones.2023.description", "Expanded to 50+ cities with improved technology"),
     },
     {
       year: "2024",
-      title: "Global Expansion",
-      description: "International rollout and partnership programs",
+      title: t("about.milestones.2024.title", "Global Expansion"),
+      description: t("about.milestones.2024.description", "International rollout and partnership programs"),
     },
   ];
 
@@ -154,7 +164,7 @@ export default function AboutPage() {
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-                About
+                {t("about.title", "About")}
               </span>
               <br />
               <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
@@ -162,9 +172,12 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
-              We're on a mission to eliminate dead battery anxiety forever.
+              {t(
+                "about.description",
+                "We're on a mission to eliminate dead battery anxiety forever."
+              )}
               <br className="hidden sm:block" />
-              Power when you need it, where you need it.
+              {t("about.subtitle", "Power when you need it, where you need it.")}
             </p>
           </div>
         </div>
@@ -176,26 +189,26 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="order-2 lg:order-1">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 text-center lg:text-left">
-                Our Story
+                {t("about.story.title", "Our Story")}
               </h2>
               <div className="space-y-4 text-base sm:text-lg text-gray-600 leading-relaxed">
                 <p>
-                  Pobi was born from a simple frustration: being stranded
-                  with a dead phone battery when you need it most. Our founders
-                  experienced this countless times during business trips, at
-                  airports, and while exploring new cities.
+                  {t(
+                    "about.story.content",
+                    "Pobi was born from a simple frustration: being stranded with a dead phone battery when you need it most. Our founders experienced this countless times during business trips, at airports, and while exploring new cities."
+                  )}
                 </p>
                 <p>
-                  We realized that in our hyper-connected world, access to power
-                  shouldn't be a luxury or a source of anxiety. That's why we
-                  created Pobi - a reliable, convenient network of power
-                  bank stations that ensures you're never without power again.
+                  {t(
+                    "about.story.mission",
+                    "We realized that in our hyper-connected world, access to power shouldn't be a luxury or a source of anxiety. That's why we created Pobi - a reliable, convenient network of power bank stations that ensures you're never without power again."
+                  )}
                 </p>
                 <p>
-                  Today, we're proud to serve thousands of users across multiple
-                  countries, with a network that's growing every day. But we're
-                  just getting started in our mission to make dead batteries a
-                  thing of the past.
+                  {t(
+                    "about.story.today",
+                    "Today, we're proud to serve thousands of users across multiple countries, with a network that's growing every day. But we're just getting started in our mission to make dead batteries a thing of the past."
+                  )}
                 </p>
               </div>
             </div>
@@ -216,10 +229,13 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Values
+              {t("about.values.title", "Our Values")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              The principles that guide everything we do
+              {t(
+                "about.values.subtitle",
+                "The principles that guide everything we do"
+              )}
             </p>
           </div>
 
@@ -246,10 +262,13 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Journey
+              {t("about.journey.title", "Our Journey")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              Key milestones in the Pobi story
+              {t(
+                "about.journey.subtitle",
+                "Key milestones in the Pobi story"
+              )}
             </p>
           </div>
 
@@ -290,19 +309,22 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-              Pobi by the Numbers
+              {t("about.stats.title", "Pobi by the Numbers")}
             </h2>
             <p className="text-base sm:text-lg opacity-90 px-4">
-              The impact we're making together
+              {t(
+                "about.stats.subtitle",
+                "The impact we're making together"
+              )}
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center text-white">
             {[
-              { number: "500+", label: "Active Stations" },
-              { number: "100K+", label: "Happy Users" },
-              { number: "50+", label: "Cities Served" },
-              { number: "1M+", label: "Charges Delivered" },
+              { number: "500+", label: t("about.stats.stations", "Active Stations") },
+              { number: "100K+", label: t("about.stats.users", "Happy Users") },
+              { number: "50+", label: t("about.stats.cities", "Cities Served") },
+              { number: "1M+", label: t("about.stats.charges", "Charges Delivered") },
             ].map((stat, index) => (
               <div key={index}>
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
@@ -322,21 +344,23 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Join the Pobi Community
+              {t("about.cta.title", "Join the Pobi Community")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 px-4">
-              Be part of the charging revolution. Together, we're building a
-              world where dead batteries are a thing of the past.
+              {t(
+                "about.cta.description",
+                "Be part of the charging revolution. Together, we're building a world where dead batteries are a thing of the past."
+              )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/locations">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Find Stations
+                  {t("common.findStations", "Find Stations")}
                 </button>
               </Link>
               <Link href="/register">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gray-100 text-gray-700 font-semibold rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Get Started
+                  {t("common.getStarted", "Get Started")}
                 </button>
               </Link>
             </div>

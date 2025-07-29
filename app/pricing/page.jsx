@@ -1,50 +1,52 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslation } from "../../context/TranslationContext";
 
 export default function PricingPage() {
+  const { t } = useTranslation();
   const plans = [
     {
-      name: "Hourly",
-      price: "$2",
-      period: "per hour",
-      description: "Perfect for short trips and quick charges",
+      name: t("pricing.plans.hourly.title", "Hourly"),
+      price: t("pricing.plans.hourly.price", "$2"),
+      period: t("pricing.plans.hourly.period", "per hour"),
+      description: t("pricing.plans.hourly.description", "Perfect for short trips and quick charges"),
       features: [
-        "Fast charging cables included",
-        "Return to any station",
-        "24/7 customer support",
-        "Mobile app access",
-        "Compatible with all devices",
+        t("pricing.plans.hourly.feature1", "Fast charging cables included"),
+        t("pricing.plans.hourly.feature2", "Return to any station"),
+        t("pricing.plans.hourly.feature3", "24/7 customer support"),
+        t("pricing.plans.hourly.feature4", "Mobile app access"),
+        t("pricing.plans.hourly.feature5", "Compatible with all devices"),
       ],
       popular: false,
       color: "blue",
     },
     {
-      name: "Daily",
-      price: "$8",
-      period: "per day",
-      description: "Best value for all-day adventures",
+      name: t("pricing.plans.daily.title", "Daily"),
+      price: t("pricing.plans.daily.price", "$8"),
+      period: t("pricing.plans.daily.period", "per day"),
+      description: t("pricing.plans.daily.description", "Best value for all-day adventures"),
       features: [
-        "All hourly features",
-        "Up to 24 hours usage",
-        "Priority customer support",
-        "Multiple device charging",
-        "No overage fees for 24hrs",
+        t("pricing.plans.daily.feature1", "All hourly features"),
+        t("pricing.plans.daily.feature2", "Up to 24 hours usage"),
+        t("pricing.plans.daily.feature3", "Priority customer support"),
+        t("pricing.plans.daily.feature4", "Multiple device charging"),
+        t("pricing.plans.daily.feature5", "No overage fees for 24hrs"),
       ],
       popular: true,
       color: "emerald",
     },
     {
-      name: "Weekly",
-      price: "$25",
-      period: "per week",
-      description: "Extended stays and business trips",
+      name: t("pricing.plans.weekly.title", "Weekly"),
+      price: t("pricing.plans.weekly.price", "$25"),
+      period: t("pricing.plans.weekly.period", "per week"),
+      description: t("pricing.plans.weekly.description", "Extended stays and business trips"),
       features: [
-        "All daily features",
-        "Up to 7 days usage",
-        "Dedicated account manager",
-        "Bulk rental discounts",
-        "Business expense reporting",
+        t("pricing.plans.weekly.feature1", "All daily features"),
+        t("pricing.plans.weekly.feature2", "Up to 7 days usage"),
+        t("pricing.plans.weekly.feature3", "Dedicated account manager"),
+        t("pricing.plans.weekly.feature4", "Bulk rental discounts"),
+        t("pricing.plans.weekly.feature5", "Business expense reporting"),
       ],
       popular: false,
       color: "purple",
@@ -53,34 +55,46 @@ export default function PricingPage() {
 
   const faqs = [
     {
-      question: "Are there any hidden fees?",
-      answer:
-        "No hidden fees! The prices shown are exactly what you pay. Late return fees only apply if you keep a power bank beyond the 7-day maximum rental period.",
+      question: t("pricing.faq.q1", "Are there any hidden fees?"),
+      answer: t(
+        "pricing.faq.a1",
+        "No hidden fees! The prices shown are exactly what you pay. Late return fees only apply if you keep a power bank beyond the 7-day maximum rental period."
+      ),
     },
     {
-      question: "What happens if I return the power bank late?",
-      answer:
-        "If you return within 24 hours of your plan expiration, you'll be charged for an additional day. After 7 days total, a replacement fee applies.",
+      question: t("pricing.faq.q2", "What happens if I return the power bank late?"),
+      answer: t(
+        "pricing.faq.a2",
+        "If you return within 24 hours of your plan expiration, you'll be charged for an additional day. After 7 days total, a replacement fee applies."
+      ),
     },
     {
-      question: "Can I upgrade my plan while renting?",
-      answer:
-        "Yes! You can upgrade from hourly to daily or weekly at any time through our app. You'll only pay the difference.",
+      question: t("pricing.faq.q3", "Can I upgrade my plan while renting?"),
+      answer: t(
+        "pricing.faq.a3",
+        "Yes! You can upgrade from hourly to daily or weekly at any time through our app. You'll only pay the difference."
+      ),
     },
     {
-      question: "Do you offer business or bulk discounts?",
-      answer:
-        "Yes, we offer special pricing for businesses and organizations. Contact our sales team for custom pricing based on your usage needs.",
+      question: t("pricing.faq.q4", "Do you offer business or bulk discounts?"),
+      answer: t(
+        "pricing.faq.a4",
+        "Yes, we offer special pricing for businesses and organizations. Contact our sales team for custom pricing based on your usage needs."
+      ),
     },
     {
-      question: "What payment methods do you accept?",
-      answer:
-        "We accept all major credit cards, PayPal, Apple Pay, Google Pay, and most mobile payment platforms.",
+      question: t("pricing.faq.q5", "What payment methods do you accept?"),
+      answer: t(
+        "pricing.faq.a5",
+        "We accept all major credit cards, PayPal, Apple Pay, Google Pay, and most mobile payment platforms."
+      ),
     },
     {
-      question: "Can I get a refund if I don't use the full rental period?",
-      answer:
-        "Unfortunately, rentals are non-refundable once started. However, you can return the power bank early without penalty.",
+      question: t("pricing.faq.q6", "Can I get a refund if I don't use the full rental period?"),
+      answer: t(
+        "pricing.faq.a6",
+        "Unfortunately, rentals are non-refundable once started. However, you can return the power bank early without penalty."
+      ),
     },
   ];
 
@@ -101,8 +115,8 @@ export default function PricingPage() {
           />
         </svg>
       ),
-      title: "Fast Charging",
-      description: "High-capacity power banks with fast charging technology",
+      title: t("pricing.features.fastCharging.title", "Fast Charging"),
+      description: t("pricing.features.fastCharging.description", "High-capacity power banks with fast charging technology"),
     },
     {
       icon: (
@@ -120,8 +134,8 @@ export default function PricingPage() {
           />
         </svg>
       ),
-      title: "500+ Locations",
-      description: "Extensive network of stations in major cities worldwide",
+      title: t("pricing.features.locations.title", "500+ Locations"),
+      description: t("pricing.features.locations.description", "Extensive network of stations in major cities worldwide"),
     },
     {
       icon: (
@@ -139,8 +153,8 @@ export default function PricingPage() {
           />
         </svg>
       ),
-      title: "Return Anywhere",
-      description: "Pick up at one station, return at any other station",
+      title: t("pricing.features.returnAnywhere.title", "Return Anywhere"),
+      description: t("pricing.features.returnAnywhere.description", "Pick up at one station, return at any other station"),
     },
     {
       icon: (
@@ -158,8 +172,8 @@ export default function PricingPage() {
           />
         </svg>
       ),
-      title: "Secure & Safe",
-      description: "Bank-level security for payments and personal data",
+      title: t("pricing.features.secure.title", "Secure & Safe"),
+      description: t("pricing.features.secure.description", "Bank-level security for payments and personal data"),
     },
   ];
 
@@ -172,18 +186,17 @@ export default function PricingPage() {
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-                Simple, Transparent
+                {t("pricing.title", "Simple, Transparent")}
               </span>
               <br />
               <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
-                Pricing
+                {t("nav.pricing", "Pricing")}
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
-              Pay only for what you use. No hidden fees, no subscription
-              required.
+              {t("pricing.description", "Pay only for what you use. No hidden fees, no subscription required.")}
               <br className="hidden sm:block" />
-              Choose the plan that fits your needs.
+              {t("pricing.subtitle", "Choose the plan that fits your needs.")}
             </p>
             <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full font-medium text-sm sm:text-base">
               <svg
@@ -197,7 +210,7 @@ export default function PricingPage() {
                   clipRule="evenodd"
                 />
               </svg>
-              No Setup Fees • Cancel Anytime
+              {t("pricing.noSetupFees", "No Setup Fees • Cancel Anytime")}
             </div>
           </div>
         </div>
@@ -219,7 +232,7 @@ export default function PricingPage() {
                 {plan.popular && (
                   <div className="absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2">
                     <span className="px-3 sm:px-4 py-1 bg-gradient-to-r from-emerald-500 to-blue-500 text-white rounded-full text-xs sm:text-sm font-semibold shadow-lg">
-                      Most Popular
+                      {t("pricing.mostPopular", "Most Popular")}
                     </span>
                   </div>
                 )}
@@ -272,7 +285,7 @@ export default function PricingPage() {
                         : "bg-gray-100 text-gray-900 hover:bg-gray-200"
                     }`}
                   >
-                    Get Started
+                    {t("common.getStarted", "Get Started")}
                   </button>
                 </Link>
               </div>
@@ -286,11 +299,13 @@ export default function PricingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What's Included
+              {t("pricing.whatsIncluded", "What's Included")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              Every Pobi rental includes these premium features at no
-              extra cost
+              {t(
+                "pricing.premiumFeatures",
+                "Every Pobi rental includes these premium features at no extra cost"
+              )}
             </p>
           </div>
 
@@ -317,10 +332,13 @@ export default function PricingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Pricing Questions
+              {t("pricing.faq.title", "Pricing Questions")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              Common questions about our pricing and billing
+              {t(
+                "pricing.faq.subtitle",
+                "Common questions about our pricing and billing"
+              )}
             </p>
           </div>
 
@@ -347,21 +365,23 @@ export default function PricingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto text-white">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
-              Ready to Get Started?
+              {t("pricing.cta.title", "Ready to Get Started?")}
             </h2>
             <p className="text-base sm:text-lg mb-6 sm:mb-8 opacity-90 px-4">
-              Join thousands of users who trust Pobi for their charging
-              needs. No commitment required - pay as you go.
+              {t(
+                "pricing.cta.description",
+                "Join thousands of users who trust Pobi for their charging needs. No commitment required - pay as you go."
+              )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/locations">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Find Stations
+                  {t("common.findStations", "Find Stations")}
                 </button>
               </Link>
               <Link href="/register">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-300 text-sm sm:text-base">
-                  Create Account
+                  {t("common.createAccount", "Create Account")}
                 </button>
               </Link>
             </div>

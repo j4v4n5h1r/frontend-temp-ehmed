@@ -9,9 +9,11 @@ export default function HowToUsePage() {
   const steps = [
     {
       step: "01",
-      title: "Find a Station",
-      description:
-        "Use our app or website to locate the nearest Pobi station. Look for our distinctive blue stations in malls, airports, restaurants, and other convenient locations.",
+      title: t("howToUse.steps.step1.title", "Find a Station"),
+      description: t(
+        "howToUse.steps.step1.description",
+        "Use our app or website to locate the nearest Pobi station. Look for our distinctive blue stations in malls, airports, restaurants, and other convenient locations."
+      ),
       icon: (
         <svg
           className="w-8 h-8"
@@ -32,9 +34,11 @@ export default function HowToUsePage() {
     },
     {
       step: "02",
-      title: "Scan QR Code",
-      description:
-        "Simply scan the QR code on the station using your phone camera or our Pobi app. No special equipment needed - just your smartphone!",
+      title: t("howToUse.steps.step2.title", "Scan QR Code"),
+      description: t(
+        "howToUse.steps.step2.description",
+        "Simply scan the QR code on the station using your phone camera or our Pobi app. No special equipment needed - just your smartphone!"
+      ),
       icon: (
         <svg
           className="w-8 h-8"
@@ -55,9 +59,11 @@ export default function HowToUsePage() {
     },
     {
       step: "03",
-      title: "Choose Your Power Bank",
-      description:
-        "Select an available power bank from the station. Each power bank comes with multiple cable types (Lightning, USB-C, Micro-USB) to charge any device.",
+      title: t("howToUse.steps.step3.title", "Choose Your Power Bank"),
+      description: t(
+        "howToUse.steps.step3.description",
+        "Select an available power bank from the station. Each power bank comes with multiple cable types (Lightning, USB-C, Micro-USB) to charge any device."
+      ),
       icon: (
         <svg
           className="w-8 h-8"
@@ -78,9 +84,11 @@ export default function HowToUsePage() {
     },
     {
       step: "04",
-      title: "Pay Securely",
-      description:
-        "Complete your rental with secure payment through our app or website. We accept all major credit cards, PayPal, and mobile payment methods.",
+      title: t("howToUse.steps.step4.title", "Pay Securely"),
+      description: t(
+        "howToUse.steps.step4.description",
+        "Complete your rental with secure payment through our app or website. We accept all major credit cards, PayPal, and mobile payment methods."
+      ),
       icon: (
         <svg
           className="w-8 h-8"
@@ -101,9 +109,11 @@ export default function HowToUsePage() {
     },
     {
       step: "05",
-      title: "Start Charging",
-      description:
-        "The power bank will automatically unlock and you can start charging your device immediately. Monitor your device's charging progress through our app.",
+      title: t("howToUse.steps.step5.title", "Start Charging"),
+      description: t(
+        "howToUse.steps.step5.description",
+        "The power bank will automatically unlock and you can start charging your device immediately. Monitor your device's charging progress through our app."
+      ),
       icon: (
         <svg
           className="w-8 h-8"
@@ -124,9 +134,11 @@ export default function HowToUsePage() {
     },
     {
       step: "06",
-      title: "Return Anywhere",
-      description:
-        "When you're done, return the power bank to any Pobi station. It's that simple - no need to return to the original location!",
+      title: t("howToUse.steps.step6.title", "Return Anywhere"),
+      description: t(
+        "howToUse.steps.step6.description",
+        "When you're done, return the power bank to any Pobi station. It's that simple - no need to return to the original location!"
+      ),
       icon: (
         <svg
           className="w-8 h-8"
@@ -241,16 +253,17 @@ export default function HowToUsePage() {
                   {t("howToUse.steps.step1.title", "Find a Pobi Station")}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
-                  Pobi is available at thousands of convenience stores,
-                  malls, airports, and charging stations worldwide. Use our app
-                  or website to find the nearest location.
+                  {t(
+                    "howToUse.step1.detailedDescription",
+                    "Pobi is available at thousands of convenience stores, malls, airports, and charging stations worldwide. Use our app or website to find the nearest location."
+                  )}
                   <br />
                   <br />
                   <Link
                     href="/locations"
                     className="underline text-blue-600 hover:text-blue-700"
                   >
-                    Find the closest location here
+                    {t("howToUse.findClosestLocation", "Find the closest location here")}
                   </Link>
                 </p>
 
@@ -304,21 +317,22 @@ export default function HowToUsePage() {
               <div className="order-3 lg:order-1 flex flex-col gap-3 w-full lg:max-w-[370px] text-center lg:text-right">
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
                   {t(
-                    "howToUse.steps.step2.title",
+                    "howToUse.step2.title",
                     "Grab a Pobi power bank and charge on the go",
                   )}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
-                  No app needed. Renting a Pobi costs just $2 to $8
-                  depending on your rental duration, along with a returnable
-                  deposit of $15.
+                  {t(
+                    "howToUse.step2.description",
+                    "No app needed. Renting a Pobi costs just $2 to $8 depending on your rental duration, along with a returnable deposit of $15."
+                  )}
                 </p>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
                   <Link
                     href="/pricing"
                     className="underline text-blue-600 hover:text-blue-700"
                   >
-                    (Tap here to see detailed pricing.)
+                    {t("howToUse.seeDetailedPricing", "(Tap here to see detailed pricing.)")}
                   </Link>
                 </p>
               </div>
@@ -351,15 +365,15 @@ export default function HowToUsePage() {
               <div className="order-3 lg:order-3 flex flex-col gap-3 w-full lg:max-w-[370px] text-center lg:text-left">
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
                   {t(
-                    "howToUse.steps.step3.title",
+                    "howToUse.step3.title",
                     "Return in 7 days, get your deposit back — maybe grab another? 😉",
                   )}
                 </h1>
                 <p className="text-sm sm:text-base text-gray-600 leading-6">
-                  You have 7 days from the time you rent Pobi to return
-                  it, so there's no rush. And when you do return it on-time,
-                  we'll give you back your full deposit. Every week that you're
-                  late, we deduct $2 from your deposit, the max is $15.
+                  {t(
+                    "howToUse.step3.description",
+                    "You have 7 days from the time you rent Pobi to return it, so there's no rush. And when you do return it on-time, we'll give you back your full deposit. Every week that you're late, we deduct $2 from your deposit, the max is $15."
+                  )}
                 </p>
               </div>
             </div>
