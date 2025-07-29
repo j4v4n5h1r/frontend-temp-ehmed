@@ -300,6 +300,25 @@ export default {
     title: "Pobi Necə İstifadə Edilir",
     subtitle: "Sadə bir neçə addımda powerbank icarəyə alın",
     description: "Sadə prosesimiz sizi dəqiqələr ərzində enerjiləndirir",
+    findClosestLocation: "Ən yaxın məkanı buradan tapın",
+    seeDetailedPricing: "(Təfərrüatlı qiymətləri görmək üçün buraya toxunun.)",
+    step1: {
+      detailedDescription: "Pobi dünya üzrə minlərlə mağaza, ticarət mərkəzi, hava limanı və şarj stansiyasında mövcuddur. Ən yaxın məkanı tapmaq üçün tətbiqimizi və ya saytımızı istifadə edin.",
+    },
+    step2: {
+      title: "Pobi powerbank alın və hərəkətdə şarj edin",
+      description: "Tətbiq lazım deyil. Pobi icarəsi icarə müddətindən asılı olaraq $2 ilə $8 arasında dəyişir və $15 qaytarıla bilən depozit təl��b olunur.",
+    },
+    step3: {
+      title: "7 gün ərzində qaytarın, depozitonuzu geri alın — bəlkə başqasını alırsınız? 😉",
+      description: "Pobi-ni icarəyə aldığınız andan etibarən 7 gününüz var, tələsmək lazım deyil. Vaxtında qaytardığınızda tam depozitonuzu qaytararıq. Hər gecikdiyiniz həftə üçün depozitonuzdan $2 kəsirik, maksimum $15.",
+    },
+    additionalInfo: "Pobi mağazaların xaricində də mövcuddur.",
+    stationTypes: {
+      station: "Stansiya",
+      vendingMachine: "Avtomat",
+      events: "Tədbirlər",
+    },
     steps: {
       step1: {
         title: "Stansiya Tap",
