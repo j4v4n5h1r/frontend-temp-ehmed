@@ -332,10 +332,13 @@ export default function PricingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Pricing Questions
+              {t("pricing.faq.title", "Pricing Questions")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              Common questions about our pricing and billing
+              {t(
+                "pricing.faq.subtitle",
+                "Common questions about our pricing and billing"
+              )}
             </p>
           </div>
 
@@ -362,21 +365,23 @@ export default function PricingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto text-white">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
-              Ready to Get Started?
+              {t("pricing.cta.title", "Ready to Get Started?")}
             </h2>
             <p className="text-base sm:text-lg mb-6 sm:mb-8 opacity-90 px-4">
-              Join thousands of users who trust Pobi for their charging
-              needs. No commitment required - pay as you go.
+              {t(
+                "pricing.cta.description",
+                "Join thousands of users who trust Pobi for their charging needs. No commitment required - pay as you go."
+              )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/locations">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Find Stations
+                  {t("common.findStations", "Find Stations")}
                 </button>
               </Link>
               <Link href="/register">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-300 text-sm sm:text-base">
-                  Create Account
+                  {t("common.createAccount", "Create Account")}
                 </button>
               </Link>
             </div>
