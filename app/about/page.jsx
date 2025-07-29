@@ -53,9 +53,11 @@ export default function AboutPage() {
           />
         </svg>
       ),
-      title: "User-Centric",
-      description:
-        "Every decision we make puts our users first. We're building the charging solution we'd want to use ourselves.",
+      title: t("about.values.userCentric.title", "User-Centric"),
+      description: t(
+        "about.values.userCentric.description",
+        "Every decision we make puts our users first. We're building the charging solution we'd want to use ourselves."
+      ),
     },
     {
       icon: (
@@ -73,9 +75,11 @@ export default function AboutPage() {
           />
         </svg>
       ),
-      title: "Reliability",
-      description:
-        "We believe charging your device should be as reliable as turning on a light switch. Always available when you need it.",
+      title: t("about.values.reliability", "Reliability"),
+      description: t(
+        "about.values.reliabilityDesc",
+        "We believe charging your device should be as reliable as turning on a light switch. Always available when you need it."
+      ),
     },
     {
       icon: (
@@ -93,9 +97,11 @@ export default function AboutPage() {
           />
         </svg>
       ),
-      title: "Innovation",
-      description:
-        "We're constantly improving our technology and expanding our network to serve you better.",
+      title: t("about.values.innovation.title", "Innovation"),
+      description: t(
+        "about.values.innovation.description",
+        "We're constantly improving our technology and expanding our network to serve you better."
+      ),
     },
     {
       icon: (
@@ -113,9 +119,11 @@ export default function AboutPage() {
           />
         </svg>
       ),
-      title: "Sustainability",
-      description:
-        "Reducing electronic waste by providing shared charging solutions that benefit everyone and the planet.",
+      title: t("about.values.sustainability", "Sustainability"),
+      description: t(
+        "about.values.sustainabilityDesc",
+        "Reducing electronic waste by providing shared charging solutions that benefit everyone and the planet."
+      ),
     },
   ];
 
