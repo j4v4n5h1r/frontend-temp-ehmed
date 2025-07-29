@@ -385,12 +385,47 @@ export default {
     },
     values: {
       title: "Our Values",
+      subtitle: "The principles that guide everything we do",
+      userCentric: {
+        title: "User-Centric",
+        description: "Every decision we make puts our users first. We're building the charging solution we'd want to use ourselves.",
+      },
+      reliability: "Reliability",
+      reliabilityDesc: "We believe charging your device should be as reliable as turning on a light switch. Always available when you need it.",
+      innovation: {
+        title: "Innovation",
+        description: "We're constantly improving our technology and expanding our network to serve you better.",
+      },
+      sustainability: "Sustainability",
+      sustainabilityDesc: "Reducing electronic waste by providing shared charging solutions that benefit everyone and the planet.",
       convenience: "Convenience First",
       convenienceDesc: "Simple, fast, and always available when you need it",
-      reliability: "Reliability",
-      reliabilityDesc: "Consistent service you can count on",
-      sustainability: "Sustainability",
-      sustainabilityDesc: "Eco-friendly solutions for a better tomorrow",
+    },
+    journey: {
+      title: "Our Journey",
+      subtitle: "Key milestones in the Pobi story",
+    },
+    milestones: {
+      "2020": {
+        title: "Company Founded",
+        description: "Started with a vision to solve dead battery problems",
+      },
+      "2021": {
+        title: "First 50 Stations",
+        description: "Launched our pilot program in major metropolitan areas",
+      },
+      "2022": {
+        title: "100K Users",
+        description: "Reached our first major user milestone across 5 cities",
+      },
+      "2023": {
+        title: "500+ Stations",
+        description: "Expanded to 50+ cities with improved technology",
+      },
+      "2024": {
+        title: "Global Expansion",
+        description: "International rollout and partnership programs",
+      },
     },
     team: {
       title: "Meet Our Team",
@@ -399,11 +434,17 @@ export default {
       cmo: "Chief Marketing Officer",
     },
     stats: {
-      title: "By the Numbers",
-      users: "Active Users",
-      stations: "Stations Worldwide",
-      charges: "Charges Completed",
+      title: "Pobi by the Numbers",
+      subtitle: "The impact we're making together",
+      users: "Happy Users",
+      stations: "Active Stations",
+      charges: "Charges Delivered",
+      cities: "Cities Served",
       uptime: "System Uptime",
+    },
+    cta: {
+      title: "Join the Pobi Community",
+      description: "Be part of the charging revolution. Together, we're building a world where dead batteries are a thing of the past.",
     },
   },
 
