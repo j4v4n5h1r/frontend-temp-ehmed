@@ -79,7 +79,7 @@ export default {
       flatPriceDesc:
         "Kartınızı Pobi Stansiya ödəniş terminalına toxundurun və ya Apple Pay və ya Google Pay ilə ödəyin.",
       learnMore: "Ətraflı öyrən",
-      withApps: "POBI TƏTBİQLƏRİ İLƏ",
+      withApps: "POBI TƏTBİQLƏRİ İL��",
       withCards: "KARTLARLA",
     },
     app: {
@@ -122,7 +122,7 @@ export default {
     },
     footer: {
       description:
-        "Şarjda qalmanın ən rahat yolu. Ölkə daxilindəki stansiyalardan powerbank icarəyə al��n və heç vaxt batareyanız bitməsin.",
+        "Şarjda qalmanın ən rahat yolu. Ölkə daxilindəki stansiyalardan powerbank icarəyə alın və heç vaxt batareyanız bitməsin.",
       company: "Şirkət",
       aboutUs: "Haqqımızda",
       careers: "Karyera",
@@ -278,7 +278,7 @@ export default {
     countries: {
       unitedStates: {
         name: "Amerika Birləşmiş Ştatları",
-        description: "Böyük şəhərlərdə 300-dən çox stansiya",
+        description: "Böyük şəhərl��rdə 300-dən çox stansiya",
       },
       canada: {
         name: "Kanada",
@@ -368,13 +368,17 @@ export default {
   // About Page
   about: {
     title: "Pobi Haqqında",
-    subtitle: "Həyatınızı gücləndirir, hər şarj ilə",
+    subtitle: "Həyatınızı g��cləndirir, hər şarj ilə",
     description:
       "Batareya narahatlığını həmişəlik aradan qaldırma missiyasındayıq",
     story: {
       title: "Bizim Hekayəmiz",
       content:
-        "2023-cü ildə təsis edilən Pobi sadə bir əsəbilikdən doğdu - ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Dünyanın ən böyük powerbank paylaşım stansiyaları şəbəkəsini qururuq.",
+        "Pobi sadə bir əsəbilikdən doğdu: ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Qurucularımız bunu biznes səyahətləri, hava limanları və yeni şəhərləri kəşf edərkən saysız dəfə yaşadılar.",
+      mission:
+        "Həddindən artıq bağlı dünyamızda enerjiyə çıxışın lüks və ya narahatlıq mənbəyi olmaması lazım olduğunu başa düşdük. Buna görə Pobi-ni yaratdıq - heç vaxt gücsüz qalmamanızı təmin edən etibarlı, rahat powerbank stansiyaları şəbəkəsi.",
+      today:
+        "Bu gün hər gün böyüyən şəbəkə ilə bir neçə ölkədə minlərlə istifadəçiyə xidmət etməkdən qürur duyuruq. Lakin bitmiş batareyaları keçmişdə qoyma missiyamızda yenicə başlamışıq.",
     },
     mission: {
       title: "Missiyamız",
@@ -383,12 +387,47 @@ export default {
     },
     values: {
       title: "Dəyərlərimiz",
+      subtitle: "Etdiyimiz hər şeyə rəhbərlik edən prinsiplər",
+      userCentric: {
+        title: "İstifadəçi Mərkəzli",
+        description: "Verdiyimiz hər qərar istifadəçilərimizi öndə tutur. Özümüzün istifadə etmək istəyəcəyi şarj həllini qururuq.",
+      },
+      reliability: "Etibarlılıq",
+      reliabilityDesc: "Cihazınızı şarj etməyin işıq düyməsini açmaq qədər etibarlı olması lazım olduğuna inanırıq. Ehtiyacınız olan zaman həmişə mövcud.",
+      innovation: {
+        title: "İnnovasiya",
+        description: "Sizə daha yaxşı xidmət etmək üçün texnologiyamızı davamlı təkmilləşdirir və şəbəkəmizi genişləndiririk.",
+      },
+      sustainability: "Davamlılıq",
+      sustainabilityDesc: "Hər kəsə və planetə fayda verən paylaşımlı şarj həlləri təqdim edərək elektron tullantıları azaldırıq.",
       convenience: "Rahatlıq Birinci",
       convenienceDesc: "Sadə, sürətli və ehtiyacınız olan zaman həmişə mövcud",
-      reliability: "Etibarlılıq",
-      reliabilityDesc: "Güvənə biləcəyiniz ardıcıl xidmət",
-      sustainability: "Davamlılıq",
-      sustainabilityDesc: "Daha yaxşı sabah üçün ekoloji təmiz həllər",
+    },
+    journey: {
+      title: "Səyahətimiz",
+      subtitle: "Pobi hekayəsindəki əsas mərhələlər",
+    },
+    milestones: {
+      "2020": {
+        title: "Şirkət Quruldu",
+        description: "Bitmiş batareya problemlərini həll etmək viziyası ilə başladıq",
+      },
+      "2021": {
+        title: "İlk 50 Stansiya",
+        description: "Böyük metropolitan ərazilərdə pilot proqramımızı başlatdıq",
+      },
+      "2022": {
+        title: "100K İstifadəçi",
+        description: "5 şəhərdə ilk böyük istifadəçi mərhələmizə çatdıq",
+      },
+      "2023": {
+        title: "500+ Stansiya",
+        description: "Təkmilləşdirilmiş texnologiya ilə 50+ şəhərə genişləndik",
+      },
+      "2024": {
+        title: "Qlobal Genişlənmə",
+        description: "Beynəlxalq açılış və tərəfdaşlıq proqramları",
+      },
     },
     team: {
       title: "Komandamızla Tanış Olun",
@@ -397,11 +436,17 @@ export default {
       cmo: "Baş Marketinq Direktoru",
     },
     stats: {
-      title: "Rəqəmlərlə",
-      users: "Aktiv İstifadəçilər",
-      stations: "Dünya üzrə Stansiyalar",
+      title: "Rəqəmlərlə Pobi",
+      subtitle: "Birlikdə yaratdığımız təsir",
+      users: "Məmnun İstifadəçilər",
+      stations: "Aktiv Stansiyalar",
       charges: "Tamamlanmış Şarjlar",
+      cities: "Xidmət Edilən Şəhərlər",
       uptime: "Sistem İşləmə Vaxtı",
+    },
+    cta: {
+      title: "Pobi İcmasına Qoşulun",
+      description: "Şarj inqilabının bir hissəsi olun. Birlikdə bitmiş batareyaların keçmişdə qaldığı dünya qururuq.",
     },
   },
 
@@ -477,7 +522,7 @@ export default {
     faq: {
       title: "Qiymət Sualları",
       subtitle: "Qiymətləndirmə və faktura haqqında ümumi suallar",
-      q1: "Gizli haqlar varmı?",
+      q1: "Gizli haqlar varm��?",
       a1: "Gizli haqlar yoxdur! Göstərilən qiymətlər tam olaraq ödədiyiniz məbləğdir. Gecikmiş qaytarma haqları yalnız powerbank-ı 7 günlük maksimum icarə müddətindən artıq saxladığınız zaman tətbiq olunur.",
       q2: "Powerbank-ı gec qaytarsam nə olur?",
       a2: "Planınızın bitməsindən sonra 24 saat ərzində qaytarsanız, əlavə gün üçün ödəniş alınacaq. Ümumi 7 gündən sonra əvəzetmə haqqı tətbiq olunur.",
