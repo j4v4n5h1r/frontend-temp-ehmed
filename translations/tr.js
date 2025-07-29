@@ -38,6 +38,9 @@ export default {
     ok: "Tamam",
     yes: "Evet",
     no: "Hayır",
+    getStarted: "Başlayın",
+    findStations: "İstasyon Bul",
+    createAccount: "Hesap Oluştur",
   },
 
   // Homepage
@@ -258,7 +261,7 @@ export default {
     majorCities: "Büyük Şehirler:",
     moreText: "daha fazla",
     description:
-      "Dünya çapında büyük şehirlerdeki 500'den fazla lokasyonda kiralayın ve iade edin. Büyüyen ağımız en çok ihtiyacınız olduğunda Pobi istasyonu bulacağınızı garanti eder.",
+      "Dünya çapında büyük şehirlerdeki 500'den fazla lokasyonda kiralayın ve iade edin. Büyüyen ağımız en ��ok ihtiyacınız olduğunda Pobi istasyonu bulacağınızı garanti eder.",
     stats: {
       locations: "Lokasyonlar",
       cities: "Şehirler",
