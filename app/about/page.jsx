@@ -355,12 +355,12 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/locations">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Find Stations
+                  {t("common.findStations", "Find Stations")}
                 </button>
               </Link>
               <Link href="/register">
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gray-100 text-gray-700 font-semibold rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                  Get Started
+                  {t("common.getStarted", "Get Started")}
                 </button>
               </Link>
             </div>
