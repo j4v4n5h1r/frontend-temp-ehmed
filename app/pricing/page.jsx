@@ -232,7 +232,7 @@ export default function PricingPage() {
                 {plan.popular && (
                   <div className="absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2">
                     <span className="px-3 sm:px-4 py-1 bg-gradient-to-r from-emerald-500 to-blue-500 text-white rounded-full text-xs sm:text-sm font-semibold shadow-lg">
-                      Most Popular
+                      {t("pricing.mostPopular", "Most Popular")}
                     </span>
                   </div>
                 )}
