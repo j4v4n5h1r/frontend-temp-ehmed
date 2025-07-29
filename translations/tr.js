@@ -375,7 +375,11 @@ export default {
     story: {
       title: "Hikayemiz",
       content:
-        "2023'te kurulan Pobi, basit bir hayal kırıklığından doğdu - en çok ihtiyaç duyduğunuzda telefon bataryasının bitmesi. Dünyanın en büyük powerbank paylaşım istasyonları ağını kuruyoruz.",
+        "Pobi basit bir hayal kırıklığından doğdu: en çok ihtiyacınız olduğunda telefon bataryasının bitmesi. Kurucularımız bunu iş seyahatleri, havaalanları ve yeni şehirleri keşfederken sayısız kez yaşadı.",
+      mission:
+        "Aşırı bağlı dünyamızda güce erişimin lüks veya endişe kaynağı olmaması gerektiğini fark ettik. Bu yüzden Pobi'yi yarattık - asla güçsüz kalmamanızı sağlayan güvenilir, kullanışlı powerbank istasyonları ağı.",
+      today:
+        "Bugün, her gün büyüyen bir ağla birden fazla ülkede binlerce kullanıcıya hizmet vermekten gurur duyuyoruz. Ancak bitmiş bataryaları geçmişte bırakma misyonumuzda daha yeni başladık.",
     },
     mission: {
       title: "Misyonumuz",
