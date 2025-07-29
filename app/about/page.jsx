@@ -229,10 +229,13 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Values
+              {t("about.values.title", "Our Values")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              The principles that guide everything we do
+              {t(
+                "about.values.subtitle",
+                "The principles that guide everything we do"
+              )}
             </p>
           </div>
 
@@ -259,10 +262,13 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Journey
+              {t("about.journey.title", "Our Journey")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-              Key milestones in the Pobi story
+              {t(
+                "about.journey.subtitle",
+                "Key milestones in the Pobi story"
+              )}
             </p>
           </div>
 
