@@ -121,7 +121,7 @@ export default function Home() {
               </Link>
 
               <button
-                className="w-full sm:w-auto px-8 py-4 font-semibold rounded-xl shadow-lg transform transition-all duration-300 flex items-center justify-center gap-2 group hover:scale-105 hover:shadow-xl"
+                className="w-full sm:w-auto px-6 py-3 font-semibold rounded-lg shadow-lg transform transition-all duration-300 flex items-center justify-center gap-2 group hover:scale-105 hover:shadow-xl"
                 style={{
                   background: "white",
                   color: "#475569",
