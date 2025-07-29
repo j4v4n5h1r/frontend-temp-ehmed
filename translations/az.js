@@ -38,6 +38,9 @@ export default {
     ok: "Tamam",
     yes: "Bəli",
     no: "Xeyr",
+    getStarted: "Başla",
+    findStations: "Stansiya Tap",
+    createAccount: "Hesab Yarat",
   },
 
   // Homepage
@@ -79,7 +82,7 @@ export default {
       flatPriceDesc:
         "Kartınızı Pobi Stansiya ödəniş terminalına toxundurun və ya Apple Pay və ya Google Pay ilə ödəyin.",
       learnMore: "Ətraflı öyrən",
-      withApps: "POBI TƏTBİQLƏRİ İL��",
+      withApps: "POBI TƏTBİQLƏRİ İLƏ",
       withCards: "KARTLARLA",
     },
     app: {
@@ -217,7 +220,7 @@ export default {
   // Admin
   admin: {
     title: "Admin Paneli",
-    users: "İstifadəçilər",
+    users: "İstifadə��ilər",
     stations: "Stansiyalar",
     powerbanks: "PowerBank-lar",
     rentals: "İcarələr",
@@ -278,7 +281,7 @@ export default {
     countries: {
       unitedStates: {
         name: "Amerika Birləşmiş Ştatları",
-        description: "Böyük şəhərl��rdə 300-dən çox stansiya",
+        description: "Böyük şəhərlərdə 300-dən çox stansiya",
       },
       canada: {
         name: "Kanada",
@@ -368,7 +371,7 @@ export default {
   // About Page
   about: {
     title: "Pobi Haqqında",
-    subtitle: "Həyatınızı g��cləndirir, hər şarj ilə",
+    subtitle: "Həyatınızı gücləndirir, hər şarj ilə",
     description:
       "Batareya narahatlığını həmişəlik aradan qaldırma missiyasındayıq",
     story: {
@@ -522,7 +525,7 @@ export default {
     faq: {
       title: "Qiymət Sualları",
       subtitle: "Qiymətləndirmə və faktura haqqında ümumi suallar",
-      q1: "Gizli haqlar varm��?",
+      q1: "Gizli haqlar varmı?",
       a1: "Gizli haqlar yoxdur! Göstərilən qiymətlər tam olaraq ödədiyiniz məbləğdir. Gecikmiş qaytarma haqları yalnız powerbank-ı 7 günlük maksimum icarə müddətindən artıq saxladığınız zaman tətbiq olunur.",
       q2: "Powerbank-ı gec qaytarsam nə olur?",
       a2: "Planınızın bitməsindən sonra 24 saat ərzində qaytarsanız, əlavə gün üçün ödəniş alınacaq. Ümumi 7 gündən sonra əvəzetmə haqqı tətbiq olunur.",
