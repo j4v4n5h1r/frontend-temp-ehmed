@@ -121,7 +121,7 @@ export default function Home() {
               </Link>
 
               <button
-                className="w-full sm:w-auto px-8 py-4 font-semibold rounded-xl shadow-lg transform transition-all duration-300 flex items-center justify-center gap-2 group hover:scale-105 hover:shadow-xl"
+                className="w-full sm:w-auto px-6 py-3 font-semibold rounded-lg shadow-lg transform transition-all duration-300 flex items-center justify-center gap-2 group hover:scale-105 hover:shadow-xl"
                 style={{
                   background: "white",
                   color: "#475569",
@@ -610,13 +610,13 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button
-                  className="flex items-center justify-center gap-3 px-6 py-3 rounded-xl transition-colors"
-                  style={{ background: "black", color: "white" }}
-                  onMouseEnter={(e) => (e.target.style.background = "#1f2937")}
-                  onMouseLeave={(e) => (e.target.style.background = "black")}
+                  className="flex items-center justify-center gap-2 px-5 py-3 rounded-lg transition-colors"
+                  style={{ background: "white", color: "black", border: "1px solid #e2e8f0" }}
+                  onMouseEnter={(e) => (e.target.style.background = "#f8fafc")}
+                  onMouseLeave={(e) => (e.target.style.background = "white")}
                 >
                   <svg
-                    className="w-6 h-6"
+                    className="w-5 h-5"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -633,13 +633,13 @@ export default function Home() {
                 </button>
 
                 <button
-                  className="flex items-center justify-center gap-3 px-6 py-3 rounded-xl transition-colors"
-                  style={{ background: "black", color: "white" }}
-                  onMouseEnter={(e) => (e.target.style.background = "#1f2937")}
-                  onMouseLeave={(e) => (e.target.style.background = "black")}
+                  className="flex items-center justify-center gap-2 px-5 py-3 rounded-lg transition-colors"
+                  style={{ background: "white", color: "black", border: "1px solid #e2e8f0" }}
+                  onMouseEnter={(e) => (e.target.style.background = "#f8fafc")}
+                  onMouseLeave={(e) => (e.target.style.background = "white")}
                 >
                   <svg
-                    className="w-6 h-6"
+                    className="w-5 h-5"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >

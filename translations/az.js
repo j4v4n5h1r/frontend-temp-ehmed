@@ -38,6 +38,9 @@ export default {
     ok: "Tamam",
     yes: "Bəli",
     no: "Xeyr",
+    getStarted: "Başla",
+    findStations: "Stansiya Tap",
+    createAccount: "Hesab Yarat",
   },
 
   // Homepage
@@ -300,6 +303,25 @@ export default {
     title: "Pobi Necə İstifadə Edilir",
     subtitle: "Sadə bir neçə addımda powerbank icarəyə alın",
     description: "Sadə prosesimiz sizi dəqiqələr ərzində enerjiləndirir",
+    findClosestLocation: "Ən yaxın məkanı buradan tapın",
+    seeDetailedPricing: "(Təfərrüatlı qiymətləri görmək üçün buraya toxunun.)",
+    step1: {
+      detailedDescription: "Pobi dünya üzrə minlərlə mağaza, ticarət mərkəzi, hava limanı və şarj stansiyasında mövcuddur. Ən yaxın məkanı tapmaq üçün tətbiqimizi və ya saytımızı istifadə edin.",
+    },
+    step2: {
+      title: "Pobi powerbank alın və hərəkətdə şarj edin",
+      description: "Tətbiq lazım deyil. Pobi icarəsi icarə müddətindən asılı olaraq $2 ilə $8 arasında dəyişir və $15 qaytarıla bilən depozit tələb olunur.",
+    },
+    step3: {
+      title: "7 gün ərzində qaytarın, depozitonuzu geri alın — bəlkə başqasını alırsınız? 😉",
+      description: "Pobi-ni icarəyə aldığınız andan etibarən 7 gününüz var, tələsmək lazım deyil. Vaxtında qaytardığınızda tam depozitonuzu qaytararıq. Hər gecikdiyiniz həftə üçün depozitonuzdan $2 kəsirik, maksimum $15.",
+    },
+    additionalInfo: "Pobi mağazaların xaricində də mövcuddur.",
+    stationTypes: {
+      station: "Stansiya",
+      vendingMachine: "Avtomat",
+      events: "Tədbirlər",
+    },
     steps: {
       step1: {
         title: "Stansiya Tap",
@@ -330,6 +352,7 @@ export default {
     },
     faq: {
       title: "Tez-tez Verilən Suallar",
+      subtitle: "Suallarınız var? Cavablarımız var. Budur Pobi istifadəsi haqqında ən yaygın suallar.",
       q1: "Qiyməti nə qədərdir?",
       a1: "Qiymətlər saatda 2 dollardan başlayır, günlük v�� həftəlik variantlar mövcuddur.",
       q2: "Hansı cihazlar dəstəklənir?",
@@ -339,6 +362,10 @@ export default {
       q4: "PowerBank-ı itirsimsə nə olur?",
       a4: "24 saat ərzində qaytarılmazsa hesabınızdan əvəzetmə haqqı tutulacaq.",
     },
+    cta: {
+      title: "Heç Vaxt Enerjiniz Bitməsin?",
+      description: "Pobi-ni gündəlik rutinlərinin bir hissəsi edən minlərlə istifadəçiyə qoşulun. Bu gün başlayın və rahatlığı yaşayın.",
+    },
   },
 
   // About Page
@@ -346,11 +373,15 @@ export default {
     title: "Pobi Haqqında",
     subtitle: "Həyatınızı gücləndirir, hər şarj ilə",
     description:
-      "Batareya narahatlığını həmişəlik aradan qaldırma missiyasındayıq",
+      "Batareya narahatlığını həmişəlik aradan qald��rma missiyasındayıq",
     story: {
       title: "Bizim Hekayəmiz",
       content:
-        "2023-cü ildə təsis edilən Pobi sadə bir əsəbilikdən doğdu - ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Dünyanın ən böyük powerbank paylaşım stansiyaları şəbəkəsini qururuq.",
+        "Pobi sadə bir əsəbilikdən doğdu: ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Qurucularımız bunu biznes səyahətləri, hava limanları və yeni şəhərləri kəşf edərkən saysız dəfə yaşadılar.",
+      mission:
+        "Həddindən artıq bağlı dünyamızda enerjiyə çıxışın lüks və ya narahatlıq mənbəyi olmaması lazım olduğunu başa düşdük. Buna görə Pobi-ni yaratdıq - heç vaxt gücsüz qalmamanızı təmin edən etibarlı, rahat powerbank stansiyaları şəbəkəsi.",
+      today:
+        "Bu gün hər gün böyüyən şəbəkə ilə bir neçə ölkədə minlərlə istifadəçiyə xidmət etməkdən qürur duyuruq. Lakin bitmiş batareyaları keçmişdə qoyma missiyamızda yenicə başlamışıq.",
     },
     mission: {
       title: "Missiyamız",
@@ -359,12 +390,47 @@ export default {
     },
     values: {
       title: "Dəyərlərimiz",
+      subtitle: "Etdiyimiz hər şeyə rəhbərlik edən prinsiplər",
+      userCentric: {
+        title: "İstifadəçi Mərkəzli",
+        description: "Verdiyimiz hər qərar istifadəçilərimizi öndə tutur. Özümüzün istifadə etmək istəyəcəyi şarj həllini qururuq.",
+      },
+      reliability: "Etibarlılıq",
+      reliabilityDesc: "Cihazınızı şarj etməyin işıq düyməsini açmaq qədər etibarlı olması lazım olduğuna inanırıq. Ehtiyacınız olan zaman həmişə mövcud.",
+      innovation: {
+        title: "İnnovasiya",
+        description: "Sizə daha yaxşı xidmət etmək üçün texnologiyamızı davamlı təkmilləşdirir və şəbəkəmizi genişləndiririk.",
+      },
+      sustainability: "Davamlılıq",
+      sustainabilityDesc: "Hər kəsə və planetə fayda verən paylaşımlı şarj həlləri təqdim edərək elektron tullantıları azaldırıq.",
       convenience: "Rahatlıq Birinci",
       convenienceDesc: "Sadə, sürətli və ehtiyacınız olan zaman həmişə mövcud",
-      reliability: "Etibarlılıq",
-      reliabilityDesc: "Güvənə biləcəyiniz ardıcıl xidmət",
-      sustainability: "Davamlılıq",
-      sustainabilityDesc: "Daha yaxşı sabah üçün ekoloji təmiz həllər",
+    },
+    journey: {
+      title: "Səyahətimiz",
+      subtitle: "Pobi hekayəsindəki əsas mərhələlər",
+    },
+    milestones: {
+      "2020": {
+        title: "Şirkət Quruldu",
+        description: "Bitmiş batareya problemlərini həll etmək viziyası ilə başladıq",
+      },
+      "2021": {
+        title: "İlk 50 Stansiya",
+        description: "Böyük metropolitan ərazilərdə pilot proqramımızı başlatdıq",
+      },
+      "2022": {
+        title: "100K İstifadəçi",
+        description: "5 şəhərdə ilk böyük istifadəçi mərhələmizə çatdıq",
+      },
+      "2023": {
+        title: "500+ Stansiya",
+        description: "Təkmilləşdirilmiş texnologiya ilə 50+ şəhərə genişləndik",
+      },
+      "2024": {
+        title: "Qlobal Genişlənmə",
+        description: "Beynəlxalq açılış və tərəfdaşlıq proqramları",
+      },
     },
     team: {
       title: "Komandamızla Tanış Olun",
@@ -373,11 +439,17 @@ export default {
       cmo: "Baş Marketinq Direktoru",
     },
     stats: {
-      title: "Rəqəmlərlə",
-      users: "Aktiv İstifadəçilər",
-      stations: "Dünya üzrə Stansiyalar",
+      title: "Rəqəmlərlə Pobi",
+      subtitle: "Birlikdə yaratdığımız təsir",
+      users: "Məmnun İstifadəçilər",
+      stations: "Aktiv Stansiyalar",
       charges: "Tamamlanmış Şarjlar",
+      cities: "Xidmət Edilən Şəhərlər",
       uptime: "Sistem İşləmə Vaxtı",
+    },
+    cta: {
+      title: "Pobi İcmasına Qoşulun",
+      description: "Şarj inqilabının bir hissəsi olun. Birlikdə bitmiş batareyaların keçmişdə qaldığı dünya qururuq.",
     },
   },
 
@@ -387,54 +459,82 @@ export default {
     subtitle: "Sizə ən uyğun planı seçin",
     description:
       "Gizli ödənişlər yoxdur, abunə yoxdur - yalnız istifadə etdiyiniz üçün ödəyin",
+    noSetupFees: "Quraşdırma Haqqı Yoxdur • İstənilən Vaxt Ləğv Edin",
+    mostPopular: "Ən Populyar",
+    whatsIncluded: "Nələr Daxildir",
+    premiumFeatures: "Hər Pobi icarəsi bu premium xüsusiyyətləri əlavə haqq olmadan daxil edir",
     plans: {
       hourly: {
-        title: "Saatlıq Tarif",
+        title: "Saatlıq",
         price: "2₼",
         period: "saatda",
-        description: "Sürətli şarjlar üçün mükəmməl",
-        features: [
-          "İstifadə etdikcə ödə",
-          "Öhdəlik yoxdur",
-          "Bütün kabel növləri daxildir",
-          "İstənilən stansiyaya qaytarın",
-        ],
+        description: "Qısa səyahətlər və sürətli şarjlar üçün mükəmməl",
+        feature1: "Sürətli şarj kabelləri daxildir",
+        feature2: "İstənilən stansiyaya qaytarın",
+        feature3: "7/24 müştəri dəstəyi",
+        feature4: "Mobil tətbiq girişi",
+        feature5: "Bütün cihazlarla uyğun",
       },
       daily: {
-        title: "Günlük Paket",
+        title: "Günlük",
         price: "8₼",
         period: "gündə",
-        description: "Bütün gün istifadə üçün ən yaxşısı",
-        features: [
-          "24 saatlıq giriş",
-          "Limitsiz dəyişiklik",
-          "Prioritet dəstək",
-          "Bütün kabel növləri daxildir",
-        ],
+        description: "Bütün gün macəraları üçün ən yaxşı dəyər",
+        feature1: "Bütün saatlıq xüsusiyyətlər",
+        feature2: "24 saata qədər istifadə",
+        feature3: "Prioritet müştəri dəstəyi",
+        feature4: "Çoxlu cihaz şarjı",
+        feature5: "24 saat üçün artıq haqq yoxdur",
       },
       weekly: {
-        title: "Həftəlik Paket",
+        title: "Həftəlik",
         price: "25₼",
         period: "həftədə",
-        description: "Səyahətçilər üçün əla",
-        features: [
-          "7 günlük giriş",
-          "Limitsiz dəyişiklik",
-          "Premium dəstək",
-          "Bütün məkanlar daxildir",
-        ],
+        description: "Uzun qalmaq və biznes səyahətləri",
+        feature1: "Bütün günlük xüsusiyyətlər",
+        feature2: "7 günə qədər istifadə",
+        feature3: "Xüsusi hesab meneceri",
+        feature4: "Toplu icarə endirimlər",
+        feature5: "Biznes xərc hesabatı",
+      },
+    },
+    features: {
+      fastCharging: {
+        title: "Sürətli Şarj",
+        description: "Sürətli şarj texnologiyası ilə yüksək tutumlu powerbank-lar",
+      },
+      locations: {
+        title: "500+ Məkan",
+        description: "Dünya üzrə böyük şəhərlərdə geniş stansiya şəbəkəsi",
+      },
+      returnAnywhere: {
+        title: "İstənilən Yerdə Qaytarın",
+        description: "Bir stansiyadan alın, başqa stansiyaya qaytarın",
+      },
+      secure: {
+        title: "Təhlükəsiz və Etibarlı",
+        description: "Ödənişlər və şəxsi məlumatlar üçün bank səviyyəsində təhlükəsizlik",
       },
     },
     faq: {
-      title: "Qiymət FAQ",
+      title: "Qiymət Sualları",
+      subtitle: "Qiymətləndirmə və faktura haqqında ümumi suallar",
       q1: "Gizli haqlar varmı?",
-      a1: "Gizli haqlar yoxdur. Sürprizlər olmadan göstərilən məbləği ödəyirsiniz.",
-      q2: "Planlar arasında keçid edə bilərəmmi?",
-      a2: "Bəli, istənilən vaxt günlük və ya həftəlik paketi yeniləyə bilərsiniz.",
-      q3: "Gec qaytarsam nə olur?",
-      a3: "Digər istifadəçilər üçün mövcudluğu təmin etmək üçün 24 saat sonra gecikdirmə haqqı tətbiq olunur.",
-      q4: "Endirimlər varmı?",
-      a4: "Tələbə endirimi və biznes üçün toplu qiymət təklif edirik.",
+      a1: "Gizli haqlar yoxdur! Göstərilən qiymətlər tam olaraq ödədiyiniz məbləğdir. Gecikmiş qaytarma haqları yalnız powerbank-ı 7 günlük maksimum icarə müddətindən artıq saxladığınız zaman tətbiq olunur.",
+      q2: "Powerbank-ı gec qaytarsam nə olur?",
+      a2: "Planınızın bitməsindən sonra 24 saat ərzində qaytarsanız, əlavə gün üçün ödəniş alınacaq. Ümumi 7 gündən sonra əvəzetmə haqqı tətbiq olunur.",
+      q3: "İcarə zamanı planımı yeniləyə bilərəmmi?",
+      a3: "Bəli! Tətbiqimiz vasitəsilə istənilən vaxt saatlıqdan günlük və ya həftəliyə yeniləyə bilərsiniz. Yalnız fərqi ödəyəcəksiniz.",
+      q4: "Biznes və ya toplu endirimlər təklif edirsinizmi?",
+      a4: "Bəli, biznes və təşkilatlar üçün xüsusi qiymətləndirmə təklif edirik. İstifadə ehtiyaclarınıza əsasən xüsusi qiymətləndirmə üçün satış komandamızla əlaqə saxlayın.",
+      q5: "Hansı ödəniş üsullarını qəbul edirsiniz?",
+      a5: "Bütün əsas kredit kartları, PayPal, Apple Pay, Google Pay və əksər mobil ödəniş platformalarını qəbul edirik.",
+      q6: "Tam icarə müddətini istifadə etməsəm, geri ödəmə ala bilərəmmi?",
+      a6: "Təəssüf ki, icarələr başladıqdan sonra geri qaytarıla bilməz. Ancaq powerbank-ı erkən qaytara bilərsiniz cəza olmadan.",
+    },
+    cta: {
+      title: "Başlamağa Hazırsınız?",
+      description: "Şarj ehtiyacları üçün Pobi-yə güvənən minlərlə istifadəçiyə qoşulun. Öhdəlik tələb olunmur - istifadə etdikcə ödəyin.",
     },
   },
 };

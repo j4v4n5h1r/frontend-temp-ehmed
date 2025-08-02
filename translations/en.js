@@ -38,6 +38,9 @@ export default {
     ok: "OK",
     yes: "Yes",
     no: "No",
+    getStarted: "Get Started",
+    findStations: "Find Stations",
+    createAccount: "Create Account",
   },
 
   // Homepage
@@ -300,6 +303,25 @@ export default {
     title: "How to Use Pobi",
     subtitle: "Rent a power bank in just a few simple steps",
     description: "Our simple process gets you powered up in minutes",
+    findClosestLocation: "Find the closest location here",
+    seeDetailedPricing: "(Tap here to see detailed pricing.)",
+    step1: {
+      detailedDescription: "Pobi is available at thousands of convenience stores, malls, airports, and charging stations worldwide. Use our app or website to find the nearest location.",
+    },
+    step2: {
+      title: "Grab a Pobi power bank and charge on the go",
+      description: "No app needed. Renting a Pobi costs just $2 to $8 depending on your rental duration, along with a returnable deposit of $15.",
+    },
+    step3: {
+      title: "Return in 7 days, get your deposit back — maybe grab another? 😉",
+      description: "You have 7 days from the time you rent Pobi to return it, so there's no rush. And when you do return it on-time, we'll give you back your full deposit. Every week that you're late, we deduct $2 from your deposit, the max is $15.",
+    },
+    additionalInfo: "Pobi is also available outside of convenience stores.",
+    stationTypes: {
+      station: "Station",
+      vendingMachine: "Vending Machine",
+      events: "Events",
+    },
     steps: {
       step1: {
         title: "Find a Station",
@@ -329,6 +351,7 @@ export default {
     },
     faq: {
       title: "Frequently Asked Questions",
+      subtitle: "Got questions? We've got answers. Here are the most common questions about using Pobi.",
       q1: "How much does it cost?",
       a1: "Pricing starts at $2 per hour with daily and weekly options available.",
       q2: "What devices are supported?",
@@ -337,6 +360,10 @@ export default {
       a3: "Simply return it to any Pobi station when you're done.",
       q4: "What if I lose the power bank?",
       a4: "A replacement fee will be charged to your account if not returned within 24 hours.",
+    },
+    cta: {
+      title: "Ready to Never Run Out of Power?",
+      description: "Join thousands of users who have made Pobi part of their daily routine. Get started today and experience the convenience.",
     },
   },
 
@@ -348,7 +375,11 @@ export default {
     story: {
       title: "Our Story",
       content:
-        "Founded in 2023, Pobi was born from a simple frustration - dead phones when you need them most. We're building the world's largest network of power bank sharing stations.",
+        "Pobi was born from a simple frustration: being stranded with a dead phone battery when you need it most. Our founders experienced this countless times during business trips, at airports, and while exploring new cities.",
+      mission:
+        "We realized that in our hyper-connected world, access to power shouldn't be a luxury or a source of anxiety. That's why we created Pobi - a reliable, convenient network of power bank stations that ensures you're never without power again.",
+      today:
+        "Today, we're proud to serve thousands of users across multiple countries, with a network that's growing every day. But we're just getting started in our mission to make dead batteries a thing of the past.",
     },
     mission: {
       title: "Our Mission",
@@ -357,12 +388,47 @@ export default {
     },
     values: {
       title: "Our Values",
+      subtitle: "The principles that guide everything we do",
+      userCentric: {
+        title: "User-Centric",
+        description: "Every decision we make puts our users first. We're building the charging solution we'd want to use ourselves.",
+      },
+      reliability: "Reliability",
+      reliabilityDesc: "We believe charging your device should be as reliable as turning on a light switch. Always available when you need it.",
+      innovation: {
+        title: "Innovation",
+        description: "We're constantly improving our technology and expanding our network to serve you better.",
+      },
+      sustainability: "Sustainability",
+      sustainabilityDesc: "Reducing electronic waste by providing shared charging solutions that benefit everyone and the planet.",
       convenience: "Convenience First",
       convenienceDesc: "Simple, fast, and always available when you need it",
-      reliability: "Reliability",
-      reliabilityDesc: "Consistent service you can count on",
-      sustainability: "Sustainability",
-      sustainabilityDesc: "Eco-friendly solutions for a better tomorrow",
+    },
+    journey: {
+      title: "Our Journey",
+      subtitle: "Key milestones in the Pobi story",
+    },
+    milestones: {
+      "2020": {
+        title: "Company Founded",
+        description: "Started with a vision to solve dead battery problems",
+      },
+      "2021": {
+        title: "First 50 Stations",
+        description: "Launched our pilot program in major metropolitan areas",
+      },
+      "2022": {
+        title: "100K Users",
+        description: "Reached our first major user milestone across 5 cities",
+      },
+      "2023": {
+        title: "500+ Stations",
+        description: "Expanded to 50+ cities with improved technology",
+      },
+      "2024": {
+        title: "Global Expansion",
+        description: "International rollout and partnership programs",
+      },
     },
     team: {
       title: "Meet Our Team",
@@ -371,11 +437,17 @@ export default {
       cmo: "Chief Marketing Officer",
     },
     stats: {
-      title: "By the Numbers",
-      users: "Active Users",
-      stations: "Stations Worldwide",
-      charges: "Charges Completed",
+      title: "Pobi by the Numbers",
+      subtitle: "The impact we're making together",
+      users: "Happy Users",
+      stations: "Active Stations",
+      charges: "Charges Delivered",
+      cities: "Cities Served",
       uptime: "System Uptime",
+    },
+    cta: {
+      title: "Join the Pobi Community",
+      description: "Be part of the charging revolution. Together, we're building a world where dead batteries are a thing of the past.",
     },
   },
 
@@ -384,54 +456,82 @@ export default {
     title: "Simple, Transparent Pricing",
     subtitle: "Choose the plan that works best for you",
     description: "No hidden fees, no subscriptions - pay only for what you use",
+    noSetupFees: "No Setup Fees • Cancel Anytime",
+    mostPopular: "Most Popular",
+    whatsIncluded: "What's Included",
+    premiumFeatures: "Every Pobi rental includes these premium features at no extra cost",
     plans: {
       hourly: {
-        title: "Hourly Rate",
+        title: "Hourly",
         price: "$2",
         period: "per hour",
-        description: "Perfect for quick charges",
-        features: [
-          "Pay as you go",
-          "No commitment",
-          "All cable types included",
-          "Return to any station",
-        ],
+        description: "Perfect for short trips and quick charges",
+        feature1: "Fast charging cables included",
+        feature2: "Return to any station",
+        feature3: "24/7 customer support",
+        feature4: "Mobile app access",
+        feature5: "Compatible with all devices",
       },
       daily: {
-        title: "Daily Pass",
+        title: "Daily",
         price: "$8",
         period: "per day",
-        description: "Best for all-day usage",
-        features: [
-          "24-hour access",
-          "Unlimited swaps",
-          "Priority support",
-          "All cable types included",
-        ],
+        description: "Best value for all-day adventures",
+        feature1: "All hourly features",
+        feature2: "Up to 24 hours usage",
+        feature3: "Priority customer support",
+        feature4: "Multiple device charging",
+        feature5: "No overage fees for 24hrs",
       },
       weekly: {
-        title: "Weekly Pass",
+        title: "Weekly",
         price: "$25",
         period: "per week",
-        description: "Great for travelers",
-        features: [
-          "7-day access",
-          "Unlimited swaps",
-          "Premium support",
-          "All locations included",
-        ],
+        description: "Extended stays and business trips",
+        feature1: "All daily features",
+        feature2: "Up to 7 days usage",
+        feature3: "Dedicated account manager",
+        feature4: "Bulk rental discounts",
+        feature5: "Business expense reporting",
+      },
+    },
+    features: {
+      fastCharging: {
+        title: "Fast Charging",
+        description: "High-capacity power banks with fast charging technology",
+      },
+      locations: {
+        title: "500+ Locations",
+        description: "Extensive network of stations in major cities worldwide",
+      },
+      returnAnywhere: {
+        title: "Return Anywhere",
+        description: "Pick up at one station, return at any other station",
+      },
+      secure: {
+        title: "Secure & Safe",
+        description: "Bank-level security for payments and personal data",
       },
     },
     faq: {
-      title: "Pricing FAQ",
+      title: "Pricing Questions",
+      subtitle: "Common questions about our pricing and billing",
       q1: "Are there any hidden fees?",
-      a1: "No hidden fees. You pay exactly what's shown with no surprises.",
-      q2: "Can I switch between plans?",
-      a2: "Yes, you can upgrade to a daily or weekly pass at any time.",
-      q3: "What happens if I'm late returning?",
-      a3: "Late fees apply after 24 hours to ensure availability for other users.",
-      q4: "Do you offer discounts?",
-      a4: "We offer student discounts and bulk pricing for businesses.",
+      a1: "No hidden fees! The prices shown are exactly what you pay. Late return fees only apply if you keep a power bank beyond the 7-day maximum rental period.",
+      q2: "What happens if I return the power bank late?",
+      a2: "If you return within 24 hours of your plan expiration, you'll be charged for an additional day. After 7 days total, a replacement fee applies.",
+      q3: "Can I upgrade my plan while renting?",
+      a3: "Yes! You can upgrade from hourly to daily or weekly at any time through our app. You'll only pay the difference.",
+      q4: "Do you offer business or bulk discounts?",
+      a4: "Yes, we offer special pricing for businesses and organizations. Contact our sales team for custom pricing based on your usage needs.",
+      q5: "What payment methods do you accept?",
+      a5: "We accept all major credit cards, PayPal, Apple Pay, Google Pay, and most mobile payment platforms.",
+      q6: "Can I get a refund if I don't use the full rental period?",
+      a6: "Unfortunately, rentals are non-refundable once started. However, you can return the power bank early without penalty.",
+    },
+    cta: {
+      title: "Ready to Get Started?",
+      description: "Join thousands of users who trust Pobi for their charging needs. No commitment required - pay as you go.",
     },
   },
 };

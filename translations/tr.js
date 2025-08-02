@@ -38,6 +38,9 @@ export default {
     ok: "Tamam",
     yes: "Evet",
     no: "Hayır",
+    getStarted: "Başlayın",
+    findStations: "İstasyon Bul",
+    createAccount: "Hesap Oluştur",
   },
 
   // Homepage
@@ -218,7 +221,7 @@ export default {
   admin: {
     title: "Admin Paneli",
     users: "Kullanıcılar",
-    stations: "İstasyonlar",
+    stations: "��stasyonlar",
     powerbanks: "PowerBank'lar",
     rentals: "Kiralamalar",
     payments: "Ödemeler",
@@ -300,6 +303,25 @@ export default {
     title: "Pobi Nasıl Kullanılır",
     subtitle: "Sadece birkaç basit adımda powerbank kiralayın",
     description: "Basit sürecimiz sizi dakikalar içinde enerjilendiriyor",
+    findClosestLocation: "En yakın lokasyonu buradan bulun",
+    seeDetailedPricing: "(Detaylı fiyatlandırmayı görmek için buraya dokunun.)",
+    step1: {
+      detailedDescription: "Pobi dünya çapında binlerce market, alışveriş merkezi, havaalanı ve şarj istasyonunda mevcuttur. En yakın lokasyonu bulmak için uygulamamızı veya web sitemizi kullanın.",
+    },
+    step2: {
+      title: "Bir Pobi powerbank alın ve hareket halindeyken şarj edin",
+      description: "Uygulama gerekmez. Pobi kiralama süresi $2 ile $8 arasında değişir ve 15$ iade edilebilir depozito gerekir.",
+    },
+    step3: {
+      title: "7 gün içinde iade edin, depozitonuzu geri alın — belki başka birini alırsınız? 😉",
+      description: "Pobi'yi kiraladığınız andan itibaren 7 gününüz var, acele etmeye gerek yok. Zamanında iade ettiğinizde tam depozitonuzu geri veririz. Her geç kaldığınız hafta için depozitonuzdan 2$ keseriz, maksimum 15$.",
+    },
+    additionalInfo: "Pobi marketlerin dışında da mevcuttur.",
+    stationTypes: {
+      station: "İstasyon",
+      vendingMachine: "Oto Mat",
+      events: "Etkinlikler",
+    },
     steps: {
       step1: {
         title: "İstasyon Bul",
@@ -331,6 +353,7 @@ export default {
     },
     faq: {
       title: "Sıkça Sorulan Sorular",
+      subtitle: "Sorularınız mı var? Cevaplarımız var. İşte Pobi kullanımı hakkında en yaygın sorular.",
       q1: "Maliyeti ne kadar?",
       a1: "Fiyatlandırma saatte 2 dolardan başlar, günlük ve haftalık seçenekler mevcuttur.",
       q2: "Hangi cihazlar destekleniyor?",
@@ -339,6 +362,10 @@ export default {
       a3: "İşiniz bittiğinde herhangi bir Pobi istasyonuna iade edin.",
       q4: "PowerBank'ı kaybedersem ne olur?",
       a4: "24 saat içinde iade edilmezse hesabınızdan değiştirme ücreti tahsil edilir.",
+    },
+    cta: {
+      title: "Asla Enerjiniz Bitmesin mi?",
+      description: "Pobi'yi günlük rutinlerinin bir parçası haline getiren binlerce kullanıcıya katılın. Bugün başlayın ve kolaylığı deneyimleyin.",
     },
   },
 
@@ -351,7 +378,11 @@ export default {
     story: {
       title: "Hikayemiz",
       content:
-        "2023'te kurulan Pobi, basit bir hayal kırıklığından doğdu - en çok ihtiyaç duyduğunuzda telefon bataryasının bitmesi. Dünyanın en büyük powerbank paylaşım istasyonları ağını kuruyoruz.",
+        "Pobi basit bir hayal kırıklığından doğdu: en çok ihtiyacınız olduğunda telefon bataryasının bitmesi. Kurucularımız bunu iş seyahatleri, havaalanları ve yeni şehirleri keşfederken sayısız kez yaşadı.",
+      mission:
+        "Aşırı bağlı dünyamızda güce erişimin lüks veya endişe kaynağı olmaması gerektiğini fark ettik. Bu yüzden Pobi'yi yarattık - asla güçsüz kalmamanızı sağlayan güvenilir, kullanışlı powerbank istasyonları ağı.",
+      today:
+        "Bugün, her gün büyüyen bir ağla birden fazla ülkede binlerce kullanıcıya hizmet vermekten gurur duyuyoruz. Ancak bitmiş bataryaları geçmişte bırakma misyonumuzda daha yeni başladık.",
     },
     mission: {
       title: "Misyonumuz",
@@ -360,12 +391,47 @@ export default {
     },
     values: {
       title: "Değerlerimiz",
+      subtitle: "Yaptığımız her şeye rehberlik eden ilkeler",
+      userCentric: {
+        title: "Kullanıcı Odaklı",
+        description: "Aldığımız her karar kullanıcılarımızı önde tutar. Kendimizin kullanmak isteyeceği şarj çözümünü inşa ediyoruz.",
+      },
+      reliability: "Güvenilirlik",
+      reliabilityDesc: "Cihazınızı şarj etmenin ışık anahtarını açmak kadar güvenilir olması gerektiğine inanıyoruz. İhtiyacınız olduğunda her zaman mevcut.",
+      innovation: {
+        title: "İnovasyon",
+        description: "Size daha iyi hizmet etmek için teknolojimizi sürekli geliştiriyor ve ağımızı genişletiyoruz.",
+      },
+      sustainability: "Sürdürülebilirlik",
+      sustainabilityDesc: "Herkese ve gezegene fayda sağlayan paylaşımlı şarj çözümleri sunarak elektronik atıkları azaltıyoruz.",
       convenience: "Kolaylık Öncelik",
       convenienceDesc: "Basit, hızlı ve ihtiyacınız olduğunda her zaman mevcut",
-      reliability: "Güvenilirlik",
-      reliabilityDesc: "Güvenebileceğiniz tutarlı hizmet",
-      sustainability: "Sürdürülebilirlik",
-      sustainabilityDesc: "Daha iyi bir yarın için çevre dostu çözümler",
+    },
+    journey: {
+      title: "Yolculuğumuz",
+      subtitle: "Pobi hikayesindeki önemli kilometre taşları",
+    },
+    milestones: {
+      "2020": {
+        title: "Şirket Kuruldu",
+        description: "Bitmiş batarya sorunlarını çözme vizyonuyla başladık",
+      },
+      "2021": {
+        title: "İlk 50 İstasyon",
+        description: "Büyük metropolitan alanlarda pilot programımızı başlattık",
+      },
+      "2022": {
+        title: "100K Kullanıcı",
+        description: "5 şehirde ilk büyük kullanıcı kilometre taşımıza ulaştık",
+      },
+      "2023": {
+        title: "500+ İstasyon",
+        description: "Gelişmiş teknoloji ile 50+ şehre genişledik",
+      },
+      "2024": {
+        title: "Küresel Genişleme",
+        description: "Uluslararası açılım ve ortaklık programları",
+      },
     },
     team: {
       title: "Ekibimizle Tanışın",
@@ -374,11 +440,17 @@ export default {
       cmo: "Pazarlama Direktörü",
     },
     stats: {
-      title: "Rakamlarla",
-      users: "Aktif Kullanıcılar",
-      stations: "Dünya Çapında İstasyonlar",
+      title: "Rakamlarla Pobi",
+      subtitle: "Birlikte yarattığımız etki",
+      users: "Mutlu Kullanıcılar",
+      stations: "Aktif İstasyonlar",
       charges: "Tamamlanan Şarjlar",
+      cities: "Hizmet Verilen Şehirler",
       uptime: "Sistem Çalışma Süresi",
+    },
+    cta: {
+      title: "Pobi Topluluğuna Katılın",
+      description: "Şarj devriminin bir parçası olun. Birlikte, bitmiş bataryaların geçmişte kaldığı bir dünya inşa ediyoruz.",
     },
   },
 
@@ -388,54 +460,82 @@ export default {
     subtitle: "Size en uygun planı seçin",
     description:
       "Gizli ücret yok, abonelik yok - sadece kullandığınız için ödeyin",
+    noSetupFees: "Kurulum Ücreti Yok • İstediğiniz Zaman İptal",
+    mostPopular: "En Popüler",
+    whatsIncluded: "Neler Dahil",
+    premiumFeatures: "Her Pobi kiralama bu premium özellikleri ekstra ücret olmadan içerir",
     plans: {
       hourly: {
-        title: "Saatlik Ücret",
+        title: "Saatlik",
         price: "₺15",
         period: "saatte",
-        description: "Hızlı şarjlar için mükemmel",
-        features: [
-          "Kullandığın kadar öde",
-          "Taahhüt yok",
-          "Tüm kablo türleri dahil",
-          "Herhangi bir istasyona iade",
-        ],
+        description: "Kısa yolculuklar ve hızlı şarjlar için mükemmel",
+        feature1: "Hızlı şarj kabloları dahil",
+        feature2: "Herhangi bir istasyona iade",
+        feature3: "7/24 müşteri desteği",
+        feature4: "Mobil uygulama erişimi",
+        feature5: "Tüm cihazlarla uyumlu",
       },
       daily: {
-        title: "Günlük Paket",
+        title: "Günlük",
         price: "₺60",
         period: "günde",
-        description: "Tüm gün kullanım için en iyisi",
-        features: [
-          "24 saatlik erişim",
-          "Sınırsız değişim",
-          "Öncelikli destek",
-          "Tüm kablo türleri dahil",
-        ],
+        description: "Tüm gün maceraları için en iyi değer",
+        feature1: "Tüm saatlik özellikler",
+        feature2: "24 saate kadar kullanım",
+        feature3: "Öncelikli müşteri desteği",
+        feature4: "Çoklu cihaz şarjı",
+        feature5: "24 saat için aşım ücreti yok",
       },
       weekly: {
-        title: "Haftalık Paket",
+        title: "Haftalık",
         price: "₺190",
         period: "haftada",
-        description: "Seyahat edenler için harika",
-        features: [
-          "7 günlük erişim",
-          "Sınırsız değişim",
-          "Premium destek",
-          "Tüm lokasyonlar dahil",
-        ],
+        description: "Uzun konaklama ve iş seyahatleri",
+        feature1: "Tüm günlük özellikler",
+        feature2: "7 güne kadar kullanım",
+        feature3: "Özel hesap yöneticisi",
+        feature4: "Toplu kiralama indirimleri",
+        feature5: "İş gideri raporlaması",
+      },
+    },
+    features: {
+      fastCharging: {
+        title: "Hızlı Şarj",
+        description: "Hızlı şarj teknolojisi ile yüksek kapasiteli powerbank'lar",
+      },
+      locations: {
+        title: "500+ Lokasyon",
+        description: "Dünya çapında büyük şehirlerde kapsamlı istasyon ağı",
+      },
+      returnAnywhere: {
+        title: "Her Yerde İade",
+        description: "Bir istasyondan alın, başka bir istasyona iade edin",
+      },
+      secure: {
+        title: "Güvenli ve Emniyetli",
+        description: "Ödemeler ve kişisel veriler için banka düzeyinde güvenlik",
       },
     },
     faq: {
-      title: "Fiyatlandırma SSS",
+      title: "Fiyatlandırma Soruları",
+      subtitle: "Fiyatlandırma ve faturalandırma hakkında yaygın sorular",
       q1: "Gizli ücretler var mı?",
-      a1: "Gizli ücret yok. Gösterileni tam olarak ödüyorsunuz, sürpriz yok.",
-      q2: "Planlar arasında geçiş yapabilir miyim?",
-      a2: "Evet, istediğiniz zaman günlük veya haftalık pakete yükseltebilirsiniz.",
-      q3: "Geç iade edersem ne olur?",
-      a3: "Diğer kullanıcılar için kullanılabilirliği sağlamak amacıyla 24 saat sonra gecikme ücreti uygulanır.",
-      q4: "İndirimler sunuyor musunuz?",
-      a4: "Öğrenci indirimleri ve işletmeler için toplu fiyatlandırma sunuyoruz.",
+      a1: "Gizli ücret yok! Gösterilen fiyatlar tam olarak ödediğiniz tutardır. Geç iade ücretleri sadece powerbank'ı 7 günlük maksimum kiralama süresini aştığınızda uygulanır.",
+      q2: "Powerbank'ı geç iade edersem ne olur?",
+      a2: "Planınızın bitiminden sonraki 24 saat içinde iade ederseniz, ek bir gün için ücretlendirilirsiniz. Toplam 7 gün sonra değiştirme ücreti uygulanır.",
+      q3: "Kiralama sırasında planımı yükseltebilir miyim?",
+      a3: "Evet! Uygulamamız üzerinden istediğiniz zaman saatlikten günlük veya haftalığa yükseltebilirsiniz. Sadece farkı ödersiniz.",
+      q4: "İş veya toplu indirimler sunuyor musunuz?",
+      a4: "Evet, işletmeler ve organizasyonlar için özel fiyatlandırma sunuyoruz. Kullanım ihtiyaçlarınıza göre özel fiyatlandırma için satış ekibimizle iletişime geçin.",
+      q5: "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
+      a5: "Tüm büyük kredi kartlarını, PayPal, Apple Pay, Google Pay ve çoğu mobil ödeme platformunu kabul ediyoruz.",
+      q6: "Tam kiralama süresini kullanmazsam geri ödeme alabilir miyim?",
+      a6: "Maalesef kiralamalar başladıktan sonra iade edilemez. Ancak powerbank'ı erken iade edebilirsiniz ceza olmadan.",
+    },
+    cta: {
+      title: "Başlamaya Hazır mısınız?",
+      description: "Şarj ihtiyaçları için Pobi'ye güvenen binlerce kullanıcıya katılın. Taahhüt gerekmez - kullandığınız kadar ödeyin.",
     },
   },
 };
