@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "../../context/AuthContext";
 
+import { useTranslation } from "../../context/TranslationContext";
+
 export default function LoginPage() {
   const router = useRouter();
 
@@ -14,6 +16,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
 
   const { login } = useContext(AuthContext);
+  const { t } = useTranslation(); // Use the translation hook
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -23,7 +26,7 @@ export default function LoginPage() {
       await login(email, password);
       router.push("/dashboard");
     } catch (err) {
-      setError(err.message || "An error occurred during login");
+      setError(err.message || t("errors.generic"));
     } finally {
       setIsLoading(false);
     }
@@ -58,10 +61,10 @@ export default function LoginPage() {
             </svg>
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white mb-2 tracking-tight">
-            Welcome Back
+            {t("auth.welcomeBack")}
           </h1>
           <p className="text-primary-100 text-base sm:text-lg font-medium">
-            Sign in to your account
+            {t("auth.signIn")} {t("auth.welcomeBack")}
           </p>
         </div>
 
@@ -73,7 +76,7 @@ export default function LoginPage() {
                 htmlFor="email"
                 className="block text-sm font-semibold text-neutral-700 mb-2"
               >
-                Email Address
+                {t("auth.email")}
               </label>
               <input
                 id="email"
@@ -95,7 +98,7 @@ export default function LoginPage() {
                 htmlFor="password"
                 className="block text-sm font-semibold text-neutral-700 mb-2"
               >
-                Password
+                {t("auth.password")}
               </label>
               <input
                 id="password"
@@ -145,7 +148,7 @@ export default function LoginPage() {
               {isLoading ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-3" />
-                  Signing in...
+                  {t("common.loading")}
                 </>
               ) : (
                 <>
@@ -162,7 +165,7 @@ export default function LoginPage() {
                       d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                     />
                   </svg>
-                  Sign In
+                  {t("auth.signIn")}
                 </>
               )}
             </button>
@@ -172,7 +175,7 @@ export default function LoginPage() {
           <div className="flex items-center my-6">
             <div className="flex-1 h-px bg-neutral-200"></div>
             <span className="px-4 text-sm text-neutral-500">
-              or continue with
+              {t("common.orContinueWith")}
             </span>
             <div className="flex-1 h-px bg-neutral-200"></div>
           </div>
@@ -201,7 +204,7 @@ export default function LoginPage() {
                   d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                 />
               </svg>
-              Continue with Google
+              {t("auth.continueWith", { provider: "Google" })}
             </button>
 
             <button
@@ -211,19 +214,19 @@ export default function LoginPage() {
               <svg className="w-5 h-5" fill="#1877f2" viewBox="0 0 24 24">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
               </svg>
-              Continue with Facebook
+              {t("auth.continueWith", { provider: "Facebook" })}
             </button>
           </div>
 
           {/* Register Link */}
           <div className="text-center">
             <p className="text-neutral-600 text-sm">
-              Don't have an account?{" "}
+              {t("auth.dontHaveAccount")}{" "}
               <Link
                 href="/register"
                 className="font-semibold text-primary-600 hover:text-primary-700 transition-colors"
               >
-                Sign up
+                {t("auth.signUp")}
               </Link>
             </p>
           </div>
@@ -248,7 +251,7 @@ export default function LoginPage() {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            Back to home
+            {t("common.backToHome")}
           </Link>
         </div>
       </div>
