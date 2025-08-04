@@ -2,6 +2,7 @@
 
 import { createContext, useState, useEffect } from 'react';
 import cookie from 'js-cookie';
+import { apiCall, apiCallWithAuth } from '../utils/api';
 
 export const AuthContext = createContext();
 
