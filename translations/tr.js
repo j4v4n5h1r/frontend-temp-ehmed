@@ -15,6 +15,7 @@ export default {
     logout: "Çıkış",
     rental: "Kiralama",
     admin: "Admin",
+    menu: "Menü",
   },
 
   // Common
