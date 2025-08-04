@@ -353,7 +353,7 @@ const StationsPage = () => {
                       />
                     </svg>
                     <span className="text-sm text-neutral-600 leading-tight">
-                      {station.location || "Location not specified"}
+                      {station.location || t("stations.locationNotSpecified")}
                     </span>
                   </div>
 
