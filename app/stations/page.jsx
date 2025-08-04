@@ -247,7 +247,7 @@ const StationsPage = () => {
               />
             </svg>
             <h3 className="text-lg sm:text-xl font-semibold mb-2">
-              Unable to Load Stations
+              {t("stations.unableToLoadStations")}
             </h3>
             <p className="text-sm sm:text-base mb-6 text-red-700">{error}</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
