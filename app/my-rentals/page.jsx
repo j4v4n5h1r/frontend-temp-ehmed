@@ -535,7 +535,7 @@ const MyRentalsPage = () => {
                   marginBottom: "0.5rem",
                 }}
               >
-                Status
+                {t("common.status")}
               </label>
               <select
                 value={filter}
