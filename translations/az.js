@@ -15,6 +15,7 @@ export default {
     logout: "Çıxış",
     rental: "İcarə",
     admin: "Admin",
+    menu: "Menyu",
   },
 
   // Common
@@ -70,7 +71,7 @@ export default {
           "İşiniz bitdikdə powerbank-ı istənilən stansiyaya qaytarın. Bu qədər sadə!",
       },
     },
-    subtitle2: "Üç sadə addımda enerjini artır",
+    subtitle2: "Üç sad�� addımda enerjini artır",
     pricing: {
       title: "Ağıllı xidmət, münasib qiymət.",
       subtitle:
@@ -196,7 +197,7 @@ export default {
     noStationsFound: "Stansiya tapılmadı",
     tryAdjustingSearch: "Axtarış tərimləriniizi dəyişməyi cəhd edin",
     noStationsAvailable: "İndi əlçatan stansiya yoxdur",
-    locationNotSpecified: "Məkan göstərilməyib",
+    locationNotSpecified: "M��kan göstərilməyib",
     rentFromStation: "Stansiyadan İcarəyə Al",
     underMaintenance: "Baxımda",
     stationOffline: "Stansiya Oflayn",
