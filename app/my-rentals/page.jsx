@@ -762,7 +762,7 @@ const MyRentalsPage = () => {
                             </div>
                             <div>
                               <strong style={{ color: "#374151" }}>
-                                Power Bank:
+                                {t("rentals.powerBank")}:
                               </strong>{" "}
                               {rental.powerbankId}
                             </div>
