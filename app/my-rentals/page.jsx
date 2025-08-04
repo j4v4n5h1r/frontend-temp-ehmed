@@ -552,10 +552,10 @@ const MyRentalsPage = () => {
                   boxSizing: "border-box",
                 }}
               >
-                <option value="all">All Status</option>
-                <option value="active">Active</option>
-                <option value="completed">Completed</option>
-                <option value="cancelled">Cancelled</option>
+                <option value="all">{t("rentals.allStatus")}</option>
+                <option value="active">{t("rentals.active")}</option>
+                <option value="completed">{t("rentals.completed")}</option>
+                <option value="cancelled">{t("rentals.cancelled")}</option>
               </select>
             </div>
           </div>
