@@ -267,13 +267,13 @@ export default function Navbar() {
                 <>
                   <Link
                     href="/login"
-                    className="font-medium text-neutral-700 hover:text-primary-600 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
+                    className="font-medium text-neutral-700 hover:text-primary-600 px-2 lg:px-3 py-1 rounded-lg transition-all duration-200 text-sm whitespace-nowrap"
                   >
                     {t("auth.signIn", "Sign In")}
                   </Link>
                   <Link
                     href="/register"
-                    className="font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap shadow-md"
+                    className="font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 px-2 lg:px-3 py-1 rounded-lg transition-all duration-200 text-sm whitespace-nowrap shadow-md"
                   >
                     {t("auth.signUp", "Sign Up")}
                   </Link>
