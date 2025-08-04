@@ -628,7 +628,7 @@ const ProfilePage = () => {
                             fontSize: "0.875rem",
                           }}
                         >
-                          Remove
+                          {t("common.remove")}
                         </button>
                       </div>
                     ))
@@ -815,7 +815,7 @@ const ProfilePage = () => {
                         opacity: loading ? 0.7 : 1,
                       }}
                     >
-                      {loading ? "Adding..." : "Add Payment Method"}
+                      {loading ? t("common.loading") : t("common.add")}
                     </button>
                   </form>
                 </div>
@@ -833,7 +833,7 @@ const ProfilePage = () => {
                     marginBottom: "1.5rem",
                   }}
                 >
-                  Security Settings
+                  {t("admin.settings")}
                 </h3>
                 <div
                   style={{
@@ -869,7 +869,7 @@ const ProfilePage = () => {
                       marginBottom: "0.5rem",
                     }}
                   >
-                    Security Features Coming Soon
+                    {t("app.comingSoon")}
                   </h4>
                   <p
                     style={{
@@ -918,7 +918,7 @@ const ProfilePage = () => {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            Back to Dashboard
+            {t("stations.backToDashboard")}
           </Link>
         </div>
       </div>
