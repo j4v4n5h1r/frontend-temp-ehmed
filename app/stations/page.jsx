@@ -434,12 +434,12 @@ const StationsPage = () => {
               />
             </svg>
             <h3 className="text-xl font-semibold text-neutral-700 mb-2">
-              No stations found
+              {t("stations.noStationsFound")}
             </h3>
             <p className="text-neutral-500 text-sm sm:text-base">
               {searchTerm
-                ? "Try adjusting your search terms"
-                : "No stations are available at this time"}
+                ? t("stations.tryAdjustingSearch")
+                : t("stations.noStationsAvailable")}
             </p>
           </div>
         )}
