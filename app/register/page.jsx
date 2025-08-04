@@ -39,7 +39,16 @@ export default function RegisterPage() {
       await registerUser({ firstName, lastName, email, password });
       router.push("/dashboard");
     } catch (err) {
-      setError(err.message || t("auth.registrationFailed"));
+      console.error('Registration error:', err);
+
+      // Handle specific error types
+      if (err.isNetworkError) {
+        setError(t("errors.networkTimeout"));
+      } else if (err.message.includes('Registration failed')) {
+        setError(t("errors.registrationFailed"));
+      } else {
+        setError(err.message || t("auth.registrationFailed"));
+      }
     } finally {
       setLoading(false);
     }
