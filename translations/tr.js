@@ -204,6 +204,34 @@ export default {
     backToDashboard: "Kontrol Paneline Dön"
   },
 
+  // Rental
+  rental: {
+    subtitle: "QR kodu tarayın veya kiralama başlatmak için istasyon detaylarını girin",
+    success: "Kiralama Başarıyla Başlatıldı!",
+    successMessage: "PowerBank kiralamanız başlatıldı. Kontrol panelinden takip edebilirsiniz.",
+    stationId: "İstasyon ID",
+    stationPlaceholder: "Örn: STATION001",
+    stationRequired: "İstasyon ID gerekli",
+    stationMinLength: "İstasyon ID en az 3 karakter olmalı",
+    stationHelp: "PowerBank istasyonunda bulunan istasyon ID'sini girin",
+    qrCodeData: "QR Kod Verisi",
+    qrPlaceholder: "QR kod taramadan elde edilen veriyi buraya yapıştırın",
+    qrRequired: "QR kod verisi gerekli",
+    qrMinLength: "QR kod verisi en az 10 karakter olmalı",
+    qrHelp: "PowerBank'ın QR kodunu tarayın",
+    howToRent: "Nasıl Kiralayım?",
+    step1: "Mobil cihazınızla istasyondaki QR kodu tarayın",
+    step2: "QR kod verisini yukarıdaki alana yapıştırın",
+    step3: "İstasyon ID'sini girin (istasyonun üzerinde yazılı)",
+    step4: "\"Kiralama Başlat\" düğmesine tıklayın",
+    starting: "Kiralama başlatılıyor...",
+    startButton: "Kiralama Başlat",
+    importantInfo: "Önemli Bilgiler",
+    info1: "Kiralama ücreti kullanım süresine göre hesaplanır",
+    info2: "PowerBank'ı herhangi bir istasyona iade edebilirsiniz",
+    info3: "24 saat ücretsiz kullanım hakkınız vardır"
+  },
+
   // Rentals
   rentals: {
     title: "Kiralarım",
@@ -509,7 +537,7 @@ export default {
       sustainability: "Sürdürülebilirlik",
       sustainabilityDesc: "Herkese ve gezegene fayda sağlayan paylaşımlı şarj çözümleri sunarak elektronik atıkları azaltıyoruz.",
       convenience: "Kolaylık Öncelik",
-      convenienceDesc: "Basit, hızlı ve ihtiyacınız olduğunda her zaman mevcut",
+      convenienceDesc: "Basit, hızlı ve ihtiyac��nız olduğunda her zaman mevcut",
     },
     journey: {
       title: "Yolculuğumuz",
