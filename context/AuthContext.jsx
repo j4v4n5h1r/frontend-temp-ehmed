@@ -22,10 +22,12 @@ export default function AuthProvider({ children }) {
             const profile = await res.json();
             setUser({ token, profile });
           } else {
+            console.warn('Token invalid, removing from cookies');
             cookie.remove('token');
             setUser(null);
           }
-        } catch {
+        } catch (error) {
+          console.error('Failed to fetch user profile:', error);
           cookie.remove('token');
           setUser(null);
         }
