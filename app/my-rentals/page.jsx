@@ -937,7 +937,7 @@ const MyRentalsPage = () => {
                     marginBottom: "0.5rem",
                   }}
                 >
-                  No rentals found
+                  {t("rentals.noRentalsFound")}
                 </h3>
                 <p
                   style={{
