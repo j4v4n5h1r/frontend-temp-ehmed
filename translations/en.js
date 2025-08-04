@@ -232,6 +232,33 @@ export default {
     info3: "You have 24 hours of free usage"
   },
 
+  // Rental Active
+  rentalActive: {
+    title: "Active Rental",
+    subtitle: "Track your current power bank rental",
+    failedToLoad: "Failed to load active rental",
+    noActiveRental: "No Active Rental",
+    noActiveMessage: "You don't have any active power bank rentals at the moment.",
+    loading: "Loading active rental...",
+    powerbankActive: "Power Bank Active",
+    timeElapsed: "Time Elapsed",
+    batteryLevel: "Battery Level",
+    currentCost: "Current Cost",
+    freeTimeLeft: "Free Time Left",
+    rentalDetails: "Rental Details",
+    rateAfterFree: "Rate (after free time)",
+    batteryStatus: "Battery Status",
+    excellentBattery: "Excellent battery level",
+    goodBattery: "Good battery level",
+    lowBattery: "Low battery - consider returning soon",
+    returnStations: "Return Stations",
+    full: "Full",
+    returning: "Returning...",
+    returnHere: "Return Here",
+    returnSuccess: "Power bank returned successfully!",
+    returnFailed: "Failed to return power bank. Please try again."
+  },
+
   // Rentals
   rentals: {
     title: "My Rentals",
