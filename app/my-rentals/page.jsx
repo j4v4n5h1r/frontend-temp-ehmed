@@ -787,7 +787,7 @@ const MyRentalsPage = () => {
                             {rental.endTime && (
                               <div>
                                 <strong style={{ color: "#374151" }}>
-                                  Ended:
+                                  {t("rentals.ended")}:
                                 </strong>{" "}
                                 {formatDate(rental.endTime)}
                               </div>
