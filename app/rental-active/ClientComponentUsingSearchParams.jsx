@@ -89,12 +89,12 @@ export default function ClientComponentUsingSearchParams() {
 
       if (!token) {
         throw new Error(
-          "Authentication token is missing. Please log in again.",
+          t("rentals.authTokenMissing"),
         );
       }
 
       if (!user?.id) {
-        throw new Error("User ID is missing. Please log in again.");
+        throw new Error(t("rentals.authFailed"));
       }
 
       const response = await axios.get(
@@ -117,7 +117,7 @@ export default function ClientComponentUsingSearchParams() {
     } catch (err) {
       console.error("Error fetching active rental:", err);
 
-      let errorMessage = "Failed to load active rental";
+      let errorMessage = t("rentalActive.failedToLoad");
 
       if (
         err.message.includes("Authentication token") ||
@@ -125,17 +125,17 @@ export default function ClientComponentUsingSearchParams() {
       ) {
         errorMessage = err.message;
       } else if (err.code === "ECONNABORTED") {
-        errorMessage = "Request timeout - server is taking too long to respond";
+        errorMessage = t("rentals.requestTimeout");
       } else if (err.response) {
         console.error("Server error:", err.response.status, err.response.data);
         if (err.response.status === 401) {
-          errorMessage = "Authentication failed - please log in again";
+          errorMessage = t("rentals.authFailed");
         } else if (err.response.status === 404) {
-          errorMessage = "No active rental found";
+          errorMessage = t("rentalActive.noActiveRental");
           setActiveRental(null);
           return;
         } else {
-          errorMessage = `Server error: ${err.response.status} - ${err.response.data?.message || "Unknown error"}`;
+          errorMessage = `${t("rentals.serverError")}: ${err.response.status} - ${err.response.data?.message || t("rentals.unexpectedError")}`;
         }
       } else if (err.request) {
         console.error("Network error:", err.request);
