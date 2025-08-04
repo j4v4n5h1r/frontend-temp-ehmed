@@ -204,10 +204,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-12 sm:h-14 lg:h-16">
           <div className="flex items-center gap-4">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-md">
+            <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-md">
                 <svg
-                  className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                  className="w-4 h-4 sm:w-5 sm:h-5 text-white"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -218,7 +218,7 @@ export default function Navbar() {
                   />
                 </svg>
               </div>
-              <span className="text-xl sm:text-2xl font-black text-neutral-900 tracking-tight">
+              <span className="text-lg sm:text-xl font-black text-neutral-900 tracking-tight">
                 Pobi
               </span>
             </Link>
