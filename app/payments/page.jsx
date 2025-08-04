@@ -259,7 +259,7 @@ const PaymentsPage = () => {
               </label>
               <input
                 type="text"
-                placeholder="Search payments..."
+                placeholder={t("payments.searchPayments")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 style={{
