@@ -947,8 +947,8 @@ const MyRentalsPage = () => {
                   }}
                 >
                   {searchTerm || filter !== "all"
-                    ? "Try adjusting your search or filter"
-                    : "You haven't rented any power banks yet"}
+                    ? t("rentals.tryAdjustingSearchOrFilter")
+                    : t("rentals.haventRentedYet")}
                 </p>
                 <Link
                   href="/rental"
