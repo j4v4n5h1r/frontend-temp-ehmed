@@ -326,6 +326,13 @@ export default {
     registrationFailed: "Registration failed. Please try again.",
   },
 
+  // Development
+  dev: {
+    mode: "Development Mode",
+    mockApi: "Using mock API - server may be unavailable",
+    serverUnavailable: "Server unavailable, using demo data",
+  },
+
   // Success Messages
   success: {
     saved: "Changes saved successfully",
