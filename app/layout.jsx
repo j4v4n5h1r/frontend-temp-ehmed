@@ -24,7 +24,6 @@ export default function RootLayout({ children }) {
             <main className="pt-14 sm:pt-16 lg:pt-20 min-h-screen">
               {children}
             </main>
-            <NetworkStatus />
           </AuthProvider>
         </TranslationProvider>
       </body>
