@@ -365,7 +365,7 @@ const MyRentalsPage = () => {
               {completedRentals}
             </h3>
             <p style={{ color: "#6b7280", fontSize: "0.875rem", margin: 0 }}>
-              Completed
+              {t("rentals.completed")}
             </p>
           </div>
 
