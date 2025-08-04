@@ -204,6 +204,61 @@ export default {
     backToDashboard: "Kontrol Paneline Dön"
   },
 
+  // Rental
+  rental: {
+    subtitle: "QR kodu tarayın veya kiralama başlatmak için istasyon detaylarını girin",
+    success: "Kiralama Başarıyla Başlatıldı!",
+    successMessage: "PowerBank kiralamanız başlatıldı. Kontrol panelinden takip edebilirsiniz.",
+    stationId: "İstasyon ID",
+    stationPlaceholder: "Örn: STATION001",
+    stationRequired: "İstasyon ID gerekli",
+    stationMinLength: "İstasyon ID en az 3 karakter olmalı",
+    stationHelp: "PowerBank istasyonunda bulunan istasyon ID'sini girin",
+    qrCodeData: "QR Kod Verisi",
+    qrPlaceholder: "QR kod taramadan elde edilen veriyi buraya yapıştırın",
+    qrRequired: "QR kod verisi gerekli",
+    qrMinLength: "QR kod verisi en az 10 karakter olmalı",
+    qrHelp: "PowerBank'ın QR kodunu tarayın",
+    howToRent: "Nasıl Kiralayım?",
+    step1: "Mobil cihazınızla istasyondaki QR kodu tarayın",
+    step2: "QR kod verisini yukarıdaki alana yapıştırın",
+    step3: "İstasyon ID'sini girin (istasyonun üzerinde yazılı)",
+    step4: "\"Kiralama Başlat\" düğmesine tıklayın",
+    starting: "Kiralama başlatılıyor...",
+    startButton: "Kiralama Başlat",
+    importantInfo: "Önemli Bilgiler",
+    info1: "Kiralama ücreti kullanım süresine göre hesaplanır",
+    info2: "PowerBank'ı herhangi bir istasyona iade edebilirsiniz",
+    info3: "24 saat ücretsiz kullanım hakkınız vardır"
+  },
+
+  // Rental Active
+  rentalActive: {
+    title: "Aktif Kiralama",
+    subtitle: "Mevcut powerbank kiralamanızı takip edin",
+    failedToLoad: "Aktif kiralama yüklenemedi",
+    noActiveRental: "Aktif Kiralama Yok",
+    noActiveMessage: "Şu anda aktif powerbank kiralamanız bulunmuyor.",
+    loading: "Aktif kiralama yükleniyor...",
+    powerbankActive: "PowerBank Aktif",
+    timeElapsed: "Geçen Süre",
+    batteryLevel: "Batarya Seviyesi",
+    currentCost: "Mevcut Maliyet",
+    freeTimeLeft: "Kalan Ücretsiz Süre",
+    rentalDetails: "Kiralama Detayları",
+    rateAfterFree: "Tarife (ücretsiz süre sonrası)",
+    batteryStatus: "Batarya Durumu",
+    excellentBattery: "Mükemmel batarya seviyesi",
+    goodBattery: "İyi batarya seviyesi",
+    lowBattery: "Düşük batarya - yakında iade etmeyi düşünün",
+    returnStations: "İade İstasyonları",
+    full: "Dolu",
+    returning: "İade ediliyor...",
+    returnHere: "Buraya İade Et",
+    returnSuccess: "PowerBank başarıyla iade edildi!",
+    returnFailed: "PowerBank iade edilemedi. Lütfen tekrar deneyin."
+  },
+
   // Rentals
   rentals: {
     title: "Kiralarım",
@@ -296,21 +351,48 @@ export default {
     tryAdjustingSearchOrFilter: "Arama veya filtrenizi ayarlamayı deneyin",
     noPaymentsYet: "Henüz hiç ödeme yapmadınız",
     startFirstRental: "İlk Kiralama İşleminizi Başlatın",
-    paymentMethods: "Ödeme Yöntemleri",
-    rental: "Kiralama"
+    paymentMethods: "Ödeme Y��ntemleri",
+    rental: "Kiralama",
+    completed: "Tamamlandı",
+    pending: "Beklemede",
+    failed: "Başarısız",
+    refunded: "İade Edildi"
+  },
+
+  // Dashboard
+  dashboard: {
+    title: "Kontrol Paneli",
+    subtitle: "Kiralama geçmişinizi ve ödemelerinizi görüntüleyin",
   },
 
   // Admin
   admin: {
     title: "Admin Paneli",
-    users: "Kullanıcılar",
-    stations: "��stasyonlar",
+    users: "Kullanıcı Yönetimi",
+    stations: "İstasyon Yönetimi",
     powerbanks: "PowerBank'lar",
-    rentals: "Kiralamalar",
-    payments: "Ödemeler",
-    reports: "Raporlar",
-    settings: "Ayarlar",
+    rentals: "Kiralama Yönetimi",
+    payments: "Ödemeler & Faturalama",
+    reports: "Raporlar & Analitik",
+    settings: "Sistem Ayarları",
     analytics: "Analitik",
+    welcomeBack: "Tekrar hoş geldiniz",
+    totalRevenue: "Toplam Gelir",
+    activeUsers: "Aktif Kullanıcılar",
+    onlineStations: "Çevrimiçi İstasyonlar",
+    total: "toplam",
+    newThisWeek: "bu hafta yeni",
+    usersDesc: "Kullanıcı hesaplarını, rollerini ve izinlerini yönetin",
+    stationsDesc: "Şarj istasyonlarını izleyin ve kontrol edin",
+    powerbanksDesc: "PowerBank envanterini ve durumunu takip edin",
+    rentalsDesc: "Tüm kiralama faaliyetlerini izleyin",
+    paymentsDesc: "Ödemeleri, iadeleri ve faturalamayı yönetin",
+    reportsDesc: "Ayrıntılı raporları ve analitikleri görüntüleyin",
+    settingsDesc: "Sistem geneli ayarları yapılandırın",
+    trackAll: "Tüm powerbank'ları takip edin",
+    revenueUtilization: "Gelir, kullanım ve daha fazlası",
+    managePricing: "Fiyatlandırma stratejilerini yönetin",
+    systemConfig: "Sistem yapılandırması"
   },
 
   // Error Messages
@@ -512,7 +594,7 @@ export default {
       },
       "2021": {
         title: "İlk 50 İstasyon",
-        description: "Büyük metropolitan alanlarda pilot programımızı başlattık",
+        description: "Büyük metropolitan alanlarda pilot programım��zı başlattık",
       },
       "2022": {
         title: "100K Kullanıcı",
@@ -622,7 +704,7 @@ export default {
       a3: "Evet! Uygulamamız üzerinden istediğiniz zaman saatlikten günlük veya haftalığa yükseltebilirsiniz. Sadece farkı ödersiniz.",
       q4: "İş veya toplu indirimler sunuyor musunuz?",
       a4: "Evet, işletmeler ve organizasyonlar için özel fiyatlandırma sunuyoruz. Kullanım ihtiyaçlarınıza göre özel fiyatlandırma için satış ekibimizle iletişime geçin.",
-      q5: "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
+      q5: "Hangi ��deme yöntemlerini kabul ediyorsunuz?",
       a5: "Tüm büyük kredi kartlarını, PayPal, Apple Pay, Google Pay ve çoğu mobil ödeme platformunu kabul ediyoruz.",
       q6: "Tam kiralama süresini kullanmazsam geri ödeme alabilir miyim?",
       a6: "Maalesef kiralamalar başladıktan sonra iade edilemez. Ancak powerbank'ı erken iade edebilirsiniz ceza olmadan.",

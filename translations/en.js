@@ -204,6 +204,61 @@ export default {
     backToDashboard: "Back to Dashboard"
   },
 
+  // Rental
+  rental: {
+    subtitle: "Scan QR code or enter station details to start rental",
+    success: "Rental Started Successfully!",
+    successMessage: "Your power bank rental has been initiated. You can track it from the dashboard.",
+    stationId: "Station ID",
+    stationPlaceholder: "E.g: STATION001",
+    stationRequired: "Station ID is required",
+    stationMinLength: "Station ID must be at least 3 characters",
+    stationHelp: "Enter the station ID found on the power bank station",
+    qrCodeData: "QR Code Data",
+    qrPlaceholder: "Paste the data obtained from QR code scanning here",
+    qrRequired: "QR code data is required",
+    qrMinLength: "QR code data must be at least 10 characters",
+    qrHelp: "Scan QR code on the power bank to get the data",
+    howToRent: "How to Rent?",
+    step1: "Scan the QR code on the station with your mobile device",
+    step2: "Paste the QR code data in the field above",
+    step3: "Enter the Station ID (written on the station)",
+    step4: "Click \"Start Rental\" button",
+    starting: "Starting rental...",
+    startButton: "Start Rental",
+    importantInfo: "Important Information",
+    info1: "Rental fee is calculated based on usage time",
+    info2: "You can return the power bank to any station",
+    info3: "You have 24 hours of free usage"
+  },
+
+  // Rental Active
+  rentalActive: {
+    title: "Active Rental",
+    subtitle: "Track your current power bank rental",
+    failedToLoad: "Failed to load active rental",
+    noActiveRental: "No Active Rental",
+    noActiveMessage: "You don't have any active power bank rentals at the moment.",
+    loading: "Loading active rental...",
+    powerbankActive: "Power Bank Active",
+    timeElapsed: "Time Elapsed",
+    batteryLevel: "Battery Level",
+    currentCost: "Current Cost",
+    freeTimeLeft: "Free Time Left",
+    rentalDetails: "Rental Details",
+    rateAfterFree: "Rate (after free time)",
+    batteryStatus: "Battery Status",
+    excellentBattery: "Excellent battery level",
+    goodBattery: "Good battery level",
+    lowBattery: "Low battery - consider returning soon",
+    returnStations: "Return Stations",
+    full: "Full",
+    returning: "Returning...",
+    returnHere: "Return Here",
+    returnSuccess: "Power bank returned successfully!",
+    returnFailed: "Failed to return power bank. Please try again."
+  },
+
   // Rentals
   rentals: {
     title: "My Rentals",
@@ -297,20 +352,47 @@ export default {
     noPaymentsYet: "You haven't made any payments yet",
     startFirstRental: "Start Your First Rental",
     paymentMethods: "Payment Methods",
-    rental: "Rental"
+    rental: "Rental",
+    completed: "Completed",
+    pending: "Pending",
+    failed: "Failed",
+    refunded: "Refunded"
+  },
+
+  // Dashboard
+  dashboard: {
+    title: "Dashboard",
+    subtitle: "View your rental history and payments",
   },
 
   // Admin
   admin: {
     title: "Admin Dashboard",
-    users: "Users",
-    stations: "Stations",
-    powerbanks: "PowerBanks",
-    rentals: "Rentals",
-    payments: "Payments",
-    reports: "Reports",
-    settings: "Settings",
+    users: "Users Management",
+    stations: "Stations Management",
+    powerbanks: "Power Banks",
+    rentals: "Rentals Management",
+    payments: "Payments & Billing",
+    reports: "Reports & Analytics",
+    settings: "System Settings",
     analytics: "Analytics",
+    welcomeBack: "Welcome back",
+    totalRevenue: "Total Revenue",
+    activeUsers: "Active Users",
+    onlineStations: "Online Stations",
+    total: "total",
+    newThisWeek: "new this week",
+    usersDesc: "Manage user accounts, roles, and permissions",
+    stationsDesc: "Monitor and control charging stations",
+    powerbanksDesc: "Track power bank inventory and status",
+    rentalsDesc: "Monitor all rental activities",
+    paymentsDesc: "Handle payments, refunds, and billing",
+    reportsDesc: "View detailed reports and analytics",
+    settingsDesc: "Configure system-wide settings",
+    trackAll: "Track all power banks",
+    revenueUtilization: "Revenue, utilization, and more",
+    managePricing: "Manage pricing strategies",
+    systemConfig: "System configuration"
   },
 
   // Error Messages

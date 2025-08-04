@@ -3,10 +3,12 @@
 import React, { useContext, useEffect } from "react";
 import Link from "next/link";
 import { AuthContext } from "../../../context/AuthContext";
+import { useTranslation } from "../../../context/TranslationContext";
 import { useRouter } from "next/navigation";
 
 const AdminSettings = () => {
   const { user, loading } = useContext(AuthContext);
+  const { t } = useTranslation();
   const router = useRouter();
 
   useEffect(() => {
@@ -16,7 +18,7 @@ const AdminSettings = () => {
   }, [user, loading, router]);
 
   if (loading || !user || user.profile?.data?.user?.role !== "admin") {
-    return <div>Loading...</div>;
+    return <div>{t("common.loading")}</div>;
   }
 
   return (
@@ -38,7 +40,7 @@ const AdminSettings = () => {
             display: "inline-block",
           }}
         >
-          ← Back to Admin Dashboard
+          ← {t("stations.backToDashboard")}
         </Link>
         <h1
           style={{
@@ -48,7 +50,7 @@ const AdminSettings = () => {
             marginBottom: "2rem",
           }}
         >
-          System Settings
+          {t("admin.settings")}
         </h1>
         <div
           style={{
@@ -60,7 +62,7 @@ const AdminSettings = () => {
           }}
         >
           <p style={{ color: "#6b7280", fontSize: "1.125rem" }}>
-            System settings functionality coming soon...
+            {t("app.comingSoon")}...
           </p>
         </div>
       </div>

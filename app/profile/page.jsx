@@ -4,12 +4,14 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import cookie from "js-cookie";
 import { AuthContext } from "../../context/AuthContext";
+import { useTranslation } from "../../context/TranslationContext";
 import Link from "next/link";
 
 const BASE_URL = "http://164.90.238.202:8000";
 
 const ProfilePage = () => {
   const { user, setUser } = useContext(AuthContext);
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
@@ -114,10 +116,10 @@ const ProfilePage = () => {
       );
 
       setUser(response.data);
-      setSuccess("Profile updated successfully!");
+      setSuccess(t("success.saved"));
       setTimeout(() => setSuccess(null), 3000);
     } catch (err) {
-      setError(err.response?.data?.detail || "Failed to update profile");
+      setError(err.response?.data?.detail || t("errors.generic"));
     } finally {
       setLoading(false);
     }
@@ -144,19 +146,19 @@ const ProfilePage = () => {
         cvv: "",
         cardHolderName: "",
       });
-      setSuccess("Payment method added successfully!");
+      setSuccess(t("success.created"));
       fetchPaymentMethods();
       setTimeout(() => setSuccess(null), 3000);
     } catch (err) {
-      setError(err.response?.data?.detail || "Failed to add payment method");
+      setError(err.response?.data?.detail || t("errors.generic"));
     } finally {
       setLoading(false);
     }
   };
 
   const tabs = [
-    { id: "profile", name: "Profile Info", icon: "user" },
-    { id: "payment", name: "Payment Methods", icon: "credit-card" },
+    { id: "profile", name: t("profile.personalInfo"), icon: "user" },
+    { id: "payment", name: t("profile.paymentMethods"), icon: "credit-card" },
     { id: "security", name: "Security", icon: "shield" },
   ];
 
@@ -262,7 +264,7 @@ const ProfilePage = () => {
               letterSpacing: "-0.025em",
             }}
           >
-            Profile Settings
+            {t("profile.title")}
           </h1>
           <p
             style={{
@@ -271,7 +273,7 @@ const ProfilePage = () => {
               fontWeight: "500",
             }}
           >
-            Manage your account information and preferences
+            {t("profile.preferences")}
           </p>
         </div>
 
@@ -414,7 +416,7 @@ const ProfilePage = () => {
                         marginBottom: "0.5rem",
                       }}
                     >
-                      First Name
+                      {t("profile.firstName")}
                     </label>
                     <input
                       type="text"
@@ -445,7 +447,7 @@ const ProfilePage = () => {
                         marginBottom: "0.5rem",
                       }}
                     >
-                      Last Name
+                      {t("profile.lastName")}
                     </label>
                     <input
                       type="text"
@@ -476,7 +478,7 @@ const ProfilePage = () => {
                         marginBottom: "0.5rem",
                       }}
                     >
-                      Email Address
+                      {t("auth.email")}
                     </label>
                     <input
                       type="email"
@@ -507,7 +509,7 @@ const ProfilePage = () => {
                         marginBottom: "0.5rem",
                       }}
                     >
-                      Phone Number
+                      {t("profile.phone")}
                     </label>
                     <input
                       type="tel"
@@ -546,7 +548,7 @@ const ProfilePage = () => {
                     transition: "all 0.3s ease",
                   }}
                 >
-                  {loading ? "Updating..." : "Update Profile"}
+                  {loading ? t("common.loading") : t("common.save")}
                 </button>
               </form>
             )}
@@ -562,7 +564,7 @@ const ProfilePage = () => {
                     marginBottom: "1.5rem",
                   }}
                 >
-                  Payment Methods
+                  {t("profile.paymentMethods")}
                 </h3>
 
                 {/* Existing Payment Methods */}
@@ -626,13 +628,13 @@ const ProfilePage = () => {
                             fontSize: "0.875rem",
                           }}
                         >
-                          Remove
+                          {t("common.remove")}
                         </button>
                       </div>
                     ))
                   ) : (
                     <p style={{ color: "#6b7280", fontStyle: "italic" }}>
-                      No payment methods added yet.
+                      {t("payments.noPaymentsYet")}
                     </p>
                   )}
                 </div>
@@ -652,7 +654,7 @@ const ProfilePage = () => {
                       marginBottom: "1rem",
                     }}
                   >
-                    Add New Payment Method
+                    {t("common.add")} {t("payments.methods")}
                   </h4>
                   <form onSubmit={addPaymentMethod}>
                     <div
@@ -674,7 +676,7 @@ const ProfilePage = () => {
                             marginBottom: "0.5rem",
                           }}
                         >
-                          Card Holder Name
+                          {t("auth.firstName")} {t("auth.lastName")}
                         </label>
                         <input
                           type="text"
@@ -707,7 +709,7 @@ const ProfilePage = () => {
                             marginBottom: "0.5rem",
                           }}
                         >
-                          Card Number
+                          {t("payments.methods")}
                         </label>
                         <input
                           type="text"
@@ -740,7 +742,7 @@ const ProfilePage = () => {
                             marginBottom: "0.5rem",
                           }}
                         >
-                          Expiry Date
+                          {t("payments.date")}
                         </label>
                         <input
                           type="text"
@@ -813,7 +815,7 @@ const ProfilePage = () => {
                         opacity: loading ? 0.7 : 1,
                       }}
                     >
-                      {loading ? "Adding..." : "Add Payment Method"}
+                      {loading ? t("common.loading") : t("common.add")}
                     </button>
                   </form>
                 </div>
@@ -831,7 +833,7 @@ const ProfilePage = () => {
                     marginBottom: "1.5rem",
                   }}
                 >
-                  Security Settings
+                  {t("admin.settings")}
                 </h3>
                 <div
                   style={{
@@ -867,7 +869,7 @@ const ProfilePage = () => {
                       marginBottom: "0.5rem",
                     }}
                   >
-                    Security Features Coming Soon
+                    {t("app.comingSoon")}
                   </h4>
                   <p
                     style={{
@@ -916,7 +918,7 @@ const ProfilePage = () => {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            Back to Dashboard
+            {t("stations.backToDashboard")}
           </Link>
         </div>
       </div>

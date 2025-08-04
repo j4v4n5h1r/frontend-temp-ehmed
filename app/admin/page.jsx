@@ -3,10 +3,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import { AuthContext } from "../../context/AuthContext";
+import { useTranslation } from "../../context/TranslationContext";
 import { useRouter } from "next/navigation";
 
 const AdminDashboard = () => {
   const { user, loading } = useContext(AuthContext);
+  const { t } = useTranslation();
   const router = useRouter();
   const [stats, setStats] = useState({
     users: { total: 0, active: 0, new: 0 },
@@ -71,7 +73,7 @@ const AdminDashboard = () => {
               margin: "0 auto 1rem",
             }}
           ></div>
-          <p style={{ color: "#6b7280" }}>Loading admin dashboard...</p>
+          <p style={{ color: "#6b7280" }}>{t("common.loading")}</p>
         </div>
       </div>
     );
@@ -83,67 +85,67 @@ const AdminDashboard = () => {
 
   const adminSections = [
     {
-      title: "Users Management",
-      description: "Manage user accounts, roles, and permissions",
+      title: t("admin.users"),
+      description: t("admin.usersDesc", "Manage user accounts, roles, and permissions"),
       href: "/admin/users",
       icon: "👥",
-      stats: `${stats.users.total} total, ${stats.users.new} new this week`,
+      stats: `${stats.users.total} ${t("admin.total")}, ${stats.users.new} ${t("admin.newThisWeek")}`,
       color: "#3b82f6",
     },
     {
-      title: "Stations Management",
-      description: "Monitor and control charging stations",
+      title: t("admin.stations"),
+      description: t("admin.stationsDesc", "Monitor and control charging stations"),
       href: "/admin/stations",
       icon: "🔌",
       stats: `${stats.stations.online}/${stats.stations.total} online`,
       color: "#10b981",
     },
     {
-      title: "Power Banks",
-      description: "Track power bank inventory and status",
+      title: t("admin.powerbanks"),
+      description: t("admin.powerbanksDesc", "Track power bank inventory and status"),
       href: "/admin/powerbanks",
       icon: "🔋",
-      stats: "Track all power banks",
+      stats: t("admin.trackAll", "Track all power banks"),
       color: "#f59e0b",
     },
     {
-      title: "Rentals Management",
-      description: "Monitor all rental activities",
+      title: t("admin.rentals"),
+      description: t("admin.rentalsDesc", "Monitor all rental activities"),
       href: "/admin/rentals",
       icon: "📱",
-      stats: `${stats.rentals.active} active, ${stats.rentals.completed} completed`,
+      stats: `${stats.rentals.active} ${t("rentals.active")}, ${stats.rentals.completed} ${t("rentals.completed")}`,
       color: "#8b5cf6",
     },
     {
-      title: "Payments & Billing",
-      description: "Handle payments, refunds, and billing",
+      title: t("admin.payments"),
+      description: t("admin.paymentsDesc", "Handle payments, refunds, and billing"),
       href: "/admin/payments",
       icon: "💳",
       stats: `$${stats.revenue.month.toLocaleString()} this month`,
       color: "#ef4444",
     },
     {
-      title: "Reports & Analytics",
-      description: "View detailed reports and analytics",
+      title: t("admin.reports"),
+      description: t("admin.reportsDesc", "View detailed reports and analytics"),
       href: "/admin/reports",
       icon: "📊",
-      stats: "Revenue, utilization, and more",
+      stats: t("admin.revenueUtilization", "Revenue, utilization, and more"),
       color: "#06b6d4",
     },
     {
-      title: "Pricing Management",
-      description: "Configure pricing tiers and rates",
+      title: t("admin.pricing", "Pricing Management"),
+      description: t("admin.pricingDesc", "Configure pricing tiers and rates"),
       href: "/admin/pricing",
       icon: "💰",
-      stats: "Manage pricing strategies",
+      stats: t("admin.managePricing", "Manage pricing strategies"),
       color: "#84cc16",
     },
     {
-      title: "System Settings",
-      description: "Configure system-wide settings",
+      title: t("admin.settings"),
+      description: t("admin.settingsDesc", "Configure system-wide settings"),
       href: "/admin/settings",
       icon: "⚙️",
-      stats: "System configuration",
+      stats: t("admin.systemConfig", "System configuration"),
       color: "#6b7280",
     },
   ];
@@ -192,7 +194,7 @@ const AdminDashboard = () => {
                 marginBottom: "0.5rem",
               }}
             >
-              Admin Dashboard
+              {t("admin.title")}
             </h1>
             <p
               style={{
@@ -200,7 +202,7 @@ const AdminDashboard = () => {
                 fontSize: "1.125rem",
               }}
             >
-              Welcome back,{" "}
+              {t("admin.welcomeBack", "Welcome back")},{" "}
               {user.profile?.data?.user?.name ||
                 user.profile?.data?.user?.email}
             </p>
@@ -239,7 +241,7 @@ const AdminDashboard = () => {
                       marginBottom: "0.25rem",
                     }}
                   >
-                    Total Revenue
+                    {t("admin.totalRevenue", "Total Revenue")}
                   </p>
                   <p
                     style={{
@@ -293,7 +295,7 @@ const AdminDashboard = () => {
                       marginBottom: "0.25rem",
                     }}
                   >
-                    Active Users
+                    {t("admin.activeUsers", "Active Users")}
                   </p>
                   <p
                     style={{
@@ -347,7 +349,7 @@ const AdminDashboard = () => {
                       marginBottom: "0.25rem",
                     }}
                   >
-                    Online Stations
+                    {t("admin.onlineStations", "Online Stations")}
                   </p>
                   <p
                     style={{
@@ -401,7 +403,7 @@ const AdminDashboard = () => {
                       marginBottom: "0.25rem",
                     }}
                   >
-                    Active Rentals
+                    {t("rentals.activeRentals")}
                   </p>
                   <p
                     style={{
