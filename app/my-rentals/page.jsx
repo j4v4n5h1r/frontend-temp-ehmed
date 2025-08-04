@@ -815,7 +815,7 @@ const MyRentalsPage = () => {
                           >
                             {rental.totalAmount > 0
                               ? formatCurrency(rental.totalAmount)
-                              : "Free"}
+                              : t("rentals.free")}
                           </div>
 
                           <div
