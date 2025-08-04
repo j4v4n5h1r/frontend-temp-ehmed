@@ -83,26 +83,25 @@ const PaymentsPage = () => {
     } catch (err) {
       console.error("Error fetching payments:", err);
 
-      let errorMessage = "Failed to load payment history";
+      let errorMessage = t("payments.failedToLoadPaymentHistory");
 
       if (err.message.includes("Authentication token")) {
         errorMessage = err.message;
       } else if (err.code === "ECONNABORTED") {
-        errorMessage = "Request timeout - server is taking too long to respond";
+        errorMessage = t("rentals.requestTimeout");
       } else if (err.response) {
         console.error("Server error:", err.response.status, err.response.data);
         if (err.response.status === 401) {
-          errorMessage = "Authentication failed - please log in again";
+          errorMessage = t("rentals.authFailed");
         } else {
-          errorMessage = `Server error: ${err.response.status} - ${err.response.data?.message || "Unknown error"}`;
+          errorMessage = `${t("rentals.serverError")}: ${err.response.status} - ${err.response.data?.message || t("rentals.unexpectedError")}`;
         }
       } else if (err.request) {
         console.error("Network error:", err.request);
-        errorMessage =
-          "Network error - please check your connection and try again";
+        errorMessage = t("rentals.networkError");
       } else {
         console.error("Unexpected error:", err.message);
-        errorMessage = `Unexpected error: ${err.message}`;
+        errorMessage = `${t("rentals.unexpectedError")}: ${err.message}`;
       }
 
       setError(errorMessage);
