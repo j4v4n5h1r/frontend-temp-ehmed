@@ -257,7 +257,7 @@ export default function Navbar() {
                   {user?.profile?.data?.user?.role === "admin" && (
                     <Link
                       href="/admin"
-                      className="font-semibold text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 text-sm lg:text-base whitespace-nowrap"
+                      className="font-semibold text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-2 lg:px-3 py-1 rounded-lg transition-all duration-200 text-sm whitespace-nowrap"
                     >
                       Admin
                     </Link>
