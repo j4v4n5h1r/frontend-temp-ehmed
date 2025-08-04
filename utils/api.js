@@ -1,6 +1,8 @@
 import { logNetworkError } from './networkDebug';
+import { mockApiCall, isMockMode } from './mockApi';
 
 const BASE_URL = "http://164.90.238.202:8000";
+let useMockFallback = false;
 
 export const apiCall = async (endpoint, options = {}) => {
   const url = `${BASE_URL}${endpoint}`;
