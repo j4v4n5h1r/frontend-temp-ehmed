@@ -464,7 +464,7 @@ const PaymentsPage = () => {
                               margin: "0.25rem 0 0 0",
                             }}
                           >
-                            Rental: {payment.rentalId}
+                            {t("payments.rental")}: {payment.rentalId}
                           </p>
                         )}
                       </div>
