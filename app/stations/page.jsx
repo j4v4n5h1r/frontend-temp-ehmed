@@ -86,23 +86,22 @@ const StationsPage = () => {
       console.error("Error fetching stations:", err);
 
       // More detailed error handling
-      let errorMessage = "Failed to load stations";
+      let errorMessage = t("stations.unableToLoadStations");
 
       if (err.code === "ECONNABORTED") {
-        errorMessage = "Request timeout - server is taking too long to respond";
+        errorMessage = t("rentals.requestTimeout");
       } else if (err.response) {
         // Server responded with error status
         console.error("Server error:", err.response.status, err.response.data);
-        errorMessage = `Server error: ${err.response.status} - ${err.response.data?.message || "Unknown error"}`;
+        errorMessage = `${t("rentals.serverError")}: ${err.response.status} - ${err.response.data?.message || t("rentals.unexpectedError")}`;
       } else if (err.request) {
         // Request was made but no response received
         console.error("Network error:", err.request);
-        errorMessage =
-          "Network error - please check your connection and try again";
+        errorMessage = t("rentals.networkError");
       } else {
         // Something else happened
         console.error("Unexpected error:", err.message);
-        errorMessage = `Unexpected error: ${err.message}`;
+        errorMessage = `${t("rentals.unexpectedError")}: ${err.message}`;
       }
 
       setError(errorMessage);
