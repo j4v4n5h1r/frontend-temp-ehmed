@@ -4,6 +4,7 @@ import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "../../context/AuthContext";
+import { useTranslation } from "../../context/TranslationContext";
 
 export default function RegisterPage() {
   const router = useRouter();
