@@ -116,10 +116,10 @@ const ProfilePage = () => {
       );
 
       setUser(response.data);
-      setSuccess("Profile updated successfully!");
+      setSuccess(t("success.saved"));
       setTimeout(() => setSuccess(null), 3000);
     } catch (err) {
-      setError(err.response?.data?.detail || "Failed to update profile");
+      setError(err.response?.data?.detail || t("errors.generic"));
     } finally {
       setLoading(false);
     }
@@ -146,11 +146,11 @@ const ProfilePage = () => {
         cvv: "",
         cardHolderName: "",
       });
-      setSuccess("Payment method added successfully!");
+      setSuccess(t("success.created"));
       fetchPaymentMethods();
       setTimeout(() => setSuccess(null), 3000);
     } catch (err) {
-      setError(err.response?.data?.detail || "Failed to add payment method");
+      setError(err.response?.data?.detail || t("errors.generic"));
     } finally {
       setLoading(false);
     }
