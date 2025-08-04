@@ -756,7 +756,7 @@ const MyRentalsPage = () => {
                           >
                             <div>
                               <strong style={{ color: "#374151" }}>
-                                Rental ID:
+                                {t("rentals.rentalID")}:
                               </strong>{" "}
                               {rental.id}
                             </div>
