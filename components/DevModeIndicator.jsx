@@ -27,7 +27,7 @@ export default function DevModeIndicator() {
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse" />
           <span className="text-sm font-medium">
-            Development Mode
+            {t("dev.mode")}
           </span>
           <button
             onClick={() => setShowIndicator(false)}
