@@ -548,7 +548,7 @@ const ProfilePage = () => {
                     transition: "all 0.3s ease",
                   }}
                 >
-                  {loading ? "Updating..." : "Update Profile"}
+                  {loading ? t("common.loading") : t("common.save")}
                 </button>
               </form>
             )}
@@ -564,7 +564,7 @@ const ProfilePage = () => {
                     marginBottom: "1.5rem",
                   }}
                 >
-                  Payment Methods
+                  {t("profile.paymentMethods")}
                 </h3>
 
                 {/* Existing Payment Methods */}
@@ -634,7 +634,7 @@ const ProfilePage = () => {
                     ))
                   ) : (
                     <p style={{ color: "#6b7280", fontStyle: "italic" }}>
-                      No payment methods added yet.
+                      {t("payments.noPaymentsYet")}
                     </p>
                   )}
                 </div>
