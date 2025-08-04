@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import { useTranslation } from '../context/TranslationContext';
 
 export default function DevModeIndicator() {
   const [showIndicator, setShowIndicator] = useState(false);
