@@ -1,3 +1,5 @@
+import { logNetworkError } from './networkDebug';
+
 const BASE_URL = "http://164.90.238.202:8000";
 
 export const apiCall = async (endpoint, options = {}) => {
