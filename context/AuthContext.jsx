@@ -88,29 +88,50 @@ export default function AuthProvider({ children }) {
 
   // Register a new user and login
   const register = async ({ firstName, lastName, email, password }) => {
-    const res = await fetch(
-      url+'/api/v1/auth/register',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, lastName, email, password }),
+    try {
+      const res = await fetch(
+        url+'/api/v1/auth/register',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ firstName, lastName, email, password }),
+        }
+      );
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => null);
+        throw new Error(err?.detail || err?.message || 'Registration failed');
       }
-    );
-    if (!res.ok) {
-      const err = await res.json().catch(() => null);
-      throw new Error(err?.detail || 'Registration failed');
-    }
-    const data = await res.json();
-    const token = data.accessToken;
-    cookie.set('token', token, { expires: 1 });
-    // fetch profile
-    const profileRes = await fetch(
-      url+'/api/v1/users/me',
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
-    if (profileRes.ok) {
-      const profile = await profileRes.json();
-      setUser({ token, profile });
+
+      const data = await res.json();
+      const token = data.accessToken;
+      cookie.set('token', token, { expires: 1 });
+
+      // fetch profile
+      try {
+        const profileRes = await fetch(
+          url+'/api/v1/users/me',
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+        if (profileRes.ok) {
+          const profile = await profileRes.json();
+          setUser({ token, profile });
+        } else {
+          // Even if profile fetch fails, user is still registered and logged in
+          setUser({ token, profile: null });
+        }
+      } catch (profileError) {
+        console.error('Profile fetch failed after registration:', profileError);
+        // Still set user with token even if profile fails
+        setUser({ token, profile: null });
+      }
+    } catch (error) {
+      console.error('Registration error:', error);
+      // Check if it's a network error
+      if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
+        throw new Error('Network error: Unable to connect to server. Please check your internet connection.');
+      }
+      throw error;
     }
   };
 
