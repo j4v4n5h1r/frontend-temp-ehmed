@@ -256,7 +256,7 @@ const MyRentalsPage = () => {
               margin: "0 auto",
             }}
           >
-            Track your power bank rental history and current usage
+            {t("rentals.trackYourRentals")}
           </p>
         </div>
 
