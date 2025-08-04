@@ -117,35 +117,35 @@ const AdminDashboard = () => {
       color: "#8b5cf6",
     },
     {
-      title: "Payments & Billing",
-      description: "Handle payments, refunds, and billing",
+      title: t("admin.payments"),
+      description: t("admin.paymentsDesc", "Handle payments, refunds, and billing"),
       href: "/admin/payments",
       icon: "💳",
       stats: `$${stats.revenue.month.toLocaleString()} this month`,
       color: "#ef4444",
     },
     {
-      title: "Reports & Analytics",
-      description: "View detailed reports and analytics",
+      title: t("admin.reports"),
+      description: t("admin.reportsDesc", "View detailed reports and analytics"),
       href: "/admin/reports",
       icon: "📊",
-      stats: "Revenue, utilization, and more",
+      stats: t("admin.revenueUtilization", "Revenue, utilization, and more"),
       color: "#06b6d4",
     },
     {
-      title: "Pricing Management",
-      description: "Configure pricing tiers and rates",
+      title: t("admin.pricing", "Pricing Management"),
+      description: t("admin.pricingDesc", "Configure pricing tiers and rates"),
       href: "/admin/pricing",
       icon: "💰",
-      stats: "Manage pricing strategies",
+      stats: t("admin.managePricing", "Manage pricing strategies"),
       color: "#84cc16",
     },
     {
-      title: "System Settings",
-      description: "Configure system-wide settings",
+      title: t("admin.settings"),
+      description: t("admin.settingsDesc", "Configure system-wide settings"),
       href: "/admin/settings",
       icon: "⚙️",
-      stats: "System configuration",
+      stats: t("admin.systemConfig", "System configuration"),
       color: "#6b7280",
     },
   ];
@@ -194,7 +194,7 @@ const AdminDashboard = () => {
                 marginBottom: "0.5rem",
               }}
             >
-              Admin Dashboard
+              {t("admin.title")}
             </h1>
             <p
               style={{
@@ -202,7 +202,7 @@ const AdminDashboard = () => {
                 fontSize: "1.125rem",
               }}
             >
-              Welcome back,{" "}
+              {t("admin.welcomeBack", "Welcome back")},{" "}
               {user.profile?.data?.user?.name ||
                 user.profile?.data?.user?.email}
             </p>
@@ -241,7 +241,7 @@ const AdminDashboard = () => {
                       marginBottom: "0.25rem",
                     }}
                   >
-                    Total Revenue
+                    {t("admin.totalRevenue", "Total Revenue")}
                   </p>
                   <p
                     style={{
@@ -295,7 +295,7 @@ const AdminDashboard = () => {
                       marginBottom: "0.25rem",
                     }}
                   >
-                    Active Users
+                    {t("admin.activeUsers", "Active Users")}
                   </p>
                   <p
                     style={{
@@ -349,7 +349,7 @@ const AdminDashboard = () => {
                       marginBottom: "0.25rem",
                     }}
                   >
-                    Online Stations
+                    {t("admin.onlineStations", "Online Stations")}
                   </p>
                   <p
                     style={{
@@ -403,7 +403,7 @@ const AdminDashboard = () => {
                       marginBottom: "0.25rem",
                     }}
                   >
-                    Active Rentals
+                    {t("rentals.activeRentals")}
                   </p>
                   <p
                     style={{
