@@ -1,27 +1,32 @@
 export const testNetworkConnection = async () => {
   const BASE_URL = "http://164.90.238.202:8000";
-  
+
   try {
-    // Test basic connectivity
-    const response = await fetch(BASE_URL + '/health', {
-      method: 'GET',
-      signal: AbortSignal.timeout(5000), // 5 second timeout
-    });
-    
+    // Create a timeout promise
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Connection timeout')), 5000)
+    );
+
+    // Race between fetch and timeout
+    const response = await Promise.race([
+      fetch(BASE_URL + '/health', { method: 'GET' }),
+      timeoutPromise
+    ]);
+
     return {
       success: true,
       status: response.status,
       message: `Server reachable (${response.status})`,
     };
   } catch (error) {
-    if (error.name === 'AbortError') {
+    if (error.message === 'Connection timeout') {
       return {
         success: false,
         error: 'timeout',
         message: 'Connection timeout - server may be down or unreachable',
       };
     }
-    
+
     if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
       return {
         success: false,
@@ -29,7 +34,7 @@ export const testNetworkConnection = async () => {
         message: 'Network error - check internet connection and CORS settings',
       };
     }
-    
+
     return {
       success: false,
       error: 'unknown',
