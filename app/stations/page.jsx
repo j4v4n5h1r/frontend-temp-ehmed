@@ -403,12 +403,12 @@ const StationsPage = () => {
                       </svg>
                       {station.status === "ACTIVE" &&
                       (station.availablePowerbanks || 0) > 0
-                        ? "Rent from Station"
+                        ? t("stations.rentFromStation")
                         : station.status === "MAINTENANCE"
-                          ? "Under Maintenance"
+                          ? t("stations.underMaintenance")
                           : station.status === "OFFLINE"
-                            ? "Station Offline"
-                            : "Not Available"}
+                            ? t("stations.stationOffline")
+                            : t("stations.notAvailable")}
                     </button>
                   </Link>
                 </div>
