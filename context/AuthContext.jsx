@@ -16,17 +16,8 @@ export default function AuthProvider({ children }) {
       const token = cookie.get('token');
       if (token) {
         try {
-          const res = await fetch(url+'/api/v1/users/me', {
-            headers: { Authorization: `Bearer ${token}` },
-          });
-          if (res.ok) {
-            const profile = await res.json();
-            setUser({ token, profile });
-          } else {
-            console.warn('Token invalid, removing from cookies');
-            cookie.remove('token');
-            setUser(null);
-          }
+          const profile = await apiCallWithAuth('/api/v1/users/me', token);
+          setUser({ token, profile });
         } catch (error) {
           console.error('Failed to fetch user profile:', error);
           cookie.remove('token');
