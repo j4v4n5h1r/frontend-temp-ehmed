@@ -4,10 +4,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import cookie from "js-cookie";
+import { useTranslation } from "../../context/TranslationContext";
 
 const BASE_URL = "http://164.90.238.202:8000";
 
 const RentalPage = () => {
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
