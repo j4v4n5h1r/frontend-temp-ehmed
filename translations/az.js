@@ -120,7 +120,7 @@ export default {
         name: "Emma Davis",
         role: "Biznes Mütəxəssisi",
         content:
-          "Etibarlılıq mükəmməldir. Konfrans və uzun görüşlər zamanı Pobi istifadə edirəm. Heç vaxt mövcud powerbank tapmaqla bağlı problem yaşamadım.",
+          "Etibarlılıq mükəmməldir. Konfrans və uzun görüşl��r zamanı Pobi istifadə edirəm. Heç vaxt mövcud powerbank tapmaqla bağlı problem yaşamadım.",
       },
     },
     footer: {
@@ -155,6 +155,23 @@ export default {
     createAccount: "Hesab Yarat",
     welcomeBack: "Yenidən Xoş Gəldiniz",
     newUser: "Yeni İstifadəçi?",
+    firstName: "Ad",
+    lastName: "Soyad",
+    confirmPassword: "Şifrəni Təsdiq Et",
+    passwordMustBe6: "Minimum 6 simvol olmalı",
+    passwordsDoNotMatch: "Şifrələr uyğun gəlmir",
+    passwordTooShort: "Şifrə minimum 6 simvol olmalı",
+    registrationFailed: "Qeydiyyat uğursuz",
+    termsAndConditions: "Xidmət Şərtləri",
+    privacyPolicy: "Məxfilik Siyasəti",
+    byRegistering: "Qeydiyyatdan keçərək, bizim",
+    and: "və",
+    quickEasyRegistration: "Sürətli və asan qeydiyyat",
+    creatingAccount: "Hesab yaradılır...",
+    signUpWith: "İlə qeydiyyatdan keç",
+    orContinueWith: "və ya davam et",
+    backToHome: "Ana səhifəyə qayıt",
+    continueWith: "İlə davam et",
   },
 
   // Stations
@@ -320,7 +337,7 @@ export default {
     stationTypes: {
       station: "Stansiya",
       vendingMachine: "Avtomat",
-      events: "Tədbirlər",
+      events: "T��dbirlər",
     },
     steps: {
       step1: {
@@ -439,7 +456,7 @@ export default {
       cmo: "Baş Marketinq Direktoru",
     },
     stats: {
-      title: "Rəqəmlərlə Pobi",
+      title: "Rəqəmlərl�� Pobi",
       subtitle: "Birlikdə yaratdığımız təsir",
       users: "Məmnun İstifadəçilər",
       stations: "Aktiv Stansiyalar",
