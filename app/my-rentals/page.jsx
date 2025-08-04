@@ -629,7 +629,7 @@ const MyRentalsPage = () => {
                 marginBottom: "0.5rem",
               }}
             >
-              Unable to Load Rentals
+              {t("rentals.unableToLoadRentals")}
             </h3>
             <p style={{ margin: "0 0 1.5rem 0", fontSize: "0.875rem" }}>
               {error}
