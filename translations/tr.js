@@ -232,6 +232,33 @@ export default {
     info3: "24 saat ücretsiz kullanım hakkınız vardır"
   },
 
+  // Rental Active
+  rentalActive: {
+    title: "Aktif Kiralama",
+    subtitle: "Mevcut powerbank kiralamanızı takip edin",
+    failedToLoad: "Aktif kiralama yüklenemedi",
+    noActiveRental: "Aktif Kiralama Yok",
+    noActiveMessage: "Şu anda aktif powerbank kiralamanız bulunmuyor.",
+    loading: "Aktif kiralama yükleniyor...",
+    powerbankActive: "PowerBank Aktif",
+    timeElapsed: "Geçen Süre",
+    batteryLevel: "Batarya Seviyesi",
+    currentCost: "Mevcut Maliyet",
+    freeTimeLeft: "Kalan Ücretsiz Süre",
+    rentalDetails: "Kiralama Detayları",
+    rateAfterFree: "Tarife (ücretsiz süre sonrası)",
+    batteryStatus: "Batarya Durumu",
+    excellentBattery: "Mükemmel batarya seviyesi",
+    goodBattery: "İyi batarya seviyesi",
+    lowBattery: "Düşük batarya - yakında iade etmeyi düşünün",
+    returnStations: "İade İstasyonları",
+    full: "Dolu",
+    returning: "İade ediliyor...",
+    returnHere: "Buraya İade Et",
+    returnSuccess: "PowerBank başarıyla iade edildi!",
+    returnFailed: "PowerBank iade edilemedi. Lütfen tekrar deneyin."
+  },
+
   // Rentals
   rentals: {
     title: "Kiralarım",
@@ -537,7 +564,7 @@ export default {
       sustainability: "Sürdürülebilirlik",
       sustainabilityDesc: "Herkese ve gezegene fayda sağlayan paylaşımlı şarj çözümleri sunarak elektronik atıkları azaltıyoruz.",
       convenience: "Kolaylık Öncelik",
-      convenienceDesc: "Basit, hızlı ve ihtiyac��nız olduğunda her zaman mevcut",
+      convenienceDesc: "Basit, hızlı ve ihtiyacınız olduğunda her zaman mevcut",
     },
     journey: {
       title: "Yolculuğumuz",
@@ -550,7 +577,7 @@ export default {
       },
       "2021": {
         title: "İlk 50 İstasyon",
-        description: "Büyük metropolitan alanlarda pilot programımızı başlattık",
+        description: "Büyük metropolitan alanlarda pilot programım��zı başlattık",
       },
       "2022": {
         title: "100K Kullanıcı",
