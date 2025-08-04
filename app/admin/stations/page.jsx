@@ -16,16 +16,16 @@ const AdminStations = () => {
   const [commandType, setCommandType] = useState("RESET");
 
   // Redirect if not admin
-  useEffect(() => {
-    // if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
-    //   router.push("/");
-    // }
-  }, [user, loading, router]);
+  // useEffect(() => {
+  //   if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
+  //     router.push("/");
+  //   }
+  // }, [user, loading, router]);
 
   useEffect(() => {
-    if (user?.profile?.data?.user?.role === "admin") {
+    // if (user?.profile?.data?.user?.role === "admin") {
       fetchStations();
-    }
+    // }
   }, [user, searchQuery, statusFilter]);
 
   const fetchStations = async () => {
@@ -124,21 +124,21 @@ const AdminStations = () => {
     }
   };
 
-  if (loading || !user || user.profile?.data?.user?.role !== "admin") {
-    return (
-      <div
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#f8fafc",
-        }}
-      >
-        <div>Loading...</div>
-      </div>
-    );
-  }
+  // if (loading || !user || user.profile?.data?.user?.role !== "admin") {
+  //   return (
+  //     <div
+  //       style={{
+  //         minHeight: "100vh",
+  //         display: "flex",
+  //         alignItems: "center",
+  //         justifyContent: "center",
+  //         background: "#f8fafc",
+  //       }}
+  //     >
+  //       <div>Loading...</div>
+  //     </div>
+  //   );
+  // }
 
   const filteredStations = stations.filter((station) => {
     const matchesSearch =
@@ -349,7 +349,7 @@ const AdminStations = () => {
             gap: "1.5rem",
           }}
         >
-          {isLoading ? (
+          {/* {isLoading ? (
             <div
               style={{
                 gridColumn: "1 / -1",
@@ -360,7 +360,7 @@ const AdminStations = () => {
             >
               Loading stations...
             </div>
-          ) : (
+          ) : ( */}
             filteredStations.map((station) => (
               <div
                 key={station.id}
@@ -587,7 +587,7 @@ const AdminStations = () => {
                 </div>
               </div>
             ))
-          )}
+          {/* )} */}
         </div>
 
         {filteredStations.length === 0 && !isLoading && (

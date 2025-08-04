@@ -11,15 +11,15 @@ const AdminSettings = () => {
   const { t } = useTranslation();
   const router = useRouter();
 
-  useEffect(() => {
-    // if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
-    //   router.push("/");
-    // }
-  }, [user, loading, router]);
+  // useEffect(() => {
+  //   if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
+  //     router.push("/");
+  //   }
+  // }, [user, loading, router]);
 
-  if (loading || !user || user.profile?.data?.user?.role !== "admin") {
-    return <div>{t("common.loading")}</div>;
-  }
+  // if (loading || !user || user.profile?.data?.user?.role !== "admin") {
+  //   return <div>{t("common.loading")}</div>;
+  // }
 
   return (
     <div

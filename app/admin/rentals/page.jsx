@@ -9,15 +9,15 @@ const AdminRentals = () => {
   const { user, loading } = useContext(AuthContext);
   const router = useRouter();
 
-  useEffect(() => {
-    // if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
-    //   router.push("/");
-    // }
-  }, [user, loading, router]);
+  // useEffect(() => {
+  //   if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
+  //     router.push("/");
+  //   }
+  // }, [user, loading, router]);
 
-  if (loading || !user || user.profile?.data?.user?.role !== "admin") {
-    return <div>Loading...</div>;
-  }
+  // if (loading || !user || user.profile?.data?.user?.role !== "admin") {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div

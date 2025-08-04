@@ -19,16 +19,16 @@ const AdminReports = () => {
   });
 
   // Redirect if not admin
-  useEffect(() => {
-    // if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
-    //   router.push("/");
-    // }
-  }, [user, loading, router]);
+  // useEffect(() => {
+  //   if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
+  //     router.push("/");
+  //   }
+  // }, [user, loading, router]);
 
   useEffect(() => {
-    if (user?.profile?.data?.user?.role === "admin") {
+    // if (user?.profile?.data?.user?.role === "admin") {
       fetchReports();
-    }
+    // }
   }, [user, dateRange]);
 
   const fetchReports = async () => {
@@ -70,7 +70,7 @@ const AdminReports = () => {
     }
   };
 
-  if (loading || !user || user.profile?.data?.user?.role !== "admin") {
+  // if (loading || !user || user.profile?.data?.user?.role !== "admin") {
     return (
       <div
         style={{
@@ -84,7 +84,7 @@ const AdminReports = () => {
         <div>Loading...</div>
       </div>
     );
-  }
+  // }
 
   return (
     <div
@@ -214,7 +214,7 @@ const AdminReports = () => {
           </button>
         </div>
 
-        {isLoading ? (
+        {/* {isLoading ? (
           <div
             style={{
               padding: "3rem",
@@ -225,7 +225,7 @@ const AdminReports = () => {
             Loading reports...
           </div>
         ) : (
-          <>
+          <> */}
             {/* Revenue Report */}
             {revenueData && (
               <div
@@ -676,8 +676,8 @@ const AdminReports = () => {
                 </div>
               </div>
             )}
-          </>
-        )}
+          {/*</>
+        )}*/}
       </div>
     </div>
   );

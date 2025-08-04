@@ -16,16 +16,16 @@ const AdminUsers = () => {
   const [totalPages, setTotalPages] = useState(1);
 
   // Redirect if not admin
-  useEffect(() => {
-    // if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
-    //   router.push("/");
-    // }
-  }, [user, loading, router]);
+  // useEffect(() => {
+  //   if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
+  //     router.push("/");
+  //   }
+  // }, [user, loading, router]);
 
   useEffect(() => {
-    if (user?.profile?.data?.user?.role === "admin") {
+    // if (user?.profile?.data?.user?.role === "admin") {
       fetchUsers();
-    }
+    // }
   }, [user, currentPage, searchQuery, statusFilter]);
 
   const fetchUsers = async () => {
@@ -93,21 +93,21 @@ const AdminUsers = () => {
     }
   };
 
-  if (loading || !user || user.profile?.data?.user?.role !== "admin") {
-    return (
-      <div
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#f8fafc",
-        }}
-      >
-        <div>Loading...</div>
-      </div>
-    );
-  }
+  // if (loading || !user || user.profile?.data?.user?.role !== "admin") {
+    // return (
+    //   <div
+    //     style={{
+    //       minHeight: "100vh",
+    //       display: "flex",
+    //       alignItems: "center",
+    //       justifyContent: "center",
+    //       background: "#f8fafc",
+    //     }}
+    //   >
+    //     <div>Loading...</div>
+    //   </div>
+    // );
+  // }
 
   const filteredUsers = users.filter((user) => {
     const matchesSearch =

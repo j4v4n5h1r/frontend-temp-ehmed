@@ -19,16 +19,16 @@ const AdminDashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   // Redirect if not admin
-  useEffect(() => {
-    // if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
-    //   router.push("/");
-    // }
-  }, [user, loading, router]);
+  // useEffect(() => {
+  //   if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
+  //     router.push("/");
+  //   }
+  // }, [user, loading, router]);
 
   useEffect(() => {
-    if (user?.profile?.data?.user?.role === "admin") {
+    // if (user?.profile?.data?.user?.role === "admin") {
       fetchDashboardStats();
-    }
+    // }
   }, [user]);
 
   const fetchDashboardStats = async () => {
@@ -50,7 +50,7 @@ const AdminDashboard = () => {
     }
   };
 
-  if (loading || isLoading) {
+  // if (loading || isLoading) {
     return (
       <div
         style={{
@@ -77,11 +77,11 @@ const AdminDashboard = () => {
         </div>
       </div>
     );
-  }
+  // }
 
-  if (!user || user.profile?.data?.user?.role !== "admin") {
-    return null;
-  }
+  // if (!user || user.profile?.data?.user?.role !== "admin") {
+  //   return null;
+  // }
 
   const adminSections = [
     {

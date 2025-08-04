@@ -14,16 +14,16 @@ const AdminPowerBanks = () => {
   const [stationFilter, setStationFilter] = useState("all");
 
   // Redirect if not admin
-  useEffect(() => {
-    // if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
-    //   router.push("/");
-    // }
-  }, [user, loading, router]);
+  // useEffect(() => {
+  //   if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
+  //     router.push("/");
+  //   }
+  // }, [user, loading, router]);
 
   useEffect(() => {
-    if (user?.profile?.data?.user?.role === "admin") {
+    // if (user?.profile?.data?.user?.role === "admin") {
       fetchPowerBanks();
-    }
+    // }
   }, [user, statusFilter, stationFilter]);
 
   const fetchPowerBanks = async () => {
@@ -50,21 +50,21 @@ const AdminPowerBanks = () => {
     }
   };
 
-  if (loading || !user || user.profile?.data?.user?.role !== "admin") {
-    return (
-      <div
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#f8fafc",
-        }}
-      >
-        <div>Loading...</div>
-      </div>
-    );
-  }
+  // if (loading || !user || user.profile?.data?.user?.role !== "admin") {
+  //   return (
+  //     <div
+  //       style={{
+  //         minHeight: "100vh",
+  //         display: "flex",
+  //         alignItems: "center",
+  //         justifyContent: "center",
+  //         background: "#f8fafc",
+  //       }}
+  //     >
+  //       <div>Loading...</div>
+  //     </div>
+  //   );
+  // }
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -258,7 +258,7 @@ const AdminPowerBanks = () => {
             gap: "1.5rem",
           }}
         >
-          {isLoading ? (
+          {/* {isLoading ? (
             <div
               style={{
                 gridColumn: "1 / -1",
@@ -269,7 +269,7 @@ const AdminPowerBanks = () => {
             >
               Loading power banks...
             </div>
-          ) : (
+          ) : ( */}
             powerBanks.map((powerBank) => {
               const statusColors = getStatusColor(powerBank.status);
               const healthColor = getHealthColor(powerBank.health);
@@ -536,7 +536,7 @@ const AdminPowerBanks = () => {
                 </div>
               );
             })
-          )}
+          {/*)}*/}
         </div>
 
         {powerBanks.length === 0 && !isLoading && (
