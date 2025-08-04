@@ -530,7 +530,7 @@ const PaymentsPage = () => {
                           e.target.style.borderColor = "#e5e7eb";
                           e.target.style.color = "#6b7280";
                         }}
-                        title="View Details"
+                        title={t("payments.viewDetails")}
                       >
                         <svg
                           style={{ width: "1rem", height: "1rem" }}
