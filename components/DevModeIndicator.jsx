@@ -8,11 +8,10 @@ export default function DevModeIndicator() {
   const [showIndicator, setShowIndicator] = useState(false);
 
   useEffect(() => {
-    // Show indicator if we're in development mode and using mock API
-    const isDev = process.env.NODE_ENV === 'development';
+    // Show indicator only if mock parameter is explicitly set
     const hasMockParam = typeof window !== 'undefined' && window.location.search.includes('mock=true');
-    
-    if (isDev || hasMockParam) {
+
+    if (hasMockParam) {
       setShowIndicator(true);
     }
   }, []);
