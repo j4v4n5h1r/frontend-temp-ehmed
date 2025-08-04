@@ -120,7 +120,7 @@ export default {
         name: "Emma Davis",
         role: "Biznes Mütəxəssisi",
         content:
-          "Etibarlılıq mükəmməldir. Konfrans və uzun görüşlər zamanı Pobi istifadə edirəm. Heç vaxt mövcud powerbank tapmaqla bağlı problem yaşamadım.",
+          "Etibarl��lıq mükəmməldir. Konfrans və uzun görüşlər zamanı Pobi istifadə edirəm. Heç vaxt mövcud powerbank tapmaqla bağlı problem yaşamadım.",
       },
     },
     footer: {
@@ -160,7 +160,7 @@ export default {
     confirmPassword: "Şifrəni Təsdiq Et",
     passwordMustBe6: "Minimum 6 simvol olmalı",
     passwordsDoNotMatch: "Şifrələr uyğun gəlmir",
-    passwordTooShort: "Şifrə minimum 6 simvol olmalı",
+    passwordTooShort: "Şifr�� minimum 6 simvol olmalı",
     registrationFailed: "Qeydiyyat uğursuz",
     termsAndConditions: "Xidmət Şərtləri",
     privacyPolicy: "Məxfilik Siyasəti",
@@ -226,7 +226,7 @@ export default {
     searchRentals: "İcarələri axtar...",
     allStatus: "Bütün Statuslar",
     active: "Aktiv",
-    cancelled: "Ləğv Edilib",
+    cancelled: "L��ğv Edilib",
     loadingYourRentals: "İcarələriniz yüklənir...",
     unableToLoadRentals: "İcarələr Yüklənə Bilmədi",
     authTokenMissing: "Kimlik doğrulama tokeni yoxdur. Xahiş edirik yenidən daxil olun.",
@@ -259,7 +259,7 @@ export default {
     weekly: "Həftəlik Tarif",
     monthly: "Aylıq Tarif",
     currency: "₼",
-    per: "h��r",
+    per: "hər",
   },
 
   // Profile
@@ -317,9 +317,13 @@ export default {
   errors: {
     generic: "Nəsə səhv getdi. Xahiş edirik yenidən cəhd edin.",
     network: "Şəbəkə xətası. Xahiş edirik bağlantınızı yoxlayın.",
+    networkTimeout: "Şəbəkə xətası: Serverə bağlana bilmir. Xahiş edirik internet bağlantınızı yoxlayın və yenidən cəhd edin.",
+    serverUnavailable: "Server hazırda əlçatan deyil. Xahiş edirik sonra yenidən cəhd edin.",
     notFound: "Səhifə tapılmadı",
     unauthorized: "Bu səhifəyə daxil olmaq üçün icazəniz yoxdur",
     sessionExpired: "Seansınızın vaxtı bitib. Xahiş edirik yenidən daxil olun.",
+    loginFailed: "Giriş uğursuz. Xahiş edirik kimlik məlumatlarınızı yoxlayın.",
+    registrationFailed: "Qeydiyyat uğursuz. Xahiş edirik yenidən cəhd edin.",
   },
 
   // Success Messages
@@ -357,7 +361,7 @@ export default {
       title: "Böyüyən Şəbəkəmiz",
       readyTitle: "Başlamağa Hazırsınız?",
       readyDesc:
-        "Batareya həyatı üçün narahat olmayan minlərlə istifadəçiyə qoşulun. Yaxınınızda stansiya tapın və Pobi rahatlığını yaşayın.",
+        "Batareya həyatı üçün narahat olmayan minlərlə istifadəçiyə qoşulun. Yaxınınızda stansiya tapın və Pobi rahatlığını yaşay��n.",
       findStationNow: "İndi Stansiya Tap",
       createAccount: "Hesab Yarat",
     },
@@ -447,7 +451,7 @@ export default {
     },
     cta: {
       title: "Heç Vaxt Enerjiniz Bitməsin?",
-      description: "Pobi-ni gündəlik rutinlərinin bir hissəsi edən minlərlə istifadəçiyə qoşulun. Bu gün başlayın və rahatlığı yaşayın.",
+      description: "Pobi-ni günd��lik rutinlərinin bir hissəsi edən minlərlə istifadəçiyə qoşulun. Bu gün başlayın və rahatlığı yaşayın.",
     },
   },
 
@@ -469,7 +473,7 @@ export default {
     mission: {
       title: "Missiyamız",
       content:
-        "İnsanları ən vacib şeylərə bağlı saxlayan rahat, əlçatan enerji həlləri təmin etmək.",
+        "İnsanları ən vacib şeyl��rə bağlı saxlayan rahat, əlçatan enerji həlləri təmin etmək.",
     },
     values: {
       title: "Dəyərlərimiz",
@@ -574,7 +578,7 @@ export default {
         price: "25₼",
         period: "həftədə",
         description: "Uzun qalmaq və biznes səyahətləri",
-        feature1: "Bütün g��nlük xüsusiyyətlər",
+        feature1: "Bütün günlük xüsusiyyətlər",
         feature2: "7 günə qədər istifadə",
         feature3: "Xüsusi hesab meneceri",
         feature4: "Toplu icarə endirimlər",
@@ -596,7 +600,7 @@ export default {
       },
       secure: {
         title: "Təhlükəsiz və Etibarlı",
-        description: "Ödənişlər və şəxsi məlumatlar üçün bank səviyyəsində təhlükəsizlik",
+        description: "��dənişlər və şəxsi məlumatlar üçün bank səviyyəsində təhlükəsizlik",
       },
     },
     faq: {
