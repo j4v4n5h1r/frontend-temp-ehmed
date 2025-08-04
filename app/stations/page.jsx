@@ -1,12 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Link from "next/link";
 import Map from "../../components/Map";
 import { useTranslation } from "../../context/TranslationContext";
-
-const BASE_URL = "http://164.90.238.202:8000";
+import { apiCall } from "../../utils/api";
 
 const StationsPage = () => {
   const { t } = useTranslation();
