@@ -297,7 +297,11 @@ export default {
     noPaymentsYet: "You haven't made any payments yet",
     startFirstRental: "Start Your First Rental",
     paymentMethods: "Payment Methods",
-    rental: "Rental"
+    rental: "Rental",
+    completed: "Completed",
+    pending: "Pending",
+    failed: "Failed",
+    refunded: "Refunded"
   },
 
   // Admin
