@@ -40,33 +40,18 @@ export default function AuthProvider({ children }) {
 
   const login = async (email, password) => {
     try {
-      const res = await fetch(url+'/api/v1/auth/login', {
+      const data = await apiCall('/api/v1/auth/login', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
 
-      if (!res.ok) {
-        const errorData = await res.json().catch(() => null);
-        throw new Error(errorData?.message || errorData?.detail || 'Login failed');
-      }
-
-      const data = await res.json();
       const token = data.accessToken;
       cookie.set('token', token, { expires: 1 });
 
       // fetch profile
       try {
-        const profileRes = await fetch(url+'/api/v1/users/me', {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        if (profileRes.ok) {
-          const profile = await profileRes.json();
-          setUser({ token, profile });
-        } else {
-          // Even if profile fetch fails, user is still logged in
-          setUser({ token, profile: null });
-        }
+        const profile = await apiCallWithAuth('/api/v1/users/me', token);
+        setUser({ token, profile });
       } catch (profileError) {
         console.error('Profile fetch failed:', profileError);
         // Still set user with token even if profile fails
@@ -74,10 +59,6 @@ export default function AuthProvider({ children }) {
       }
     } catch (error) {
       console.error('Login error:', error);
-      // Check if it's a network error
-      if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
-        throw new Error('Network error: Unable to connect to server. Please check your internet connection.');
-      }
       throw error;
     }
   };
