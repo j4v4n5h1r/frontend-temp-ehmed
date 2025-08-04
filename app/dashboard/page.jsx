@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import cookie from "js-cookie";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "../../context/TranslationContext";
 
 export default function DashboardPage() {
+  const { t } = useTranslation();
   const [rentals, setRentals] = useState([]);
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,7 +39,7 @@ export default function DashboardPage() {
         setRentals(rentalRes.data);
         setPayments(paymentRes.data.payments || []);
       } catch (err) {
-        setError(err.response?.data?.detail || "Failed to load data");
+        setError(err.response?.data?.detail || t("errors.generic"));
       } finally {
         setLoading(false);
       }
@@ -48,9 +50,9 @@ export default function DashboardPage() {
 
   const getStatusBadge = (rental) => {
     if (rental.end_time) {
-      return <span className="badge-success">Completed</span>;
+      return <span className="badge-success">{t("rentals.completed")}</span>;
     }
-    return <span className="badge-warning">Active</span>;
+    return <span className="badge-warning">{t("rentals.active")}</span>;
   };
 
   const formatCurrency = (amount) => {
@@ -77,7 +79,7 @@ export default function DashboardPage() {
           <div className="flex items-center justify-center min-h-[60vh]">
             <div className="text-center">
               <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin mx-auto mb-4"></div>
-              <p className="text-neutral-600 text-lg">Loading your data...</p>
+              <p className="text-neutral-600 text-lg">{t("common.loading")}</p>
             </div>
           </div>
         </div>
@@ -106,7 +108,7 @@ export default function DashboardPage() {
                   />
                 </svg>
                 <div>
-                  <h3 className="font-semibold">Error</h3>
+                  <h3 className="font-semibold">{t("errors.generic")}</h3>
                   <p className="text-sm">{error}</p>
                 </div>
               </div>
@@ -123,10 +125,10 @@ export default function DashboardPage() {
         {/* Header */}
         <div className="mb-8 animate-fade-in">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 mb-2 tracking-tight">
-            Dashboard
+            {t("nav.dashboard")}
           </h1>
           <p className="text-neutral-600 text-base sm:text-lg leading-relaxed">
-            View your rental history and payments
+            {t("dashboard.subtitle")}
           </p>
         </div>
 
@@ -152,7 +154,7 @@ export default function DashboardPage() {
               {rentals.length}
             </div>
             <div className="text-neutral-600 text-sm sm:text-base">
-              Total Rentals
+              {t("rentals.totalRentals")}
             </div>
           </div>
 
@@ -176,7 +178,7 @@ export default function DashboardPage() {
               {payments.length}
             </div>
             <div className="text-neutral-600 text-sm sm:text-base">
-              Total Payments
+              {t("payments.title")}
             </div>
           </div>
 
@@ -200,7 +202,7 @@ export default function DashboardPage() {
               {rentals.filter((rental) => !rental.end_time).length}
             </div>
             <div className="text-neutral-600 text-sm sm:text-base">
-              Active Rentals
+              {t("rentals.activeRentals")}
             </div>
           </div>
         </div>
@@ -210,7 +212,7 @@ export default function DashboardPage() {
           <section className="animate-slide-up">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl sm:text-2xl font-bold text-neutral-900">
-                Rental History
+                {t("rentals.history")}
               </h2>
               <div className="flex items-center text-primary-600">
                 <svg
@@ -227,7 +229,7 @@ export default function DashboardPage() {
                   />
                 </svg>
                 <span className="text-sm font-medium">
-                  {rentals.length} Rentals
+                  {rentals.length} {t("rentals.title")}
                 </span>
               </div>
             </div>
@@ -250,16 +252,16 @@ export default function DashboardPage() {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-                  No rentals yet
+                  {t("rentals.noRentalsFound")}
                 </h3>
                 <p className="text-neutral-600 mb-6">
-                  Start your first power bank rental
+                  {t("rentals.startFirstRental")}
                 </p>
                 <button
                   onClick={() => router.push("/rental")}
                   className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-primary-600 hover:to-primary-700 transition-all duration-200 hover:-translate-y-0.5"
                 >
-                  Rent Now
+                  {t("common.getStarted")}
                 </button>
               </div>
             ) : (
@@ -308,7 +310,7 @@ export default function DashboardPage() {
 
                     {rental.end_time && (
                       <div className="text-xs sm:text-sm text-neutral-600 pl-13">
-                        <strong>Ended:</strong> {formatDate(rental.end_time)}
+                        <strong>{t("rentals.ended")}:</strong> {formatDate(rental.end_time)}
                       </div>
                     )}
                   </div>
@@ -324,7 +326,7 @@ export default function DashboardPage() {
           >
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl sm:text-2xl font-bold text-neutral-900">
-                Payment History
+                {t("payments.history")}
               </h2>
               <div className="flex items-center text-blue-600">
                 <svg
@@ -341,7 +343,7 @@ export default function DashboardPage() {
                   />
                 </svg>
                 <span className="text-sm font-medium">
-                  {payments.length} Payments
+                  {payments.length} {t("payments.title")}
                 </span>
               </div>
             </div>
@@ -364,10 +366,10 @@ export default function DashboardPage() {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-                  No payments yet
+                  {t("payments.noPaymentsYet")}
                 </h3>
                 <p className="text-neutral-600">
-                  Your payments will appear here
+                  {t("payments.viewAndManageTransactions")}
                 </p>
               </div>
             ) : (
@@ -404,7 +406,7 @@ export default function DashboardPage() {
                         </div>
                       </div>
                       <span className="badge-success ml-2 flex-shrink-0">
-                        Success
+                        {t("payments.completed")}
                       </span>
                     </div>
                   </div>
