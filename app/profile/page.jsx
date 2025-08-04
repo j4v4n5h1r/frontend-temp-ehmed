@@ -416,7 +416,7 @@ const ProfilePage = () => {
                         marginBottom: "0.5rem",
                       }}
                     >
-                      First Name
+                      {t("profile.firstName")}
                     </label>
                     <input
                       type="text"
@@ -447,7 +447,7 @@ const ProfilePage = () => {
                         marginBottom: "0.5rem",
                       }}
                     >
-                      Last Name
+                      {t("profile.lastName")}
                     </label>
                     <input
                       type="text"
@@ -478,7 +478,7 @@ const ProfilePage = () => {
                         marginBottom: "0.5rem",
                       }}
                     >
-                      Email Address
+                      {t("auth.email")}
                     </label>
                     <input
                       type="email"
@@ -509,7 +509,7 @@ const ProfilePage = () => {
                         marginBottom: "0.5rem",
                       }}
                     >
-                      Phone Number
+                      {t("profile.phone")}
                     </label>
                     <input
                       type="tel"
