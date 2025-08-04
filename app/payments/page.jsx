@@ -600,8 +600,8 @@ const PaymentsPage = () => {
                   }}
                 >
                   {searchTerm || filter !== "all"
-                    ? "Try adjusting your search or filter"
-                    : "You haven't made any payments yet"}
+                    ? t("payments.tryAdjustingSearchOrFilter")
+                    : t("payments.noPaymentsYet")}
                 </p>
                 <Link
                   href="/rental"
