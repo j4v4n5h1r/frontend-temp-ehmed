@@ -297,7 +297,11 @@ export default {
     noPaymentsYet: "Henüz hiç ödeme yapmadınız",
     startFirstRental: "İlk Kiralama İşleminizi Başlatın",
     paymentMethods: "Ödeme Yöntemleri",
-    rental: "Kiralama"
+    rental: "Kiralama",
+    completed: "Tamamlandı",
+    pending: "Beklemede",
+    failed: "Başarısız",
+    refunded: "İade Edildi"
   },
 
   // Admin
@@ -622,7 +626,7 @@ export default {
       a3: "Evet! Uygulamamız üzerinden istediğiniz zaman saatlikten günlük veya haftalığa yükseltebilirsiniz. Sadece farkı ödersiniz.",
       q4: "İş veya toplu indirimler sunuyor musunuz?",
       a4: "Evet, işletmeler ve organizasyonlar için özel fiyatlandırma sunuyoruz. Kullanım ihtiyaçlarınıza göre özel fiyatlandırma için satış ekibimizle iletişime geçin.",
-      q5: "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
+      q5: "Hangi ��deme yöntemlerini kabul ediyorsunuz?",
       a5: "Tüm büyük kredi kartlarını, PayPal, Apple Pay, Google Pay ve çoğu mobil ödeme platformunu kabul ediyoruz.",
       q6: "Tam kiralama süresini kullanmazsam geri ödeme alabilir miyim?",
       a6: "Maalesef kiralamalar başladıktan sonra iade edilemez. Ancak powerbank'ı erken iade edebilirsiniz ceza olmadan.",
