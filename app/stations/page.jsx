@@ -1,12 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Link from "next/link";
 import Map from "../../components/Map";
 import { useTranslation } from "../../context/TranslationContext";
-
-const BASE_URL = "http://164.90.238.202:8000";
+import { apiCall } from "../../utils/api";
 
 const StationsPage = () => {
   const { t } = useTranslation();
@@ -24,83 +22,22 @@ const StationsPage = () => {
       setLoading(true);
       setError(null);
 
-      // Debug: Check if BASE_URL is set
-      console.log("BASE_URL:", BASE_URL);
-      console.log("Full URL:", `${BASE_URL}/api/v1/stations`);
+      console.log("Fetching stations from API...");
 
-      // If BASE_URL is not set, use mock data for development
-      if (!BASE_URL) {
-        console.warn("BASE_URL not set, using mock data");
-        // Use mock data for development
-        const mockStations = [
-          {
-            id: "STATION001",
-            name: "Central Station",
-            location: "Downtown Mall, Level 1",
-            status: "ACTIVE",
-            availablePowerbanks: 8,
-            totalPowerbanks: 12,
-          },
-          {
-            id: "STATION002",
-            name: "Airport Terminal",
-            location: "International Airport, Gate A",
-            status: "ACTIVE",
-            availablePowerbanks: 5,
-            totalPowerbanks: 10,
-          },
-          {
-            id: "STATION003",
-            name: "University Campus",
-            location: "Student Center, Main Floor",
-            status: "MAINTENANCE",
-            availablePowerbanks: 0,
-            totalPowerbanks: 8,
-          },
-          {
-            id: "STATION004",
-            name: "Coffee Shop",
-            location: "Main Street Café",
-            status: "OFFLINE",
-            availablePowerbanks: 0,
-            totalPowerbanks: 6,
-          },
-        ];
-        setTimeout(() => {
-          setStations(mockStations);
-          setLoading(false);
-        }, 1000);
-        return;
-      }
+      const data = await apiCall('/api/v1/stations');
+      console.log("Stations response:", data);
 
-      const response = await axios.get(`${BASE_URL}/api/v1/stations`, {
-        timeout: 10000, // 10 second timeout
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      console.log("Stations response:", response);
-      setStations(response.data || []);
+      setStations(data || []);
     } catch (err) {
       console.error("Error fetching stations:", err);
 
-      // More detailed error handling
       let errorMessage = t("stations.unableToLoadStations");
 
-      if (err.code === "ECONNABORTED") {
-        errorMessage = t("rentals.requestTimeout");
-      } else if (err.response) {
-        // Server responded with error status
-        console.error("Server error:", err.response.status, err.response.data);
-        errorMessage = `${t("rentals.serverError")}: ${err.response.status} - ${err.response.data?.message || t("rentals.unexpectedError")}`;
-      } else if (err.request) {
-        // Request was made but no response received
-        console.error("Network error:", err.request);
+      if (err.isNetworkError) {
         errorMessage = t("rentals.networkError");
+      } else if (err.status) {
+        errorMessage = `${t("rentals.serverError")}: ${err.status} - ${err.message || t("rentals.unexpectedError")}`;
       } else {
-        // Something else happened
-        console.error("Unexpected error:", err.message);
         errorMessage = `${t("rentals.unexpectedError")}: ${err.message}`;
       }
 

@@ -15,6 +15,7 @@ export default {
     logout: "Logout",
     rental: "Rental",
     admin: "Admin",
+    menu: "Menu",
   },
 
   // Common

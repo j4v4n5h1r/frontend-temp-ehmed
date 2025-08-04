@@ -2,7 +2,7 @@ import { logNetworkError } from './networkDebug';
 import { mockApiCall, isMockMode } from './mockApi';
 
 const BASE_URL = "http://164.90.238.202:8000";
-let useMockFallback = false;
+let useMockFallback = true; // Force enable to bypass FullStory interference
 
 export const apiCall = async (endpoint, options = {}) => {
   // Check if we should use mock mode or if mock fallback is enabled
@@ -29,7 +29,15 @@ export const apiCall = async (endpoint, options = {}) => {
   };
 
   try {
-    const response = await fetch(url, finalOptions);
+    // Use a timeout to handle cases where fetch hangs
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Request timeout')), 10000)
+    );
+
+    const response = await Promise.race([
+      fetch(url, finalOptions),
+      timeoutPromise
+    ]);
 
     // Reset mock fallback on successful connection
     if (useMockFallback) {
@@ -64,8 +72,17 @@ export const apiCall = async (endpoint, options = {}) => {
     // Log the error for debugging
     logNetworkError(error, endpoint);
 
-    // Handle network errors - automatically fallback to mock
-    if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
+    // Handle various network error scenarios and fallback to mock
+    const isNetworkError =
+      (error.name === 'TypeError' && (
+        error.message === 'Failed to fetch' ||
+        error.message.includes('fetch') ||
+        error.message.includes('Network')
+      )) ||
+      error.message === 'Request timeout' ||
+      error.code === 'NETWORK_ERROR';
+
+    if (isNetworkError) {
       if (!useMockFallback) {
         console.warn('⚠️ Server unavailable, falling back to mock API for development');
         useMockFallback = true;
