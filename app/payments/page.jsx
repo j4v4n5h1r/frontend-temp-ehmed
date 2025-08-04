@@ -9,6 +9,7 @@ import { useTranslation } from "../../context/TranslationContext";
 const BASE_URL = "http://164.90.238.202:8000";
 
 const PaymentsPage = () => {
+  const { t } = useTranslation();
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
