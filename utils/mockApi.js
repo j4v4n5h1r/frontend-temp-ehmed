@@ -44,8 +44,7 @@ export const mockApiResponses = {
         status: "ACTIVE",
         availablePowerbanks: 8,
         totalPowerbanks: 12,
-        latitude: 40.7589,
-        longitude: -73.9851
+        coordinates: { lat: 40.7589, lng: -73.9851 }
       },
       {
         id: "STATION002",
@@ -54,8 +53,7 @@ export const mockApiResponses = {
         status: "ACTIVE",
         availablePowerbanks: 5,
         totalPowerbanks: 10,
-        latitude: 40.6892,
-        longitude: -74.1745
+        coordinates: { lat: 40.6892, lng: -74.1745 }
       },
       {
         id: "STATION003",
@@ -64,8 +62,7 @@ export const mockApiResponses = {
         status: "MAINTENANCE",
         availablePowerbanks: 0,
         totalPowerbanks: 8,
-        latitude: 40.7505,
-        longitude: -73.9934
+        coordinates: { lat: 40.7505, lng: -73.9934 }
       },
       {
         id: "STATION004",
@@ -74,8 +71,7 @@ export const mockApiResponses = {
         status: "OFFLINE",
         availablePowerbanks: 0,
         totalPowerbanks: 6,
-        latitude: 40.7282,
-        longitude: -73.7949
+        coordinates: { lat: 40.7282, lng: -73.7949 }
       },
       {
         id: "STATION005",
@@ -84,8 +80,7 @@ export const mockApiResponses = {
         status: "ACTIVE",
         availablePowerbanks: 12,
         totalPowerbanks: 15,
-        latitude: 40.7614,
-        longitude: -73.9776
+        coordinates: { lat: 40.7614, lng: -73.9776 }
       }
     ]
   }
