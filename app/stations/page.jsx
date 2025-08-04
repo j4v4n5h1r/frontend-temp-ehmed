@@ -157,10 +157,10 @@ const StationsPage = () => {
             </svg>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 mb-4 tracking-tight">
-            Station Locations
+            {t("stations.stationLocations")}
           </h1>
           <p className="text-neutral-600 text-base sm:text-lg font-medium max-w-2xl mx-auto leading-relaxed">
-            Find nearby power bank stations and check their availability
+            {t("stations.findNearbyStations")}
           </p>
         </div>
 
