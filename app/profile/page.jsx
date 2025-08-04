@@ -654,7 +654,7 @@ const ProfilePage = () => {
                       marginBottom: "1rem",
                     }}
                   >
-                    Add New Payment Method
+                    {t("common.add")} {t("payments.methods")}
                   </h4>
                   <form onSubmit={addPaymentMethod}>
                     <div
@@ -676,7 +676,7 @@ const ProfilePage = () => {
                             marginBottom: "0.5rem",
                           }}
                         >
-                          Card Holder Name
+                          {t("auth.firstName")} {t("auth.lastName")}
                         </label>
                         <input
                           type="text"
@@ -709,7 +709,7 @@ const ProfilePage = () => {
                             marginBottom: "0.5rem",
                           }}
                         >
-                          Card Number
+                          {t("payments.methods")}
                         </label>
                         <input
                           type="text"
@@ -742,7 +742,7 @@ const ProfilePage = () => {
                             marginBottom: "0.5rem",
                           }}
                         >
-                          Expiry Date
+                          {t("payments.date")}
                         </label>
                         <input
                           type="text"
