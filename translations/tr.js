@@ -304,6 +304,12 @@ export default {
     refunded: "İade Edildi"
   },
 
+  // Dashboard
+  dashboard: {
+    title: "Kontrol Paneli",
+    subtitle: "Kiralama geçmişinizi ve ödemelerinizi görüntüleyin",
+  },
+
   // Admin
   admin: {
     title: "Admin Paneli",
