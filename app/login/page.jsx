@@ -26,7 +26,16 @@ export default function LoginPage() {
       await login(email, password);
       router.push("/dashboard");
     } catch (err) {
-      setError(err.message || t("errors.generic"));
+      console.error('Login error:', err);
+
+      // Handle specific error types
+      if (err.isNetworkError) {
+        setError(t("errors.networkTimeout"));
+      } else if (err.message.includes('Login failed')) {
+        setError(t("errors.loginFailed"));
+      } else {
+        setError(err.message || t("errors.generic"));
+      }
     } finally {
       setIsLoading(false);
     }
