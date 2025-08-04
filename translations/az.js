@@ -5,7 +5,7 @@ export default {
     dashboard: "İdarə Paneli",
     locations: "Yerlər",
     stations: "Stansiyalar",
-    pricing: "Qiym��tlər",
+    pricing: "Qiymətlər",
     howToUse: "Necə İstifadə Etmək",
     about: "Haqqında",
     myRentals: "Mənim İcarələrim",
@@ -232,6 +232,33 @@ export default {
     info3: "24 saat pulsuz istifadə haqqınız var"
   },
 
+  // Rental Active
+  rentalActive: {
+    title: "Aktiv İcarə",
+    subtitle: "Hazrırkı powerbank icarənizi izləyin",
+    failedToLoad: "Aktiv icarə yüklənmədi",
+    noActiveRental: "Aktiv İcarə Yoxdur",
+    noActiveMessage: "Hazrda aktiv powerbank icarəniz yoxdur.",
+    loading: "Aktiv icarə yüklənir...",
+    powerbankActive: "PowerBank Aktiv",
+    timeElapsed: "Keçən Vaxt",
+    batteryLevel: "Batareya Səviyyəsi",
+    currentCost: "Hal-hazırda Dəyər",
+    freeTimeLeft: "Qalan Pulsuz Vaxt",
+    rentalDetails: "İcarə Təfərruatları",
+    rateAfterFree: "Tarif (pulsuz vaxtdan sonra)",
+    batteryStatus: "Batareya Vazəiyyəti",
+    excellentBattery: "Mükəmməl batareya səviyyəsi",
+    goodBattery: "Yaxşı batareya səviyyəsi",
+    lowBattery: "Aşağı batareya - təzlik qaytarmaqı düşünün",
+    returnStations: "Qaytarılma Stansiyaları",
+    full: "Dolu",
+    returning: "Qaytarılır...",
+    returnHere: "Buraya Qaytar",
+    returnSuccess: "PowerBank uğurla qaytarıldı!",
+    returnFailed: "PowerBank qaytarıla bilmədi. Xəahiş edirik yenidən cəhd edin."
+  },
+
   // Rentals
   rentals: {
     title: "Mənim İcarələrim",
@@ -353,7 +380,7 @@ export default {
 
   // Error Messages
   errors: {
-    generic: "Nəsə s��hv getdi. Xahiş edirik yenidən cəhd edin.",
+    generic: "Nəsə səhv getdi. Xahiş edirik yenidən cəhd edin.",
     network: "Şəbəkə xətası. Xahiş edirik bağlantınızı yoxlayın.",
     networkTimeout: "Şəbəkə xətası: Serverə bağlana bilmir. Xahiş edirik internet bağlantınızı yoxlayın və yenidən cəhd edin.",
     serverUnavailable: "Server hazırda əlçatan deyil. Xahiş edirik sonra yenidən cəhd edin.",
@@ -505,7 +532,7 @@ export default {
     title: "Pobi Haqqında",
     subtitle: "Həyatınızı gücləndirir, hər şarj ilə",
     description:
-      "Batareya narahatlığını h��mişəlik aradan qald��rma missiyasındayıq",
+      "Batareya narahatlığını həmişəlik aradan qald��rma missiyasındayıq",
     story: {
       title: "Bizim Hekayəmiz",
       content:
@@ -652,7 +679,7 @@ export default {
       title: "Qiymət Sualları",
       subtitle: "Qiymətləndirmə və faktura haqqında ümumi suallar",
       q1: "Gizli haqlar varmı?",
-      a1: "Gizli haqlar yoxdur! Göstərilən qiym��tlər tam olaraq ödədiyiniz məbləğdir. Gecikmiş qaytarma haqları yalnız powerbank-ı 7 günlük maksimum icarə müddətindən artıq saxladığınız zaman tətbiq olunur.",
+      a1: "Gizli haqlar yoxdur! Göstərilən qiymətlər tam olaraq ödədiyiniz məbləğdir. Gecikmiş qaytarma haqları yalnız powerbank-ı 7 günlük maksimum icarə müddətindən artıq saxladığınız zaman tətbiq olunur.",
       q2: "Powerbank-ı gec qaytarsam nə olur?",
       a2: "Planınızın bitməsindən sonra 24 saat ərzində qaytarsanız, əlavə gün üçün ödəniş alınacaq. Ümumi 7 gündən sonra əvəzetmə haqqı tətbiq olunur.",
       q3: "İcarə zamanı planımı yeniləyə bilərəmmi?",
