@@ -768,7 +768,7 @@ const MyRentalsPage = () => {
                             </div>
                             <div>
                               <strong style={{ color: "#374151" }}>
-                                Location:
+                                {t("rentals.location")}:
                               </strong>{" "}
                               {rental.location}
                             </div>
