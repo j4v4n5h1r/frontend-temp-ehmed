@@ -210,7 +210,7 @@ const PaymentsPage = () => {
               letterSpacing: "-0.025em",
             }}
           >
-            Payment History
+            {t("payments.title")}
           </h1>
           <p
             style={{
