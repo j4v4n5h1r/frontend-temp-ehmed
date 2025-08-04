@@ -210,10 +210,10 @@ const StationsPage = () => {
             </div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-neutral-900">
-                Station Locations
+                {t("stations.stationLocations")}
               </h2>
               <p className="text-sm text-neutral-600">
-                Find the closest stations near you
+                {t("stations.findClosestStations")}
               </p>
             </div>
           </div>
