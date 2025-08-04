@@ -460,40 +460,7 @@ export default function Navbar() {
             <div className="flex items-center gap-3 lg:gap-5">
               <GlassNav />
               {user ? (
-                <>
-                  <Link
-                    href="/dashboard"
-                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-2 lg:px-3 py-1 rounded-lg transition-all duration-200 text-sm whitespace-nowrap"
-                  >
-                    {t("nav.dashboard", "Dashboard")}
-                  </Link>
-                  <Link
-                    href="/stations"
-                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-2 lg:px-3 py-1 rounded-lg transition-all duration-200 text-sm whitespace-nowrap"
-                  >
-                    {t("nav.stations", "Stations")}
-                  </Link>
-                  <Link
-                    href="/rental"
-                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-2 lg:px-3 py-1 rounded-lg transition-all duration-200 text-sm whitespace-nowrap"
-                  >
-                    {t("nav.rental", "Rental")}
-                  </Link>
-                  <Link
-                    href="/profile"
-                    className="font-semibold text-neutral-700 hover:text-black hover:bg-primary-50 px-2 lg:px-3 py-1 rounded-lg transition-all duration-200 text-sm whitespace-nowrap"
-                  >
-                    {t("nav.profile", "Profile")}
-                  </Link>
-                  {user?.profile?.data?.user?.role === "admin" && (
-                    <Link
-                      href="/admin"
-                      className="font-semibold text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-2 lg:px-3 py-1 rounded-lg transition-all duration-200 text-sm whitespace-nowrap"
-                    >
-                      Admin
-                    </Link>
-                  )}
-                </>
+                <NavigationDropdown user={user} />
               ) : (
                 <>
                   <Link
