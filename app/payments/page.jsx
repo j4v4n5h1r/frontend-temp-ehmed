@@ -590,7 +590,7 @@ const PaymentsPage = () => {
                     marginBottom: "0.5rem",
                   }}
                 >
-                  No payments found
+                  {t("payments.noPaymentsFound")}
                 </h3>
                 <p
                   style={{
