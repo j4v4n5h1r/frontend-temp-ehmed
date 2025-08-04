@@ -315,15 +315,22 @@ export default {
 
   // Error Messages
   errors: {
-    generic: "Bir şeyler yanlış gitti. L��tfen tekrar deneyin.",
+    generic: "Bir şeyler yanlış gitti. Lütfen tekrar deneyin.",
     network: "Ağ hatası. Lütfen bağlantınızı kontrol edin.",
     networkTimeout: "Ağ hatası: Sunucuya bağlanılamıyor. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     serverUnavailable: "Sunucu şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.",
     notFound: "Sayfa bulunamadı",
     unauthorized: "Bu sayfaya erişim yetkiniz yok",
     sessionExpired: "Oturumunuz sona erdi. Lütfen tekrar giriş yapın.",
-    loginFailed: "Giriş başarısız. Lütfen kimlik bilgilerinizi kontrol edin.",
+    loginFailed: "Giriş başarıs��z. Lütfen kimlik bilgilerinizi kontrol edin.",
     registrationFailed: "Kayıt başarısız. Lütfen tekrar deneyin.",
+  },
+
+  // Development
+  dev: {
+    mode: "Geliştirme Modu",
+    mockApi: "Demo API kullanılıyor - sunucu erişilemiyor olabilir",
+    serverUnavailable: "Sunucu erişilemiyor, demo veriler kullanılıyor",
   },
 
   // Success Messages
