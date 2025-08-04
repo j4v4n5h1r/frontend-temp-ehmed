@@ -317,9 +317,13 @@ export default {
   errors: {
     generic: "Something went wrong. Please try again.",
     network: "Network error. Please check your connection.",
+    networkTimeout: "Network error: Unable to connect to server. Please check your internet connection and try again.",
+    serverUnavailable: "Server is currently unavailable. Please try again later.",
     notFound: "Page not found",
     unauthorized: "You are not authorized to access this page",
     sessionExpired: "Your session has expired. Please log in again.",
+    loginFailed: "Login failed. Please check your credentials.",
+    registrationFailed: "Registration failed. Please try again.",
   },
 
   // Success Messages
