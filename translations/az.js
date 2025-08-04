@@ -160,7 +160,7 @@ export default {
     confirmPassword: "Şifrəni Təsdiq Et",
     passwordMustBe6: "Minimum 6 simvol olmalı",
     passwordsDoNotMatch: "Şifrələr uyğun gəlmir",
-    passwordTooShort: "Şifr�� minimum 6 simvol olmalı",
+    passwordTooShort: "Şifrə minimum 6 simvol olmalı",
     registrationFailed: "Qeydiyyat uğursuz",
     termsAndConditions: "Xidmət Şərtləri",
     privacyPolicy: "Məxfilik Siyasəti",
@@ -226,7 +226,7 @@ export default {
     searchRentals: "İcarələri axtar...",
     allStatus: "Bütün Statuslar",
     active: "Aktiv",
-    cancelled: "L��ğv Edilib",
+    cancelled: "Ləğv Edilib",
     loadingYourRentals: "İcarələriniz yüklənir...",
     unableToLoadRentals: "İcarələr Yüklənə Bilmədi",
     authTokenMissing: "Kimlik doğrulama tokeni yoxdur. Xahiş edirik yenidən daxil olun.",
@@ -326,6 +326,13 @@ export default {
     registrationFailed: "Qeydiyyat uğursuz. Xahiş edirik yenidən cəhd edin.",
   },
 
+  // Development
+  dev: {
+    mode: "İnkişaf Rejimi",
+    mockApi: "Demo API istifadə olunur - server əlçatan olmaya bilər",
+    serverUnavailable: "Server əlçatan deyil, demo məlumatlar istifadə olunur",
+  },
+
   // Success Messages
   success: {
     saved: "Dəyişikliklər uğurla saxlanıldı",
@@ -361,7 +368,7 @@ export default {
       title: "Böyüyən Şəbəkəmiz",
       readyTitle: "Başlamağa Hazırsınız?",
       readyDesc:
-        "Batareya həyatı üçün narahat olmayan minlərlə istifadəçiyə qoşulun. Yaxınınızda stansiya tapın və Pobi rahatlığını yaşay��n.",
+        "Batareya həyatı üçün narahat olmayan minlərlə istifadəçiyə qoşulun. Yaxınınızda stansiya tapın və Pobi rahatlığını yaşayın.",
       findStationNow: "İndi Stansiya Tap",
       createAccount: "Hesab Yarat",
     },
@@ -451,7 +458,7 @@ export default {
     },
     cta: {
       title: "Heç Vaxt Enerjiniz Bitməsin?",
-      description: "Pobi-ni günd��lik rutinlərinin bir hissəsi edən minlərlə istifadəçiyə qoşulun. Bu gün başlayın və rahatlığı yaşayın.",
+      description: "Pobi-ni gündəlik rutinlərinin bir hissəsi edən minlərlə istifadəçiyə qoşulun. Bu gün başlayın və rahatlığı yaşayın.",
     },
   },
 
@@ -473,14 +480,14 @@ export default {
     mission: {
       title: "Missiyamız",
       content:
-        "İnsanları ən vacib şeyl��rə bağlı saxlayan rahat, əlçatan enerji həlləri təmin etmək.",
+        "İnsanları ən vacib şeylərə bağlı saxlayan rahat, əlçatan enerji həlləri təmin etmək.",
     },
     values: {
       title: "Dəyərlərimiz",
       subtitle: "Etdiyimiz hər şeyə rəhbərlik edən prinsiplər",
       userCentric: {
         title: "İstifadəçi Mərkəzli",
-        description: "Verdiyimiz hər qərar istifadəçilərimizi öndə tutur. Özümüzün istifadə etmək istəyəcəyi şarj həllini qururuq.",
+        description: "Verdiyimiz hər qərar istifadəçilərimizi öndə tutur. Özümüzün istifadə etmək istəy��cəyi şarj həllini qururuq.",
       },
       reliability: "Etibarlılıq",
       reliabilityDesc: "Cihazınızı şarj etməyin işıq düyməsini açmaq qədər etibarlı olması lazım olduğuna inanırıq. Ehtiyacınız olan zaman həmişə mövcud.",
@@ -600,7 +607,7 @@ export default {
       },
       secure: {
         title: "Təhlükəsiz və Etibarlı",
-        description: "��dənişlər və şəxsi məlumatlar üçün bank səviyyəsində təhlükəsizlik",
+        description: "Ödənişlər və şəxsi məlumatlar üçün bank səviyyəsində təhlükəsizlik",
       },
     },
     faq: {
