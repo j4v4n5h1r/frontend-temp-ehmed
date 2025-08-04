@@ -120,7 +120,7 @@ export default {
         name: "Emma Davis",
         role: "Biznes Mütəxəssisi",
         content:
-          "Etibarlılıq mükəmməldir. Konfrans və uzun görüşl��r zamanı Pobi istifadə edirəm. Heç vaxt mövcud powerbank tapmaqla bağlı problem yaşamadım.",
+          "Etibarlılıq mükəmməldir. Konfrans və uzun görüşlər zamanı Pobi istifadə edirəm. Heç vaxt mövcud powerbank tapmaqla bağlı problem yaşamadım.",
       },
     },
     footer: {
@@ -185,6 +185,23 @@ export default {
     directions: "İstiqamət Al",
     rentPowerbank: "PowerBank İcarəyə Al",
     returnPowerbank: "PowerBank Qaytар",
+    stationLocations: "Stansiya Məkanları",
+    findNearbyStations: "Yaxındakı powerbank stansiyalarını tapın və mövcudluqlarını yoxlayın",
+    searchStations: "Stansiyaları ad, məkan və ya ID ilə axtarın...",
+    findClosestStations: "Sizə ən yaxın stansiyaları tapın",
+    loadingStations: "Stansiyalar yüklənir...",
+    unableToLoadStations: "Stansiyalar Yüklənə Bilmədi",
+    tryAgain: "Yenidən Cəhd Et",
+    debugAPI: "API Səhv Axtarma",
+    noStationsFound: "Stansiya tapılmadı",
+    tryAdjustingSearch: "Axtarış tərimləriniizi dəyişməyi cəhd edin",
+    noStationsAvailable: "İndi əlçatan stansiya yoxdur",
+    locationNotSpecified: "Məkan göstərilməyib",
+    rentFromStation: "Stansiyadan İcarəyə Al",
+    underMaintenance: "Baxımda",
+    stationOffline: "Stansiya Oflayn",
+    notAvailable: "Mövcud Deyil",
+    backToDashboard: "İdarə Panelinə Qayıt",
   },
 
   // Rentals
@@ -337,7 +354,7 @@ export default {
     stationTypes: {
       station: "Stansiya",
       vendingMachine: "Avtomat",
-      events: "T��dbirlər",
+      events: "Tədbirlər",
     },
     steps: {
       step1: {
@@ -456,7 +473,7 @@ export default {
       cmo: "Baş Marketinq Direktoru",
     },
     stats: {
-      title: "Rəqəmlərl�� Pobi",
+      title: "Rəqəmlərlə Pobi",
       subtitle: "Birlikdə yaratdığımız təsir",
       users: "Məmnun İstifadəçilər",
       stations: "Aktiv Stansiyalar",
