@@ -9,6 +9,7 @@ import { useTranslation } from "../../context/TranslationContext";
 export default function RegisterPage() {
   const router = useRouter();
   const { register: registerUser } = useContext(AuthContext);
+  const { t } = useTranslation();
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
