@@ -204,6 +204,34 @@ export default {
     backToDashboard: "Back to Dashboard"
   },
 
+  // Rental
+  rental: {
+    subtitle: "Scan QR code or enter station details to start rental",
+    success: "Rental Started Successfully!",
+    successMessage: "Your power bank rental has been initiated. You can track it from the dashboard.",
+    stationId: "Station ID",
+    stationPlaceholder: "E.g: STATION001",
+    stationRequired: "Station ID is required",
+    stationMinLength: "Station ID must be at least 3 characters",
+    stationHelp: "Enter the station ID found on the power bank station",
+    qrCodeData: "QR Code Data",
+    qrPlaceholder: "Paste the data obtained from QR code scanning here",
+    qrRequired: "QR code data is required",
+    qrMinLength: "QR code data must be at least 10 characters",
+    qrHelp: "Scan QR code on the power bank to get the data",
+    howToRent: "How to Rent?",
+    step1: "Scan the QR code on the station with your mobile device",
+    step2: "Paste the QR code data in the field above",
+    step3: "Enter the Station ID (written on the station)",
+    step4: "Click \"Start Rental\" button",
+    starting: "Starting rental...",
+    startButton: "Start Rental",
+    importantInfo: "Important Information",
+    info1: "Rental fee is calculated based on usage time",
+    info2: "You can return the power bank to any station",
+    info3: "You have 24 hours of free usage"
+  },
+
   // Rentals
   rentals: {
     title: "My Rentals",
