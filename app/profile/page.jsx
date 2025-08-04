@@ -157,8 +157,8 @@ const ProfilePage = () => {
   };
 
   const tabs = [
-    { id: "profile", name: "Profile Info", icon: "user" },
-    { id: "payment", name: "Payment Methods", icon: "credit-card" },
+    { id: "profile", name: t("profile.personalInfo"), icon: "user" },
+    { id: "payment", name: t("profile.paymentMethods"), icon: "credit-card" },
     { id: "security", name: "Security", icon: "shield" },
   ];
 
@@ -264,7 +264,7 @@ const ProfilePage = () => {
               letterSpacing: "-0.025em",
             }}
           >
-            Profile Settings
+            {t("profile.title")}
           </h1>
           <p
             style={{
@@ -273,7 +273,7 @@ const ProfilePage = () => {
               fontWeight: "500",
             }}
           >
-            Manage your account information and preferences
+            {t("profile.preferences")}
           </p>
         </div>
 
