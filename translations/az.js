@@ -298,6 +298,10 @@ export default {
     startFirstRental: "İlk İcarə Əməliyyatinə Başlayın",
     paymentMethods: "Ödəniş Üsulları",
     rental: "İcarə",
+    completed: "Tamamlandı",
+    pending: "Gözləyir",
+    failed: "Uğursuz",
+    refunded: "Geri qaytarıldı"
   },
 
   // Admin
@@ -471,7 +475,7 @@ export default {
     story: {
       title: "Bizim Hekayəmiz",
       content:
-        "Pobi sadə bir əsəbilikdən doğdu: ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Qurucularımız bunu biznes səyahətləri, hava limanları və yeni şəhərləri kəşf edərkən saysız dəfə yaşadılar.",
+        "Pobi sadə bir əsəbilikdən doğdu: ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Qurucularım��z bunu biznes səyahətləri, hava limanları və yeni şəhərləri kəşf edərkən saysız dəfə yaşadılar.",
       mission:
         "Həddindən artıq bağlı dünyamızda enerjiyə çıxışın lüks və ya narahatlıq mənbəyi olmaması lazım olduğunu başa düşdük. Buna görə Pobi-ni yaratdıq - heç vaxt gücsüz qalmamanızı təmin edən etibarlı, rahat powerbank stansiyaları şəbəkəsi.",
       today:
@@ -586,7 +590,7 @@ export default {
         period: "həftədə",
         description: "Uzun qalmaq və biznes səyahətləri",
         feature1: "Bütün günlük xüsusiyyətlər",
-        feature2: "7 günə qədər istifadə",
+        feature2: "7 gün�� qədər istifadə",
         feature3: "Xüsusi hesab meneceri",
         feature4: "Toplu icarə endirimlər",
         feature5: "Biznes xərc hesabatı",
