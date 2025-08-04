@@ -467,7 +467,7 @@ const MyRentalsPage = () => {
               {rentals.length}
             </h3>
             <p style={{ color: "#6b7280", fontSize: "0.875rem", margin: 0 }}>
-              Total Rentals
+              {t("rentals.totalRentals")}
             </p>
           </div>
         </div>
