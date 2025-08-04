@@ -774,7 +774,7 @@ const MyRentalsPage = () => {
                             </div>
                             <div>
                               <strong style={{ color: "#374151" }}>
-                                Duration:
+                                {t("rentals.duration")}:
                               </strong>{" "}
                               {rental.duration}
                             </div>
