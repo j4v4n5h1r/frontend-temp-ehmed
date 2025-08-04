@@ -586,7 +586,7 @@ const MyRentalsPage = () => {
               }}
             />
             <span style={{ fontSize: "1.125rem", color: "#525252" }}>
-              Loading your rentals...
+              {t("rentals.loadingYourRentals")}
             </span>
           </div>
         )}
