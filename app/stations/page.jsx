@@ -182,7 +182,7 @@ const StationsPage = () => {
             </svg>
             <input
               type="text"
-              placeholder="Search stations by name, location, or ID..."
+              placeholder={t("stations.searchStations")}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-12 pr-4 py-3 sm:py-4 text-base border-2 border-neutral-200 rounded-xl focus:border-primary-500 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200"
