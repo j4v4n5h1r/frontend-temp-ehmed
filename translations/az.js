@@ -5,7 +5,7 @@ export default {
     dashboard: "İdarə Paneli",
     locations: "Yerlər",
     stations: "Stansiyalar",
-    pricing: "Qiymətlər",
+    pricing: "Qiym��tlər",
     howToUse: "Necə İstifadə Etmək",
     about: "Haqqında",
     myRentals: "Mənim İcarələrim",
@@ -204,6 +204,34 @@ export default {
     backToDashboard: "İdarə Panelinə Qayıt",
   },
 
+  // Rental
+  rental: {
+    subtitle: "QR kodu skan edin və ya icarə başlatmaq üçün stansiya təfərruatlarını daxil edin",
+    success: "İcarə Uğurla Başladı!",
+    successMessage: "PowerBank icarəniz başladı. İdarə panelindən izləyə bilərsiniz.",
+    stationId: "Stansiya ID",
+    stationPlaceholder: "Məsələn: STATION001",
+    stationRequired: "Stansiya ID tələb olunur",
+    stationMinLength: "Stansiya ID ən az 3 simvol olmalı",
+    stationHelp: "PowerBank stansiyaasında olan stansiya ID'sini daxil edin",
+    qrCodeData: "QR Kod Məlumatı",
+    qrPlaceholder: "QR kod skan etmədən əldə edilən məlumatı buraya yapışdırın",
+    qrRequired: "QR kod məlumatı tələb olunur",
+    qrMinLength: "QR kod məlumatı ən az 10 simvol olmalı",
+    qrHelp: "PowerBank'ın QR kodunu skan edin",
+    howToRent: "Necə İcarəyə Alaq?",
+    step1: "Mobil cihazınızla stansiyadakı QR kodu skan edin",
+    step2: "QR kod məlumatını yuxarıdakı sahiyə yapışdırın",
+    step3: "Stansiya ID'sini daxil edin (stansiyanın üstündə yazılı)",
+    step4: "\"\u0130carə Başlat\" düyməsinə klikləyin",
+    starting: "İcarə başlayır...",
+    startButton: "İcarə Başlat",
+    importantInfo: "Vacib Məlumatlar",
+    info1: "İcarə haqqy istifadə vaxtına görə hesablanır",
+    info2: "PowerBank'ı istənilən stansiyaya qaytara bilərsiniz",
+    info3: "24 saat pulsuz istifadə haqqınız var"
+  },
+
   // Rentals
   rentals: {
     title: "Mənim İcarələrim",
@@ -325,7 +353,7 @@ export default {
 
   // Error Messages
   errors: {
-    generic: "Nəsə səhv getdi. Xahiş edirik yenidən cəhd edin.",
+    generic: "Nəsə s��hv getdi. Xahiş edirik yenidən cəhd edin.",
     network: "Şəbəkə xətası. Xahiş edirik bağlantınızı yoxlayın.",
     networkTimeout: "Şəbəkə xətası: Serverə bağlana bilmir. Xahiş edirik internet bağlantınızı yoxlayın və yenidən cəhd edin.",
     serverUnavailable: "Server hazırda əlçatan deyil. Xahiş edirik sonra yenidən cəhd edin.",
@@ -418,7 +446,7 @@ export default {
     },
     step3: {
       title: "7 gün ərzində qaytarın, depozitonuzu geri alın — bəlkə başqasını alırsınız? 😉",
-      description: "Pobi-ni icarəyə aldığınız andan etibarən 7 gününüz var, tələsmək lazım deyil. Vaxtında qaytardı��ınızda tam depozitonuzu qaytararıq. Hər gecikdiyiniz həftə üçün depozitonuzdan $2 kəsirik, maksimum $15.",
+      description: "Pobi-ni icarəyə aldığınız andan etibarən 7 gününüz var, tələsmək lazım deyil. Vaxtında qaytardığınızda tam depozitonuzu qaytararıq. Hər gecikdiyiniz həftə üçün depozitonuzdan $2 kəsirik, maksimum $15.",
     },
     additionalInfo: "Pobi mağazaların xaricində də mövcuddur.",
     stationTypes: {
@@ -477,7 +505,7 @@ export default {
     title: "Pobi Haqqında",
     subtitle: "Həyatınızı gücləndirir, hər şarj ilə",
     description:
-      "Batareya narahatlığını həmişəlik aradan qald��rma missiyasındayıq",
+      "Batareya narahatlığını h��mişəlik aradan qald��rma missiyasındayıq",
     story: {
       title: "Bizim Hekayəmiz",
       content:
@@ -624,7 +652,7 @@ export default {
       title: "Qiymət Sualları",
       subtitle: "Qiymətləndirmə və faktura haqqında ümumi suallar",
       q1: "Gizli haqlar varmı?",
-      a1: "Gizli haqlar yoxdur! Göstərilən qiymətlər tam olaraq ödədiyiniz məbləğdir. Gecikmiş qaytarma haqları yalnız powerbank-ı 7 günlük maksimum icarə müddətindən artıq saxladığınız zaman tətbiq olunur.",
+      a1: "Gizli haqlar yoxdur! Göstərilən qiym��tlər tam olaraq ödədiyiniz məbləğdir. Gecikmiş qaytarma haqları yalnız powerbank-ı 7 günlük maksimum icarə müddətindən artıq saxladığınız zaman tətbiq olunur.",
       q2: "Powerbank-ı gec qaytarsam nə olur?",
       a2: "Planınızın bitməsindən sonra 24 saat ərzində qaytarsanız, əlavə gün üçün ödəniş alınacaq. Ümumi 7 gündən sonra əvəzetmə haqqı tətbiq olunur.",
       q3: "İcarə zamanı planımı yeniləyə bilərəmmi?",
