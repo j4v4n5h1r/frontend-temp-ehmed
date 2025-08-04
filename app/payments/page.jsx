@@ -221,7 +221,7 @@ const PaymentsPage = () => {
               margin: "0 auto",
             }}
           >
-            View and manage your payment transactions
+            {t("payments.viewAndManageTransactions")}
           </p>
         </div>
 
