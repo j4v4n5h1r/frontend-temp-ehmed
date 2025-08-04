@@ -245,7 +245,7 @@ const MyRentalsPage = () => {
               letterSpacing: "-0.025em",
             }}
           >
-            My Rentals
+            {t("rentals.title")}
           </h1>
           <p
             style={{
