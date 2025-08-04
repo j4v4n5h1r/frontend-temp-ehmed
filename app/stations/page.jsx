@@ -225,7 +225,7 @@ const StationsPage = () => {
           <div className="flex justify-center items-center p-8 sm:p-12 bg-white rounded-xl sm:rounded-2xl shadow-lg">
             <div className="w-8 h-8 border-3 border-neutral-200 border-t-primary-500 rounded-full animate-spin mr-4"></div>
             <span className="text-lg text-neutral-600">
-              Loading stations...
+              {t("stations.loadingStations")}
             </span>
           </div>
         )}
