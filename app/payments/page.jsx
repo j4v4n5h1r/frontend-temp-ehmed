@@ -406,11 +406,11 @@ const PaymentsPage = () => {
                     color: "#374151",
                   }}
                 >
-                  <div>Transaction</div>
-                  <div>Amount</div>
-                  <div>Status</div>
-                  <div>Date</div>
-                  <div>Action</div>
+                  <div>{t("payments.transaction")}</div>
+                  <div>{t("payments.amount")}</div>
+                  <div>{t("payments.status")}</div>
+                  <div>{t("payments.date")}</div>
+                  <div>{t("payments.action")}</div>
                 </div>
 
                 {/* Payment Rows */}
