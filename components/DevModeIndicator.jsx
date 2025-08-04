@@ -37,7 +37,7 @@ export default function DevModeIndicator() {
           </button>
         </div>
         <p className="text-xs mt-1 opacity-75">
-          Using mock API - server may be unavailable
+          {t("dev.mockApi")}
         </p>
       </div>
     </div>
