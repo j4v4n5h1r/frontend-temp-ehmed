@@ -73,7 +73,7 @@ const AdminDashboard = () => {
               margin: "0 auto 1rem",
             }}
           ></div>
-          <p style={{ color: "#6b7280" }}>Loading admin dashboard...</p>
+          <p style={{ color: "#6b7280" }}>{t("common.loading")}</p>
         </div>
       </div>
     );
@@ -85,11 +85,11 @@ const AdminDashboard = () => {
 
   const adminSections = [
     {
-      title: "Users Management",
-      description: "Manage user accounts, roles, and permissions",
+      title: t("admin.users"),
+      description: t("admin.usersDesc", "Manage user accounts, roles, and permissions"),
       href: "/admin/users",
       icon: "👥",
-      stats: `${stats.users.total} total, ${stats.users.new} new this week`,
+      stats: `${stats.users.total} ${t("admin.total")}, ${stats.users.new} ${t("admin.newThisWeek")}`,
       color: "#3b82f6",
     },
     {
