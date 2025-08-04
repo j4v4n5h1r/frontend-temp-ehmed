@@ -255,7 +255,7 @@ const PaymentsPage = () => {
                   marginBottom: "0.5rem",
                 }}
               >
-                Search
+                {t("rentals.search")}
               </label>
               <input
                 type="text"
