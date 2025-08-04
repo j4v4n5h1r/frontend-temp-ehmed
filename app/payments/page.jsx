@@ -305,11 +305,11 @@ const PaymentsPage = () => {
                   boxSizing: "border-box",
                 }}
               >
-                <option value="all">All Status</option>
-                <option value="completed">Completed</option>
-                <option value="pending">Pending</option>
-                <option value="failed">Failed</option>
-                <option value="refunded">Refunded</option>
+                <option value="all">{t("rentals.allStatus")}</option>
+                <option value="completed">{t("payments.completed")}</option>
+                <option value="pending">{t("payments.pending")}</option>
+                <option value="failed">{t("payments.failed")}</option>
+                <option value="refunded">{t("payments.refunded")}</option>
               </select>
             </div>
           </div>
