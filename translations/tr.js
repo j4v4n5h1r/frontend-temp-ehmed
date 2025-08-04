@@ -315,11 +315,15 @@ export default {
 
   // Error Messages
   errors: {
-    generic: "Bir şeyler yanlış gitti. Lütfen tekrar deneyin.",
+    generic: "Bir şeyler yanlış gitti. L��tfen tekrar deneyin.",
     network: "Ağ hatası. Lütfen bağlantınızı kontrol edin.",
+    networkTimeout: "Ağ hatası: Sunucuya bağlanılamıyor. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
+    serverUnavailable: "Sunucu şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.",
     notFound: "Sayfa bulunamadı",
     unauthorized: "Bu sayfaya erişim yetkiniz yok",
     sessionExpired: "Oturumunuz sona erdi. Lütfen tekrar giriş yapın.",
+    loginFailed: "Giriş başarısız. Lütfen kimlik bilgilerinizi kontrol edin.",
+    registrationFailed: "Kayıt başarısız. Lütfen tekrar deneyin.",
   },
 
   // Success Messages
@@ -383,7 +387,7 @@ export default {
 
   // How to Use Page
   howToUse: {
-    title: "Pobi Nasıl Kullanıl��r",
+    title: "Pobi Nasıl Kullanılır",
     subtitle: "Sadece birkaç basit adımda powerbank kiralayın",
     description: "Basit sürecimiz sizi dakikalar içinde enerjilendiriyor",
     findClosestLocation: "En yakın lokasyonu buradan bulun",
@@ -610,7 +614,7 @@ export default {
       q3: "Kiralama sırasında planımı yükseltebilir miyim?",
       a3: "Evet! Uygulamamız üzerinden istediğiniz zaman saatlikten günlük veya haftalığa yükseltebilirsiniz. Sadece farkı ödersiniz.",
       q4: "İş veya toplu indirimler sunuyor musunuz?",
-      a4: "Evet, işletmeler ve organizasyonlar için özel fiyatlandırma sunuyoruz. Kullanım ihtiyaçlarınıza göre özel fiyatlandırma için satış ekibimizle iletişime ge��in.",
+      a4: "Evet, işletmeler ve organizasyonlar için özel fiyatlandırma sunuyoruz. Kullanım ihtiyaçlarınıza göre özel fiyatlandırma için satış ekibimizle iletişime geçin.",
       q5: "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
       a5: "Tüm büyük kredi kartlarını, PayPal, Apple Pay, Google Pay ve çoğu mobil ödeme platformunu kabul ediyoruz.",
       q6: "Tam kiralama süresini kullanmazsam geri ödeme alabilir miyim?",
