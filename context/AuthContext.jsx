@@ -2,30 +2,23 @@
 
 import { createContext, useState, useEffect } from 'react';
 import cookie from 'js-cookie';
+import { apiCall, apiCallWithAuth } from '../utils/api';
 
 export const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const url = "http://164.90.238.202:8000";
 
   useEffect(() => {
     const fetchUser = async () => {
       const token = cookie.get('token');
       if (token) {
         try {
-          const res = await fetch(url+'/api/v1/users/me', {
-            headers: { Authorization: `Bearer ${token}` },
-          });
-          if (res.ok) {
-            const profile = await res.json();
-            setUser({ token, profile });
-          } else {
-            cookie.remove('token');
-            setUser(null);
-          }
-        } catch {
+          const profile = await apiCallWithAuth('/api/v1/users/me', token);
+          setUser({ token, profile });
+        } catch (error) {
+          console.error('Failed to fetch user profile:', error);
           cookie.remove('token');
           setUser(null);
         }
@@ -36,22 +29,27 @@ export default function AuthProvider({ children }) {
   }, []);
 
   const login = async (email, password) => {
-    const res = await fetch(url+'/api/v1/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-    });
-    if (!res.ok) throw new Error('Login failed');
-    const data = await res.json();
-    const token = data.accessToken;
-    cookie.set('token', token, { expires: 1 });
-    // fetch profile
-    const profileRes = await fetch(url+'/api/v1/users/me', {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    if (profileRes.ok) {
-      const profile = await profileRes.json();
-      setUser({ token, profile });
+    try {
+      const data = await apiCall('/api/v1/auth/login', {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+      });
+
+      const token = data.accessToken;
+      cookie.set('token', token, { expires: 1 });
+
+      // fetch profile
+      try {
+        const profile = await apiCallWithAuth('/api/v1/users/me', token);
+        setUser({ token, profile });
+      } catch (profileError) {
+        console.error('Profile fetch failed:', profileError);
+        // Still set user with token even if profile fails
+        setUser({ token, profile: null });
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      throw error;
     }
   };
 
@@ -62,29 +60,27 @@ export default function AuthProvider({ children }) {
 
   // Register a new user and login
   const register = async ({ firstName, lastName, email, password }) => {
-    const res = await fetch(
-      url+'/api/v1/auth/register',
-      {
+    try {
+      const data = await apiCall('/api/v1/auth/register', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ firstName, lastName, email, password }),
+      });
+
+      const token = data.accessToken;
+      cookie.set('token', token, { expires: 1 });
+
+      // fetch profile
+      try {
+        const profile = await apiCallWithAuth('/api/v1/users/me', token);
+        setUser({ token, profile });
+      } catch (profileError) {
+        console.error('Profile fetch failed after registration:', profileError);
+        // Still set user with token even if profile fails
+        setUser({ token, profile: null });
       }
-    );
-    if (!res.ok) {
-      const err = await res.json().catch(() => null);
-      throw new Error(err?.detail || 'Registration failed');
-    }
-    const data = await res.json();
-    const token = data.accessToken;
-    cookie.set('token', token, { expires: 1 });
-    // fetch profile
-    const profileRes = await fetch(
-      url+'/api/v1/users/me',
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
-    if (profileRes.ok) {
-      const profile = await profileRes.json();
-      setUser({ token, profile });
+    } catch (error) {
+      console.error('Registration error:', error);
+      throw error;
     }
   };
 

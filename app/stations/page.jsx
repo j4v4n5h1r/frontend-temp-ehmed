@@ -4,10 +4,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
 import Map from "../../components/Map";
+import { useTranslation } from "../../context/TranslationContext";
 
 const BASE_URL = "http://164.90.238.202:8000";
 
 const StationsPage = () => {
+  const { t } = useTranslation();
   const [stations, setStations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -84,23 +86,22 @@ const StationsPage = () => {
       console.error("Error fetching stations:", err);
 
       // More detailed error handling
-      let errorMessage = "Failed to load stations";
+      let errorMessage = t("stations.unableToLoadStations");
 
       if (err.code === "ECONNABORTED") {
-        errorMessage = "Request timeout - server is taking too long to respond";
+        errorMessage = t("rentals.requestTimeout");
       } else if (err.response) {
         // Server responded with error status
         console.error("Server error:", err.response.status, err.response.data);
-        errorMessage = `Server error: ${err.response.status} - ${err.response.data?.message || "Unknown error"}`;
+        errorMessage = `${t("rentals.serverError")}: ${err.response.status} - ${err.response.data?.message || t("rentals.unexpectedError")}`;
       } else if (err.request) {
         // Request was made but no response received
         console.error("Network error:", err.request);
-        errorMessage =
-          "Network error - please check your connection and try again";
+        errorMessage = t("rentals.networkError");
       } else {
         // Something else happened
         console.error("Unexpected error:", err.message);
-        errorMessage = `Unexpected error: ${err.message}`;
+        errorMessage = `${t("rentals.unexpectedError")}: ${err.message}`;
       }
 
       setError(errorMessage);
@@ -156,10 +157,10 @@ const StationsPage = () => {
             </svg>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 mb-4 tracking-tight">
-            Station Locations
+            {t("stations.stationLocations")}
           </h1>
           <p className="text-neutral-600 text-base sm:text-lg font-medium max-w-2xl mx-auto leading-relaxed">
-            Find nearby power bank stations and check their availability
+            {t("stations.findNearbyStations")}
           </p>
         </div>
 
@@ -181,7 +182,7 @@ const StationsPage = () => {
             </svg>
             <input
               type="text"
-              placeholder="Search stations by name, location, or ID..."
+              placeholder={t("stations.searchStations")}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-12 pr-4 py-3 sm:py-4 text-base border-2 border-neutral-200 rounded-xl focus:border-primary-500 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200"
@@ -209,10 +210,10 @@ const StationsPage = () => {
             </div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-neutral-900">
-                Station Locations
+                {t("stations.stationLocations")}
               </h2>
               <p className="text-sm text-neutral-600">
-                Find the closest stations near you
+                {t("stations.findClosestStations")}
               </p>
             </div>
           </div>
@@ -224,7 +225,7 @@ const StationsPage = () => {
           <div className="flex justify-center items-center p-8 sm:p-12 bg-white rounded-xl sm:rounded-2xl shadow-lg">
             <div className="w-8 h-8 border-3 border-neutral-200 border-t-primary-500 rounded-full animate-spin mr-4"></div>
             <span className="text-lg text-neutral-600">
-              Loading stations...
+              {t("stations.loadingStations")}
             </span>
           </div>
         )}
@@ -246,7 +247,7 @@ const StationsPage = () => {
               />
             </svg>
             <h3 className="text-lg sm:text-xl font-semibold mb-2">
-              Unable to Load Stations
+              {t("stations.unableToLoadStations")}
             </h3>
             <p className="text-sm sm:text-base mb-6 text-red-700">{error}</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -267,7 +268,7 @@ const StationsPage = () => {
                     d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
                   />
                 </svg>
-                Try Again
+                {t("stations.tryAgain")}
               </button>
               <Link
                 href="/debug"
@@ -292,7 +293,7 @@ const StationsPage = () => {
                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                Debug API
+                {t("stations.debugAPI")}
               </Link>
             </div>
           </div>
@@ -352,7 +353,7 @@ const StationsPage = () => {
                       />
                     </svg>
                     <span className="text-sm text-neutral-600 leading-tight">
-                      {station.location || "Location not specified"}
+                      {station.location || t("stations.locationNotSpecified")}
                     </span>
                   </div>
 
@@ -371,7 +372,7 @@ const StationsPage = () => {
                     </svg>
                     <span className="text-sm text-neutral-600">
                       {station.availablePowerbanks || 0} /{" "}
-                      {station.totalPowerbanks || 0} Available
+                      {station.totalPowerbanks || 0} {t("stations.available")}
                     </span>
                   </div>
 
@@ -402,12 +403,12 @@ const StationsPage = () => {
                       </svg>
                       {station.status === "ACTIVE" &&
                       (station.availablePowerbanks || 0) > 0
-                        ? "Rent from Station"
+                        ? t("stations.rentFromStation")
                         : station.status === "MAINTENANCE"
-                          ? "Under Maintenance"
+                          ? t("stations.underMaintenance")
                           : station.status === "OFFLINE"
-                            ? "Station Offline"
-                            : "Not Available"}
+                            ? t("stations.stationOffline")
+                            : t("stations.notAvailable")}
                     </button>
                   </Link>
                 </div>
@@ -433,12 +434,12 @@ const StationsPage = () => {
               />
             </svg>
             <h3 className="text-xl font-semibold text-neutral-700 mb-2">
-              No stations found
+              {t("stations.noStationsFound")}
             </h3>
             <p className="text-neutral-500 text-sm sm:text-base">
               {searchTerm
-                ? "Try adjusting your search terms"
-                : "No stations are available at this time"}
+                ? t("stations.tryAdjustingSearch")
+                : t("stations.noStationsAvailable")}
             </p>
           </div>
         )}
@@ -462,7 +463,7 @@ const StationsPage = () => {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            Back to Dashboard
+            {t("stations.backToDashboard")}
           </Link>
         </div>
       </div>

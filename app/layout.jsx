@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import AuthProvider from "../context/AuthContext";
 import { TranslationProvider } from "../context/TranslationContext";
 import Navbar from "../components/Navbar";
+import DevModeIndicator from "../components/DevModeIndicator";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         <TranslationProvider>
           <AuthProvider>
             <Navbar />
+            <DevModeIndicator />
             <main className="pt-14 sm:pt-16 lg:pt-20 min-h-screen">
               {children}
             </main>

@@ -5,11 +5,13 @@ import axios from "axios";
 import cookie from "js-cookie";
 import Link from "next/link";
 import { AuthContext } from "../../context/AuthContext";
+import { useTranslation } from "../../context/TranslationContext";
 
 const BASE_URL = "http://164.90.238.202:8000";
 
 const MyRentalsPage = () => {
   const { user } = useContext(AuthContext);
+  const { t } = useTranslation();
   const [rentals, setRentals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -104,26 +106,25 @@ const MyRentalsPage = () => {
     } catch (err) {
       console.error("Error fetching rentals:", err);
 
-      let errorMessage = "Failed to load rental history";
+      let errorMessage = t("rentals.unableToLoadRentals");
 
       if (err.message.includes("Authentication token")) {
         errorMessage = err.message;
       } else if (err.code === "ECONNABORTED") {
-        errorMessage = "Request timeout - server is taking too long to respond";
+        errorMessage = t("rentals.requestTimeout");
       } else if (err.response) {
         console.error("Server error:", err.response.status, err.response.data);
         if (err.response.status === 401) {
-          errorMessage = "Authentication failed - please log in again";
+          errorMessage = t("rentals.authFailed");
         } else {
-          errorMessage = `Server error: ${err.response.status} - ${err.response.data?.message || "Unknown error"}`;
+          errorMessage = `${t("rentals.serverError")}: ${err.response.status} - ${err.response.data?.message || t("rentals.unexpectedError")}`;
         }
       } else if (err.request) {
         console.error("Network error:", err.request);
-        errorMessage =
-          "Network error - please check your connection and try again";
+        errorMessage = t("rentals.networkError");
       } else {
         console.error("Unexpected error:", err.message);
-        errorMessage = `Unexpected error: ${err.message}`;
+        errorMessage = `${t("rentals.unexpectedError")}: ${err.message}`;
       }
 
       setError(errorMessage);
@@ -244,7 +245,7 @@ const MyRentalsPage = () => {
               letterSpacing: "-0.025em",
             }}
           >
-            My Rentals
+            {t("rentals.title")}
           </h1>
           <p
             style={{
@@ -255,7 +256,7 @@ const MyRentalsPage = () => {
               margin: "0 auto",
             }}
           >
-            Track your power bank rental history and current usage
+            {t("rentals.trackYourRentals")}
           </p>
         </div>
 
@@ -313,7 +314,7 @@ const MyRentalsPage = () => {
               {activeRentals}
             </h3>
             <p style={{ color: "#6b7280", fontSize: "0.875rem", margin: 0 }}>
-              Active Rentals
+              {t("rentals.activeRentals")}
             </p>
           </div>
 
@@ -364,7 +365,7 @@ const MyRentalsPage = () => {
               {completedRentals}
             </h3>
             <p style={{ color: "#6b7280", fontSize: "0.875rem", margin: 0 }}>
-              Completed
+              {t("rentals.completed")}
             </p>
           </div>
 
@@ -415,7 +416,7 @@ const MyRentalsPage = () => {
               {formatCurrency(totalSpent)}
             </h3>
             <p style={{ color: "#6b7280", fontSize: "0.875rem", margin: 0 }}>
-              Total Spent
+              {t("rentals.totalSpent")}
             </p>
           </div>
 
@@ -466,7 +467,7 @@ const MyRentalsPage = () => {
               {rentals.length}
             </h3>
             <p style={{ color: "#6b7280", fontSize: "0.875rem", margin: 0 }}>
-              Total Rentals
+              {t("rentals.totalRentals")}
             </p>
           </div>
         </div>
@@ -501,11 +502,11 @@ const MyRentalsPage = () => {
                   marginBottom: "0.5rem",
                 }}
               >
-                Search
+                {t("rentals.search")}
               </label>
               <input
                 type="text"
-                placeholder="Search rentals..."
+                placeholder={t("rentals.searchRentals")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 style={{
@@ -534,7 +535,7 @@ const MyRentalsPage = () => {
                   marginBottom: "0.5rem",
                 }}
               >
-                Status
+                {t("common.status")}
               </label>
               <select
                 value={filter}
@@ -551,10 +552,10 @@ const MyRentalsPage = () => {
                   boxSizing: "border-box",
                 }}
               >
-                <option value="all">All Status</option>
-                <option value="active">Active</option>
-                <option value="completed">Completed</option>
-                <option value="cancelled">Cancelled</option>
+                <option value="all">{t("rentals.allStatus")}</option>
+                <option value="active">{t("rentals.active")}</option>
+                <option value="completed">{t("rentals.completed")}</option>
+                <option value="cancelled">{t("rentals.cancelled")}</option>
               </select>
             </div>
           </div>
@@ -585,7 +586,7 @@ const MyRentalsPage = () => {
               }}
             />
             <span style={{ fontSize: "1.125rem", color: "#525252" }}>
-              Loading your rentals...
+              {t("rentals.loadingYourRentals")}
             </span>
           </div>
         )}
@@ -628,7 +629,7 @@ const MyRentalsPage = () => {
                 marginBottom: "0.5rem",
               }}
             >
-              Unable to Load Rentals
+              {t("rentals.unableToLoadRentals")}
             </h3>
             <p style={{ margin: "0 0 1.5rem 0", fontSize: "0.875rem" }}>
               {error}
@@ -663,7 +664,7 @@ const MyRentalsPage = () => {
                   d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
                 />
               </svg>
-              Try Again
+              {t("stations.tryAgain")}
             </button>
           </div>
         )}
@@ -755,38 +756,38 @@ const MyRentalsPage = () => {
                           >
                             <div>
                               <strong style={{ color: "#374151" }}>
-                                Rental ID:
+                                {t("rentals.rentalID")}:
                               </strong>{" "}
                               {rental.id}
                             </div>
                             <div>
                               <strong style={{ color: "#374151" }}>
-                                Power Bank:
+                                {t("rentals.powerBank")}:
                               </strong>{" "}
                               {rental.powerbankId}
                             </div>
                             <div>
                               <strong style={{ color: "#374151" }}>
-                                Location:
+                                {t("rentals.location")}:
                               </strong>{" "}
                               {rental.location}
                             </div>
                             <div>
                               <strong style={{ color: "#374151" }}>
-                                Duration:
+                                {t("rentals.duration")}:
                               </strong>{" "}
                               {rental.duration}
                             </div>
                             <div>
                               <strong style={{ color: "#374151" }}>
-                                Started:
+                                {t("rentals.started")}:
                               </strong>{" "}
                               {formatDate(rental.startTime)}
                             </div>
                             {rental.endTime && (
                               <div>
                                 <strong style={{ color: "#374151" }}>
-                                  Ended:
+                                  {t("rentals.ended")}:
                                 </strong>{" "}
                                 {formatDate(rental.endTime)}
                               </div>
@@ -814,7 +815,7 @@ const MyRentalsPage = () => {
                           >
                             {rental.totalAmount > 0
                               ? formatCurrency(rental.totalAmount)
-                              : "Free"}
+                              : t("rentals.free")}
                           </div>
 
                           <div
@@ -859,7 +860,7 @@ const MyRentalsPage = () => {
                                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                                   />
                                 </svg>
-                                Track
+                                {t("rentals.track")}
                               </Link>
                             )}
                             <button
@@ -893,7 +894,7 @@ const MyRentalsPage = () => {
                                   d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                                 />
                               </svg>
-                              Details
+                              {t("rentals.details")}
                             </button>
                           </div>
                         </div>
@@ -936,7 +937,7 @@ const MyRentalsPage = () => {
                     marginBottom: "0.5rem",
                   }}
                 >
-                  No rentals found
+                  {t("rentals.noRentalsFound")}
                 </h3>
                 <p
                   style={{
@@ -946,8 +947,8 @@ const MyRentalsPage = () => {
                   }}
                 >
                   {searchTerm || filter !== "all"
-                    ? "Try adjusting your search or filter"
-                    : "You haven't rented any power banks yet"}
+                    ? t("rentals.tryAdjustingSearchOrFilter")
+                    : t("rentals.haventRentedYet")}
                 </p>
                 <Link
                   href="/rental"
@@ -978,7 +979,7 @@ const MyRentalsPage = () => {
                       d="M13 10V3L4 14h7v7l9-11h-7z"
                     />
                   </svg>
-                  Start Your First Rental
+                  {t("rentals.startFirstRental")}
                 </Link>
               </div>
             )}
@@ -1030,7 +1031,7 @@ const MyRentalsPage = () => {
                 d="M13 10V3L4 14h7v7l9-11h-7z"
               />
             </svg>
-            Rent Power Bank
+            {t("rentals.rentPowerBank")}
           </Link>
 
           <Link
@@ -1078,7 +1079,7 @@ const MyRentalsPage = () => {
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
-            Find Stations
+            {t("rentals.findStations")}
           </Link>
 
           <Link
@@ -1120,7 +1121,7 @@ const MyRentalsPage = () => {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            Back to Dashboard
+            {t("stations.backToDashboard")}
           </Link>
         </div>
       </div>

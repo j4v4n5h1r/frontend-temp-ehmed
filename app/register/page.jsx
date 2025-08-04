@@ -4,10 +4,12 @@ import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "../../context/AuthContext";
+import { useTranslation } from "../../context/TranslationContext";
 
 export default function RegisterPage() {
   const router = useRouter();
   const { register: registerUser } = useContext(AuthContext);
+  const { t } = useTranslation();
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -23,12 +25,12 @@ export default function RegisterPage() {
 
     // Validation
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      setError(t("auth.passwordsDoNotMatch"));
       return;
     }
 
     if (password.length < 6) {
-      setError("Password must be at least 6 characters");
+      setError(t("auth.passwordTooShort"));
       return;
     }
 
@@ -37,7 +39,16 @@ export default function RegisterPage() {
       await registerUser({ firstName, lastName, email, password });
       router.push("/dashboard");
     } catch (err) {
-      setError(err.message || "Registration failed");
+      console.error('Registration error:', err);
+
+      // Handle specific error types
+      if (err.isNetworkError) {
+        setError(t("errors.networkTimeout"));
+      } else if (err.message.includes('Registration failed')) {
+        setError(t("errors.registrationFailed"));
+      } else {
+        setError(err.message || t("auth.registrationFailed"));
+      }
     } finally {
       setLoading(false);
     }
@@ -73,10 +84,10 @@ export default function RegisterPage() {
             </svg>
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white mb-2 tracking-tight">
-            Create Account
+            {t("auth.createAccount")}
           </h1>
           <p className="text-white/90 text-base sm:text-lg font-medium">
-            Quick and easy registration
+            {t("auth.quickEasyRegistration")}
           </p>
         </div>
 
@@ -90,12 +101,12 @@ export default function RegisterPage() {
                   htmlFor="firstName"
                   className="block text-sm font-semibold text-neutral-700 mb-2"
                 >
-                  First Name
+                  {t("auth.firstName")}
                 </label>
                 <input
                   id="firstName"
                   type="text"
-                  placeholder="Your first name"
+                  placeholder={t("auth.firstName")}
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   required
@@ -108,12 +119,12 @@ export default function RegisterPage() {
                   htmlFor="lastName"
                   className="block text-sm font-semibold text-neutral-700 mb-2"
                 >
-                  Last Name
+                  {t("auth.lastName")}
                 </label>
                 <input
                   id="lastName"
                   type="text"
-                  placeholder="Your last name"
+                  placeholder={t("auth.lastName")}
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   required
@@ -127,7 +138,7 @@ export default function RegisterPage() {
                 htmlFor="email"
                 className="block text-sm font-semibold text-neutral-700 mb-2"
               >
-                Email Address
+                {t("auth.email")}
               </label>
               <input
                 id="email"
@@ -145,7 +156,7 @@ export default function RegisterPage() {
                 htmlFor="password"
                 className="block text-sm font-semibold text-neutral-700 mb-2"
               >
-                Password
+                {t("auth.password")}
               </label>
               <input
                 id="password"
@@ -158,7 +169,7 @@ export default function RegisterPage() {
                 className="w-full px-4 py-3 text-base border-2 border-neutral-200 rounded-xl bg-white text-neutral-900 focus:border-primary-500 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200"
               />
               <p className="text-xs text-neutral-500 mt-1">
-                Must be at least 6 characters
+                {t("auth.passwordMustBe6")}
               </p>
             </div>
 
@@ -167,7 +178,7 @@ export default function RegisterPage() {
                 htmlFor="confirmPassword"
                 className="block text-sm font-semibold text-neutral-700 mb-2"
               >
-                Confirm Password
+                {t("auth.confirmPassword")}
               </label>
               <input
                 id="confirmPassword"
@@ -206,19 +217,19 @@ export default function RegisterPage() {
             )}
 
             <div className="text-xs text-neutral-600 bg-neutral-50 p-3 rounded-lg border border-neutral-200">
-              By registering, you agree to our{" "}
+              {t("auth.byRegistering")}{" "}
               <a
                 href="#"
                 className="font-semibold text-primary-600 hover:text-primary-700 hover:underline transition-colors"
               >
-                Terms of Service
+                {t("auth.termsAndConditions")}
               </a>{" "}
-              and{" "}
+              {t("auth.and")}{" "}
               <a
                 href="#"
                 className="font-semibold text-primary-600 hover:text-primary-700 hover:underline transition-colors"
               >
-                Privacy Policy
+                {t("auth.privacyPolicy")}
               </a>
               .
             </div>
@@ -235,7 +246,7 @@ export default function RegisterPage() {
               {loading ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-3" />
-                  Creating account...
+                  {t("auth.creatingAccount")}
                 </>
               ) : (
                 <>
@@ -252,7 +263,7 @@ export default function RegisterPage() {
                       d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
                     />
                   </svg>
-                  Create Account
+                  {t("auth.createAccount")}
                 </>
               )}
             </button>
@@ -262,7 +273,7 @@ export default function RegisterPage() {
           <div className="flex items-center my-6">
             <div className="flex-1 h-px bg-neutral-200"></div>
             <span className="px-4 text-sm text-neutral-500">
-              or continue with
+              {t("auth.orContinueWith")}
             </span>
             <div className="flex-1 h-px bg-neutral-200"></div>
           </div>
@@ -291,7 +302,7 @@ export default function RegisterPage() {
                   d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                 />
               </svg>
-              Sign up with Google
+              {t("auth.signUpWith")} Google
             </button>
 
             <button
@@ -301,19 +312,19 @@ export default function RegisterPage() {
               <svg className="w-5 h-5" fill="#1877f2" viewBox="0 0 24 24">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
               </svg>
-              Sign up with Facebook
+              {t("auth.signUpWith")} Facebook
             </button>
           </div>
 
           {/* Login Link */}
           <div className="text-center">
             <p className="text-neutral-600 text-sm">
-              Already have an account?{" "}
+              {t("auth.alreadyHaveAccount")}{" "}
               <Link
                 href="/login"
                 className="font-semibold text-primary-600 hover:text-primary-700 transition-colors"
               >
-                Sign in
+                {t("auth.signIn")}
               </Link>
             </p>
           </div>
@@ -338,7 +349,7 @@ export default function RegisterPage() {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            Back to home
+            {t("auth.backToHome")}
           </Link>
         </div>
       </div>

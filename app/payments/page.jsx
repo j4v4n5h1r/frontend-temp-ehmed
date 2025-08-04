@@ -4,10 +4,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import cookie from "js-cookie";
 import Link from "next/link";
+import { useTranslation } from "../../context/TranslationContext";
 
 const BASE_URL = "http://164.90.238.202:8000";
 
 const PaymentsPage = () => {
+  const { t } = useTranslation();
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -81,26 +83,25 @@ const PaymentsPage = () => {
     } catch (err) {
       console.error("Error fetching payments:", err);
 
-      let errorMessage = "Failed to load payment history";
+      let errorMessage = t("payments.failedToLoadPaymentHistory");
 
       if (err.message.includes("Authentication token")) {
         errorMessage = err.message;
       } else if (err.code === "ECONNABORTED") {
-        errorMessage = "Request timeout - server is taking too long to respond";
+        errorMessage = t("rentals.requestTimeout");
       } else if (err.response) {
         console.error("Server error:", err.response.status, err.response.data);
         if (err.response.status === 401) {
-          errorMessage = "Authentication failed - please log in again";
+          errorMessage = t("rentals.authFailed");
         } else {
-          errorMessage = `Server error: ${err.response.status} - ${err.response.data?.message || "Unknown error"}`;
+          errorMessage = `${t("rentals.serverError")}: ${err.response.status} - ${err.response.data?.message || t("rentals.unexpectedError")}`;
         }
       } else if (err.request) {
         console.error("Network error:", err.request);
-        errorMessage =
-          "Network error - please check your connection and try again";
+        errorMessage = t("rentals.networkError");
       } else {
         console.error("Unexpected error:", err.message);
-        errorMessage = `Unexpected error: ${err.message}`;
+        errorMessage = `${t("rentals.unexpectedError")}: ${err.message}`;
       }
 
       setError(errorMessage);
@@ -209,7 +210,7 @@ const PaymentsPage = () => {
               letterSpacing: "-0.025em",
             }}
           >
-            Payment History
+            {t("payments.title")}
           </h1>
           <p
             style={{
@@ -220,7 +221,7 @@ const PaymentsPage = () => {
               margin: "0 auto",
             }}
           >
-            View and manage your payment transactions
+            {t("payments.viewAndManageTransactions")}
           </p>
         </div>
 
@@ -254,11 +255,11 @@ const PaymentsPage = () => {
                   marginBottom: "0.5rem",
                 }}
               >
-                Search
+                {t("rentals.search")}
               </label>
               <input
                 type="text"
-                placeholder="Search payments..."
+                placeholder={t("payments.searchPayments")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 style={{
@@ -287,7 +288,7 @@ const PaymentsPage = () => {
                   marginBottom: "0.5rem",
                 }}
               >
-                Status
+                {t("payments.status")}
               </label>
               <select
                 value={filter}
@@ -304,11 +305,11 @@ const PaymentsPage = () => {
                   boxSizing: "border-box",
                 }}
               >
-                <option value="all">All Status</option>
-                <option value="completed">Completed</option>
-                <option value="pending">Pending</option>
-                <option value="failed">Failed</option>
-                <option value="refunded">Refunded</option>
+                <option value="all">{t("rentals.allStatus")}</option>
+                <option value="completed">{t("payments.completed")}</option>
+                <option value="pending">{t("payments.pending")}</option>
+                <option value="failed">{t("payments.failed")}</option>
+                <option value="refunded">{t("payments.refunded")}</option>
               </select>
             </div>
           </div>
@@ -339,7 +340,7 @@ const PaymentsPage = () => {
               }}
             />
             <span style={{ fontSize: "1.125rem", color: "#525252" }}>
-              Loading payments...
+              {t("payments.loadingPayments")}
             </span>
           </div>
         )}
@@ -405,11 +406,11 @@ const PaymentsPage = () => {
                     color: "#374151",
                   }}
                 >
-                  <div>Transaction</div>
-                  <div>Amount</div>
-                  <div>Status</div>
-                  <div>Date</div>
-                  <div>Action</div>
+                  <div>{t("payments.transaction")}</div>
+                  <div>{t("payments.amount")}</div>
+                  <div>{t("payments.status")}</div>
+                  <div>{t("payments.date")}</div>
+                  <div>{t("payments.action")}</div>
                 </div>
 
                 {/* Payment Rows */}
@@ -463,7 +464,7 @@ const PaymentsPage = () => {
                               margin: "0.25rem 0 0 0",
                             }}
                           >
-                            Rental: {payment.rentalId}
+                            {t("payments.rental")}: {payment.rentalId}
                           </p>
                         )}
                       </div>
@@ -529,7 +530,7 @@ const PaymentsPage = () => {
                           e.target.style.borderColor = "#e5e7eb";
                           e.target.style.color = "#6b7280";
                         }}
-                        title="View Details"
+                        title={t("payments.viewDetails")}
                       >
                         <svg
                           style={{ width: "1rem", height: "1rem" }}
@@ -589,7 +590,7 @@ const PaymentsPage = () => {
                     marginBottom: "0.5rem",
                   }}
                 >
-                  No payments found
+                  {t("payments.noPaymentsFound")}
                 </h3>
                 <p
                   style={{
@@ -599,8 +600,8 @@ const PaymentsPage = () => {
                   }}
                 >
                   {searchTerm || filter !== "all"
-                    ? "Try adjusting your search or filter"
-                    : "You haven't made any payments yet"}
+                    ? t("payments.tryAdjustingSearchOrFilter")
+                    : t("payments.noPaymentsYet")}
                 </p>
                 <Link
                   href="/rental"
@@ -631,7 +632,7 @@ const PaymentsPage = () => {
                       d="M13 10V3L4 14h7v7l9-11h-7z"
                     />
                   </svg>
-                  Start Your First Rental
+                  {t("payments.startFirstRental")}
                 </Link>
               </div>
             )}
@@ -686,7 +687,7 @@ const PaymentsPage = () => {
                 d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
               />
             </svg>
-            Payment Methods
+            {t("payments.paymentMethods")}
           </Link>
 
           <Link
@@ -728,7 +729,7 @@ const PaymentsPage = () => {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            Back to Dashboard
+            {t("stations.backToDashboard")}
           </Link>
         </div>
       </div>
