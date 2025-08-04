@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
         <TranslationProvider>
           <AuthProvider>
             <Navbar />
+            <DevModeIndicator />
             <main className="pt-14 sm:pt-16 lg:pt-20 min-h-screen">
               {children}
             </main>
