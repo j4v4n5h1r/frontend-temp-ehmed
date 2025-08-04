@@ -288,7 +288,7 @@ const PaymentsPage = () => {
                   marginBottom: "0.5rem",
                 }}
               >
-                Status
+                {t("payments.status")}
               </label>
               <select
                 value={filter}
