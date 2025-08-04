@@ -47,13 +47,16 @@ export const apiCall = async (endpoint, options = {}) => {
       return null;
     }
   } catch (error) {
+    // Log the error for debugging
+    logNetworkError(error, endpoint);
+
     // Handle network errors
     if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
       const networkError = new Error('Network error: Unable to connect to server. Please check your internet connection and try again.');
       networkError.isNetworkError = true;
       throw networkError;
     }
-    
+
     // Re-throw other errors
     throw error;
   }
