@@ -372,7 +372,7 @@ const StationsPage = () => {
                     </svg>
                     <span className="text-sm text-neutral-600">
                       {station.availablePowerbanks || 0} /{" "}
-                      {station.totalPowerbanks || 0} Available
+                      {station.totalPowerbanks || 0} {t("stations.available")}
                     </span>
                   </div>
 
