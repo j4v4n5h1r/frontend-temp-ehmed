@@ -780,7 +780,7 @@ const MyRentalsPage = () => {
                             </div>
                             <div>
                               <strong style={{ color: "#374151" }}>
-                                Started:
+                                {t("rentals.started")}:
                               </strong>{" "}
                               {formatDate(rental.startTime)}
                             </div>
