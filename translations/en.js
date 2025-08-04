@@ -304,6 +304,12 @@ export default {
     refunded: "Refunded"
   },
 
+  // Dashboard
+  dashboard: {
+    title: "Dashboard",
+    subtitle: "View your rental history and payments",
+  },
+
   // Admin
   admin: {
     title: "Admin Dashboard",
