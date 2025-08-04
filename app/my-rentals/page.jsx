@@ -506,7 +506,7 @@ const MyRentalsPage = () => {
               </label>
               <input
                 type="text"
-                placeholder="Search rentals..."
+                placeholder={t("rentals.searchRentals")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 style={{
