@@ -139,11 +139,10 @@ export default function ClientComponentUsingSearchParams() {
         }
       } else if (err.request) {
         console.error("Network error:", err.request);
-        errorMessage =
-          "Network error - please check your connection and try again";
+        errorMessage = t("rentals.networkError");
       } else {
         console.error("Unexpected error:", err.message);
-        errorMessage = `Unexpected error: ${err.message}`;
+        errorMessage = `${t("rentals.unexpectedError")}: ${err.message}`;
       }
 
       setError(errorMessage);
@@ -174,7 +173,7 @@ export default function ClientComponentUsingSearchParams() {
       if (!BASE_URL) {
         // Mock successful return
         setTimeout(() => {
-          alert("Power bank returned successfully!");
+          alert(t("rentalActive.returnSuccess"));
           router.push("/my-rentals");
         }, 2000);
         return;
@@ -191,11 +190,11 @@ export default function ClientComponentUsingSearchParams() {
         },
       );
 
-      alert("Power bank returned successfully!");
+      alert(t("rentalActive.returnSuccess"));
       router.push("/my-rentals");
     } catch (err) {
       console.error("Error returning power bank:", err);
-      alert("Failed to return power bank. Please try again.");
+      alert(t("rentalActive.returnFailed"));
     } finally {
       setReturnLoading(false);
     }
@@ -251,7 +250,7 @@ export default function ClientComponentUsingSearchParams() {
             }}
           />
           <span style={{ fontSize: "1.125rem", color: "#525252" }}>
-            Loading active rental...
+            {t("rentalActive.loading")}
           </span>
         </div>
       </div>
@@ -307,7 +306,7 @@ export default function ClientComponentUsingSearchParams() {
               marginBottom: "1rem",
             }}
           >
-            No Active Rental
+            {t("rentalActive.noActiveRental")}
           </h2>
           <p
             style={{
@@ -315,7 +314,7 @@ export default function ClientComponentUsingSearchParams() {
               marginBottom: "2rem",
             }}
           >
-            You don't have any active power bank rentals at the moment.
+            {t("rentalActive.noActiveMessage")}
           </p>
           <div
             style={{
@@ -353,7 +352,7 @@ export default function ClientComponentUsingSearchParams() {
                   d="M13 10V3L4 14h7v7l9-11h-7z"
                 />
               </svg>
-              Rent Power Bank
+              {t("rentals.rentPowerBank")}
             </Link>
             <Link
               href="/my-rentals"
@@ -384,7 +383,7 @@ export default function ClientComponentUsingSearchParams() {
                   d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
                 />
               </svg>
-              View Rental History
+              {t("rentals.history")}
             </Link>
           </div>
         </div>
@@ -446,7 +445,7 @@ export default function ClientComponentUsingSearchParams() {
               letterSpacing: "-0.025em",
             }}
           >
-            Active Rental
+            {t("rentalActive.title")}
           </h1>
           <p
             style={{
@@ -455,7 +454,7 @@ export default function ClientComponentUsingSearchParams() {
               fontWeight: "500",
             }}
           >
-            Track your current power bank rental
+            {t("rentalActive.subtitle")}
           </p>
         </div>
 
@@ -488,10 +487,10 @@ export default function ClientComponentUsingSearchParams() {
                 margin: "0 0 0.5rem 0",
               }}
             >
-              🔋 Power Bank Active
+              🔋 {t("rentalActive.powerbankActive")}
             </h2>
             <p style={{ fontSize: "0.875rem", margin: 0, opacity: 0.9 }}>
-              Rental ID: {activeRental.id}
+              {t("rentals.rentalID")}: {activeRental.id}
             </p>
           </div>
 
@@ -516,7 +515,7 @@ export default function ClientComponentUsingSearchParams() {
                 {elapsedTime || "0h 0m 0s"}
               </div>
               <p style={{ color: "#6b7280", fontSize: "0.875rem", margin: 0 }}>
-                Time Elapsed
+                {t("rentalActive.timeElapsed")}
               </p>
             </div>
 
@@ -532,7 +531,7 @@ export default function ClientComponentUsingSearchParams() {
                 {activeRental.batteryLevel}%
               </div>
               <p style={{ color: "#6b7280", fontSize: "0.875rem", margin: 0 }}>
-                Battery Level
+                {t("rentalActive.batteryLevel")}
               </p>
             </div>
 
@@ -548,7 +547,7 @@ export default function ClientComponentUsingSearchParams() {
                 {formatCurrency(activeRental.estimatedCost)}
               </div>
               <p style={{ color: "#6b7280", fontSize: "0.875rem", margin: 0 }}>
-                Current Cost
+                {t("rentalActive.currentCost")}
               </p>
             </div>
 
@@ -565,7 +564,7 @@ export default function ClientComponentUsingSearchParams() {
                 {formatTime(activeRental.freeTimeRemaining)}
               </div>
               <p style={{ color: "#6b7280", fontSize: "0.875rem", margin: 0 }}>
-                Free Time Left
+                {t("rentalActive.freeTimeLeft")}
               </p>
             </div>
           </div>
@@ -587,7 +586,7 @@ export default function ClientComponentUsingSearchParams() {
                 marginBottom: "1rem",
               }}
             >
-              Rental Details
+              {t("rentalActive.rentalDetails")}
             </h3>
             <div
               style={{
@@ -598,24 +597,24 @@ export default function ClientComponentUsingSearchParams() {
               }}
             >
               <div>
-                <strong style={{ color: "#374151" }}>Station:</strong>{" "}
+                <strong style={{ color: "#374151" }}>{t("rentals.station")}:</strong>{" "}
                 {activeRental.stationName}
               </div>
               <div>
-                <strong style={{ color: "#374151" }}>Power Bank ID:</strong>{" "}
+                <strong style={{ color: "#374151" }}>{t("rentals.powerBank")}:</strong>{" "}
                 {activeRental.powerbankId}
               </div>
               <div>
-                <strong style={{ color: "#374151" }}>Location:</strong>{" "}
+                <strong style={{ color: "#374151" }}>{t("rentals.location")}:</strong>{" "}
                 {activeRental.stationLocation}
               </div>
               <div>
-                <strong style={{ color: "#374151" }}>Started:</strong>{" "}
+                <strong style={{ color: "#374151" }}>{t("rentals.started")}:</strong>{" "}
                 {new Date(activeRental.startTime).toLocaleString()}
               </div>
               <div>
                 <strong style={{ color: "#374151" }}>
-                  Rate (after free time):
+                  {t("rentalActive.rateAfterFree")}:
                 </strong>{" "}
                 {formatCurrency(activeRental.currentRate)}/min
               </div>
@@ -672,16 +671,16 @@ export default function ClientComponentUsingSearchParams() {
                     margin: "0 0 0.25rem 0",
                   }}
                 >
-                  Battery Status: {activeRental.batteryLevel}%
+                  {t("rentalActive.batteryStatus")}: {activeRental.batteryLevel}%
                 </h4>
                 <p
                   style={{ color: "#15803d", fontSize: "0.875rem", margin: 0 }}
                 >
                   {activeRental.batteryLevel > 60
-                    ? "Excellent battery level"
+                    ? t("rentalActive.excellentBattery")
                     : activeRental.batteryLevel > 30
-                      ? "Good battery level"
-                      : "Low battery - consider returning soon"}
+                      ? t("rentalActive.goodBattery")
+                      : t("rentalActive.lowBattery")}
                 </p>
               </div>
             </div>
@@ -748,7 +747,7 @@ export default function ClientComponentUsingSearchParams() {
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
-            Return Stations
+            {t("rentalActive.returnStations")}
           </h3>
 
           <div
@@ -808,7 +807,7 @@ export default function ClientComponentUsingSearchParams() {
                       fontWeight: "600",
                     }}
                   >
-                    {station.available ? "Available" : "Full"}
+                    {station.available ? t("stations.available") : t("rentalActive.full")}
                   </span>
                 </div>
                 <button
@@ -849,7 +848,7 @@ export default function ClientComponentUsingSearchParams() {
                           animation: "spin 1s linear infinite",
                         }}
                       />
-                      Returning...
+                      {t("rentalActive.returning")}
                     </>
                   ) : (
                     <>
@@ -866,7 +865,7 @@ export default function ClientComponentUsingSearchParams() {
                           d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
                         />
                       </svg>
-                      {station.available ? "Return Here" : "Unavailable"}
+                      {station.available ? t("rentalActive.returnHere") : t("stations.notAvailable")}
                     </>
                   )}
                 </button>
@@ -914,7 +913,7 @@ export default function ClientComponentUsingSearchParams() {
                 d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
               />
             </svg>
-            Rental History
+            {t("rentals.history")}
           </Link>
 
           <Link
@@ -954,7 +953,7 @@ export default function ClientComponentUsingSearchParams() {
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
-            Find Stations
+            {t("stations.findNearbyStations")}
           </Link>
 
           <Link
@@ -988,7 +987,7 @@ export default function ClientComponentUsingSearchParams() {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            Dashboard
+            {t("nav.dashboard")}
           </Link>
         </div>
       </div>
