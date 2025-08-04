@@ -11,31 +11,32 @@ export default function NetworkStatus() {
   const [showStatus, setShowStatus] = useState(false);
 
   useEffect(() => {
-    const checkNetwork = async () => {
-      try {
-        const result = await testNetworkConnection();
-        if (result.success) {
-          setNetworkStatus('connected');
-          setStatusMessage(result.message);
-          setShowStatus(false); // Hide if connection is good
-        } else {
-          setNetworkStatus('error');
-          setStatusMessage(result.message);
-          setShowStatus(true); // Show if there's an issue
-        }
-      } catch (error) {
-        setNetworkStatus('error');
-        setStatusMessage('Unable to check network status');
-        setShowStatus(true);
-      }
-    };
+    // Disable network checking for now to prevent errors
+    // const checkNetwork = async () => {
+    //   try {
+    //     const result = await testNetworkConnection();
+    //     if (result.success) {
+    //       setNetworkStatus('connected');
+    //       setStatusMessage(result.message);
+    //       setShowStatus(false); // Hide if connection is good
+    //     } else {
+    //       setNetworkStatus('error');
+    //       setStatusMessage(result.message);
+    //       setShowStatus(true); // Show if there's an issue
+    //     }
+    //   } catch (error) {
+    //     setNetworkStatus('error');
+    //     setStatusMessage('Unable to check network status');
+    //     setShowStatus(true);
+    //   }
+    // };
 
-    checkNetwork();
-    
-    // Check network status every 30 seconds
-    const interval = setInterval(checkNetwork, 30000);
-    
-    return () => clearInterval(interval);
+    // checkNetwork();
+
+    // // Check network status every 30 seconds
+    // const interval = setInterval(checkNetwork, 30000);
+
+    // return () => clearInterval(interval);
   }, []);
 
   if (!showStatus) {
