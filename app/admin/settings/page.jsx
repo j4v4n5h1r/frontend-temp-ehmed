@@ -12,9 +12,9 @@ const AdminSettings = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
-      router.push("/");
-    }
+    // if (!loading && (!user || user.profile?.data?.user?.role !== "admin")) {
+    //   router.push("/");
+    // }
   }, [user, loading, router]);
 
   if (loading || !user || user.profile?.data?.user?.role !== "admin") {
