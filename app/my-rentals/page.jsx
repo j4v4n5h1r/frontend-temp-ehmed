@@ -11,6 +11,7 @@ const BASE_URL = "http://164.90.238.202:8000";
 
 const MyRentalsPage = () => {
   const { user } = useContext(AuthContext);
+  const { t } = useTranslation();
   const [rentals, setRentals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
