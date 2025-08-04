@@ -304,6 +304,12 @@ export default {
     refunded: "Geri qaytarıldı"
   },
 
+  // Dashboard
+  dashboard: {
+    title: "İdarə Paneli",
+    subtitle: "İcarə tarixçənizi və ödənişlərinizi görün",
+  },
+
   // Admin
   admin: {
     title: "Admin Paneli",
@@ -412,7 +418,7 @@ export default {
     },
     step3: {
       title: "7 gün ərzində qaytarın, depozitonuzu geri alın — bəlkə başqasını alırsınız? 😉",
-      description: "Pobi-ni icarəyə aldığınız andan etibarən 7 gününüz var, tələsmək lazım deyil. Vaxtında qaytardığınızda tam depozitonuzu qaytararıq. Hər gecikdiyiniz həftə üçün depozitonuzdan $2 kəsirik, maksimum $15.",
+      description: "Pobi-ni icarəyə aldığınız andan etibarən 7 gününüz var, tələsmək lazım deyil. Vaxtında qaytardı��ınızda tam depozitonuzu qaytararıq. Hər gecikdiyiniz həftə üçün depozitonuzdan $2 kəsirik, maksimum $15.",
     },
     additionalInfo: "Pobi mağazaların xaricində də mövcuddur.",
     stationTypes: {
@@ -475,7 +481,7 @@ export default {
     story: {
       title: "Bizim Hekayəmiz",
       content:
-        "Pobi sadə bir əsəbilikdən doğdu: ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Qurucularım��z bunu biznes səyahətləri, hava limanları və yeni şəhərləri kəşf edərkən saysız dəfə yaşadılar.",
+        "Pobi sadə bir əsəbilikdən doğdu: ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Qurucularımız bunu biznes səyahətləri, hava limanları və yeni şəhərləri kəşf edərkən saysız dəfə yaşadılar.",
       mission:
         "Həddindən artıq bağlı dünyamızda enerjiyə çıxışın lüks və ya narahatlıq mənbəyi olmaması lazım olduğunu başa düşdük. Buna görə Pobi-ni yaratdıq - heç vaxt gücsüz qalmamanızı təmin edən etibarlı, rahat powerbank stansiyaları şəbəkəsi.",
       today:
@@ -590,7 +596,7 @@ export default {
         period: "həftədə",
         description: "Uzun qalmaq və biznes səyahətləri",
         feature1: "Bütün günlük xüsusiyyətlər",
-        feature2: "7 gün�� qədər istifadə",
+        feature2: "7 günə qədər istifadə",
         feature3: "Xüsusi hesab meneceri",
         feature4: "Toplu icarə endirimlər",
         feature5: "Biznes xərc hesabatı",
