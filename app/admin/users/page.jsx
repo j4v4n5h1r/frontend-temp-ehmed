@@ -305,7 +305,7 @@ const AdminUsers = () => {
                         fontSize: "0.875rem",
                       }}
                     >
-                      Last Login
+                      {t("admin.lastLogin")}
                     </th>
                     <th
                       style={{
