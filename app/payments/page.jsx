@@ -495,7 +495,7 @@ const PaymentsPage = () => {
                           textTransform: "capitalize",
                         }}
                       >
-                        {payment.status}
+                        {t(`payments.${payment.status}`) || payment.status}
                       </span>
 
                       {/* Date */}
