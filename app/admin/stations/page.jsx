@@ -187,7 +187,7 @@ const AdminStations = () => {
                 display: "inline-block",
               }}
             >
-              ← Back to Admin Dashboard
+              ← {t("admin.backToAdmin")}
             </Link>
             <h1
               style={{
