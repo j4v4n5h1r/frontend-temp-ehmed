@@ -274,7 +274,7 @@ function ProfileDropdown({ user, logout }) {
           {user?.profile?.data?.user?.firstName ||
             user?.profile?.data?.user?.name ||
             user?.profile?.data?.user?.email ||
-            "User"}
+            "username"}
         </span>
         <svg
           className={`w-5 h-5 text-neutral-600 transition-transform ${
