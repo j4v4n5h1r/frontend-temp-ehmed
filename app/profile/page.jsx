@@ -38,6 +38,7 @@ const ProfilePage = () => {
       const userData = user.profile.data.user;
       setFirstName(userData.firstName || userData.name || "");
       setLastName(userData.lastName || "");
+      setUsername(userData.username || "");
       setEmail(userData.email || "");
       setPhone(userData.phone || "");
     }
