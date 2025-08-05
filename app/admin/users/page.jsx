@@ -272,7 +272,7 @@ const AdminUsers = () => {
                         fontSize: "0.875rem",
                       }}
                     >
-                      User
+                      {t("admin.user")}
                     </th>
                     <th
                       style={{
