@@ -722,7 +722,7 @@ const ProfilePage = () => {
                               cardHolderName: e.target.value,
                             })
                           }
-                          placeholder="John Doe"
+                          placeholder={t("profile.cardHolderPlaceholder")}
                           style={{
                             width: "100%",
                             padding: "0.75rem",
