@@ -50,7 +50,7 @@ const AdminRentals = () => {
             marginBottom: "2rem",
           }}
         >
-          Rentals Management
+          {t("admin.rentals")}
         </h1>
         <div
           style={{
