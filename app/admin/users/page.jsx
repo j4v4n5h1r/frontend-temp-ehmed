@@ -222,10 +222,10 @@ const AdminUsers = () => {
               background: "white",
             }}
           >
-            <option value="all">All Status</option>
-            <option value="active">Active</option>
-            <option value="suspended">Suspended</option>
-            <option value="pending">Pending</option>
+            <option value="all">{t("admin.allStatus")}</option>
+            <option value="active">{t("rentals.active")}</option>
+            <option value="suspended">{t("payments.failed")}</option>
+            <option value="pending">{t("payments.pending")}</option>
           </select>
         </div>
 
