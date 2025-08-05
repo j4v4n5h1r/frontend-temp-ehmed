@@ -298,7 +298,8 @@ function ProfileDropdown({ user, logout }) {
         <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
           <div className="px-4 py-3 border-b border-neutral-100">
             <p className="text-sm font-medium text-neutral-900">
-              {user?.profile?.data?.user?.firstName ||
+              {user?.profile?.data?.user?.username ||
+                user?.profile?.data?.user?.firstName ||
                 user?.profile?.data?.user?.name ||
                 "username"}{" "}
               {user?.profile?.data?.user?.lastName || ""}
