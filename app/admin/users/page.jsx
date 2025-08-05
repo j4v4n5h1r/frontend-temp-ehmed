@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 
 const AdminUsers = () => {
   const { user, loading } = useContext(AuthContext);
+  const { t } = useTranslation();
   const router = useRouter();
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
