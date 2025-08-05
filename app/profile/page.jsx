@@ -810,7 +810,7 @@ const ProfilePage = () => {
                             marginBottom: "0.5rem",
                           }}
                         >
-                          CVV
+                          {t("profile.cvv")}
                         </label>
                         <input
                           type="text"
