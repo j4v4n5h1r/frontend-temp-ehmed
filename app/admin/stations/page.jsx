@@ -282,7 +282,7 @@ const AdminStations = () => {
                 marginBottom: "1rem",
               }}
             >
-              Send Command to Station:{" "}
+              {t("admin.sendCommandTo")}{" "}
               {stations.find((s) => s.id === selectedStation)?.name}
             </h3>
             <div
@@ -304,12 +304,12 @@ const AdminStations = () => {
                   background: "white",
                 }}
               >
-                <option value="RESET">Reset Station</option>
-                <option value="REBOOT">Reboot System</option>
-                <option value="DIAGNOSTICS">Run Diagnostics</option>
-                <option value="EJECT">Emergency Eject</option>
-                <option value="LOCK_SLOT">Lock All Slots</option>
-                <option value="UNLOCK_SLOT">Unlock All Slots</option>
+                <option value="RESET">{t("admin.resetStation")}</option>
+                <option value="REBOOT">{t("admin.rebootSystem")}</option>
+                <option value="DIAGNOSTICS">{t("admin.runDiagnostics")}</option>
+                <option value="EJECT">{t("admin.emergencyEject")}</option>
+                <option value="LOCK_SLOT">{t("admin.lockAllSlots")}</option>
+                <option value="UNLOCK_SLOT">{t("admin.unlockAllSlots")}</option>
               </select>
               <button
                 onClick={handleSendCommand}
