@@ -129,9 +129,9 @@ export default function ClientComponentUsingSearchParams() {
       } else if (err.response) {
         console.error("Server error:", err.response.status, err.response.data);
         if (err.response.status === 401) {
-          errorMessage = t("rentals.authFailed");
+          errorMessage = t("rentals.authFailed") || "Authentication failed";
         } else if (err.response.status === 404) {
-          errorMessage = t("rentalActive.noActiveRental");
+          errorMessage = t("rentalActive.noActiveRental") || "No active rental found";
           setActiveRental(null);
           return;
         } else {
