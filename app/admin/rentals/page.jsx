@@ -62,7 +62,7 @@ const AdminRentals = () => {
           }}
         >
           <p style={{ color: "#6b7280", fontSize: "1.125rem" }}>
-            Rental management functionality coming soon...
+            {t("admin.rentals")} {t("admin.comingSoon")}
           </p>
         </div>
       </div>
