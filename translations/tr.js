@@ -89,7 +89,7 @@ export default {
     app: {
       title: "Pobi Uygulamasını Alın",
       description:
-        "İstasyonları bulmak, powerbank kiralamak ve hesabınızı yönetmenin en hızlı yolu için uygulamamızı indirin.",
+        "İstasyonları bulmak, powerbank kiralamak ve hesab��nızı yönetmenin en hızlı yolu için uygulamamızı indirin.",
       appStore: "App Store",
       googlePlay: "Google Play",
       downloadOn: "İndir",
@@ -330,6 +330,7 @@ export default {
     securityDescription: "Şifre değiştirme, iki faktörlü kimlik doğrulama ve diğer güvenlik özellikleri yakında kullanılabilir olacak.",
     cvv: "CVV",
     cardHolderName: "Kart Sahibi Adı",
+    cardNumber: "Kart Numarası",
     firstName: "Ad",
     lastName: "Soyad",
     phone: "Telefon Numarası",
@@ -595,7 +596,7 @@ export default {
     milestones: {
       "2020": {
         title: "Şirket Kuruldu",
-        description: "Bitmiş batarya sorunlarını ç��zme vizyonuyla başladık",
+        description: "Bitmiş batarya sorunlarını çözme vizyonuyla başladık",
       },
       "2021": {
         title: "İlk 50 İstasyon",
