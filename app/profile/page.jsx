@@ -868,7 +868,7 @@ const ProfilePage = () => {
                     marginBottom: "1.5rem",
                   }}
                 >
-                  {t("admin.settings")}
+                  {t("profile.security")}
                 </h3>
                 <div
                   style={{
