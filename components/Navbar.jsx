@@ -299,7 +299,7 @@ function ProfileDropdown({ user, logout }) {
             <p className="text-sm font-medium text-neutral-900">
               {user?.profile?.data?.user?.firstName ||
                 user?.profile?.data?.user?.name ||
-                "User"}{" "}
+                "username"}{" "}
               {user?.profile?.data?.user?.lastName || ""}
             </p>
             <p className="text-sm text-neutral-600 truncate">
