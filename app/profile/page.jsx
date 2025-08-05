@@ -755,7 +755,7 @@ const ProfilePage = () => {
                               cardNumber: e.target.value,
                             })
                           }
-                          placeholder="1234 5678 9012 3456"
+                          placeholder={t("profile.cardNumberPlaceholder")}
                           style={{
                             width: "100%",
                             padding: "0.75rem",
