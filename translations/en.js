@@ -331,6 +331,7 @@ export default {
     cvv: "CVV",
     cardHolderName: "Cardholder Name",
     cardNumber: "Card Number",
+    expiryDate: "Expiry Date",
     firstName: "First Name",
     lastName: "Last Name",
     phone: "Phone Number",
