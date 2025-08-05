@@ -481,6 +481,38 @@ const ProfilePage = () => {
                         marginBottom: "0.5rem",
                       }}
                     >
+                      Username
+                    </label>
+                    <input
+                      type="text"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      placeholder="Enter your username"
+                      style={{
+                        width: "100%",
+                        padding: "0.75rem",
+                        border: "2px solid #e5e7eb",
+                        borderRadius: "0.5rem",
+                        fontSize: "1rem",
+                        outline: "none",
+                        transition: "border-color 0.3s ease",
+                        boxSizing: "border-box",
+                      }}
+                      onFocus={(e) => (e.target.style.borderColor = "#22c55e")}
+                      onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      style={{
+                        display: "block",
+                        fontSize: "0.875rem",
+                        fontWeight: "600",
+                        color: "#374151",
+                        marginBottom: "0.5rem",
+                      }}
+                    >
                       {t("auth.email")}
                     </label>
                     <input
