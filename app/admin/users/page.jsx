@@ -78,7 +78,7 @@ const AdminUsers = () => {
   };
 
   const handleDeleteUser = async (userId) => {
-    if (!confirm("Are you sure you want to delete this user?")) return;
+    if (!confirm(t("admin.deleteConfirm"))) return;
 
     try {
       const token = user?.token;
