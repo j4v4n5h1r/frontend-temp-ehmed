@@ -25,13 +25,13 @@ export default function DashboardPage() {
     const fetchData = async () => {
       try {
         const rentalRes = await axios.get(
-          url+'/api/v1/users/me/rentals',
+          `${url}/api/v1/users/me/rentals`,
           {
             headers: { Authorization: `Bearer ${token}` },
           },
         );
         const paymentRes = await axios.get(
-          url+'/api/v1/payments',
+          `${url}/api/v1/payments`,
           {
             headers: { Authorization: `Bearer ${token}` },
           },
