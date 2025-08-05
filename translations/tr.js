@@ -83,7 +83,7 @@ export default {
       flatPriceDesc:
         "Kartınızı Pobi İstasyon ödeme terminaline dokundurun veya Apple Pay veya Google Pay ile ödeyin.",
       learnMore: "Daha fazla öğren",
-      withApps: "POBI UYGULAMALARI İLE",
+      withApps: "POBI UYGULAMALARI ��LE",
       withCards: "KARTLARLA",
     },
     app: {
@@ -332,6 +332,11 @@ export default {
     cardHolderName: "Kart Sahibi Adı",
     cardNumber: "Kart Numarası",
     expiryDate: "Son Kullanma Tarihi",
+    usernamePlaceholder: "Kullanıcı adınızı girin",
+    cardHolderPlaceholder: "Ahmet Yılmaz",
+    cardNumberPlaceholder: "1234 5678 9012 3456",
+    expiryPlaceholder: "AA/YY",
+    cvvPlaceholder: "123",
     firstName: "Ad",
     lastName: "Soyad",
     phone: "Telefon Numarası",
@@ -394,7 +399,7 @@ export default {
     powerbanksDesc: "PowerBank envanterini ve durumunu takip edin",
     rentalsDesc: "Tüm kiralama faaliyetlerini izleyin",
     paymentsDesc: "Ödemeleri, iadeleri ve faturalamayı yönetin",
-    reportsDesc: "Ayr��ntılı raporları ve analitikleri görüntüleyin",
+    reportsDesc: "Ayrıntılı raporları ve analitikleri görüntüleyin",
     settingsDesc: "Sistem geneli ayarları yapılandırın",
     trackAll: "Tüm powerbank'ları takip edin",
     revenueUtilization: "Gelir, kullanım ve daha fazlası",
@@ -702,7 +707,7 @@ export default {
     },
     faq: {
       title: "Fiyatlandırma Soruları",
-      subtitle: "Fiyatlandırma ve faturalandırma hakk��nda yaygın sorular",
+      subtitle: "Fiyatlandırma ve faturalandırma hakkında yaygın sorular",
       q1: "Gizli ücretler var mı?",
       a1: "Gizli ücret yok! Gösterilen fiyatlar tam olarak ödediğiniz tutardır. Geç iade ücretleri sadece powerbank'ı 7 günlük maksimum kiralama süresini aştığınızda uygulanır.",
       q2: "Powerbank'ı geç iade edersem ne olur?",
