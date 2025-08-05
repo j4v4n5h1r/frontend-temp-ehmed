@@ -740,7 +740,7 @@ const MyRentalsPage = () => {
                                 textTransform: "capitalize",
                               }}
                             >
-                              {rental.status}
+                              {t(`rentals.${rental.status}`) || rental.status}
                             </span>
                           </div>
 
