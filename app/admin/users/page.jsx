@@ -246,7 +246,7 @@ const AdminUsers = () => {
                 color: "#6b7280",
               }}
             >
-              Loading users...
+              {t("admin.loadingUsers")}
             </div>
           ) : (
             <>
