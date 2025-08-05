@@ -15,7 +15,7 @@ export default function ClientComponentUsingSearchParams() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const rentalId = searchParams.get("id");
-  const { user } = useContext(AuthContext);
+  const { user, loading: authLoading } = useContext(AuthContext);
 
   const [activeRental, setActiveRental] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -24,10 +24,13 @@ export default function ClientComponentUsingSearchParams() {
   const [elapsedTime, setElapsedTime] = useState("");
 
   useEffect(() => {
-    fetchActiveRental();
-    const interval = setInterval(updateElapsedTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
+    // Only fetch rental data after auth context has loaded
+    if (!authLoading) {
+      fetchActiveRental();
+      const interval = setInterval(updateElapsedTime, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [authLoading]);
 
   const fetchActiveRental = async () => {
     try {
@@ -219,7 +222,7 @@ export default function ClientComponentUsingSearchParams() {
     return "#ef4444";
   };
 
-  if (loading) {
+  if (loading || authLoading) {
     return (
       <div
         style={{
