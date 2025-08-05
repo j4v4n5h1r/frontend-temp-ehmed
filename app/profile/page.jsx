@@ -912,8 +912,7 @@ const ProfilePage = () => {
                       fontSize: "0.875rem",
                     }}
                   >
-                    Password change, two-factor authentication, and other
-                    security features will be available soon.
+                    {t("profile.securityDescription")}
                   </p>
                 </div>
               </div>
