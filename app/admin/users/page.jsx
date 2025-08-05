@@ -164,7 +164,7 @@ const AdminUsers = () => {
                 margin: 0,
               }}
             >
-              Users Management
+              {t("admin.users")}
             </h1>
           </div>
           <button
