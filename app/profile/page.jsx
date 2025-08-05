@@ -162,7 +162,7 @@ const ProfilePage = () => {
   const tabs = [
     { id: "profile", name: t("profile.personalInfo"), icon: "user" },
     { id: "payment", name: t("profile.paymentMethods"), icon: "credit-card" },
-    { id: "security", name: "Security", icon: "shield" },
+    { id: "security", name: t("profile.security"), icon: "shield" },
   ];
 
   const renderIcon = (iconName) => {
