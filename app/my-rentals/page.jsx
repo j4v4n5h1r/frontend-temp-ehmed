@@ -726,7 +726,7 @@ const MyRentalsPage = () => {
                               }}
                             >
                               {rental.stationName ||
-                                `Station ${rental.stationId}`}
+                                `${t("rentals.station")} ${rental.stationId}`}
                             </h3>
                             <span
                               style={{
