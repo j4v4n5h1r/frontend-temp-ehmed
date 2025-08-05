@@ -133,8 +133,8 @@ const AdminDashboard = () => {
       color: "#06b6d4",
     },
     {
-      title: t("admin.pricing", "Pricing Management"),
-      description: t("admin.pricingDesc", "Configure pricing tiers and rates"),
+      title: t("admin.pricing"),
+      description: t("admin.pricingDesc"),
       href: "/admin/pricing",
       icon: "💰",
       stats: t("admin.managePricing", "Manage pricing strategies"),
