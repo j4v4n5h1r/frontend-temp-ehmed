@@ -330,6 +330,7 @@ export default {
     securityDescription: "Password change, two-factor authentication, and other security features will be available soon.",
     cvv: "CVV",
     cardHolderName: "Cardholder Name",
+    cardNumber: "Card Number",
     firstName: "First Name",
     lastName: "Last Name",
     phone: "Phone Number",
