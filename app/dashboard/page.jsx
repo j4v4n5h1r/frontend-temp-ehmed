@@ -46,7 +46,7 @@ export default function DashboardPage() {
     };
 
     fetchData();
-  }, [router]);
+  }, [router, t]);
 
   const getStatusBadge = (rental) => {
     if (rental.end_time) {
