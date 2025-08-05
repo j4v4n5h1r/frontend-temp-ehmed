@@ -777,7 +777,7 @@ const ProfilePage = () => {
                             marginBottom: "0.5rem",
                           }}
                         >
-                          {t("payments.date")}
+                          {t("profile.expiryDate")}
                         </label>
                         <input
                           type="text"
