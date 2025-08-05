@@ -294,7 +294,7 @@ const AdminUsers = () => {
                         fontSize: "0.875rem",
                       }}
                     >
-                      Joined
+                      {t("admin.joined")}
                     </th>
                     <th
                       style={{
