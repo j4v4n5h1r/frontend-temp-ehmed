@@ -328,6 +328,7 @@ export default {
     notifications: "Bildirişlər",
     security: "Təhlükəsizlik",
     securityDescription: "Şifrə dəyişdirmə, iki faktorlu kimlik doğrulama və digər təhlükəsizlik xüsusiyyətləri tezliklə əlçatan olacaq.",
+    cvv: "CVV",
     firstName: "Ad",
     lastName: "Soyad",
     phone: "Telefon Nömrəsi",
@@ -521,7 +522,7 @@ export default {
           "Telefonunuzu və ya cihazınızı şarj etmək üçün daxil olan kabelləri istifadə edin",
       },
       step5: {
-        title: "İ��iniz Bitdikdə Qaytarın",
+        title: "İşiniz Bitdikdə Qaytarın",
         description: "PowerBank-ı istənilən Pobi stansiyasına qaytarın",
       },
       step6: {
@@ -697,7 +698,7 @@ export default {
     },
     faq: {
       title: "Qiymət Sualları",
-      subtitle: "Qiymətləndirmə və faktura haqqında ��mumi suallar",
+      subtitle: "Qiymətləndirmə və faktura haqqında ümumi suallar",
       q1: "Gizli haqlar varmı?",
       a1: "Gizli haqlar yoxdur! Göstərilən qiymətlər tam olaraq ödədiyiniz məbləğdir. Gecikmiş qaytarma haqları yalnız powerbank-ı 7 günlük maksimum icarə müddətindən artıq saxladığınız zaman tətbiq olunur.",
       q2: "Powerbank-ı gec qaytarsam nə olur?",
