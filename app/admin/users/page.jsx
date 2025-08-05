@@ -283,7 +283,7 @@ const AdminUsers = () => {
                         fontSize: "0.875rem",
                       }}
                     >
-                      Status
+                      {t("rentals.status")}
                     </th>
                     <th
                       style={{
