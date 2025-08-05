@@ -199,7 +199,7 @@ const AdminUsers = () => {
         >
           <input
             type="text"
-            placeholder="Search users by name or email..."
+            placeholder={t("admin.searchUsers")}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             style={{
