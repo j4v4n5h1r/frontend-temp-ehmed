@@ -744,7 +744,7 @@ const ProfilePage = () => {
                             marginBottom: "0.5rem",
                           }}
                         >
-                          {t("payments.methods")}
+                          {t("profile.cardNumber")}
                         </label>
                         <input
                           type="text"
