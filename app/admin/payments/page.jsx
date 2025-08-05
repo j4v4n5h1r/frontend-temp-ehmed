@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 
 const AdminPayments = () => {
   const { user, loading } = useContext(AuthContext);
+  const { t } = useTranslation();
   const router = useRouter();
 
   // useEffect(() => {
