@@ -326,6 +326,8 @@ export default {
     preferences: "Preferences",
     language: "Language",
     notifications: "Notifications",
+    security: "Security",
+    securityDescription: "Password change, two-factor authentication, and other security features will be available soon.",
     firstName: "First Name",
     lastName: "Last Name",
     phone: "Phone Number",
