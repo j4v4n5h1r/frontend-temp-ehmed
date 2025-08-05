@@ -40,7 +40,7 @@ const AdminPayments = () => {
             display: "inline-block",
           }}
         >
-          ← Back to Admin Dashboard
+          ← {t("admin.backToAdmin", "Back to Admin Dashboard")}
         </Link>
         <h1
           style={{
@@ -50,7 +50,7 @@ const AdminPayments = () => {
             marginBottom: "2rem",
           }}
         >
-          Payments Management
+          {t("admin.payments")}
         </h1>
         <div
           style={{
@@ -62,7 +62,7 @@ const AdminPayments = () => {
           }}
         >
           <p style={{ color: "#6b7280", fontSize: "1.125rem" }}>
-            Payment management functionality coming soon...
+            {t("admin.comingSoon", "Payment management functionality coming soon...")}
           </p>
         </div>
       </div>

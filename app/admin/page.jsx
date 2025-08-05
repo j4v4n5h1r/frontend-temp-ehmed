@@ -203,8 +203,10 @@ const AdminDashboard = () => {
               }}
             >
               {t("admin.welcomeBack", "Welcome back")},{" "}
-              {user.profile?.data?.user?.name ||
-                user.profile?.data?.user?.email}
+              {user?.profile?.data?.user?.name ||
+                user?.profile?.data?.user?.email ||
+                user?.username ||
+                "Admin"}
             </p>
           </div>
 
