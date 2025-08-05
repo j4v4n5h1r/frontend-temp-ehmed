@@ -90,14 +90,11 @@ export default function ClientComponentUsingSearchParams() {
         return;
       }
 
-      if (!token) {
-        throw new Error(
-          t("rentals.authTokenMissing"),
-        );
-      }
-
-      if (!user?.id) {
-        throw new Error(t("rentals.authFailed"));
+      if (!token || !user?.id) {
+        console.log("No token or user available, redirecting to login");
+        // Redirect to login instead of throwing error
+        router.push("/login");
+        return;
       }
 
       const response = await axios.get(
