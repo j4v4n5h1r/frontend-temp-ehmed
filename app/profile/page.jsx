@@ -821,7 +821,7 @@ const ProfilePage = () => {
                               cvv: e.target.value,
                             })
                           }
-                          placeholder="123"
+                          placeholder={t("profile.cvvPlaceholder")}
                           style={{
                             width: "100%",
                             padding: "0.75rem",
