@@ -109,7 +109,7 @@ const AdminStations = () => {
   };
 
   const handleDeleteStation = async (stationId) => {
-    if (!confirm("Are you sure you want to delete this station?")) return;
+    if (!confirm(t("admin.deleteStationConfirm"))) return;
 
     try {
       const token = user?.token;
