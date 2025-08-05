@@ -212,7 +212,7 @@ const AdminStations = () => {
               boxShadow: "0 4px 6px -1px rgba(34, 197, 94, 0.3)",
             }}
           >
-            + Add New Station
+            + {t("admin.addNewStation")}
           </button>
         </div>
 
