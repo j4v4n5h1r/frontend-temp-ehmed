@@ -197,7 +197,7 @@ const AdminStations = () => {
                 margin: 0,
               }}
             >
-              Stations Management
+              {t("admin.stations")}
             </h1>
           </div>
           <button
