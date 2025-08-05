@@ -329,6 +329,7 @@ export default {
     security: "Təhlükəsizlik",
     securityDescription: "Şifrə dəyişdirmə, iki faktorlu kimlik doğrulama və digər təhlükəsizlik xüsusiyyətləri tezliklə əlçatan olacaq.",
     cvv: "CVV",
+    cardHolderName: "Kart Sahibinin Adı",
     firstName: "Ad",
     lastName: "Soyad",
     phone: "Telefon Nömrəsi",
