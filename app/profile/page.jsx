@@ -711,7 +711,7 @@ const ProfilePage = () => {
                             marginBottom: "0.5rem",
                           }}
                         >
-                          {t("auth.firstName")} {t("auth.lastName")}
+                          {t("profile.cardHolderName")}
                         </label>
                         <input
                           type="text"
