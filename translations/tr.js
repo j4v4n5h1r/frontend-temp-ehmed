@@ -326,6 +326,8 @@ export default {
     preferences: "Tercihler",
     language: "Dil",
     notifications: "Bildirimler",
+    security: "Güvenlik",
+    securityDescription: "Şifre değiştirme, iki faktörlü kimlik doğrulama ve diğer güvenlik özellikleri yakında kullanılabilir olacak.",
     firstName: "Ad",
     lastName: "Soyad",
     phone: "Telefon Numarası",
@@ -582,7 +584,7 @@ export default {
       sustainability: "Sürdürülebilirlik",
       sustainabilityDesc: "Herkese ve gezegene fayda sağlayan paylaşımlı şarj çözümleri sunarak elektronik atıkları azaltıyoruz.",
       convenience: "Kolaylık Öncelik",
-      convenienceDesc: "Basit, hızlı ve ihtiyacınız olduğunda her zaman mevcut",
+      convenienceDesc: "Basit, h��zlı ve ihtiyacınız olduğunda her zaman mevcut",
     },
     journey: {
       title: "Yolculuğumuz",
