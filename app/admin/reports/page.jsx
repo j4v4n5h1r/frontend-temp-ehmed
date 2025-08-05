@@ -3,10 +3,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import { AuthContext } from "../../../context/AuthContext";
+import { useTranslation } from "../../../context/TranslationContext";
 import { useRouter } from "next/navigation";
 
 const AdminReports = () => {
   const { user, loading } = useContext(AuthContext);
+  const { t } = useTranslation();
   const router = useRouter();
   const [revenueData, setRevenueData] = useState(null);
   const [utilizationData, setUtilizationData] = useState(null);
