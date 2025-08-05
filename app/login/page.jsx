@@ -245,10 +245,10 @@ export default function LoginPage() {
         <div className="text-center mt-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-primary-100 hover:text-white transition-colors text-sm font-medium"
+            className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 text-sm font-semibold group"
           >
             <svg
-              className="w-4 h-4"
+              className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -260,7 +260,7 @@ export default function LoginPage() {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            {t("common.backToHome")}
+            {t("auth.backToHome")}
           </Link>
         </div>
       </div>
