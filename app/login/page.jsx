@@ -184,7 +184,7 @@ export default function LoginPage() {
           <div className="flex items-center my-6">
             <div className="flex-1 h-px bg-neutral-200"></div>
             <span className="px-4 text-sm text-neutral-500">
-              {t("common.orContinueWith")}
+              {t("auth.continueWith")}
             </span>
             <div className="flex-1 h-px bg-neutral-200"></div>
           </div>
