@@ -89,7 +89,7 @@ export default {
     app: {
       title: "Pobi Uygulamasını Alın",
       description:
-        "İstasyonları bulmak, powerbank kiralamak ve hesab��nızı yönetmenin en hızlı yolu için uygulamamızı indirin.",
+        "İstasyonları bulmak, powerbank kiralamak ve hesabınızı yönetmenin en hızlı yolu için uygulamamızı indirin.",
       appStore: "App Store",
       googlePlay: "Google Play",
       downloadOn: "İndir",
@@ -331,6 +331,7 @@ export default {
     cvv: "CVV",
     cardHolderName: "Kart Sahibi Adı",
     cardNumber: "Kart Numarası",
+    expiryDate: "Son Kullanma Tarihi",
     firstName: "Ad",
     lastName: "Soyad",
     phone: "Telefon Numarası",
@@ -393,7 +394,7 @@ export default {
     powerbanksDesc: "PowerBank envanterini ve durumunu takip edin",
     rentalsDesc: "Tüm kiralama faaliyetlerini izleyin",
     paymentsDesc: "Ödemeleri, iadeleri ve faturalamayı yönetin",
-    reportsDesc: "Ayrıntılı raporları ve analitikleri görüntüleyin",
+    reportsDesc: "Ayr��ntılı raporları ve analitikleri görüntüleyin",
     settingsDesc: "Sistem geneli ayarları yapılandırın",
     trackAll: "Tüm powerbank'ları takip edin",
     revenueUtilization: "Gelir, kullanım ve daha fazlası",
@@ -701,7 +702,7 @@ export default {
     },
     faq: {
       title: "Fiyatlandırma Soruları",
-      subtitle: "Fiyatlandırma ve faturalandırma hakkında yaygın sorular",
+      subtitle: "Fiyatlandırma ve faturalandırma hakk��nda yaygın sorular",
       q1: "Gizli ücretler var mı?",
       a1: "Gizli ücret yok! Gösterilen fiyatlar tam olarak ödediğiniz tutardır. Geç iade ücretleri sadece powerbank'ı 7 günlük maksimum kiralama süresini aştığınızda uygulanır.",
       q2: "Powerbank'ı geç iade edersem ne olur?",
