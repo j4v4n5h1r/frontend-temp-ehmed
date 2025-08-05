@@ -332,6 +332,11 @@ export default {
     cardHolderName: "Kart Sahibinin Adı",
     cardNumber: "Kart Nömrəsi",
     expiryDate: "Son İstifadə Tarixi",
+    usernamePlaceholder: "İstifadəçi adınızı daxil edin",
+    cardHolderPlaceholder: "Əhməd Məmmədov",
+    cardNumberPlaceholder: "1234 5678 9012 3456",
+    expiryPlaceholder: "AA/İİ",
+    cvvPlaceholder: "123",
     firstName: "Ad",
     lastName: "Soyad",
     phone: "Telefon Nömrəsi",
@@ -717,7 +722,7 @@ export default {
     },
     cta: {
       title: "Başlamağa Hazırsınız?",
-      description: "��arj ehtiyacları üçün Pobi-yə güvənən minlərlə istifadəçiyə qoşulun. Öhdəlik tələb olunmur - istifadə etdikcə ödəyin.",
+      description: "Şarj ehtiyacları üçün Pobi-yə güvənən minlərlə istifadəçiyə qoşulun. Öhdəlik tələb olunmur - istifadə etdikcə ödəyin.",
     },
   },
 };
