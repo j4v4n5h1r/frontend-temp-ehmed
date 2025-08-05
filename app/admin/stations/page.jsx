@@ -232,7 +232,7 @@ const AdminStations = () => {
         >
           <input
             type="text"
-            placeholder="Search stations by name or location..."
+            placeholder={t("admin.searchStations")}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             style={{
@@ -255,10 +255,10 @@ const AdminStations = () => {
               background: "white",
             }}
           >
-            <option value="all">All Status</option>
-            <option value="online">Online</option>
-            <option value="offline">Offline</option>
-            <option value="maintenance">Maintenance</option>
+            <option value="all">{t("admin.allStatus")}</option>
+            <option value="online">{t("admin.online")}</option>
+            <option value="offline">{t("admin.offline")}</option>
+            <option value="maintenance">{t("admin.maintenance")}</option>
           </select>
         </div>
 
