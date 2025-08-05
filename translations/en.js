@@ -328,6 +328,7 @@ export default {
     notifications: "Notifications",
     security: "Security",
     securityDescription: "Password change, two-factor authentication, and other security features will be available soon.",
+    cvv: "CVV",
     firstName: "First Name",
     lastName: "Last Name",
     phone: "Phone Number",
