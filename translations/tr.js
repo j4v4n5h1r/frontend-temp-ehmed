@@ -329,6 +329,7 @@ export default {
     security: "Güvenlik",
     securityDescription: "Şifre değiştirme, iki faktörlü kimlik doğrulama ve diğer güvenlik özellikleri yakında kullanılabilir olacak.",
     cvv: "CVV",
+    cardHolderName: "Kart Sahibi Adı",
     firstName: "Ad",
     lastName: "Soyad",
     phone: "Telefon Numarası",
@@ -594,7 +595,7 @@ export default {
     milestones: {
       "2020": {
         title: "Şirket Kuruldu",
-        description: "Bitmiş batarya sorunlarını çözme vizyonuyla başladık",
+        description: "Bitmiş batarya sorunlarını ç��zme vizyonuyla başladık",
       },
       "2021": {
         title: "İlk 50 İstasyon",
