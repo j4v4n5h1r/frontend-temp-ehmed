@@ -3,10 +3,12 @@
 import React, { useContext, useEffect } from "react";
 import Link from "next/link";
 import { AuthContext } from "../../../context/AuthContext";
+import { useTranslation } from "../../../context/TranslationContext";
 import { useRouter } from "next/navigation";
 
 const AdminPricing = () => {
   const { user, loading } = useContext(AuthContext);
+  const { t } = useTranslation();
   const router = useRouter();
 
   // useEffect(() => {
