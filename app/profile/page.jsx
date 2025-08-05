@@ -105,6 +105,7 @@ const ProfilePage = () => {
       const updateData = {
         firstName,
         lastName,
+        username,
         email,
         phone,
       };
