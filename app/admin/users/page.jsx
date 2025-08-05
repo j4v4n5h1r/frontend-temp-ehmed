@@ -316,7 +316,7 @@ const AdminUsers = () => {
                         fontSize: "0.875rem",
                       }}
                     >
-                      Actions
+                      {t("admin.actions")}
                     </th>
                   </tr>
                 </thead>
