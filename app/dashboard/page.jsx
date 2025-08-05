@@ -37,7 +37,7 @@ export default function DashboardPage() {
           },
         );
         setRentals(rentalRes.data);
-        setPayments(paymentRes.data.payments || []);
+        setPayments(paymentRes.data || []);
       } catch (err) {
         setError(err.response?.data?.detail || t("errors.generic"));
       } finally {
