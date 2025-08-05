@@ -7,7 +7,7 @@ export default {
     stations: "Stansiyalar",
     pricing: "Qiymətlər",
     howToUse: "Necə İstifadə Etmək",
-    about: "Haqq��nda",
+    about: "Haqqında",
     myRentals: "Mənim İcarələrim",
     profile: "Profil",
     login: "Giriş",
@@ -331,6 +331,7 @@ export default {
     cvv: "CVV",
     cardHolderName: "Kart Sahibinin Adı",
     cardNumber: "Kart Nömrəsi",
+    expiryDate: "Son İstifadə Tarixi",
     firstName: "Ad",
     lastName: "Soyad",
     phone: "Telefon Nömrəsi",
@@ -342,7 +343,7 @@ export default {
     title: "Ödəniş Tarixçəsi",
     methods: "Ödəniş Üsulları",
     history: "Ödəniş Tarixçəsi",
-    viewAndManageTransactions: "Ödəniş əməliyyatlarınızı görün və idar�� edin",
+    viewAndManageTransactions: "Ödəniş əməliyyatlarınızı görün və idarə edin",
     searchPayments: "Ödənişləri axtar...",
     loadingPayments: "Ödənişlər yüklənir...",
     unableToLoadPayments: "Ödənişlər Yüklənə Bilmədi",
@@ -529,7 +530,7 @@ export default {
       },
       step6: {
         title: "Ödəniş Tamamlandı",
-        description: "İstifadə vaxtına əsasən ödəniş avtomatik olaraq i��lənir",
+        description: "İstifadə vaxtına əsasən ödəniş avtomatik olaraq işlənir",
       },
     },
     faq: {
@@ -702,7 +703,7 @@ export default {
       title: "Qiymət Sualları",
       subtitle: "Qiymətləndirmə və faktura haqqında ümumi suallar",
       q1: "Gizli haqlar varmı?",
-      a1: "Gizli haqlar yoxdur! Göstərilən qiymətlər tam olaraq ödədiyiniz məbləğdir. Gecikmiş qaytarma haqları yalnız powerbank-ı 7 günlük maksimum icarə müddətindən artıq saxladığ��nız zaman tətbiq olunur.",
+      a1: "Gizli haqlar yoxdur! Göstərilən qiymətlər tam olaraq ödədiyiniz məbləğdir. Gecikmiş qaytarma haqları yalnız powerbank-ı 7 günlük maksimum icarə müddətindən artıq saxladığınız zaman tətbiq olunur.",
       q2: "Powerbank-ı gec qaytarsam nə olur?",
       a2: "Planınızın bitməsindən sonra 24 saat ərzində qaytarsanız, əlavə gün üçün ödəniş alınacaq. Ümumi 7 gündən sonra əvəzetmə haqqı tətbiq olunur.",
       q3: "İcarə zamanı planımı yeniləyə bilərəmmi?",
@@ -716,7 +717,7 @@ export default {
     },
     cta: {
       title: "Başlamağa Hazırsınız?",
-      description: "Şarj ehtiyacları üçün Pobi-y�� güvənən minlərlə istifadəçiyə qoşulun. Öhdəlik tələb olunmur - istifadə etdikcə ödəyin.",
+      description: "��arj ehtiyacları üçün Pobi-yə güvənən minlərlə istifadəçiyə qoşulun. Öhdəlik tələb olunmur - istifadə etdikcə ödəyin.",
     },
   },
 };
