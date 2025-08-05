@@ -117,7 +117,7 @@ export default function ClientComponentUsingSearchParams() {
     } catch (err) {
       console.error("Error fetching active rental:", err);
 
-      let errorMessage = t("rentalActive.failedToLoad");
+      let errorMessage = t("rentalActive.failedToLoad") || "Failed to load rental data";
 
       if (
         err.message.includes("Authentication token") ||
