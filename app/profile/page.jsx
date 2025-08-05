@@ -487,7 +487,7 @@ const ProfilePage = () => {
                       type="text"
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
-                      placeholder="Enter your username"
+                      placeholder={t("profile.usernamePlaceholder")}
                       style={{
                         width: "100%",
                         padding: "0.75rem",
