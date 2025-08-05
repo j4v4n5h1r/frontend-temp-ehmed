@@ -100,7 +100,7 @@ const AdminStations = () => {
       );
 
       if (response.ok) {
-        alert("Command sent successfully!");
+        alert(t("admin.commandSentSuccess"));
         setSelectedStation(null);
       }
     } catch (error) {
