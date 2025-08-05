@@ -351,7 +351,7 @@ const AdminStations = () => {
             gap: "1.5rem",
           }}
         >
-          {/* {isLoading ? (
+          {isLoading ? (
             <div
               style={{
                 gridColumn: "1 / -1",
@@ -360,9 +360,9 @@ const AdminStations = () => {
                 color: "#6b7280",
               }}
             >
-              Loading stations...
+              {t("admin.loadingStations")}
             </div>
-          ) : ( */}
+          ) : (
             filteredStations.map((station) => (
               <div
                 key={station.id}
@@ -589,7 +589,7 @@ const AdminStations = () => {
                 </div>
               </div>
             ))
-          {/* )} */}
+          )}
         </div>
 
         {filteredStations.length === 0 && !isLoading && (
