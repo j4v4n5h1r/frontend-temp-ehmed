@@ -540,7 +540,23 @@ export default {
     maxLoginAttempts: "Maksimum Giriş Denemesi",
     sessionTimeout: "Oturum Zaman Aşımı",
     passwordMinLength: "Şifre Minimum Uzunluk",
-    requireTwoFactor: "İki Faktörlü Kimlik Doğrulama Gerekli"
+    requireTwoFactor: "İki Faktörlü Kimlik Doğrulama Gerekli",
+    // Reports translations
+    from: "Başlangıç",
+    to: "Bitiş",
+    updateReports: "Raporları Güncelle",
+    revenueReport: "Gelir Raporu",
+    avgDailyRevenue: "Ortalama Günlük Gelir",
+    dailyRevenueBreakdown: "Günlük Gelir Dökümü",
+    date: "Tarih",
+    avgPerRental: "Kiralama Başına Ort.",
+    utilizationReport: "Kullanım Raporu",
+    avgUtilization: "Ortalama Kullanım",
+    peakUtilization: "En Yüksek Kullanım",
+    avgRentalDuration: "Ortalama Kiralama Süresi",
+    dailyUtilizationBreakdown: "Günlük Kullanım Dökümü",
+    peak: "En Yüksek",
+    peakHour: "En Yüksek Saat"
   },
 
   // Error Messages
