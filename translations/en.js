@@ -555,7 +555,8 @@ export default {
     monthUnlimited: "30-day unlimited",
     corporateRates: "Corporate rates",
     premiumSupport: "Premium support",
-    monthlyPlanDesc: "Enterprise solution for regular power bank users"
+    monthlyPlanDesc: "Enterprise solution for regular power bank users",
+    minutes: "min"
   },
 
   // Error Messages
