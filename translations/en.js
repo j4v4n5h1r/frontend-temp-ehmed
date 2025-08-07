@@ -518,7 +518,23 @@ export default {
     maxLoginAttempts: "Max Login Attempts",
     sessionTimeout: "Session Timeout",
     passwordMinLength: "Password Min Length",
-    requireTwoFactor: "Require Two-Factor Authentication"
+    requireTwoFactor: "Require Two-Factor Authentication",
+    // Reports translations
+    from: "From",
+    to: "To",
+    updateReports: "Update Reports",
+    revenueReport: "Revenue Report",
+    avgDailyRevenue: "Avg Daily Revenue",
+    dailyRevenueBreakdown: "Daily Revenue Breakdown",
+    date: "Date",
+    avgPerRental: "Avg per Rental",
+    utilizationReport: "Utilization Report",
+    avgUtilization: "Avg Utilization",
+    peakUtilization: "Peak Utilization",
+    avgRentalDuration: "Avg Rental Duration",
+    dailyUtilizationBreakdown: "Daily Utilization Breakdown",
+    peak: "Peak",
+    peakHour: "Peak Hour"
   },
 
   // Error Messages
