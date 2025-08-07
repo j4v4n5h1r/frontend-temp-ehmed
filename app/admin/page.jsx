@@ -121,7 +121,7 @@ const AdminDashboard = () => {
       description: t("admin.paymentsDesc", "Handle payments, refunds, and billing"),
       href: "/admin/payments",
       icon: "💳",
-      stats: `$${stats.revenue.month.toLocaleString()} this month`,
+      stats: `$${stats.revenue.month.toLocaleString()} ${t("admin.thisMonth")}`,
       color: "#ef4444",
     },
     {
