@@ -171,7 +171,7 @@ const AdminReports = () => {
                 color: "#374151",
               }}
             >
-              From:
+              {t("admin.from")}:
             </label>
             <input
               type="date"
@@ -195,7 +195,7 @@ const AdminReports = () => {
                 color: "#374151",
               }}
             >
-              To:
+              {t("admin.to")}:
             </label>
             <input
               type="date"
@@ -224,7 +224,7 @@ const AdminReports = () => {
               fontSize: "0.875rem",
             }}
           >
-            Update Reports
+            {t("admin.updateReports")}
           </button>
         </div>
 
@@ -262,7 +262,7 @@ const AdminReports = () => {
                     gap: "0.5rem",
                   }}
                 >
-                  💰 Revenue Report
+                  💰 {t("admin.revenueReport")}
                 </h2>
 
                 {/* Revenue Summary */}
@@ -293,7 +293,7 @@ const AdminReports = () => {
                       ${revenueData.summary.totalRevenue.toLocaleString()}
                     </div>
                     <div style={{ fontSize: "0.875rem", opacity: 0.9 }}>
-                      Total Revenue
+                      {t("admin.totalRevenue")}
                     </div>
                   </div>
                   <div
@@ -315,7 +315,7 @@ const AdminReports = () => {
                       {revenueData.summary.totalRentals.toLocaleString()}
                     </div>
                     <div style={{ fontSize: "0.875rem", opacity: 0.9 }}>
-                      Total Rentals
+                      {t("admin.totalRentals")}
                     </div>
                   </div>
                   <div
@@ -337,7 +337,7 @@ const AdminReports = () => {
                       ${revenueData.summary.avgDailyRevenue.toLocaleString()}
                     </div>
                     <div style={{ fontSize: "0.875rem", opacity: 0.9 }}>
-                      Avg Daily Revenue
+                      {t("admin.avgDailyRevenue")}
                     </div>
                   </div>
                 </div>
