@@ -62,7 +62,7 @@ const AdminPricing = () => {
           }}
         >
           <p style={{ color: "#6b7280", fontSize: "1.125rem" }}>
-            Pricing management functionality coming soon...
+            {t("admin.comingSoon", "Pricing management functionality coming soon...")}
           </p>
         </div>
       </div>
