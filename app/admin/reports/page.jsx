@@ -73,19 +73,19 @@ const AdminReports = () => {
   };
 
   // if (loading || !user || user.profile?.data?.user?.role !== "admin") {
-    return (
-      <div
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#f8fafc",
-        }}
-      >
-        <div>Loading...</div>
-      </div>
-    );
+  //   return (
+  //     <div
+  //       style={{
+  //         minHeight: "100vh",
+  //         display: "flex",
+  //         alignItems: "center",
+  //         justifyContent: "center",
+  //         background: "#f8fafc",
+  //       }}
+  //     >
+  //       <div>Loading...</div>
+  //     </div>
+  //   );
   // }
 
   return (
@@ -122,7 +122,7 @@ const AdminReports = () => {
                 display: "inline-block",
               }}
             >
-              ← Back to Admin Dashboard
+              ← {t("admin.backToAdmin")}
             </Link>
             <h1
               style={{
@@ -132,7 +132,7 @@ const AdminReports = () => {
                 margin: 0,
               }}
             >
-              Reports & Analytics
+              {t("admin.reports")}
             </h1>
           </div>
         </div>
