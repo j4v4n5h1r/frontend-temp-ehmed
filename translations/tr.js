@@ -95,7 +95,7 @@ export default {
       downloadOn: "İndir",
       getItOn: "Al",
       features: {
-        findStations: "Yakındaki istasyonlar�� bul",
+        findStations: "Yakındaki istasyonları bul",
         realTime: "Gerçek zamanlı müsaitlik",
         qrScanning: "Anında QR tarama",
       },
@@ -196,7 +196,7 @@ export default {
     debugAPI: "API Hata Ayıklama",
     noStationsFound: "İstasyon bulunamadı",
     tryAdjustingSearch: "Arama terimlerinizi ayarlamayı deneyin",
-    noStationsAvailable: "��u anda kullanılabilir istasyon yok",
+    noStationsAvailable: "Şu anda kullanılabilir istasyon yok",
     locationNotSpecified: "Konum belirtilmemiş",
     rentFromStation: "İstasyondan Kirala",
     underMaintenance: "Bakımda",
@@ -467,7 +467,9 @@ export default {
     comingSoon: "Yakında...",
     never: "Hiçbir zaman",
     total: "Toplam",
-    thisMonth: "bu ay"
+    thisMonth: "bu ay",
+    view: "Görüntüle",
+    suspended: "Askıya Alınmış"
   },
 
   // Error Messages
@@ -525,7 +527,7 @@ export default {
       title: "Büyüyen Ağımız",
       readyTitle: "Başlamaya Hazır mısınız?",
       readyDesc:
-        "Batarya ömrü için endişelenmeden binlerce kullanıcıya katılın. Yakınınızda bir istasyon bulun ve Pobi kolaylığın�� yaşayın.",
+        "Batarya ömrü için endişelenmeden binlerce kullanıcıya katılın. Yakınınızda bir istasyon bulun ve Pobi kolaylığını yaşayın.",
       findStationNow: "Şimdi İstasyon Bul",
       createAccount: "Hesap Oluştur",
     },
