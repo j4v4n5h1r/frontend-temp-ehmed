@@ -97,7 +97,7 @@ const AdminDashboard = () => {
       description: t("admin.stationsDesc", "Monitor and control charging stations"),
       href: "/admin/stations",
       icon: "🔌",
-      stats: `${stats.stations.online}/${stats.stations.total} online`,
+      stats: `${stats.stations.online}/${stats.stations.total} ${t("admin.online")}`,
       color: "#10b981",
     },
     {
@@ -121,7 +121,7 @@ const AdminDashboard = () => {
       description: t("admin.paymentsDesc", "Handle payments, refunds, and billing"),
       href: "/admin/payments",
       icon: "💳",
-      stats: `$${stats.revenue.month.toLocaleString()} this month`,
+      stats: `$${stats.revenue.month.toLocaleString()} ${t("admin.thisMonth")}`,
       color: "#ef4444",
     },
     {
@@ -133,8 +133,8 @@ const AdminDashboard = () => {
       color: "#06b6d4",
     },
     {
-      title: t("admin.pricing", "Pricing Management"),
-      description: t("admin.pricingDesc", "Configure pricing tiers and rates"),
+      title: t("admin.pricing"),
+      description: t("admin.pricingDesc"),
       href: "/admin/pricing",
       icon: "💰",
       stats: t("admin.managePricing", "Manage pricing strategies"),
@@ -203,8 +203,10 @@ const AdminDashboard = () => {
               }}
             >
               {t("admin.welcomeBack", "Welcome back")},{" "}
-              {user.profile?.data?.user?.name ||
-                user.profile?.data?.user?.email}
+              {user?.profile?.data?.user?.name ||
+                user?.profile?.data?.user?.email ||
+                user?.username ||
+                "Admin"}
             </p>
           </div>
 

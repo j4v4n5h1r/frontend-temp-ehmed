@@ -3,10 +3,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import { AuthContext } from "../../../context/AuthContext";
+import { useTranslation } from "../../../context/TranslationContext";
 import { useRouter } from "next/navigation";
 
 const AdminUsers = () => {
   const { user, loading } = useContext(AuthContext);
+  const { t } = useTranslation();
   const router = useRouter();
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -76,7 +78,7 @@ const AdminUsers = () => {
   };
 
   const handleDeleteUser = async (userId) => {
-    if (!confirm("Are you sure you want to delete this user?")) return;
+    if (!confirm(t("admin.deleteConfirm"))) return;
 
     try {
       const token = user?.token;
@@ -152,7 +154,7 @@ const AdminUsers = () => {
                 display: "inline-block",
               }}
             >
-              ← Back to Admin Dashboard
+              ← {t("admin.backToAdmin")}
             </Link>
             <h1
               style={{
@@ -162,7 +164,7 @@ const AdminUsers = () => {
                 margin: 0,
               }}
             >
-              Users Management
+              {t("admin.users")}
             </h1>
           </div>
           <button
@@ -177,7 +179,7 @@ const AdminUsers = () => {
               boxShadow: "0 4px 6px -1px rgba(34, 197, 94, 0.3)",
             }}
           >
-            + Add New User
+            + {t("admin.addNewUser")}
           </button>
         </div>
 
@@ -197,7 +199,7 @@ const AdminUsers = () => {
         >
           <input
             type="text"
-            placeholder="Search users by name or email..."
+            placeholder={t("admin.searchUsers")}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             style={{
@@ -220,10 +222,10 @@ const AdminUsers = () => {
               background: "white",
             }}
           >
-            <option value="all">All Status</option>
-            <option value="active">Active</option>
-            <option value="suspended">Suspended</option>
-            <option value="pending">Pending</option>
+            <option value="all">{t("admin.allStatus")}</option>
+            <option value="active">{t("rentals.active")}</option>
+            <option value="suspended">{t("payments.failed")}</option>
+            <option value="pending">{t("payments.pending")}</option>
           </select>
         </div>
 
@@ -244,7 +246,7 @@ const AdminUsers = () => {
                 color: "#6b7280",
               }}
             >
-              Loading users...
+              {t("admin.loadingUsers")}
             </div>
           ) : (
             <>
@@ -270,7 +272,7 @@ const AdminUsers = () => {
                         fontSize: "0.875rem",
                       }}
                     >
-                      User
+                      {t("admin.user")}
                     </th>
                     <th
                       style={{
@@ -281,7 +283,7 @@ const AdminUsers = () => {
                         fontSize: "0.875rem",
                       }}
                     >
-                      Status
+                      {t("rentals.status")}
                     </th>
                     <th
                       style={{
@@ -292,7 +294,7 @@ const AdminUsers = () => {
                         fontSize: "0.875rem",
                       }}
                     >
-                      Joined
+                      {t("admin.joined")}
                     </th>
                     <th
                       style={{
@@ -303,7 +305,7 @@ const AdminUsers = () => {
                         fontSize: "0.875rem",
                       }}
                     >
-                      Last Login
+                      {t("admin.lastLogin")}
                     </th>
                     <th
                       style={{
@@ -314,7 +316,7 @@ const AdminUsers = () => {
                         fontSize: "0.875rem",
                       }}
                     >
-                      Actions
+                      {t("admin.actions")}
                     </th>
                   </tr>
                 </thead>
@@ -400,9 +402,9 @@ const AdminUsers = () => {
                                   : "#92400e",
                           }}
                         >
-                          <option value="active">Active</option>
-                          <option value="suspended">Suspended</option>
-                          <option value="pending">Pending</option>
+                          <option value="active">{t("rentals.active")}</option>
+                          <option value="suspended">{t("admin.suspended")}</option>
+                          <option value="pending">{t("payments.pending")}</option>
                         </select>
                       </td>
                       <td
@@ -423,7 +425,7 @@ const AdminUsers = () => {
                       >
                         {user.lastLogin
                           ? new Date(user.lastLogin).toLocaleDateString()
-                          : "Never"}
+                          : t("admin.never")}
                       </td>
                       <td style={{ padding: "1rem", textAlign: "right" }}>
                         <div
@@ -444,7 +446,7 @@ const AdminUsers = () => {
                               cursor: "pointer",
                             }}
                           >
-                            View
+                            {t("admin.view")}
                           </button>
                           <button
                             style={{
@@ -457,7 +459,7 @@ const AdminUsers = () => {
                               cursor: "pointer",
                             }}
                           >
-                            Edit
+                            {t("common.edit")}
                           </button>
                           <button
                             onClick={() => handleDeleteUser(user.id)}
@@ -471,7 +473,7 @@ const AdminUsers = () => {
                               cursor: "pointer",
                             }}
                           >
-                            Delete
+                            {t("common.delete")}
                           </button>
                         </div>
                       </td>
@@ -497,7 +499,7 @@ const AdminUsers = () => {
                       fontSize: "0.875rem",
                     }}
                   >
-                    Page {currentPage} of {totalPages}
+                    {t("admin.page")} {currentPage} {t("admin.of")} {totalPages}
                   </div>
                   <div style={{ display: "flex", gap: "0.5rem" }}>
                     <button
@@ -515,7 +517,7 @@ const AdminUsers = () => {
                         cursor: currentPage === 1 ? "not-allowed" : "pointer",
                       }}
                     >
-                      Previous
+                      {t("admin.previous")}
                     </button>
                     <button
                       onClick={() =>
@@ -536,7 +538,7 @@ const AdminUsers = () => {
                             : "pointer",
                       }}
                     >
-                      Next
+                      {t("admin.next")}
                     </button>
                   </div>
                 </div>

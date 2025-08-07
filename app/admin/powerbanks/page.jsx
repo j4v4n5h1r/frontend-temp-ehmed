@@ -3,10 +3,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import { AuthContext } from "../../../context/AuthContext";
+import { useTranslation } from "../../../context/TranslationContext";
 import { useRouter } from "next/navigation";
 
 const AdminPowerBanks = () => {
   const { user, loading } = useContext(AuthContext);
+  const { t } = useTranslation();
   const router = useRouter();
   const [powerBanks, setPowerBanks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -126,7 +128,7 @@ const AdminPowerBanks = () => {
                 display: "inline-block",
               }}
             >
-              ← Back to Admin Dashboard
+              ← {t("admin.backToAdmin")}
             </Link>
             <h1
               style={{
@@ -136,7 +138,7 @@ const AdminPowerBanks = () => {
                 margin: 0,
               }}
             >
-              Power Banks Management
+              {t("admin.powerbanks")}
             </h1>
           </div>
         </div>
@@ -151,20 +153,20 @@ const AdminPowerBanks = () => {
           }}
         >
           {[
-            { label: "Total", count: powerBanks.length, color: "#3b82f6" },
+            { label: t("admin.total"), count: powerBanks.length, color: "#3b82f6" },
             {
-              label: "Available",
+              label: t("admin.available"),
               count: powerBanks.filter((pb) => pb.status === "available")
                 .length,
               color: "#22c55e",
             },
             {
-              label: "Rented",
+              label: t("admin.rented"),
               count: powerBanks.filter((pb) => pb.status === "rented").length,
               color: "#f59e0b",
             },
             {
-              label: "Maintenance",
+              label: t("admin.maintenance"),
               count: powerBanks.filter((pb) => pb.status === "maintenance")
                 .length,
               color: "#ef4444",
@@ -227,10 +229,10 @@ const AdminPowerBanks = () => {
               background: "white",
             }}
           >
-            <option value="all">All Status</option>
-            <option value="available">Available</option>
-            <option value="rented">Rented</option>
-            <option value="maintenance">Maintenance</option>
+            <option value="all">{t("admin.allStatus")}</option>
+            <option value="available">{t("admin.available")}</option>
+            <option value="rented">{t("admin.rented")}</option>
+            <option value="maintenance">{t("admin.maintenance")}</option>
           </select>
           <select
             value={stationFilter}
@@ -243,7 +245,7 @@ const AdminPowerBanks = () => {
               background: "white",
             }}
           >
-            <option value="all">All Stations</option>
+            <option value="all">{t("admin.allStations")}</option>
             <option value="st_001">Downtown Mall Station</option>
             <option value="st_002">Airport Terminal 1</option>
             <option value="st_003">Central Park Station</option>
@@ -258,7 +260,7 @@ const AdminPowerBanks = () => {
             gap: "1.5rem",
           }}
         >
-          {/* {isLoading ? (
+          {isLoading ? (
             <div
               style={{
                 gridColumn: "1 / -1",
@@ -267,9 +269,9 @@ const AdminPowerBanks = () => {
                 color: "#6b7280",
               }}
             >
-              Loading power banks...
+              {t("admin.loadingPowerbanks")}
             </div>
-          ) : ( */}
+          ) : (
             powerBanks.map((powerBank) => {
               const statusColors = getStatusColor(powerBank.status);
               const healthColor = getHealthColor(powerBank.health);
@@ -331,7 +333,7 @@ const AdminPowerBanks = () => {
                           color: statusColors.text,
                         }}
                       >
-                        {powerBank.status}
+                        {t(`admin.${powerBank.status}`)}
                       </span>
                     </div>
 
@@ -352,7 +354,7 @@ const AdminPowerBanks = () => {
                             fontWeight: "500",
                           }}
                         >
-                          Battery Level
+                          {t("admin.batteryLevel")}
                         </span>
                         <span
                           style={{
@@ -405,7 +407,7 @@ const AdminPowerBanks = () => {
                             marginBottom: "0.25rem",
                           }}
                         >
-                          Capacity
+                          {t("admin.capacity")}
                         </div>
                         <div
                           style={{
@@ -425,7 +427,7 @@ const AdminPowerBanks = () => {
                             marginBottom: "0.25rem",
                           }}
                         >
-                          Cycles
+                          {t("admin.cycles")}
                         </div>
                         <div
                           style={{
@@ -445,7 +447,7 @@ const AdminPowerBanks = () => {
                             marginBottom: "0.25rem",
                           }}
                         >
-                          Health
+                          {t("admin.health")}
                         </div>
                         <div
                           style={{
@@ -454,7 +456,7 @@ const AdminPowerBanks = () => {
                             color: healthColor,
                           }}
                         >
-                          {powerBank.health}
+                          {t(`admin.${powerBank.health}`)}
                         </div>
                       </div>
                       <div>
@@ -465,7 +467,7 @@ const AdminPowerBanks = () => {
                             marginBottom: "0.25rem",
                           }}
                         >
-                          Temperature
+                          {t("admin.temperature")}
                         </div>
                         <div
                           style={{
@@ -496,7 +498,7 @@ const AdminPowerBanks = () => {
                             marginBottom: "0.25rem",
                           }}
                         >
-                          Current Location
+                          {t("admin.currentLocation")}
                         </div>
                         <div
                           style={{
@@ -504,7 +506,7 @@ const AdminPowerBanks = () => {
                             color: "#1f2937",
                           }}
                         >
-                          Station {powerBank.stationId} - Slot{" "}
+                          {t("rentals.station")} {powerBank.stationId} - {t("admin.slot")}{" "}
                           {powerBank.slotNumber || "N/A"}
                         </div>
                       </div>
@@ -516,7 +518,7 @@ const AdminPowerBanks = () => {
                           fontWeight: "500",
                         }}
                       >
-                        Currently rented
+                        {t("admin.currentlyRented")}
                       </div>
                     )}
                   </div>
@@ -530,13 +532,13 @@ const AdminPowerBanks = () => {
                       color: "#6b7280",
                     }}
                   >
-                    Last rented:{" "}
+                    {t("admin.lastRented")}:{" "}
                     {new Date(powerBank.lastRentedAt).toLocaleString()}
                   </div>
                 </div>
               );
             })
-          {/*)}*/}
+          )}
         </div>
 
         {powerBanks.length === 0 && !isLoading && (
@@ -547,7 +549,7 @@ const AdminPowerBanks = () => {
               color: "#6b7280",
             }}
           >
-            No power banks found matching your criteria.
+            {t("admin.noPowerbanksFound")}
           </div>
         )}
       </div>

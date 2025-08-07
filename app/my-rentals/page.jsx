@@ -535,7 +535,7 @@ const MyRentalsPage = () => {
                   marginBottom: "0.5rem",
                 }}
               >
-                {t("common.status")}
+                {t("rentals.status")}
               </label>
               <select
                 value={filter}
@@ -726,7 +726,7 @@ const MyRentalsPage = () => {
                               }}
                             >
                               {rental.stationName ||
-                                `Station ${rental.stationId}`}
+                                `${t("rentals.station")} ${rental.stationId}`}
                             </h3>
                             <span
                               style={{
@@ -740,7 +740,7 @@ const MyRentalsPage = () => {
                                 textTransform: "capitalize",
                               }}
                             >
-                              {rental.status}
+                              {t(`rentals.${rental.status}`) || rental.status}
                             </span>
                           </div>
 

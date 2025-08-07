@@ -3,10 +3,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import { AuthContext } from "../../../context/AuthContext";
+import { useTranslation } from "../../../context/TranslationContext";
 import { useRouter } from "next/navigation";
 
 const AdminStations = () => {
   const { user, loading } = useContext(AuthContext);
+  const { t } = useTranslation();
   const router = useRouter();
   const [stations, setStations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -98,7 +100,7 @@ const AdminStations = () => {
       );
 
       if (response.ok) {
-        alert("Command sent successfully!");
+        alert(t("admin.commandSentSuccess"));
         setSelectedStation(null);
       }
     } catch (error) {
@@ -107,7 +109,7 @@ const AdminStations = () => {
   };
 
   const handleDeleteStation = async (stationId) => {
-    if (!confirm("Are you sure you want to delete this station?")) return;
+    if (!confirm(t("admin.deleteStationConfirm"))) return;
 
     try {
       const token = user?.token;
@@ -185,7 +187,7 @@ const AdminStations = () => {
                 display: "inline-block",
               }}
             >
-              ← Back to Admin Dashboard
+              ← {t("admin.backToAdmin")}
             </Link>
             <h1
               style={{
@@ -195,7 +197,7 @@ const AdminStations = () => {
                 margin: 0,
               }}
             >
-              Stations Management
+              {t("admin.stations")}
             </h1>
           </div>
           <button
@@ -210,7 +212,7 @@ const AdminStations = () => {
               boxShadow: "0 4px 6px -1px rgba(34, 197, 94, 0.3)",
             }}
           >
-            + Add New Station
+            + {t("admin.addNewStation")}
           </button>
         </div>
 
@@ -230,7 +232,7 @@ const AdminStations = () => {
         >
           <input
             type="text"
-            placeholder="Search stations by name or location..."
+            placeholder={t("admin.searchStations")}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             style={{
@@ -253,10 +255,10 @@ const AdminStations = () => {
               background: "white",
             }}
           >
-            <option value="all">All Status</option>
-            <option value="online">Online</option>
-            <option value="offline">Offline</option>
-            <option value="maintenance">Maintenance</option>
+            <option value="all">{t("admin.allStatus")}</option>
+            <option value="online">{t("admin.online")}</option>
+            <option value="offline">{t("admin.offline")}</option>
+            <option value="maintenance">{t("admin.maintenance")}</option>
           </select>
         </div>
 
@@ -280,7 +282,7 @@ const AdminStations = () => {
                 marginBottom: "1rem",
               }}
             >
-              Send Command to Station:{" "}
+              {t("admin.sendCommandTo")}{" "}
               {stations.find((s) => s.id === selectedStation)?.name}
             </h3>
             <div
@@ -302,12 +304,12 @@ const AdminStations = () => {
                   background: "white",
                 }}
               >
-                <option value="RESET">Reset Station</option>
-                <option value="REBOOT">Reboot System</option>
-                <option value="DIAGNOSTICS">Run Diagnostics</option>
-                <option value="EJECT">Emergency Eject</option>
-                <option value="LOCK_SLOT">Lock All Slots</option>
-                <option value="UNLOCK_SLOT">Unlock All Slots</option>
+                <option value="RESET">{t("admin.resetStation")}</option>
+                <option value="REBOOT">{t("admin.rebootSystem")}</option>
+                <option value="DIAGNOSTICS">{t("admin.runDiagnostics")}</option>
+                <option value="EJECT">{t("admin.emergencyEject")}</option>
+                <option value="LOCK_SLOT">{t("admin.lockAllSlots")}</option>
+                <option value="UNLOCK_SLOT">{t("admin.unlockAllSlots")}</option>
               </select>
               <button
                 onClick={handleSendCommand}
@@ -321,7 +323,7 @@ const AdminStations = () => {
                   cursor: "pointer",
                 }}
               >
-                Send Command
+                {t("admin.sendCommand")}
               </button>
               <button
                 onClick={() => setSelectedStation(null)}
@@ -335,7 +337,7 @@ const AdminStations = () => {
                   cursor: "pointer",
                 }}
               >
-                Cancel
+                {t("common.cancel")}
               </button>
             </div>
           </div>
@@ -349,7 +351,7 @@ const AdminStations = () => {
             gap: "1.5rem",
           }}
         >
-          {/* {isLoading ? (
+          {isLoading ? (
             <div
               style={{
                 gridColumn: "1 / -1",
@@ -358,9 +360,9 @@ const AdminStations = () => {
                 color: "#6b7280",
               }}
             >
-              Loading stations...
+              {t("admin.loadingStations")}
             </div>
-          ) : ( */}
+          ) : (
             filteredStations.map((station) => (
               <div
                 key={station.id}
@@ -526,7 +528,7 @@ const AdminStations = () => {
                       fontWeight: "600",
                     }}
                   >
-                    View Details
+                    {t("admin.viewDetails")}
                   </button>
                   <button
                     style={{
@@ -540,7 +542,7 @@ const AdminStations = () => {
                       fontWeight: "600",
                     }}
                   >
-                    Edit
+                    {t("common.edit")}
                   </button>
                   <button
                     onClick={() => setSelectedStation(station.id)}
@@ -555,7 +557,7 @@ const AdminStations = () => {
                       fontWeight: "600",
                     }}
                   >
-                    Send Command
+                    {t("admin.sendCommand")}
                   </button>
                   <button
                     onClick={() => handleDeleteStation(station.id)}
@@ -570,7 +572,7 @@ const AdminStations = () => {
                       fontWeight: "600",
                     }}
                   >
-                    Delete
+                    {t("common.delete")}
                   </button>
                 </div>
 
@@ -587,7 +589,7 @@ const AdminStations = () => {
                 </div>
               </div>
             ))
-          {/* )} */}
+          )}
         </div>
 
         {filteredStations.length === 0 && !isLoading && (

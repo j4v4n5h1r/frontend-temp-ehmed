@@ -25,19 +25,19 @@ export default function DashboardPage() {
     const fetchData = async () => {
       try {
         const rentalRes = await axios.get(
-          url+'/api/v1/users/me/rentals',
+          `${url}/api/v1/users/me/rentals`,
           {
             headers: { Authorization: `Bearer ${token}` },
           },
         );
         const paymentRes = await axios.get(
-          url+'/api/v1/payments',
+          `${url}/api/v1/payments`,
           {
             headers: { Authorization: `Bearer ${token}` },
           },
         );
         setRentals(rentalRes.data);
-        setPayments(paymentRes.data.payments || []);
+        setPayments(paymentRes.data || []);
       } catch (err) {
         setError(err.response?.data?.detail || t("errors.generic"));
       } finally {
@@ -46,7 +46,7 @@ export default function DashboardPage() {
     };
 
     fetchData();
-  }, [router]);
+  }, [router, t]);
 
   const getStatusBadge = (rental) => {
     if (rental.end_time) {
@@ -296,7 +296,7 @@ export default function DashboardPage() {
                         </div>
                         <div className="min-w-0 flex-1">
                           <div className="font-semibold text-neutral-900 truncate">
-                            Station #{rental.station_id}
+                            {t("rentals.station")} #{rental.station_id}
                           </div>
                           <div className="text-xs sm:text-sm text-neutral-600">
                             {formatDate(rental.start_time)}

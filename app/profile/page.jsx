@@ -20,6 +20,7 @@ const ProfilePage = () => {
   // Profile form state
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
@@ -37,6 +38,7 @@ const ProfilePage = () => {
       const userData = user.profile.data.user;
       setFirstName(userData.firstName || userData.name || "");
       setLastName(userData.lastName || "");
+      setUsername(userData.username || "");
       setEmail(userData.email || "");
       setPhone(userData.phone || "");
     }
@@ -103,6 +105,7 @@ const ProfilePage = () => {
       const updateData = {
         firstName,
         lastName,
+        username,
         email,
         phone,
       };
@@ -159,7 +162,7 @@ const ProfilePage = () => {
   const tabs = [
     { id: "profile", name: t("profile.personalInfo"), icon: "user" },
     { id: "payment", name: t("profile.paymentMethods"), icon: "credit-card" },
-    { id: "security", name: "Security", icon: "shield" },
+    { id: "security", name: t("profile.security"), icon: "shield" },
   ];
 
   const renderIcon = (iconName) => {
@@ -478,6 +481,38 @@ const ProfilePage = () => {
                         marginBottom: "0.5rem",
                       }}
                     >
+                      Username
+                    </label>
+                    <input
+                      type="text"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      placeholder={t("profile.usernamePlaceholder")}
+                      style={{
+                        width: "100%",
+                        padding: "0.75rem",
+                        border: "2px solid #e5e7eb",
+                        borderRadius: "0.5rem",
+                        fontSize: "1rem",
+                        outline: "none",
+                        transition: "border-color 0.3s ease",
+                        boxSizing: "border-box",
+                      }}
+                      onFocus={(e) => (e.target.style.borderColor = "#22c55e")}
+                      onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      style={{
+                        display: "block",
+                        fontSize: "0.875rem",
+                        fontWeight: "600",
+                        color: "#374151",
+                        marginBottom: "0.5rem",
+                      }}
+                    >
                       {t("auth.email")}
                     </label>
                     <input
@@ -676,7 +711,7 @@ const ProfilePage = () => {
                             marginBottom: "0.5rem",
                           }}
                         >
-                          {t("auth.firstName")} {t("auth.lastName")}
+                          {t("profile.cardHolderName")}
                         </label>
                         <input
                           type="text"
@@ -687,7 +722,7 @@ const ProfilePage = () => {
                               cardHolderName: e.target.value,
                             })
                           }
-                          placeholder="John Doe"
+                          placeholder={t("profile.cardHolderPlaceholder")}
                           style={{
                             width: "100%",
                             padding: "0.75rem",
@@ -709,7 +744,7 @@ const ProfilePage = () => {
                             marginBottom: "0.5rem",
                           }}
                         >
-                          {t("payments.methods")}
+                          {t("profile.cardNumber")}
                         </label>
                         <input
                           type="text"
@@ -720,7 +755,7 @@ const ProfilePage = () => {
                               cardNumber: e.target.value,
                             })
                           }
-                          placeholder="1234 5678 9012 3456"
+                          placeholder={t("profile.cardNumberPlaceholder")}
                           style={{
                             width: "100%",
                             padding: "0.75rem",
@@ -742,7 +777,7 @@ const ProfilePage = () => {
                             marginBottom: "0.5rem",
                           }}
                         >
-                          {t("payments.date")}
+                          {t("profile.expiryDate")}
                         </label>
                         <input
                           type="text"
@@ -753,7 +788,7 @@ const ProfilePage = () => {
                               expiryDate: e.target.value,
                             })
                           }
-                          placeholder="MM/YY"
+                          placeholder={t("profile.expiryPlaceholder")}
                           style={{
                             width: "100%",
                             padding: "0.75rem",
@@ -775,7 +810,7 @@ const ProfilePage = () => {
                             marginBottom: "0.5rem",
                           }}
                         >
-                          CVV
+                          {t("profile.cvv")}
                         </label>
                         <input
                           type="text"
@@ -786,7 +821,7 @@ const ProfilePage = () => {
                               cvv: e.target.value,
                             })
                           }
-                          placeholder="123"
+                          placeholder={t("profile.cvvPlaceholder")}
                           style={{
                             width: "100%",
                             padding: "0.75rem",
@@ -833,7 +868,7 @@ const ProfilePage = () => {
                     marginBottom: "1.5rem",
                   }}
                 >
-                  {t("admin.settings")}
+                  {t("profile.security")}
                 </h3>
                 <div
                   style={{
@@ -877,8 +912,7 @@ const ProfilePage = () => {
                       fontSize: "0.875rem",
                     }}
                   >
-                    Password change, two-factor authentication, and other
-                    security features will be available soon.
+                    {t("profile.securityDescription")}
                   </p>
                 </div>
               </div>

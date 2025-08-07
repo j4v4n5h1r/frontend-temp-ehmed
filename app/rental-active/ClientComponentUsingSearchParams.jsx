@@ -15,7 +15,7 @@ export default function ClientComponentUsingSearchParams() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const rentalId = searchParams.get("id");
-  const { user } = useContext(AuthContext);
+  const { user, loading: authLoading } = useContext(AuthContext);
 
   const [activeRental, setActiveRental] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -24,10 +24,13 @@ export default function ClientComponentUsingSearchParams() {
   const [elapsedTime, setElapsedTime] = useState("");
 
   useEffect(() => {
-    fetchActiveRental();
-    const interval = setInterval(updateElapsedTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
+    // Only fetch rental data after auth context has loaded
+    if (!authLoading) {
+      fetchActiveRental();
+      const interval = setInterval(updateElapsedTime, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [authLoading]);
 
   const fetchActiveRental = async () => {
     try {
@@ -87,14 +90,11 @@ export default function ClientComponentUsingSearchParams() {
         return;
       }
 
-      if (!token) {
-        throw new Error(
-          t("rentals.authTokenMissing"),
-        );
-      }
-
-      if (!user?.id) {
-        throw new Error(t("rentals.authFailed"));
+      if (!token || !user?.id) {
+        console.log("No token or user available, redirecting to login");
+        // Redirect to login instead of throwing error
+        router.push("/login");
+        return;
       }
 
       const response = await axios.get(
@@ -117,7 +117,7 @@ export default function ClientComponentUsingSearchParams() {
     } catch (err) {
       console.error("Error fetching active rental:", err);
 
-      let errorMessage = t("rentalActive.failedToLoad");
+      let errorMessage = t("rentalActive.failedToLoad") || "Failed to load rental data";
 
       if (
         err.message.includes("Authentication token") ||
@@ -129,9 +129,9 @@ export default function ClientComponentUsingSearchParams() {
       } else if (err.response) {
         console.error("Server error:", err.response.status, err.response.data);
         if (err.response.status === 401) {
-          errorMessage = t("rentals.authFailed");
+          errorMessage = t("rentals.authFailed") || "Authentication failed";
         } else if (err.response.status === 404) {
-          errorMessage = t("rentalActive.noActiveRental");
+          errorMessage = t("rentalActive.noActiveRental") || "No active rental found";
           setActiveRental(null);
           return;
         } else {
@@ -219,7 +219,7 @@ export default function ClientComponentUsingSearchParams() {
     return "#ef4444";
   };
 
-  if (loading) {
+  if (loading || authLoading) {
     return (
       <div
         style={{
