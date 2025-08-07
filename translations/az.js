@@ -508,7 +508,7 @@ export default {
     findNearestStation: "Ən Yaxın Stansiya",
     getStarted: "Başla",
     locationsTitle: "MƏKANLAR",
-    closestLocation: "��n Yaxın Məkan",
+    closestLocation: "Ən Yaxın Məkan",
     availableCountries: "Mövcud Ölkələr",
     expandingDesc: "Sizə daha yaxşı xidmət etmək üçün sürətlə genişlənirik",
     majorCities: "Əsas Şəhərlər:",
@@ -725,7 +725,7 @@ export default {
         feature1: "Sürətli şarj kabelləri daxildir",
         feature2: "İstənilən stansiyaya qaytarın",
         feature3: "7/24 müştəri dəstəyi",
-        feature4: "Mobil tətbiq girişi",
+        feature4: "Mobil tətbiq giri��i",
         feature5: "Bütün cihazlarla uyğun",
       },
       daily: {
@@ -753,7 +753,7 @@ export default {
     },
     features: {
       fastCharging: {
-        title: "S��rətli Şarj",
+        title: "Sürətli Şarj",
         description: "Sürətli şarj texnologiyası ilə yüksək tutumlu powerbank-lar",
       },
       locations: {
@@ -778,7 +778,7 @@ export default {
       a2: "Planınızın bitməsindən sonra 24 saat ərzində qaytarsanız, əlavə gün üçün ödəniş alınacaq. Ümumi 7 gündən sonra əvəzetmə haqqı tətbiq olunur.",
       q3: "İcarə zamanı planımı yeniləyə bilərəmmi?",
       a3: "Bəli! Tətbiqimiz vasitəsilə istənilən vaxt saatlıqdan günlük və ya həftəliyə yeniləyə bilərsiniz. Yalnız fərqi ödəyəcəksiniz.",
-      q4: "Biznes və ya toplu endirimlər t��klif edirsinizmi?",
+      q4: "Biznes və ya toplu endirimlər təklif edirsinizmi?",
       a4: "Bəli, biznes və təşkilatlar ü��ün xüsusi qiymətləndirmə təklif edirik. İstifadə ehtiyaclarınıza əsasən xüsusi qiymətləndirmə üçün satış komandamızla əlaqə saxlayın.",
       q5: "Hansı ödəniş üsullarını qəbul edirsiniz?",
       a5: "Bütün əsas kredit kartları, PayPal, Apple Pay, Google Pay və əksər mobil ödəniş platformalarını qəbul edirik.",
