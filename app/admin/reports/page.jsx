@@ -474,7 +474,7 @@ const AdminReports = () => {
                     gap: "0.5rem",
                   }}
                 >
-                  📊 Utilization Report
+                  📊 {t("admin.utilizationReport")}
                 </h2>
 
                 {/* Utilization Summary */}
@@ -505,7 +505,7 @@ const AdminReports = () => {
                       {utilizationData.summary.avgUtilization.toFixed(1)}%
                     </div>
                     <div style={{ fontSize: "0.875rem", opacity: 0.9 }}>
-                      Avg Utilization
+                      {t("admin.avgUtilization")}
                     </div>
                   </div>
                   <div
@@ -527,7 +527,7 @@ const AdminReports = () => {
                       {utilizationData.summary.maxPeakUtilization.toFixed(1)}%
                     </div>
                     <div style={{ fontSize: "0.875rem", opacity: 0.9 }}>
-                      Peak Utilization
+                      {t("admin.peakUtilization")}
                     </div>
                   </div>
                   <div
@@ -549,7 +549,7 @@ const AdminReports = () => {
                       {utilizationData.summary.avgRentalDuration} min
                     </div>
                     <div style={{ fontSize: "0.875rem", opacity: 0.9 }}>
-                      Avg Rental Duration
+                      {t("admin.avgRentalDuration")}
                     </div>
                   </div>
                 </div>
