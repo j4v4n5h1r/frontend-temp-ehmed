@@ -29,43 +29,43 @@ const AdminPricing = () => {
       const mockPlans = [
         {
           id: "hourly",
-          name: "Hourly Plan",
+          name: t("admin.hourlyPlan"),
           type: "hourly",
           basePrice: 2.00,
           currency: "USD",
-          features: ["Pay per hour", "No commitment", "Great for short trips"],
+          features: [t("admin.payPerHour"), t("admin.noCommitment"), t("admin.greatForShortTrips")],
           isActive: true,
-          description: "Perfect for quick charges and short-term use"
+          description: t("admin.hourlyPlanDesc")
         },
         {
           id: "daily",
-          name: "Daily Plan", 
+          name: t("admin.dailyPlan"),
           type: "daily",
           basePrice: 8.00,
           currency: "USD",
-          features: ["24-hour access", "Best value for day trips", "All-day charging"],
+          features: [t("admin.dayAccess"), t("admin.bestValueDayTrips"), t("admin.allDayCharging")],
           isActive: true,
-          description: "Ideal for full day adventures and long commutes"
+          description: t("admin.dailyPlanDesc")
         },
         {
           id: "weekly",
-          name: "Weekly Plan",
-          type: "weekly", 
+          name: t("admin.weeklyPlan"),
+          type: "weekly",
           basePrice: 25.00,
           currency: "USD",
-          features: ["7-day unlimited", "Maximum savings", "Business travelers"],
+          features: [t("admin.weekUnlimited"), t("admin.maximumSavings"), t("admin.businessTravelers")],
           isActive: true,
-          description: "Great for extended trips and heavy users"
+          description: t("admin.weeklyPlanDesc")
         },
         {
           id: "monthly",
-          name: "Monthly Plan",
+          name: t("admin.monthlyPlan"),
           type: "monthly",
           basePrice: 80.00,
-          currency: "USD", 
-          features: ["30-day unlimited", "Corporate rates", "Premium support"],
+          currency: "USD",
+          features: [t("admin.monthUnlimited"), t("admin.corporateRates"), t("admin.premiumSupport")],
           isActive: false,
-          description: "Enterprise solution for regular power bank users"
+          description: t("admin.monthlyPlanDesc")
         }
       ];
 
