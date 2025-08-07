@@ -68,7 +68,7 @@ export default {
       step3: {
         title: "İstənilən Yerdə Qaytarın",
         description:
-          "İşiniz bitdikd�� powerbank-ı istənilən stansiyaya qaytarın. Bu qədər sadə!",
+          "İşiniz bitdikdə powerbank-ı istənilən stansiyaya qaytarın. Bu qədər sadə!",
       },
     },
     subtitle2: "Üç sadə addımda enerjini artır",
@@ -121,7 +121,7 @@ export default {
         name: "Emma Davis",
         role: "Biznes Mütəxəssisi",
         content:
-          "Etibarlılıq mükəmməldir. Konfrans və uzun görüşlər zamanı Pobi istifadə edirəm. Heç vaxt mövcud powerbank tapmaqla bağlı problem yaşamadım.",
+          "Etibarlılıq mükəmməldir. Konfrans və uzun görüşl��r zamanı Pobi istifadə edirəm. Heç vaxt mövcud powerbank tapmaqla bağlı problem yaşamadım.",
       },
     },
     footer: {
@@ -164,7 +164,7 @@ export default {
     passwordTooShort: "Şifrə minimum 6 simvol olmalı",
     registrationFailed: "Qeydiyyat uğursuz",
     termsAndConditions: "Xidmət Şərtləri",
-    privacyPolicy: "Məxfilik Siyas��ti",
+    privacyPolicy: "Məxfilik Siyasəti",
     byRegistering: "Qeydiyyatdan keçərək, bizim",
     and: "və",
     quickEasyRegistration: "Sürətli və asan qeydiyyat",
@@ -394,7 +394,7 @@ export default {
     onlineStations: "Onlayn Stansiyalar",
     total: "cəmi",
     newThisWeek: "bu həftə yeni",
-    usersDesc: "İstifadəçi hesablarını, rolların�� və icazələrini idarə edin",
+    usersDesc: "İstifadəçi hesablarını, rollarını və icazələrini idarə edin",
     stationsDesc: "Şarj stansiyalarını izləyin və kontrol edin",
     powerbanksDesc: "PowerBank inventarını və statusunu izləyin",
     rentalsDesc: "Bütün icarə fəaliyyətlərini izləyin",
@@ -577,7 +577,8 @@ export default {
     monthUnlimited: "30 gün limitsiz",
     corporateRates: "Korporativ tariflər",
     premiumSupport: "Premium dəstək",
-    monthlyPlanDesc: "Müntəzəm powerbank istifadəçiləri üçün korporativ həll"
+    monthlyPlanDesc: "Müntəzəm powerbank istifadəçiləri üçün korporativ həll",
+    minutes: "dəq"
   },
 
   // Error Messages
@@ -740,7 +741,7 @@ export default {
       content:
         "Pobi sadə bir əsəbilikdən doğdu: ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Qurucularımız bunu biznes səyahətləri, hava limanları və yeni şəhərləri kəşf edərkən saysız dəfə yaşadılar.",
       mission:
-        "Həddindən artıq bağlı dünyamızda enerjiyə çıxışın lüks və ya narahatlıq mənbəyi olmaması lazım olduğunu başa düşdük. Buna görə Pobi-ni yaratdıq - heç vaxt gücsüz qalmamanızı təmin edən etibarlı, rahat powerbank stansiyaları şəbəkəsi.",
+        "Həddindən artıq bağlı dünyamızda enerjiyə çıxışın lüks və ya narahatlıq mənb��yi olmaması lazım olduğunu başa düşdük. Buna gör�� Pobi-ni yaratdıq - heç vaxt gücsüz qalmamanızı təmin edən etibarlı, rahat powerbank stansiyaları şəbəkəsi.",
       today:
         "Bu gün hər gün böyüyən şəbəkə ilə bir neçə ölkədə minlərlə istifadəçiyə xidmət etməkdən qürur duyuruq. Lakin bitmiş batareyaları keçmişdə qoyma missiyamızda yenicə başlamışıq.",
     },
