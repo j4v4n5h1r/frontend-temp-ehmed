@@ -446,7 +446,7 @@ const AdminUsers = () => {
                               cursor: "pointer",
                             }}
                           >
-                            View
+                            {t("admin.view")}
                           </button>
                           <button
                             style={{
@@ -459,7 +459,7 @@ const AdminUsers = () => {
                               cursor: "pointer",
                             }}
                           >
-                            Edit
+                            {t("common.edit")}
                           </button>
                           <button
                             onClick={() => handleDeleteUser(user.id)}
@@ -473,7 +473,7 @@ const AdminUsers = () => {
                               cursor: "pointer",
                             }}
                           >
-                            Delete
+                            {t("common.delete")}
                           </button>
                         </div>
                       </td>
