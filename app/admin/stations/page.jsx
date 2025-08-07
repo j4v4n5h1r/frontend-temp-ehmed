@@ -323,7 +323,7 @@ const AdminStations = () => {
                   cursor: "pointer",
                 }}
               >
-                Send Command
+                {t("admin.sendCommand")}
               </button>
               <button
                 onClick={() => setSelectedStation(null)}
