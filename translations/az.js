@@ -115,7 +115,7 @@ export default {
         name: "Mike Chen",
         role: "Kollec Tələbəsi",
         content:
-          "Super münasib və rahat. Düz kampusda stansiya var və tətbiq icarəyə almağı və qaytarmağı belə asanlaşdırır. Tələb��lər üçün oyunu dəyişdirən!",
+          "Super münasib və rahat. Düz kampusda stansiya var və tətbiq icarəyə almağı və qaytarmağı belə asanlaşdırır. Tələbələr üçün oyunu dəyişdirən!",
       },
       emma: {
         name: "Emma Davis",
@@ -187,7 +187,7 @@ export default {
     rentPowerbank: "PowerBank İcarəyə Al",
     returnPowerbank: "PowerBank Qaytар",
     stationLocations: "Stansiya Məkanları",
-    findNearbyStations: "Yaxındakı powerbank stansiyaların�� tapın və mövcudluqlarını yoxlayın",
+    findNearbyStations: "Yaxındakı powerbank stansiyalarını tapın və mövcudluqlarını yoxlayın",
     searchStations: "Stansiyaları ad, məkan və ya ID ilə axtarın...",
     findClosestStations: "Sizə ən yaxın stansiyaları tapın",
     loadingStations: "Stansiyalar yüklənir...",
@@ -197,7 +197,7 @@ export default {
     noStationsFound: "Stansiya tapılmadı",
     tryAdjustingSearch: "Axtarış tərimləriniizi dəyişməyi cəhd edin",
     noStationsAvailable: "İndi əlçatan stansiya yoxdur",
-    locationNotSpecified: "M��kan göstərilməyib",
+    locationNotSpecified: "Məkan göstərilməyib",
     rentFromStation: "Stansiyadan İcarəyə Al",
     underMaintenance: "Baxımda",
     stationOffline: "Stansiya Oflayn",
@@ -360,7 +360,7 @@ export default {
     action: "Əməliyyat",
     viewDetails: "Təfərruatları Gör",
     noPaymentsFound: "Ödəniş tapılmadı",
-    tryAdjustingSearchOrFilter: "Axtarış və ya filtrinizi dəyişm��yi cəhd edin",
+    tryAdjustingSearchOrFilter: "Axtarış və ya filtrinizi dəyişməyi cəhd edin",
     noPaymentsYet: "Hələ heç ödəniş etməmişsiniz",
     startFirstRental: "İlk İcarə Əməliyyatinə Başlayın",
     paymentMethods: "Ödəniş Üsulları",
@@ -374,7 +374,7 @@ export default {
   // Dashboard
   dashboard: {
     title: "İdarə Paneli",
-    subtitle: "��carə tarixçənizi və ödənişlərinizi görün",
+    subtitle: "İcarə tarixçənizi və ödənişlərinizi görün",
   },
 
   // Admin
@@ -454,7 +454,7 @@ export default {
     batteryLevel: "Batareya Səviyyəsi",
     capacity: "Tutum",
     cycles: "Dövrə",
-    health: "Sağlamlıq",
+    health: "Sa��lamlıq",
     temperature: "Temperatur",
     currentLocation: "Mövcud Yer",
     slot: "Slot",
@@ -652,7 +652,7 @@ export default {
       reliabilityDesc: "Cihazınızı şarj etməyin işıq düyməsini açmaq qədər etibarlı olması lazım olduğuna inanırıq. Ehtiyacınız olan zaman həmişə mövcud.",
       innovation: {
         title: "İnnovasiya",
-        description: "Sizə daha yaxşı xidmət etmək üçün texnologiyamızı davamlı təkmilləşdirir və şəbəkəmizi genişləndiririk.",
+        description: "Sizə daha yaxşı xidmət etmək üçün texnologiyamızı davamlı təkmilləşdirir və şəb��kəmizi genişləndiririk.",
       },
       sustainability: "Davamlılıq",
       sustainabilityDesc: "Hər kəsə və planetə fayda verən paylaşımlı şarj həlləri təqdim edərək elektron tullantıları azaldırıq.",
@@ -693,7 +693,7 @@ export default {
     },
     stats: {
       title: "Rəqəmlərlə Pobi",
-      subtitle: "Birlikdə yaratdığımız təsir",
+      subtitle: "Birlikdə yaratdığımız t��sir",
       users: "Məmnun İstifadəçilər",
       stations: "Aktiv Stansiyalar",
       charges: "Tamamlanmış Şarjlar",
@@ -779,7 +779,7 @@ export default {
       q3: "İcarə zamanı planımı yeniləyə bilərəmmi?",
       a3: "Bəli! Tətbiqimiz vasitəsilə istənilən vaxt saatlıqdan günlük və ya həftəliyə yeniləyə bilərsiniz. Yalnız fərqi ödəyəcəksiniz.",
       q4: "Biznes və ya toplu endirimlər t��klif edirsinizmi?",
-      a4: "Bəli, biznes və təşkilatlar üçün xüsusi qiymətləndirmə təklif edirik. İstifadə ehtiyaclarınıza əsasən xüsusi qiymətləndirmə üçün satış komandamızla əlaqə saxlayın.",
+      a4: "Bəli, biznes və təşkilatlar ü��ün xüsusi qiymətləndirmə təklif edirik. İstifadə ehtiyaclarınıza əsasən xüsusi qiymətləndirmə üçün satış komandamızla əlaqə saxlayın.",
       q5: "Hansı ödəniş üsullarını qəbul edirsiniz?",
       a5: "Bütün əsas kredit kartları, PayPal, Apple Pay, Google Pay və əksər mobil ödəniş platformalarını qəbul edirik.",
       q6: "Tam icarə müddətini istifadə etməsəm, geri ödəmə ala bilərəmmi?",
