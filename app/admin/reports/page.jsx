@@ -352,7 +352,7 @@ const AdminReports = () => {
                       marginBottom: "1rem",
                     }}
                   >
-                    Daily Revenue Breakdown
+                    {t("admin.dailyRevenueBreakdown")}
                   </h3>
                   <div
                     style={{
