@@ -534,7 +534,28 @@ export default {
     avgRentalDuration: "Avg Rental Duration",
     dailyUtilizationBreakdown: "Daily Utilization Breakdown",
     peak: "Peak",
-    peakHour: "Peak Hour"
+    peakHour: "Peak Hour",
+    // Pricing plan translations
+    hourlyPlan: "Hourly Plan",
+    dailyPlan: "Daily Plan",
+    weeklyPlan: "Weekly Plan",
+    monthlyPlan: "Monthly Plan",
+    payPerHour: "Pay per hour",
+    noCommitment: "No commitment",
+    greatForShortTrips: "Great for short trips",
+    hourlyPlanDesc: "Perfect for quick charges and short-term use",
+    dayAccess: "24-hour access",
+    bestValueDayTrips: "Best value for day trips",
+    allDayCharging: "All-day charging",
+    dailyPlanDesc: "Ideal for full day adventures and long commutes",
+    weekUnlimited: "7-day unlimited",
+    maximumSavings: "Maximum savings",
+    businessTravelers: "Business travelers",
+    weeklyPlanDesc: "Great for extended trips and heavy users",
+    monthUnlimited: "30-day unlimited",
+    corporateRates: "Corporate rates",
+    premiumSupport: "Premium support",
+    monthlyPlanDesc: "Enterprise solution for regular power bank users"
   },
 
   // Error Messages
