@@ -590,7 +590,7 @@ const AdminReports = () => {
                               fontWeight: "600",
                             }}
                           >
-                            Date
+                            {t("admin.date")}
                           </th>
                           <th
                             style={{
@@ -599,7 +599,7 @@ const AdminReports = () => {
                               fontWeight: "600",
                             }}
                           >
-                            Avg Utilization
+                            {t("admin.avgUtilization")}
                           </th>
                           <th
                             style={{
@@ -608,7 +608,7 @@ const AdminReports = () => {
                               fontWeight: "600",
                             }}
                           >
-                            Peak
+                            {t("admin.peak")}
                           </th>
                           <th
                             style={{
@@ -617,7 +617,7 @@ const AdminReports = () => {
                               fontWeight: "600",
                             }}
                           >
-                            Peak Hour
+                            {t("admin.peakHour")}
                           </th>
                           <th
                             style={{
@@ -626,7 +626,7 @@ const AdminReports = () => {
                               fontWeight: "600",
                             }}
                           >
-                            Total Rentals
+                            {t("admin.totalRentals")}
                           </th>
                         </tr>
                       </thead>
