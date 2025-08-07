@@ -288,7 +288,7 @@ export default {
     authTokenMissing: "Kimlik doğrulama tokeni yoxdur. Xahiş edirik yenidən daxil olun.",
     authFailed: "Kimlik doğrulama uğursuz - xahiş edirik yenidən daxil olun",
     requestTimeout: "İstek vaxt aşımı - server cavab verməkdə çox uzun vaxt göt��rür",
-    networkError: "Şəbəkə səhvi - xahiş edirik bağlantınızı yoxlayın və yenidən cəhd edin",
+    networkError: "Şəbəkə səhvi - xahiş edirik bağlantınızı yoxlayın və yenid��n cəhd edin",
     serverError: "Server səhvi",
     unexpectedError: "Gözlənilməz səhv",
     rentalID: "İcarə ID",
@@ -540,7 +540,23 @@ export default {
     maxLoginAttempts: "Maksimum Giriş Cəhdləri",
     sessionTimeout: "Sessiyanın Vaxtı",
     passwordMinLength: "Şifrənin Minimum Uzunluğu",
-    requireTwoFactor: "İki Faktörlü Autentifikasiya Tələb Et"
+    requireTwoFactor: "İki Faktörlü Autentifikasiya Tələb Et",
+    // Reports translations
+    from: "Başlanğıc",
+    to: "Bitiş",
+    updateReports: "Hesabatları Yenilə",
+    revenueReport: "Gəlir Hesabatı",
+    avgDailyRevenue: "Ortalama Günlük Gəlir",
+    dailyRevenueBreakdown: "Günlük Gəlir Təfərruatı",
+    date: "Tarix",
+    avgPerRental: "İcarə başına Ort.",
+    utilizationReport: "İstifadə Hesabatı",
+    avgUtilization: "Ortalama İstifadə",
+    peakUtilization: "Ən Yüksək İstifadə",
+    avgRentalDuration: "Ortalama İcarə Müddəti",
+    dailyUtilizationBreakdown: "Günlük İstifadə Təfərruatı",
+    peak: "Ən Yüksək",
+    peakHour: "Ən Yüksək Saat"
   },
 
   // Error Messages
@@ -628,7 +644,7 @@ export default {
     subtitle: "Sadə bir neçə addımda powerbank icarəyə alın",
     description: "Sadə prosesimiz sizi dəqiqələr ərzində enerjiləndirir",
     findClosestLocation: "Ən yaxın məkanı buradan tapın",
-    seeDetailedPricing: "(Təfərrüatlı qiymətləri görmək üçün buraya toxunun.)",
+    seeDetailedPricing: "(Təfərrüatlı qiymətləri görm��k üçün buraya toxunun.)",
     step1: {
       detailedDescription: "Pobi dünya üzrə minlərlə mağaza, ticarət mərkəzi, hava limanı və şarj stansiyasında mövcuddur. Ən yaxın məkanı tapmaq üçün tətbiqimizi və ya saytımızı istifadə edin.",
     },
