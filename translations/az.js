@@ -53,7 +53,7 @@ export default {
     findStations: "Stansiya Tap",
     howItWorks: "Necə İşləyir",
     getStarted: "Başla",
-    downloadApp: "Tətbiqi Y��klə",
+    downloadApp: "Tətbiqi Yüklə",
     steps: {
       step1: {
         title: "QR Kodu Skan Et",
@@ -71,7 +71,7 @@ export default {
           "İşiniz bitdikdə powerbank-ı istənilən stansiyaya qaytarın. Bu qədər sadə!",
       },
     },
-    subtitle2: "Üç sad�� addımda enerjini artır",
+    subtitle2: "Üç sadə addımda enerjini artır",
     pricing: {
       title: "Ağıllı xidmət, münasib qiymət.",
       subtitle:
@@ -482,7 +482,7 @@ export default {
     unauthorized: "Bu səhifəyə daxil olmaq üçün icazəniz yoxdur",
     sessionExpired: "Seansınızın vaxtı bitib. Xahiş edirik yenidən daxil olun.",
     loginFailed: "Giriş uğursuz. Xahiş edirik kimlik məlumatlarınızı yoxlayın.",
-    registrationFailed: "Qeydiyyat uğursuz. Xahiş edirik yenidən cəhd edin.",
+    registrationFailed: "Qeydiyyat u��ursuz. Xahiş edirik yenidən cəhd edin.",
   },
 
   // Development
@@ -514,7 +514,7 @@ export default {
     majorCities: "Əsas Şəhərlər:",
     moreText: "daha çox",
     description:
-      "Dünyanın böyük şəhərlərindəki 500-dən çox məkanda icarəyə alın və qaytarın. Artan şəbəkəmiz Pobi stansiyasını ən çox ehtiyacınız olan zaman tapacağınızı təmin edir.",
+      "Dünyanın böyük şəhərlərindəki 500-dən çox məkanda icarəyə alın və qaytarın. Artan şəbəkəmiz Pobi stansiyasını ən çox ehtiyacınız olan zaman tapacağın��zı təmin edir.",
     stats: {
       locations: "Məkanlar",
       cities: "Şəhərlər",
@@ -632,7 +632,7 @@ export default {
       content:
         "Pobi sadə bir əsəbilikdən doğdu: ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Qurucularımız bunu biznes səyahətləri, hava limanları və yeni şəhərləri kəşf edərkən saysız dəfə yaşadılar.",
       mission:
-        "Həddindən artıq bağlı dünyamızda enerjiyə çıxışın lüks və ya narahatlıq mənbəyi olmaması lazım olduğunu başa düşdük. Buna görə Pobi-ni yaratdıq - heç vaxt gücsüz qalmamanızı təmin edən etibarlı, rahat powerbank stansiyaları şəbəkəsi.",
+        "Həddindən artıq bağlı dünyamızda enerjiyə çıxışın lüks və ya narahatlıq m��nbəyi olmaması lazım olduğunu başa düşdük. Buna görə Pobi-ni yaratdıq - heç vaxt gücsüz qalmamanızı təmin edən etibarlı, rahat powerbank stansiyaları şəbəkəsi.",
       today:
         "Bu gün hər gün böyüyən şəbəkə ilə bir neçə ölkədə minlərlə istifadəçiyə xidmət etməkdən qürur duyuruq. Lakin bitmiş batareyaları keçmişdə qoyma missiyamızda yenicə başlamışıq.",
     },
