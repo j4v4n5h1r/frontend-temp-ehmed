@@ -577,7 +577,8 @@ export default {
     monthUnlimited: "30 gün sınırsız",
     corporateRates: "Kurumsal oranlar",
     premiumSupport: "Premium destek",
-    monthlyPlanDesc: "Düzenli powerbank kullanıcıları için kurumsal çözüm"
+    monthlyPlanDesc: "Düzenli powerbank kullanıcıları için kurumsal çözüm",
+    minutes: "dk"
   },
 
   // Error Messages
