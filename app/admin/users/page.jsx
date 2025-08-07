@@ -499,7 +499,7 @@ const AdminUsers = () => {
                       fontSize: "0.875rem",
                     }}
                   >
-                    Page {currentPage} of {totalPages}
+                    {t("admin.page")} {currentPage} {t("admin.of")} {totalPages}
                   </div>
                   <div style={{ display: "flex", gap: "0.5rem" }}>
                     <button
@@ -517,7 +517,7 @@ const AdminUsers = () => {
                         cursor: currentPage === 1 ? "not-allowed" : "pointer",
                       }}
                     >
-                      Previous
+                      {t("admin.previous")}
                     </button>
                     <button
                       onClick={() =>
@@ -538,7 +538,7 @@ const AdminUsers = () => {
                             : "pointer",
                       }}
                     >
-                      Next
+                      {t("admin.next")}
                     </button>
                   </div>
                 </div>
