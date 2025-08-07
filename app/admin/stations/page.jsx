@@ -337,7 +337,7 @@ const AdminStations = () => {
                   cursor: "pointer",
                 }}
               >
-                Cancel
+                {t("common.cancel")}
               </button>
             </div>
           </div>
@@ -528,7 +528,7 @@ const AdminStations = () => {
                       fontWeight: "600",
                     }}
                   >
-                    View Details
+                    {t("admin.viewDetails")}
                   </button>
                   <button
                     style={{
@@ -542,7 +542,7 @@ const AdminStations = () => {
                       fontWeight: "600",
                     }}
                   >
-                    Edit
+                    {t("common.edit")}
                   </button>
                   <button
                     onClick={() => setSelectedStation(station.id)}
@@ -557,7 +557,7 @@ const AdminStations = () => {
                       fontWeight: "600",
                     }}
                   >
-                    Send Command
+                    {t("admin.sendCommand")}
                   </button>
                   <button
                     onClick={() => handleDeleteStation(station.id)}
@@ -572,7 +572,7 @@ const AdminStations = () => {
                       fontWeight: "600",
                     }}
                   >
-                    Delete
+                    {t("common.delete")}
                   </button>
                 </div>
 
