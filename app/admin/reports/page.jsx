@@ -564,7 +564,7 @@ const AdminReports = () => {
                       marginBottom: "1rem",
                     }}
                   >
-                    Daily Utilization Breakdown
+                    {t("admin.dailyUtilizationBreakdown")}
                   </h3>
                   <div
                     style={{
