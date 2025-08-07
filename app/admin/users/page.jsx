@@ -402,9 +402,9 @@ const AdminUsers = () => {
                                   : "#92400e",
                           }}
                         >
-                          <option value="active">Active</option>
-                          <option value="suspended">Suspended</option>
-                          <option value="pending">Pending</option>
+                          <option value="active">{t("rentals.active")}</option>
+                          <option value="suspended">{t("admin.suspended")}</option>
+                          <option value="pending">{t("payments.pending")}</option>
                         </select>
                       </td>
                       <td
