@@ -115,13 +115,13 @@ export default {
         name: "Mike Chen",
         role: "Kollec Tələbəsi",
         content:
-          "Super münasib və rahat. Düz kampusda stansiya var və tətbiq icarəyə almağı və qaytarmağı belə asanlaşdırır. Tələbələr üçün oyunu dəyişdirən!",
+          "Super münasib və rahat. Düz kampusda stansiya var və tətbiq icarəyə almağı və qaytarmağı belə asanlaşdırır. Tələb��lər üçün oyunu dəyişdirən!",
       },
       emma: {
         name: "Emma Davis",
         role: "Biznes Mütəxəssisi",
         content:
-          "Etibarl��lıq mükəmməldir. Konfrans və uzun görüşlər zamanı Pobi istifadə edirəm. Heç vaxt mövcud powerbank tapmaqla bağlı problem yaşamadım.",
+          "Etibarlılıq mükəmməldir. Konfrans və uzun görüşlər zamanı Pobi istifadə edirəm. Heç vaxt mövcud powerbank tapmaqla bağlı problem yaşamadım.",
       },
     },
     footer: {
@@ -374,7 +374,7 @@ export default {
   // Dashboard
   dashboard: {
     title: "İdarə Paneli",
-    subtitle: "İcarə tarixçənizi və ödənişlərinizi görün",
+    subtitle: "��carə tarixçənizi və ödənişlərinizi görün",
   },
 
   // Admin
