@@ -189,7 +189,7 @@ export default {
     stationLocations: "Stansiya Məkanları",
     findNearbyStations: "Yaxındakı powerbank stansiyalarını tapın və mövcudluqlarını yoxlayın",
     searchStations: "Stansiyaları ad, məkan və ya ID ilə axtarın...",
-    findClosestStations: "Sizə ən yaxın stansiyaları tap��n",
+    findClosestStations: "Sizə ən yaxın stansiyaları tapın",
     loadingStations: "Stansiyalar yüklənir...",
     unableToLoadStations: "Stansiyalar Yüklənə Bilmədi",
     tryAgain: "Yenidən Cəhd Et",
@@ -216,7 +216,7 @@ export default {
     stationMinLength: "Stansiya ID ən az 3 simvol olmalı",
     stationHelp: "PowerBank stansiyaasında olan stansiya ID'sini daxil edin",
     qrCodeData: "QR Kod Məlumatı",
-    qrPlaceholder: "QR kod skan etmədən əldə edilən m��lumatı buraya yapışdırın",
+    qrPlaceholder: "QR kod skan etmədən əldə edilən məlumatı buraya yapışdırın",
     qrRequired: "QR kod məlumatı tələb olunur",
     qrMinLength: "QR kod məlumatı ən az 10 simvol olmalı",
     qrHelp: "PowerBank'ın QR kodunu skan edin",
@@ -482,7 +482,7 @@ export default {
     unauthorized: "Bu səhifəyə daxil olmaq üçün icazəniz yoxdur",
     sessionExpired: "Seansınızın vaxtı bitib. Xahiş edirik yenidən daxil olun.",
     loginFailed: "Giriş uğursuz. Xahiş edirik kimlik məlumatlarınızı yoxlayın.",
-    registrationFailed: "Qeydiyyat u��ursuz. Xahiş edirik yenidən cəhd edin.",
+    registrationFailed: "Qeydiyyat uğursuz. Xahiş edirik yenidən cəhd edin.",
   },
 
   // Development
@@ -514,7 +514,7 @@ export default {
     majorCities: "Əsas Şəhərlər:",
     moreText: "daha çox",
     description:
-      "Dünyanın böyük şəhərlərindəki 500-dən çox məkanda icarəyə alın və qaytarın. Artan şəbəkəmiz Pobi stansiyasını ən çox ehtiyacınız olan zaman tapacağın��zı təmin edir.",
+      "Dünyanın böyük şəhərlərindəki 500-dən çox məkanda icarəyə alın və qaytarın. Artan şəbəkəmiz Pobi stansiyasını ən çox ehtiyacınız olan zaman tapacağınızı təmin edir.",
     stats: {
       locations: "Məkanlar",
       cities: "Şəhərlər",
@@ -592,7 +592,7 @@ export default {
       step4: {
         title: "Cihazınızı Şarj Edin",
         description:
-          "Telefonunuzu və ya cihazınızı şarj etmək üç��n daxil olan kabelləri istifadə edin",
+          "Telefonunuzu və ya cihazınızı şarj etmək üçün daxil olan kabelləri istifadə edin",
       },
       step5: {
         title: "İşiniz Bitdikdə Qaytarın",
@@ -632,7 +632,7 @@ export default {
       content:
         "Pobi sadə bir əsəbilikdən doğdu: ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Qurucularımız bunu biznes səyahətləri, hava limanları və yeni şəhərləri kəşf edərkən saysız dəfə yaşadılar.",
       mission:
-        "Həddindən artıq bağlı dünyamızda enerjiyə çıxışın lüks və ya narahatlıq m��nbəyi olmaması lazım olduğunu başa düşdük. Buna görə Pobi-ni yaratdıq - heç vaxt gücsüz qalmamanızı təmin edən etibarlı, rahat powerbank stansiyaları şəbəkəsi.",
+        "Həddindən artıq bağlı dünyamızda enerjiyə çıxışın lüks və ya narahatlıq m��nbəyi olmaması laz��m olduğunu başa düşdük. Buna görə Pobi-ni yaratdıq - heç vaxt gücsüz qalmamanızı təmin edən etibarlı, rahat powerbank stansiyaları şəbəkəsi.",
       today:
         "Bu gün hər gün böyüyən şəbəkə ilə bir neçə ölkədə minlərlə istifadəçiyə xidmət etməkdən qürur duyuruq. Lakin bitmiş batareyaları keçmişdə qoyma missiyamızda yenicə başlamışıq.",
     },
@@ -646,7 +646,7 @@ export default {
       subtitle: "Etdiyimiz hər şeyə rəhbərlik edən prinsiplər",
       userCentric: {
         title: "İstifadəçi Mərkəzli",
-        description: "Verdiyimiz hər qərar istifadəçilərimizi öndə tutur. Özümüzün istifadə etmək istəy����cəyi şarj həllini qururuq.",
+        description: "Verdiyimiz hər qərar istifadəçilərimizi öndə tutur. Özümüzün istifadə etmək istəy��cəyi şarj həllini qururuq.",
       },
       reliability: "Etibarlılıq",
       reliabilityDesc: "Cihazınızı şarj etməyin işıq düyməsini açmaq qədər etibarlı olması lazım olduğuna inanırıq. Ehtiyacınız olan zaman həmişə mövcud.",
@@ -775,7 +775,7 @@ export default {
       q1: "Gizli haqlar varmı?",
       a1: "Gizli haqlar yoxdur! Göstərilən qiymətlər tam olaraq ödədiyiniz məbləğdir. Gecikmiş qaytarma haqları yalnız powerbank-ı 7 günlük maksimum icarə müddətindən artıq saxladığınız zaman tətbiq olunur.",
       q2: "Powerbank-ı gec qaytarsam nə olur?",
-      a2: "Planınızın bitməsindən sonra 24 saat ərzində qaytarsanız, əlav�� gün üçün ödəniş alınacaq. Ümumi 7 gündən sonra əvəzetmə haqqı tətbiq olunur.",
+      a2: "Planınızın bitməsindən sonra 24 saat ərzində qaytarsanız, əlavə gün üçün ödəniş alınacaq. Ümumi 7 gündən sonra əvəzetmə haqqı tətbiq olunur.",
       q3: "İcarə zamanı planımı yeniləyə bilərəmmi?",
       a3: "Bəli! Tətbiqimiz vasitəsilə istənilən vaxt saatlıqdan günlük və ya həftəliyə yeniləyə bilərsiniz. Yalnız fərqi ödəyəcəksiniz.",
       q4: "Biznes və ya toplu endirimlər t��klif edirsinizmi?",
