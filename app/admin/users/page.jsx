@@ -425,7 +425,7 @@ const AdminUsers = () => {
                       >
                         {user.lastLogin
                           ? new Date(user.lastLogin).toLocaleDateString()
-                          : "Never"}
+                          : t("admin.never")}
                       </td>
                       <td style={{ padding: "1rem", textAlign: "right" }}>
                         <div
