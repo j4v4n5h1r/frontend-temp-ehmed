@@ -546,7 +546,7 @@ const AdminReports = () => {
                         marginBottom: "0.25rem",
                       }}
                     >
-                      {utilizationData.summary.avgRentalDuration} min
+                      {utilizationData.summary.avgRentalDuration} {t("admin.minutes")}
                     </div>
                     <div style={{ fontSize: "0.875rem", opacity: 0.9 }}>
                       {t("admin.avgRentalDuration")}
