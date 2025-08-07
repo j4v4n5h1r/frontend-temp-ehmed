@@ -444,7 +444,8 @@ export default {
     lastSeen: "Last seen",
     noStationsFound: "No stations found matching your criteria.",
     comingSoon: "functionality coming soon...",
-    never: "Never"
+    never: "Never",
+    thisMonth: "this month"
   },
 
   // Error Messages
