@@ -556,7 +556,28 @@ export default {
     avgRentalDuration: "Ortalama Kiralama Süresi",
     dailyUtilizationBreakdown: "Günlük Kullanım Dökümü",
     peak: "En Yüksek",
-    peakHour: "En Yüksek Saat"
+    peakHour: "En Yüksek Saat",
+    // Pricing plan translations
+    hourlyPlan: "Saatlik Plan",
+    dailyPlan: "Günlük Plan",
+    weeklyPlan: "Haftalık Plan",
+    monthlyPlan: "Aylık Plan",
+    payPerHour: "Saat başına ödeme",
+    noCommitment: "Taahhut yok",
+    greatForShortTrips: "Kısa yolculuklar için harika",
+    hourlyPlanDesc: "Hızlı şarj ve kısa süreli kullanım için mükemmel",
+    dayAccess: "24 saat erişim",
+    bestValueDayTrips: "Günlük geziler için en iyi değer",
+    allDayCharging: "Tüm gün şarj",
+    dailyPlanDesc: "Tam gün maceraları ve uzun yolculuklar için ideal",
+    weekUnlimited: "7 gün sınırsız",
+    maximumSavings: "Maksimum tasarruf",
+    businessTravelers: "İş seyahatleri",
+    weeklyPlanDesc: "Uzun geziler ve yoğun kullanıcılar için harika",
+    monthUnlimited: "30 gün sınırsız",
+    corporateRates: "Kurumsal oranlar",
+    premiumSupport: "Premium destek",
+    monthlyPlanDesc: "Düzenli powerbank kullanıcıları için kurumsal çözüm"
   },
 
   // Error Messages
