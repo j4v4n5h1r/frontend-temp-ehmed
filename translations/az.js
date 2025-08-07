@@ -223,7 +223,7 @@ export default {
     howToRent: "Necə İcarəyə Alaq?",
     step1: "Mobil cihazınızla stansiyadakı QR kodu skan edin",
     step2: "QR kod məlumatını yuxarıdakı sahiyə yapışdırın",
-    step3: "Stansiya ID'sini daxil edin (stansiyanın üstündə yazılı)",
+    step3: "Stansiya ID'sini daxil edin (stansiyanın üst��ndə yazılı)",
     step4: "\"\u0130carə Başlat\" düyməsinə klikləyin",
     starting: "İcarə başlayır...",
     startButton: "İcarə Başlat",
@@ -286,7 +286,7 @@ export default {
     loadingYourRentals: "İcarələriniz yüklənir...",
     unableToLoadRentals: "İcarələr Yüklənə Bilmədi",
     authTokenMissing: "Kimlik doğrulama tokeni yoxdur. Xahiş edirik yenidən daxil olun.",
-    authFailed: "Kimlik doğrulama uğursuz - xahiş edirik yenidən daxil olun",
+    authFailed: "Kimlik do��rulama uğursuz - xahiş edirik yenidən daxil olun",
     requestTimeout: "İstek vaxt aşımı - server cavab verməkdə çox uzun vaxt götürür",
     networkError: "Şəbəkə səhvi - xahiş edirik bağlantınızı yoxlayın və yenidən cəhd edin",
     serverError: "Server səhvi",
@@ -416,7 +416,7 @@ export default {
     user: "İstifadəçi",
     joined: "Qoşuldu",
     lastLogin: "Son Giriş",
-    actions: "Əm��liyyatlar",
+    actions: "Əməliyyatlar",
     view: "Bax",
     edit: "Redaktə Et",
     delete: "Sil",
@@ -466,7 +466,8 @@ export default {
     poor: "Pis",
     comingSoon: "Tezliklə...",
     never: "Heç vaxt",
-    total: "Cəmi"
+    total: "Cəmi",
+    thisMonth: "bu ay"
   },
 
   // Error Messages
@@ -511,7 +512,7 @@ export default {
     majorCities: "Əsas Şəhərlər:",
     moreText: "daha çox",
     description:
-      "Dünyanın böyük şəhərlərindəki 500-dən çox məkanda icarəyə alın və qaytarın. Artan ş��bəkəmiz Pobi stansiyasını ən çox ehtiyacınız olan zaman tapacağınızı təmin edir.",
+      "Dünyanın böyük şəhərlərindəki 500-dən çox məkanda icarəyə alın və qaytarın. Artan şəbəkəmiz Pobi stansiyasını ən çox ehtiyacınız olan zaman tapacağınızı təmin edir.",
     stats: {
       locations: "Məkanlar",
       cities: "Şəhərlər",
@@ -629,7 +630,7 @@ export default {
       content:
         "Pobi sadə bir əsəbilikdən doğdu: ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Qurucularımız bunu biznes səyahətləri, hava limanları və yeni şəhərləri kəşf edərkən saysız dəfə yaşadılar.",
       mission:
-        "Həddindən artıq bağlı dünyamızda enerjiyə çıxışın lüks və ya narahatlıq mənbəyi olmaması lazım olduğunu başa düşdük. Buna görə Pobi-ni yaratdıq - heç vaxt gücsüz qalmamanızı təmin edən etibarlı, rahat powerbank stansiyaları şəbəkəsi.",
+        "Həddindən artıq bağlı dünyamızda enerjiyə çıxışın lüks və ya narahatlıq mənbəyi olmaması lazım olduğunu başa düşdük. Buna görə Pobi-ni yaratdıq - heç vaxt gücsüz qalmamanızı təmin edən etibarlı, rahat powerbank stansiyaları şəb��kəsi.",
       today:
         "Bu gün hər gün böyüyən şəbəkə ilə bir neçə ölkədə minlərlə istifadəçiyə xidmət etməkdən qürur duyuruq. Lakin bitmiş batareyaları keçmişdə qoyma missiyamızda yenicə başlamışıq.",
     },
@@ -652,7 +653,7 @@ export default {
         description: "Sizə daha yaxşı xidmət etmək üçün texnologiyamızı davamlı təkmilləşdirir və şəbəkəmizi genişləndiririk.",
       },
       sustainability: "Davamlılıq",
-      sustainabilityDesc: "Hər kəsə və planetə fayda verən paylaşımlı şarj həlləri təqdim edərək elektron tullantıları azaldırıq.",
+      sustainabilityDesc: "Hər kəsə və planetə fayda ver��n paylaşımlı şarj həlləri təqdim edərək elektron tullantıları azaldırıq.",
       convenience: "Rahatlıq Birinci",
       convenienceDesc: "Sadə, sürətli və ehtiyacınız olan zaman həmişə mövcud",
     },
