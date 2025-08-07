@@ -97,7 +97,7 @@ const AdminDashboard = () => {
       description: t("admin.stationsDesc", "Monitor and control charging stations"),
       href: "/admin/stations",
       icon: "🔌",
-      stats: `${stats.stations.online}/${stats.stations.total} online`,
+      stats: `${stats.stations.online}/${stats.stations.total} ${t("admin.online")}`,
       color: "#10b981",
     },
     {
