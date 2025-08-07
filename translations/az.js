@@ -508,7 +508,7 @@ export default {
     findNearestStation: "Ən Yaxın Stansiya",
     getStarted: "Başla",
     locationsTitle: "MƏKANLAR",
-    closestLocation: "Ən Yaxın Məkan",
+    closestLocation: "��n Yaxın Məkan",
     availableCountries: "Mövcud Ölkələr",
     expandingDesc: "Sizə daha yaxşı xidmət etmək üçün sürətlə genişlənirik",
     majorCities: "Əsas Şəhərlər:",
@@ -607,7 +607,7 @@ export default {
       title: "Tez-tez Verilən Suallar",
       subtitle: "Suallarınız var? Cavablarımız var. Budur Pobi istifadəsi haqqında ən yaygın suallar.",
       q1: "Qiyməti nə qədərdir?",
-      a1: "Qiymətlər saatda 2 dollardan başlayır, günlük v�� həftəlik variantlar mövcuddur.",
+      a1: "Qiymətlər saatda 2 dollardan başlayır, günlük və həftəlik variantlar mövcuddur.",
       q2: "Hansı cihazlar dəstəklənir?",
       a2: "USB şarj edən bütün əsas smartfonlar və cihazlar dəstəklənir.",
       q3: "PowerBank-ı necə qaytarım?",
@@ -626,13 +626,13 @@ export default {
     title: "Pobi Haqqında",
     subtitle: "Həyatınızı gücləndirir, hər şarj ilə",
     description:
-      "Batareya narahatlığını həmişəlik aradan qald��rma missiyasındayıq",
+      "Batareya narahatlığını həmişəlik aradan qaldırma missiyasındayıq",
     story: {
       title: "Bizim Hekayəmiz",
       content:
         "Pobi sadə bir əsəbilikdən doğdu: ən çox ehtiyacınız olan zaman telefon batareyasının bitməsi. Qurucularımız bunu biznes səyahətləri, hava limanları və yeni şəhərləri kəşf edərkən saysız dəfə yaşadılar.",
       mission:
-        "Həddindən artıq bağlı dünyamızda enerjiyə çıxışın lüks və ya narahatlıq m��nbəyi olmaması laz��m olduğunu başa düşdük. Buna görə Pobi-ni yaratdıq - heç vaxt gücsüz qalmamanızı təmin edən etibarlı, rahat powerbank stansiyaları şəbəkəsi.",
+        "Həddindən artıq bağlı dünyamızda enerjiyə çıxışın lüks və ya narahatlıq mənbəyi olmaması lazım olduğunu başa düşdük. Buna görə Pobi-ni yaratdıq - heç vaxt gücsüz qalmamanızı təmin edən etibarlı, rahat powerbank stansiyaları şəbəkəsi.",
       today:
         "Bu gün hər gün böyüyən şəbəkə ilə bir neçə ölkədə minlərlə istifadəçiyə xidmət etməkdən qürur duyuruq. Lakin bitmiş batareyaları keçmişdə qoyma missiyamızda yenicə başlamışıq.",
     },
@@ -646,7 +646,7 @@ export default {
       subtitle: "Etdiyimiz hər şeyə rəhbərlik edən prinsiplər",
       userCentric: {
         title: "İstifadəçi Mərkəzli",
-        description: "Verdiyimiz hər qərar istifadəçilərimizi öndə tutur. Özümüzün istifadə etmək istəy��cəyi şarj həllini qururuq.",
+        description: "Verdiyimiz hər qərar istifadəçilərimizi öndə tutur. Özümüzün istifadə etmək istəyəcəyi şarj həllini qururuq.",
       },
       reliability: "Etibarlılıq",
       reliabilityDesc: "Cihazınızı şarj etməyin işıq düyməsini açmaq qədər etibarlı olması lazım olduğuna inanırıq. Ehtiyacınız olan zaman həmişə mövcud.",
