@@ -42,29 +42,41 @@ const AdminReports = () => {
         end_date: dateRange.endDate,
       });
 
-      // Fetch revenue data
-      const revenueResponse = await fetch(
-        `/api/v1/admin/reports/revenue?${params}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
+      // Mock data for demonstration
+      const mockRevenueData = {
+        summary: {
+          totalRevenue: 15672.50,
+          totalRentals: 1247,
+          avgDailyRevenue: 522.42
         },
-      );
-      if (revenueResponse.ok) {
-        const revenueResult = await revenueResponse.json();
-        setRevenueData(revenueResult.data);
-      }
+        dailyData: [
+          { date: "2024-01-01", totalRevenue: 542.75, totalRentals: 45, avgRevenuePerRental: 12.06 },
+          { date: "2024-01-02", totalRevenue: 628.50, totalRentals: 52, avgRevenuePerRental: 12.09 },
+          { date: "2024-01-03", totalRevenue: 445.25, totalRentals: 38, avgRevenuePerRental: 11.72 },
+          { date: "2024-01-04", totalRevenue: 789.00, totalRentals: 65, avgRevenuePerRental: 12.14 },
+          { date: "2024-01-05", totalRevenue: 656.75, totalRentals: 54, avgRevenuePerRental: 12.16 }
+        ]
+      };
 
-      // Fetch utilization data
-      const utilizationResponse = await fetch(
-        `/api/v1/admin/reports/utilization?${params}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
+      const mockUtilizationData = {
+        summary: {
+          avgUtilization: 68.5,
+          maxPeakUtilization: 94.2,
+          avgRentalDuration: 145
         },
-      );
-      if (utilizationResponse.ok) {
-        const utilizationResult = await utilizationResponse.json();
-        setUtilizationData(utilizationResult.data);
-      }
+        dailyData: [
+          { date: "2024-01-01", averageUtilization: 65.2, peakUtilization: 89.5, peakHour: "18:00", stationData: [{ rentalsCount: 45 }] },
+          { date: "2024-01-02", averageUtilization: 72.1, peakUtilization: 94.2, peakHour: "19:30", stationData: [{ rentalsCount: 52 }] },
+          { date: "2024-01-03", averageUtilization: 58.9, peakUtilization: 78.3, peakHour: "17:15", stationData: [{ rentalsCount: 38 }] },
+          { date: "2024-01-04", averageUtilization: 75.8, peakUtilization: 91.7, peakHour: "20:00", stationData: [{ rentalsCount: 65 }] },
+          { date: "2024-01-05", averageUtilization: 70.4, peakUtilization: 88.9, peakHour: "18:45", stationData: [{ rentalsCount: 54 }] }
+        ]
+      };
+
+      setTimeout(() => {
+        setRevenueData(mockRevenueData);
+        setUtilizationData(mockUtilizationData);
+      }, 1000);
     } catch (error) {
       console.error("Failed to fetch reports:", error);
     } finally {
