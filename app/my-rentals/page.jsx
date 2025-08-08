@@ -50,7 +50,7 @@ const MyRentalsPage = () => {
     const matchesFilter =
       filter === "all" || rental.status?.toLowerCase() === filter;
     const matchesSearch =
-      rental.id?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      rental.id?.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
       rental.stationName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       rental.stationId?.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesFilter && matchesSearch;
