@@ -952,7 +952,7 @@ const ProfilePage = () => {
                             margin: "0 0 0.5rem 0",
                           }}
                         >
-                          İki Faktörlü Doğrulama
+                          {t("profile.twoFactorAuth")}
                         </h5>
                         <p
                           style={{
