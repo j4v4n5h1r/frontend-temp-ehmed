@@ -1,13 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import cookie from "js-cookie";
+import { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "../../context/TranslationContext";
+import { AuthContext } from "../../context/AuthContext";
 import { apiCallWithAuth } from "../../utils/api";
 
 export default function DashboardPage() {
   const { t } = useTranslation();
+  const { user, loading: authLoading } = useContext(AuthContext);
   const [rentals, setRentals] = useState([]);
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,8 +16,12 @@ export default function DashboardPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const token = cookie.get("token");
-    if (!token) {
+    // Wait for auth context to load
+    if (authLoading) return;
+
+    // If no user, redirect to login
+    if (!user) {
+      console.log('🔒 Dashboard: No user found, redirecting to login');
       router.push("/login");
       return;
     }
