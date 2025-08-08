@@ -1007,7 +1007,7 @@ const ProfilePage = () => {
                           margin: "0 0 1rem 0",
                         }}
                       >
-                        Son giriş işlemlerinizi görüntüleyin
+                        {t("profile.viewRecentLogins")}
                       </p>
                     </div>
 
