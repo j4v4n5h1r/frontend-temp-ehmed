@@ -554,23 +554,23 @@ const ProfilePage = () => {
                     >
                       {t("profile.phone")}
                     </label>
-                    <input
-                      type="tel"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                    <div
                       style={{
                         width: "100%",
                         padding: "0.75rem",
-                        border: "2px solid #e5e7eb",
+                        border: "2px solid #f3f4f6",
                         borderRadius: "0.5rem",
                         fontSize: "1rem",
-                        outline: "none",
-                        transition: "border-color 0.3s ease",
                         boxSizing: "border-box",
+                        backgroundColor: "#f9fafb",
+                        color: "#374151",
+                        minHeight: "3rem",
+                        display: "flex",
+                        alignItems: "center",
                       }}
-                      onFocus={(e) => (e.target.style.borderColor = "#22c55e")}
-                      onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}
-                    />
+                    >
+                      {phone || t("profile.phone")}
+                    </div>
                   </div>
                 </div>
 
