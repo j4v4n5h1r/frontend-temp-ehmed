@@ -1,52 +1,61 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import axios from "axios";
-import cookie from "js-cookie";
+import { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "../../context/TranslationContext";
+import { AuthContext } from "../../context/AuthContext";
+import { apiCallWithAuth } from "../../utils/api";
 
 export default function DashboardPage() {
   const { t } = useTranslation();
+  const { user, loading: authLoading } = useContext(AuthContext);
   const [rentals, setRentals] = useState([]);
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const router = useRouter();
-  const url = "http://164.90.238.202:8000";
 
   useEffect(() => {
-    const token = cookie.get("token");
-    if (!token) {
+    // Wait for auth context to load
+    if (authLoading) return;
+
+    // If no user, redirect to login
+    if (!user) {
+      console.log('🔒 Dashboard: No user found, redirecting to login');
       router.push("/login");
       return;
     }
 
     const fetchData = async () => {
       try {
-        const rentalRes = await axios.get(
-          `${url}/api/v1/users/me/rentals`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          },
-        );
-        const paymentRes = await axios.get(
-          `${url}/api/v1/payments`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          },
-        );
-        setRentals(rentalRes.data);
-        setPayments(paymentRes.data || []);
+        console.log('🔍 Dashboard: Fetching data with user token:', user.token ? 'Present' : 'Missing');
+
+        const [rentalRes, paymentRes] = await Promise.all([
+          apiCallWithAuth("/api/v1/users/me/rentals", user.token),
+          apiCallWithAuth("/api/v1/payments", user.token)
+        ]);
+
+        console.log('✅ Dashboard: Data fetched successfully', { rentals: rentalRes?.length, payments: paymentRes?.length });
+
+        setRentals(rentalRes || []);
+        setPayments(paymentRes || []);
       } catch (err) {
-        setError(err.response?.data?.detail || t("errors.generic"));
+        console.error("❌ Dashboard fetch error:", err);
+        // Show user-friendly error message
+        if (err.isNetworkError) {
+          setError(t("errors.networkTimeout"));
+        } else if (err.message.includes('401') || err.message.includes('Unauthorized')) {
+          setError(t("errors.sessionExpired"));
+        } else {
+          setError(err.message || t("errors.generic"));
+        }
       } finally {
         setLoading(false);
       }
     };
 
     fetchData();
-  }, [router, t]);
+  }, [user, authLoading, router, t]);
 
   const getStatusBadge = (rental) => {
     if (rental.end_time) {
@@ -72,7 +81,7 @@ export default function DashboardPage() {
     });
   };
 
-  if (loading) {
+  if (authLoading || loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-emerald-50 px-4 py-6 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -92,10 +101,10 @@ export default function DashboardPage() {
       <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-emerald-50 px-4 py-6 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center min-h-[60vh]">
-            <div className="bg-red-50 border border-red-200 text-red-800 p-6 rounded-xl max-w-md">
-              <div className="flex items-center">
+            <div className="bg-red-50 border border-red-200 text-red-800 p-6 rounded-xl max-w-md text-center">
+              <div className="flex flex-col items-center">
                 <svg
-                  className="w-6 h-6 mr-3 flex-shrink-0"
+                  className="w-12 h-12 mb-4 text-red-500"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -108,8 +117,14 @@ export default function DashboardPage() {
                   />
                 </svg>
                 <div>
-                  <h3 className="font-semibold">{t("errors.generic")}</h3>
-                  <p className="text-sm">{error}</p>
+                  <h3 className="font-semibold text-lg mb-2">{t("errors.generic")}</h3>
+                  <p className="text-sm mb-4">{error}</p>
+                  <button
+                    onClick={() => window.location.reload()}
+                    className="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors"
+                  >
+                    {t("common.retry")}
+                  </button>
                 </div>
               </div>
             </div>

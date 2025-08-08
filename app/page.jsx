@@ -967,24 +967,24 @@ export default function Home() {
               </h4>
               <ul className="space-y-2" style={{ color: "#cbd5e1" }}>
                 <li>
-                  <a href="#" className="transition-colors hover:text-white">
+                  <Link href="/about" className="transition-colors hover:text-white">
                     {t("home.footer.aboutUs", "About Us")}
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="transition-colors hover:text-white">
+                  <Link href="/contact" className="transition-colors hover:text-white">
                     {t("home.footer.careers", "Careers")}
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="transition-colors hover:text-white">
+                  <Link href="/contact" className="transition-colors hover:text-white">
                     {t("home.footer.contact", "Contact")}
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="transition-colors hover:text-white">
+                  <Link href="/blog" className="transition-colors hover:text-white">
                     {t("home.footer.blog", "Blog")}
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -995,19 +995,19 @@ export default function Home() {
               </h4>
               <ul className="space-y-2" style={{ color: "#cbd5e1" }}>
                 <li>
-                  <a href="#" className="transition-colors hover:text-white">
+                  <Link href="/help-center" className="transition-colors hover:text-white">
                     {t("home.footer.helpCenter", "Help Center")}
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="transition-colors hover:text-white">
+                  <Link href="/terms" className="transition-colors hover:text-white">
                     {t("home.footer.termsOfService", "Terms of Service")}
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="transition-colors hover:text-white">
+                  <Link href="/privacy" className="transition-colors hover:text-white">
                     {t("home.footer.privacyPolicy", "Privacy Policy")}
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <Link
