@@ -928,7 +928,7 @@ const ProfilePage = () => {
                           cursor: "pointer",
                         }}
                       >
-                        Değiştir
+                        {t("profile.change")}
                       </button>
                     </div>
                   </div>
