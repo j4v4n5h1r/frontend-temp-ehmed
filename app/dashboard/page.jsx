@@ -32,7 +32,14 @@ export default function DashboardPage() {
         setPayments(paymentRes || []);
       } catch (err) {
         console.error("Dashboard fetch error:", err);
-        setError(err.message || t("errors.generic"));
+        // Show user-friendly error message
+        if (err.isNetworkError) {
+          setError(t("errors.networkTimeout"));
+        } else if (err.message.includes('401') || err.message.includes('Unauthorized')) {
+          setError(t("errors.sessionExpired"));
+        } else {
+          setError(err.message || t("errors.generic"));
+        }
       } finally {
         setLoading(false);
       }
