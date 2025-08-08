@@ -42,6 +42,7 @@ export default {
     getStarted: "Başlayın",
     findStations: "İstasyon Bul",
     createAccount: "Hesap Oluştur",
+    retry: "Tekrar Dene",
   },
 
   // Homepage
