@@ -84,6 +84,23 @@ export const mockApiResponses = {
       }
     ]
   },
+  '/api/v1/users/me/payment-methods': {
+    method: 'GET',
+    response: [
+      {
+        id: 'pm_001',
+        lastFour: '4242',
+        cardType: 'Visa',
+        expiryDate: '12/25'
+      },
+      {
+        id: 'pm_002',
+        lastFour: '1234',
+        cardType: 'Mastercard',
+        expiryDate: '06/26'
+      }
+    ]
+  },
   '/api/v1/stations': {
     method: 'GET',
     response: [
