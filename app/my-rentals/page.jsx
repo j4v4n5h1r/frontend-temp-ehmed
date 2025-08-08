@@ -6,7 +6,6 @@ import Link from "next/link";
 import { AuthContext } from "../../context/AuthContext";
 import { useTranslation } from "../../context/TranslationContext";
 import { apiCallWithAuth } from "../../utils/api";
-import cookie from "js-cookie";
 
 const MyRentalsPage = () => {
   const { user, loading: authLoading } = useContext(AuthContext);
