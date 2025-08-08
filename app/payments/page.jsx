@@ -9,6 +9,8 @@ import { apiCallWithAuth } from "../../utils/api";
 
 const PaymentsPage = () => {
   const { t } = useTranslation();
+  const { user, loading: authLoading } = useContext(AuthContext);
+  const router = useRouter();
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,8 +18,18 @@ const PaymentsPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
+    // Wait for auth context to load
+    if (authLoading) return;
+
+    // If no user, redirect to login
+    if (!user) {
+      console.log('🔒 Payments: No user found, redirecting to login');
+      router.push("/login");
+      return;
+    }
+
     fetchPayments();
-  }, []);
+  }, [user, authLoading, router]);
 
   const fetchPayments = async () => {
     try {
