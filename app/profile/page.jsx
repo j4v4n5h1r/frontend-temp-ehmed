@@ -1023,10 +1023,10 @@ const ProfilePage = () => {
                       >
                         <div>
                           <div style={{ fontSize: "0.875rem", fontWeight: "500", color: "#171717" }}>
-                            Chrome tarayıcısı
+                            {t("profile.chromeBrowser")}
                           </div>
                           <div style={{ fontSize: "0.75rem", color: "#6b7280" }}>
-                            İstanbul, Türkiye • Şimdi
+                            {t("profile.istanbulTurkey")} • {t("profile.now")}
                           </div>
                         </div>
                         <div
@@ -1039,7 +1039,7 @@ const ProfilePage = () => {
                             fontWeight: "500",
                           }}
                         >
-                          Aktif
+                          {t("profile.active")}
                         </div>
                       </div>
 
@@ -1054,10 +1054,10 @@ const ProfilePage = () => {
                       >
                         <div>
                           <div style={{ fontSize: "0.875rem", fontWeight: "500", color: "#171717" }}>
-                            Mobile App
+                            {t("profile.mobileApp")}
                           </div>
                           <div style={{ fontSize: "0.75rem", color: "#6b7280" }}>
-                            İstanbul, Türkiye • 2 saat önce
+                            {t("profile.istanbulTurkey")} • 2 {t("profile.hoursAgo")}
                           </div>
                         </div>
                         <div
@@ -1070,7 +1070,7 @@ const ProfilePage = () => {
                             fontWeight: "500",
                           }}
                         >
-                          Sona Erdi
+                          {t("profile.ended")}
                         </div>
                       </div>
                     </div>
@@ -1093,12 +1093,12 @@ const ProfilePage = () => {
                         margin: "0 0 1rem 0",
                       }}
                     >
-                      Hesap Güvenliği
+                      {t("profile.accountSecurity")}
                     </h5>
 
                     <div style={{ display: "grid", gap: "0.75rem" }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <span style={{ fontSize: "0.875rem", color: "#374151" }}>E-posta doğrulaması</span>
+                        <span style={{ fontSize: "0.875rem", color: "#374151" }}>{t("profile.emailVerification")}</span>
                         <div
                           style={{
                             background: "#f0fdf4",
@@ -1109,12 +1109,12 @@ const ProfilePage = () => {
                             fontWeight: "500",
                           }}
                         >
-                          ✓ Doğrulandı
+                          ✓ {t("profile.verified")}
                         </div>
                       </div>
 
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <span style={{ fontSize: "0.875rem", color: "#374151" }}>Telefon doğrulaması</span>
+                        <span style={{ fontSize: "0.875rem", color: "#374151" }}>{t("profile.phoneVerification")}</span>
                         <div
                           style={{
                             background: "#fef3c7",
@@ -1125,12 +1125,12 @@ const ProfilePage = () => {
                             fontWeight: "500",
                           }}
                         >
-                          Beklemede
+                          {t("profile.pending")}
                         </div>
                       </div>
 
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <span style={{ fontSize: "0.875rem", color: "#374151" }}>Güvenlik soruları</span>
+                        <span style={{ fontSize: "0.875rem", color: "#374151" }}>{t("profile.securityQuestions")}</span>
                         <div
                           style={{
                             background: "#f3f4f6",
@@ -1141,7 +1141,7 @@ const ProfilePage = () => {
                             fontWeight: "500",
                           }}
                         >
-                          Ayarlanmadı
+                          {t("profile.notSet")}
                         </div>
                       </div>
                     </div>
