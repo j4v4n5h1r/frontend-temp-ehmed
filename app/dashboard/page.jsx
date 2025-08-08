@@ -28,11 +28,11 @@ export default function DashboardPage() {
 
     const fetchData = async () => {
       try {
-        console.log('🔍 Dashboard: Fetching data with token:', token ? 'Present' : 'Missing');
+        console.log('🔍 Dashboard: Fetching data with user token:', user.token ? 'Present' : 'Missing');
 
         const [rentalRes, paymentRes] = await Promise.all([
-          apiCallWithAuth("/api/v1/users/me/rentals", token),
-          apiCallWithAuth("/api/v1/payments", token)
+          apiCallWithAuth("/api/v1/users/me/rentals", user.token),
+          apiCallWithAuth("/api/v1/payments", user.token)
         ]);
 
         console.log('✅ Dashboard: Data fetched successfully', { rentals: rentalRes?.length, payments: paymentRes?.length });
@@ -55,7 +55,7 @@ export default function DashboardPage() {
     };
 
     fetchData();
-  }, [router, t]);
+  }, [user, authLoading, router, t]);
 
   const getStatusBadge = (rental) => {
     if (rental.end_time) {
