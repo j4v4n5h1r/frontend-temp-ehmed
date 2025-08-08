@@ -1,13 +1,11 @@
 "use client";
 
 import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
 import cookie from "js-cookie";
 import { AuthContext } from "../../context/AuthContext";
 import { useTranslation } from "../../context/TranslationContext";
+import { apiCallWithAuth } from "../../utils/api";
 import Link from "next/link";
-
-const BASE_URL = "http://164.90.238.202:8000";
 
 const ProfilePage = () => {
   const { user, setUser } = useContext(AuthContext);
