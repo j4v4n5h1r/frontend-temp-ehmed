@@ -164,6 +164,29 @@ export const mockApiCall = async (endpoint, options = {}) => {
   }
   
   if (options.method && options.method !== mock.method) {
+    // Handle special cases for profile updates and payments
+    if (endpoint === '/api/v1/users/me' && options.method === 'PUT') {
+      // Return updated user profile
+      const body = JSON.parse(options.body || '{}');
+      return {
+        id: 1,
+        ...body,
+        email: body.email || 'user@example.com',
+        createdAt: new Date().toISOString()
+      };
+    }
+
+    if (endpoint === '/api/v1/users/me/payment-methods' && options.method === 'POST') {
+      // Return success for payment method creation
+      const body = JSON.parse(options.body || '{}');
+      return {
+        id: 'pm_' + Date.now(),
+        lastFour: body.cardNumber?.slice(-4) || '****',
+        cardType: 'Visa',
+        expiryDate: body.expiryDate || '12/25'
+      };
+    }
+
     throw new Error(`Mock API: Method ${options.method} not allowed for ${endpoint}`);
   }
   
