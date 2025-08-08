@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import cookie from "js-cookie";
+import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useTranslation } from "../../context/TranslationContext";
-
-const BASE_URL = "http://164.90.238.202:8000";
+import { AuthContext } from "../../context/AuthContext";
+import { apiCallWithAuth } from "../../utils/api";
 
 const PaymentsPage = () => {
   const { t } = useTranslation();
