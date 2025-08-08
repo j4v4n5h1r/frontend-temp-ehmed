@@ -264,9 +264,10 @@ function ProfileDropdown({ user, logout }) {
       >
         <div className="w-9 h-9 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
           <span className="text-primary-700 font-bold text-sm">
-            {user?.profile?.data?.user?.firstName?.charAt(0) ||
-              user?.profile?.data?.user?.name?.charAt(0) ||
-              user?.profile?.data?.user?.email?.charAt(0) ||
+            {user?.profile?.data?.user?.firstName?.charAt(0)?.toUpperCase() ||
+              user?.profile?.data?.user?.name?.charAt(0)?.toUpperCase() ||
+              user?.profile?.data?.user?.username?.charAt(0)?.toUpperCase() ||
+              user?.profile?.data?.user?.email?.charAt(0)?.toUpperCase() ||
               "U"}
           </span>
         </div>
@@ -563,9 +564,10 @@ export default function Navbar() {
                   <div className="flex items-center gap-3 px-4 py-3 bg-primary-50 rounded-lg my-4">
                     <div className="w-10 h-10 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
                       <span className="text-primary-700 font-bold text-sm">
-                        {user?.profile?.data?.user?.firstName?.charAt(0) ||
-                          user?.profile?.data?.user?.name?.charAt(0) ||
-                          user?.profile?.data?.user?.email?.charAt(0) ||
+                        {user?.profile?.data?.user?.firstName?.charAt(0)?.toUpperCase() ||
+                          user?.profile?.data?.user?.name?.charAt(0)?.toUpperCase() ||
+                          user?.profile?.data?.user?.username?.charAt(0)?.toUpperCase() ||
+                          user?.profile?.data?.user?.email?.charAt(0)?.toUpperCase() ||
                           "U"}
                       </span>
                     </div>
