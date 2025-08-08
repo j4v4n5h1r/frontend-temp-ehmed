@@ -574,25 +574,7 @@ const ProfilePage = () => {
                   </div>
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
-                    color: "white",
-                    padding: "0.75rem 2rem",
-                    border: "none",
-                    borderRadius: "0.5rem",
-                    fontSize: "0.875rem",
-                    fontWeight: "600",
-                    cursor: loading ? "not-allowed" : "pointer",
-                    opacity: loading ? 0.7 : 1,
-                    transition: "all 0.3s ease",
-                  }}
-                >
-                  {loading ? t("common.loading") : t("common.save")}
-                </button>
+                {/* Update button removed - profile is read-only */}
               </form>
             )}
 
