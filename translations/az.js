@@ -42,6 +42,7 @@ export default {
     getStarted: "Başla",
     findStations: "Stansiya Tap",
     createAccount: "Hesab Yarat",
+    retry: "Yenidən Cəhd Et",
   },
 
   // Homepage
@@ -274,7 +275,7 @@ export default {
     noActiveRentals: "Aktiv icarə yoxdur",
     noRentalHistory: "İcarə tarixçəsi yoxdur",
     trackYourRentals: "Powerbank icarə tarixçənizi və indiki istifadənizi izləyin",
-    activeRentals: "Aktiv İcarələr",
+    activeRentals: "Aktiv İcarəl��r",
     completed: "Tamamlandı",
     totalSpent: "Cəmi Xərc",
     totalRentals: "Cəmi İcarələr",
