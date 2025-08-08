@@ -23,15 +23,19 @@ export default function DashboardPage() {
 
     const fetchData = async () => {
       try {
+        console.log('🔍 Dashboard: Fetching data with token:', token ? 'Present' : 'Missing');
+
         const [rentalRes, paymentRes] = await Promise.all([
           apiCallWithAuth("/api/v1/users/me/rentals", token),
           apiCallWithAuth("/api/v1/payments", token)
         ]);
 
+        console.log('✅ Dashboard: Data fetched successfully', { rentals: rentalRes?.length, payments: paymentRes?.length });
+
         setRentals(rentalRes || []);
         setPayments(paymentRes || []);
       } catch (err) {
-        console.error("Dashboard fetch error:", err);
+        console.error("❌ Dashboard fetch error:", err);
         // Show user-friendly error message
         if (err.isNetworkError) {
           setError(t("errors.networkTimeout"));
