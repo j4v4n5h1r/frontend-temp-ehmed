@@ -332,7 +332,7 @@ const PaymentsPage = () => {
         )}
 
         {/* Payments List */}
-        {!loading && !error && (
+        {!authLoading && !loading && !error && (
           <div
             style={{
               background: "white",
