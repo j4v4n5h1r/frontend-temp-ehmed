@@ -6,9 +6,10 @@ export const mockApiResponses = {
       accessToken: 'mock-jwt-token-12345',
       user: {
         id: 1,
-        email: 'user@example.com',
-        firstName: 'John',
-        lastName: 'Doe'
+        email: 'test@example.com',
+        firstName: 'Javanshir',
+        lastName: 'Mammadov',
+        username: 'javanshir'
       }
     }
   },
