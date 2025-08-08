@@ -13,7 +13,6 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const router = useRouter();
-  const url = "http://164.90.238.202:8000";
 
   useEffect(() => {
     const token = cookie.get("token");
@@ -24,22 +23,16 @@ export default function DashboardPage() {
 
     const fetchData = async () => {
       try {
-        const rentalRes = await axios.get(
-          `${url}/api/v1/users/me/rentals`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          },
-        );
-        const paymentRes = await axios.get(
-          `${url}/api/v1/payments`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          },
-        );
-        setRentals(rentalRes.data);
-        setPayments(paymentRes.data || []);
+        const [rentalRes, paymentRes] = await Promise.all([
+          apiCallWithAuth("/api/v1/users/me/rentals", token),
+          apiCallWithAuth("/api/v1/payments", token)
+        ]);
+
+        setRentals(rentalRes || []);
+        setPayments(paymentRes || []);
       } catch (err) {
-        setError(err.response?.data?.detail || t("errors.generic"));
+        console.error("Dashboard fetch error:", err);
+        setError(err.message || t("errors.generic"));
       } finally {
         setLoading(false);
       }
