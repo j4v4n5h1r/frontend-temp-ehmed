@@ -961,7 +961,7 @@ const ProfilePage = () => {
                             margin: 0,
                           }}
                         >
-                          Ekstra güvenlik katmanı ekleyin
+                          {t("profile.extraSecurityLayer")}
                         </p>
                       </div>
                       <div
