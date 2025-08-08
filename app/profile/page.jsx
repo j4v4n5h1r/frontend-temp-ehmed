@@ -108,19 +108,21 @@ const ProfilePage = () => {
         phone,
       };
 
-      const response = await axios.put(
-        `${BASE_URL}/api/v1/users/me`,
-        updateData,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        },
-      );
+      console.log("🔍 Profile: Updating profile", updateData);
+      const response = await apiCallWithAuth("/api/v1/users/me", token, {
+        method: "PUT",
+        body: JSON.stringify(updateData),
+      });
 
-      setUser(response.data);
+      console.log("✅ Profile: Profile updated", response);
+      // Update the user context with new data
+      const updatedProfile = { ...user.profile, data: { user: response } };
+      setUser({ ...user, profile: updatedProfile });
       setSuccess(t("success.saved"));
       setTimeout(() => setSuccess(null), 3000);
     } catch (err) {
-      setError(err.response?.data?.detail || t("errors.generic"));
+      console.error("❌ Profile: Error updating profile:", err);
+      setError(err.message || t("errors.generic"));
     } finally {
       setLoading(false);
     }
