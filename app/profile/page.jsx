@@ -41,6 +41,14 @@ const ProfilePage = () => {
       setUsername(userData.username || "");
       setEmail(userData.email || "");
       setPhone(userData.phone || "");
+    } else if (user?.profile) {
+      // Handle case where profile structure is different
+      console.log('🔄 Profile: Different profile structure', user.profile);
+      setFirstName(user.profile.firstName || "");
+      setLastName(user.profile.lastName || "");
+      setUsername(user.profile.username || "");
+      setEmail(user.profile.email || "");
+      setPhone(user.profile.phone || "");
     } else {
       console.log('⚠️ Profile: No user data available');
     }
