@@ -864,7 +864,7 @@ const ProfilePage = () => {
                         margin: 0,
                       }}
                     >
-                      Hesabınız Güvende
+                      {t("profile.accountSecure")}
                     </h4>
                   </div>
                   <p
