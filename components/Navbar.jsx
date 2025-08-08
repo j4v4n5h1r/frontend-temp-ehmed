@@ -571,9 +571,9 @@ export default function Navbar() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="font-semibold text-neutral-900 text-sm truncate">
-                        {user?.profile?.data?.user?.username ||
-                          user?.profile?.data?.user?.firstName ||
+                        {user?.profile?.data?.user?.firstName ||
                           user?.profile?.data?.user?.name ||
+                          user?.profile?.data?.user?.username ||
                           "username"}
                       </div>
                       <div className="text-xs text-neutral-600 truncate">
