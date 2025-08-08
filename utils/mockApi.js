@@ -168,7 +168,7 @@ export const mockApiCall = async (endpoint, options = {}) => {
   }
   
   // Simulate authentication check for protected endpoints
-  const protectedEndpoints = ['/api/v1/users/me', '/api/v1/users/me/rentals', '/api/v1/payments'];
+  const protectedEndpoints = ['/api/v1/users/me', '/api/v1/users/me/rentals', '/api/v1/payments', '/api/v1/users/me/payment-methods'];
   if (protectedEndpoints.includes(endpoint)) {
     const authHeader = options.headers?.Authorization;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
