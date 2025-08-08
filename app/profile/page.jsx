@@ -826,50 +826,326 @@ const ProfilePage = () => {
                 >
                   {t("profile.security")}
                 </h3>
+
+                {/* Current Security Status */}
                 <div
                   style={{
                     background: "#f0fdf4",
                     border: "1px solid #bbf7d0",
-                    borderRadius: "0.5rem",
+                    borderRadius: "0.75rem",
                     padding: "1.5rem",
-                    textAlign: "center",
+                    marginBottom: "2rem",
                   }}
                 >
-                  <svg
-                    style={{
-                      width: "3rem",
-                      height: "3rem",
-                      color: "#16a34a",
-                      margin: "0 auto 1rem",
-                    }}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                    />
-                  </svg>
-                  <h4
-                    style={{
-                      fontSize: "1.125rem",
-                      fontWeight: "600",
-                      marginBottom: "0.5rem",
-                    }}
-                  >
-                    {t("app.comingSoon")}
-                  </h4>
+                  <div style={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
+                    <svg
+                      style={{
+                        width: "1.5rem",
+                        height: "1.5rem",
+                        color: "#16a34a",
+                        marginRight: "0.75rem",
+                      }}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                      />
+                    </svg>
+                    <h4
+                      style={{
+                        fontSize: "1.125rem",
+                        fontWeight: "600",
+                        color: "#16a34a",
+                        margin: 0,
+                      }}
+                    >
+                      Hesabınız Güvende
+                    </h4>
+                  </div>
                   <p
                     style={{
                       color: "#15803d",
                       fontSize: "0.875rem",
+                      margin: 0,
                     }}
                   >
-                    {t("profile.securityDescription")}
+                    Güvenlik ayarlarınız aktif ve hesabınız korunuyor.
                   </p>
+                </div>
+
+                {/* Security Settings */}
+                <div
+                  style={{
+                    display: "grid",
+                    gap: "1.5rem",
+                  }}
+                >
+                  {/* Password */}
+                  <div
+                    style={{
+                      background: "white",
+                      border: "1px solid #e5e7eb",
+                      borderRadius: "0.75rem",
+                      padding: "1.5rem",
+                    }}
+                  >
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <div>
+                        <h5
+                          style={{
+                            fontSize: "1rem",
+                            fontWeight: "600",
+                            color: "#171717",
+                            margin: "0 0 0.5rem 0",
+                          }}
+                        >
+                          Şifre
+                        </h5>
+                        <p
+                          style={{
+                            fontSize: "0.875rem",
+                            color: "#6b7280",
+                            margin: 0,
+                          }}
+                        >
+                          Son değiştirilme: 2 ay önce
+                        </p>
+                      </div>
+                      <button
+                        style={{
+                          background: "#f9fafb",
+                          border: "1px solid #d1d5db",
+                          borderRadius: "0.5rem",
+                          padding: "0.5rem 1rem",
+                          fontSize: "0.875rem",
+                          fontWeight: "500",
+                          color: "#374151",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Değiştir
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Two-Factor Authentication */}
+                  <div
+                    style={{
+                      background: "white",
+                      border: "1px solid #e5e7eb",
+                      borderRadius: "0.75rem",
+                      padding: "1.5rem",
+                    }}
+                  >
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <div>
+                        <h5
+                          style={{
+                            fontSize: "1rem",
+                            fontWeight: "600",
+                            color: "#171717",
+                            margin: "0 0 0.5rem 0",
+                          }}
+                        >
+                          İki Faktörlü Doğrulama
+                        </h5>
+                        <p
+                          style={{
+                            fontSize: "0.875rem",
+                            color: "#6b7280",
+                            margin: 0,
+                          }}
+                        >
+                          Ekstra güvenlik katmanı ekleyin
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          background: "#fef3c7",
+                          border: "1px solid #fcd34d",
+                          borderRadius: "9999px",
+                          padding: "0.25rem 0.75rem",
+                          fontSize: "0.75rem",
+                          fontWeight: "600",
+                          color: "#92400e",
+                        }}
+                      >
+                        Yakında
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Login Activity */}
+                  <div
+                    style={{
+                      background: "white",
+                      border: "1px solid #e5e7eb",
+                      borderRadius: "0.75rem",
+                      padding: "1.5rem",
+                    }}
+                  >
+                    <div style={{ marginBottom: "1rem" }}>
+                      <h5
+                        style={{
+                          fontSize: "1rem",
+                          fontWeight: "600",
+                          color: "#171717",
+                          margin: "0 0 0.5rem 0",
+                        }}
+                      >
+                        Giriş Aktivitesi
+                      </h5>
+                      <p
+                        style={{
+                          fontSize: "0.875rem",
+                          color: "#6b7280",
+                          margin: "0 0 1rem 0",
+                        }}
+                      >
+                        Son giriş işlemlerinizi görüntüleyin
+                      </p>
+                    </div>
+
+                    <div style={{ space: "1rem" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          padding: "0.75rem 0",
+                          borderBottom: "1px solid #f3f4f6",
+                        }}
+                      >
+                        <div>
+                          <div style={{ fontSize: "0.875rem", fontWeight: "500", color: "#171717" }}>
+                            Chrome tarayıcısı
+                          </div>
+                          <div style={{ fontSize: "0.75rem", color: "#6b7280" }}>
+                            İstanbul, Türkiye • Şimdi
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            background: "#f0fdf4",
+                            color: "#16a34a",
+                            padding: "0.25rem 0.5rem",
+                            borderRadius: "0.375rem",
+                            fontSize: "0.75rem",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Aktif
+                        </div>
+                      </div>
+
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          padding: "0.75rem 0",
+                          borderBottom: "1px solid #f3f4f6",
+                        }}
+                      >
+                        <div>
+                          <div style={{ fontSize: "0.875rem", fontWeight: "500", color: "#171717" }}>
+                            Mobile App
+                          </div>
+                          <div style={{ fontSize: "0.75rem", color: "#6b7280" }}>
+                            İstanbul, Türkiye • 2 saat önce
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            background: "#f3f4f6",
+                            color: "#6b7280",
+                            padding: "0.25rem 0.5rem",
+                            borderRadius: "0.375rem",
+                            fontSize: "0.75rem",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Sona Erdi
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Account Security */}
+                  <div
+                    style={{
+                      background: "white",
+                      border: "1px solid #e5e7eb",
+                      borderRadius: "0.75rem",
+                      padding: "1.5rem",
+                    }}
+                  >
+                    <h5
+                      style={{
+                        fontSize: "1rem",
+                        fontWeight: "600",
+                        color: "#171717",
+                        margin: "0 0 1rem 0",
+                      }}
+                    >
+                      Hesap Güvenliği
+                    </h5>
+
+                    <div style={{ display: "grid", gap: "0.75rem" }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <span style={{ fontSize: "0.875rem", color: "#374151" }}>E-posta doğrulaması</span>
+                        <div
+                          style={{
+                            background: "#f0fdf4",
+                            color: "#16a34a",
+                            padding: "0.25rem 0.5rem",
+                            borderRadius: "0.375rem",
+                            fontSize: "0.75rem",
+                            fontWeight: "500",
+                          }}
+                        >
+                          ✓ Doğrulandı
+                        </div>
+                      </div>
+
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <span style={{ fontSize: "0.875rem", color: "#374151" }}>Telefon doğrulaması</span>
+                        <div
+                          style={{
+                            background: "#fef3c7",
+                            color: "#92400e",
+                            padding: "0.25rem 0.5rem",
+                            borderRadius: "0.375rem",
+                            fontSize: "0.75rem",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Beklemede
+                        </div>
+                      </div>
+
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <span style={{ fontSize: "0.875rem", color: "#374151" }}>Güvenlik soruları</span>
+                        <div
+                          style={{
+                            background: "#f3f4f6",
+                            color: "#6b7280",
+                            padding: "0.25rem 0.5rem",
+                            borderRadius: "0.375rem",
+                            fontSize: "0.75rem",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Ayarlanmadı
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
