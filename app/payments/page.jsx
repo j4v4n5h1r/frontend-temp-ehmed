@@ -267,7 +267,7 @@ const PaymentsPage = () => {
         </div>
 
         {/* Loading State */}
-        {loading && (
+        {(authLoading || loading) && (
           <div
             style={{
               display: "flex",
