@@ -33,12 +33,11 @@ const MyRentalsPage = () => {
       setLoading(true);
       setError(null);
 
-      const token = cookie.get("token");
-      if (!token) {
+      if (!user || !user.token) {
         throw new Error("Authentication token is missing. Please log in again.");
       }
 
-      const response = await apiCallWithAuth("/api/v1/users/me/rentals", token);
+      const response = await apiCallWithAuth("/api/v1/users/me/rentals", user.token);
       setRentals(response || []);
     } catch (err) {
       console.error("Error fetching rentals:", err);
