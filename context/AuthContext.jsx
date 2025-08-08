@@ -69,25 +69,29 @@ export default function AuthProvider({ children }) {
   // Register a new user and login
   const register = async ({ firstName, lastName, email, password }) => {
     try {
+      console.log('📝 AuthContext: Attempting registration for', email);
       const data = await apiCall('/api/v1/auth/register', {
         method: 'POST',
         body: JSON.stringify({ firstName, lastName, email, password }),
       });
 
+      console.log('✅ AuthContext: Registration successful', data);
       const token = data.accessToken;
       cookie.set('token', token, { expires: 1 });
 
       // fetch profile
       try {
+        console.log('🔍 AuthContext: Fetching profile after registration...');
         const profile = await apiCallWithAuth('/api/v1/users/me', token);
+        console.log('✅ AuthContext: Profile fetched after registration', profile);
         setUser({ token, profile });
       } catch (profileError) {
-        console.error('Profile fetch failed after registration:', profileError);
+        console.error('❌ AuthContext: Profile fetch failed after registration:', profileError);
         // Still set user with token even if profile fails
         setUser({ token, profile: null });
       }
     } catch (error) {
-      console.error('Registration error:', error);
+      console.error('❌ AuthContext: Registration error:', error);
       throw error;
     }
   };
