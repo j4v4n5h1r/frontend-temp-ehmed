@@ -4,6 +4,9 @@ import { mockApiCall, isMockMode } from './mockApi';
 const BASE_URL = "http://164.90.238.202:8000";
 let useMockFallback = true; // Force enable to bypass FullStory interference
 
+// Log mock mode status
+console.log('🔧 API Mode:', useMockFallback ? 'Mock API' : 'Real API');
+
 export const apiCall = async (endpoint, options = {}) => {
   // Check if we should use mock mode or if mock fallback is enabled
   if (isMockMode() || useMockFallback) {
