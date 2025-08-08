@@ -135,14 +135,14 @@ const ProfilePage = () => {
 
     try {
       const token = cookie.get("token");
-      await axios.post(
-        `${BASE_URL}/api/v1/users/me/payment-methods`,
-        newPaymentMethod,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        },
-      );
+      console.log("🔍 Profile: Adding payment method", newPaymentMethod);
 
+      await apiCallWithAuth("/api/v1/users/me/payment-methods", token, {
+        method: "POST",
+        body: JSON.stringify(newPaymentMethod),
+      });
+
+      console.log("✅ Profile: Payment method added");
       setNewPaymentMethod({
         cardNumber: "",
         expiryDate: "",
@@ -153,7 +153,8 @@ const ProfilePage = () => {
       fetchPaymentMethods();
       setTimeout(() => setSuccess(null), 3000);
     } catch (err) {
-      setError(err.response?.data?.detail || t("errors.generic"));
+      console.error("❌ Profile: Error adding payment method:", err);
+      setError(err.message || t("errors.generic"));
     } finally {
       setLoading(false);
     }
