@@ -32,13 +32,17 @@ const ProfilePage = () => {
   });
 
   useEffect(() => {
+    console.log('🔍 Profile: User data', user);
     if (user?.profile?.data?.user) {
       const userData = user.profile.data.user;
+      console.log('✅ Profile: Populating form with user data', userData);
       setFirstName(userData.firstName || userData.name || "");
       setLastName(userData.lastName || "");
       setUsername(userData.username || "");
       setEmail(userData.email || "");
       setPhone(userData.phone || "");
+    } else {
+      console.log('⚠️ Profile: No user data available');
     }
     fetchPaymentMethods();
   }, [user]);
