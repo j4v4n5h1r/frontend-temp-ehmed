@@ -31,10 +31,11 @@ export const mockApiResponses = {
       data: {
         user: {
           id: 1,
-          email: 'user@example.com',
-          firstName: 'John',
-          lastName: 'Doe',
-          username: 'johndoe',
+          email: 'test@example.com',
+          firstName: 'Javanshir',
+          lastName: 'Mammadov',
+          username: 'javanshir',
+          phone: '+994501234567',
           createdAt: new Date().toISOString()
         }
       }
