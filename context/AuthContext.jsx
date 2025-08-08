@@ -34,25 +34,29 @@ export default function AuthProvider({ children }) {
 
   const login = async (email, password) => {
     try {
+      console.log('🔑 AuthContext: Attempting login for', email);
       const data = await apiCall('/api/v1/auth/login', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
       });
 
+      console.log('✅ AuthContext: Login successful', data);
       const token = data.accessToken;
       cookie.set('token', token, { expires: 1 });
 
       // fetch profile
       try {
+        console.log('🔍 AuthContext: Fetching profile after login...');
         const profile = await apiCallWithAuth('/api/v1/users/me', token);
+        console.log('✅ AuthContext: Profile fetched after login', profile);
         setUser({ token, profile });
       } catch (profileError) {
-        console.error('Profile fetch failed:', profileError);
+        console.error('❌ AuthContext: Profile fetch failed:', profileError);
         // Still set user with token even if profile fails
         setUser({ token, profile: null });
       }
     } catch (error) {
-      console.error('Login error:', error);
+      console.error('❌ AuthContext: Login error:', error);
       throw error;
     }
   };
