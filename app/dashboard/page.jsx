@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import axios from "axios";
 import cookie from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "../../context/TranslationContext";
+import { apiCallWithAuth } from "../../utils/api";
 
 export default function DashboardPage() {
   const { t } = useTranslation();
