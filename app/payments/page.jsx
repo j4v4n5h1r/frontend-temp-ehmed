@@ -65,7 +65,7 @@ const PaymentsPage = () => {
     const matchesFilter =
       filter === "all" || payment.status?.toLowerCase() === filter;
     const matchesSearch =
-      payment.id?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      payment.id?.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
       payment.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       payment.amount?.toString().includes(searchTerm);
     return matchesFilter && matchesSearch;
