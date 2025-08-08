@@ -409,7 +409,7 @@ const ProfilePage = () => {
           <div style={{ padding: "2rem" }}>
             {/* Profile Tab */}
             {activeTab === "profile" && (
-              <form onSubmit={updateProfile}>
+              <div>
                 <div
                   style={{
                     display: "grid",
@@ -574,8 +574,8 @@ const ProfilePage = () => {
                   </div>
                 </div>
 
-                {/* Update button removed - profile is read-only */}
-              </form>
+                {/* Profile is read-only - no update functionality */}
+              </div>
             )}
 
             {/* Payment Methods Tab */}
