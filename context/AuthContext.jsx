@@ -13,12 +13,16 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     const fetchUser = async () => {
       const token = cookie.get('token');
+      console.log('🔐 AuthContext: Token check', token ? 'Found' : 'Not found');
+
       if (token) {
         try {
+          console.log('🔍 AuthContext: Fetching user profile...');
           const profile = await apiCallWithAuth('/api/v1/users/me', token);
+          console.log('✅ AuthContext: Profile fetched', profile);
           setUser({ token, profile });
         } catch (error) {
-          console.error('Failed to fetch user profile:', error);
+          console.error('❌ AuthContext: Failed to fetch user profile:', error);
           cookie.remove('token');
           setUser(null);
         }
