@@ -913,7 +913,7 @@ const ProfilePage = () => {
                             margin: 0,
                           }}
                         >
-                          Son değiştirilme: 2 ay önce
+                          {t("profile.lastChanged")}: 2 {t("profile.monthsAgo")}
                         </p>
                       </div>
                       <button
