@@ -998,7 +998,7 @@ const ProfilePage = () => {
                           margin: "0 0 0.5rem 0",
                         }}
                       >
-                        Giriş Aktivitesi
+                        {t("profile.loginActivity")}
                       </h5>
                       <p
                         style={{
