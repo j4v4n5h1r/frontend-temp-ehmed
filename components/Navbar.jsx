@@ -271,9 +271,9 @@ function ProfileDropdown({ user, logout }) {
           </span>
         </div>
         <span className="text-sm font-medium text-neutral-700 hidden lg:block">
-          {user?.profile?.data?.user?.username ||
-            user?.profile?.data?.user?.firstName ||
+          {user?.profile?.data?.user?.firstName ||
             user?.profile?.data?.user?.name ||
+            user?.profile?.data?.user?.username ||
             user?.profile?.data?.user?.email ||
             "username"}
         </span>
