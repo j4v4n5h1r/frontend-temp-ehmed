@@ -874,7 +874,7 @@ const ProfilePage = () => {
                       margin: 0,
                     }}
                   >
-                    Güvenlik ayarlarınız aktif ve hesabınız korunuyor.
+                    {t("profile.securityActive")}
                   </p>
                 </div>
 
