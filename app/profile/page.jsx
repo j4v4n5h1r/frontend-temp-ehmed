@@ -596,7 +596,7 @@ const ProfilePage = () => {
                           </svg>
                           <div>
                             <p style={{ fontWeight: "600", margin: 0 }}>
-                              •••• •••• •••• {method.lastFour || "****"}
+                              ���••• •••• •••• {method.lastFour || "****"}
                             </p>
                             <p
                               style={{
@@ -975,7 +975,7 @@ const ProfilePage = () => {
                           color: "#92400e",
                         }}
                       >
-                        Yakında
+                        {t("profile.comingSoon")}
                       </div>
                     </div>
                   </div>
