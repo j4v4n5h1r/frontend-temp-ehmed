@@ -100,41 +100,7 @@ const ProfilePage = () => {
     }
   };
 
-  const updateProfile = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-    setSuccess(null);
-
-    try {
-      const token = cookie.get("token");
-      const updateData = {
-        firstName,
-        lastName,
-        username,
-        email,
-        phone,
-      };
-
-      console.log("🔍 Profile: Updating profile", updateData);
-      const response = await apiCallWithAuth("/api/v1/users/me", token, {
-        method: "PUT",
-        body: JSON.stringify(updateData),
-      });
-
-      console.log("✅ Profile: Profile updated", response);
-      // Update the user context with new data
-      const updatedProfile = { ...user.profile, data: { user: response } };
-      setUser({ ...user, profile: updatedProfile });
-      setSuccess(t("success.saved"));
-      setTimeout(() => setSuccess(null), 3000);
-    } catch (err) {
-      console.error("❌ Profile: Error updating profile:", err);
-      setError(err.message || t("errors.generic"));
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Profile is read-only, update function removed
 
   const addPaymentMethod = async (e) => {
     e.preventDefault();
