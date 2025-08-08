@@ -904,7 +904,7 @@ const ProfilePage = () => {
                             margin: "0 0 0.5rem 0",
                           }}
                         >
-                          Şifre
+                          {t("profile.password")}
                         </h5>
                         <p
                           style={{
