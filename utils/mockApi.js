@@ -6,9 +6,10 @@ export const mockApiResponses = {
       accessToken: 'mock-jwt-token-12345',
       user: {
         id: 1,
-        email: 'user@example.com',
-        firstName: 'John',
-        lastName: 'Doe'
+        email: 'test@example.com',
+        firstName: 'Javanshir',
+        lastName: 'Mammadov',
+        username: 'javanshir'
       }
     }
   },
@@ -18,21 +19,90 @@ export const mockApiResponses = {
       accessToken: 'mock-jwt-token-12345',
       user: {
         id: 1,
-        email: 'user@example.com',
-        firstName: 'John',
-        lastName: 'Doe'
+        email: 'test@example.com',
+        firstName: 'Javanshir',
+        lastName: 'Mammadov',
+        username: 'javanshir'
       }
     }
   },
   '/api/v1/users/me': {
     method: 'GET',
     response: {
-      id: 1,
-      email: 'user@example.com',
-      firstName: 'John',
-      lastName: 'Doe',
-      createdAt: new Date().toISOString()
+      data: {
+        user: {
+          id: 1,
+          email: 'test@example.com',
+          firstName: 'Javanshir',
+          lastName: 'Mammadov',
+          username: 'javanshir',
+          phone: '+994501234567',
+          createdAt: new Date().toISOString()
+        }
+      }
     }
+  },
+  '/api/v1/users/me/rentals': {
+    method: 'GET',
+    response: [
+      {
+        id: 1,
+        station_id: 'STATION001',
+        start_time: new Date(Date.now() - 3600000).toISOString(), // 1 hour ago
+        end_time: new Date(Date.now() - 1800000).toISOString(), // 30 min ago
+        cost: 2.50
+      },
+      {
+        id: 2,
+        station_id: 'STATION002',
+        start_time: new Date(Date.now() - 86400000).toISOString(), // 1 day ago
+        end_time: new Date(Date.now() - 82800000).toISOString(), // 23 hours ago
+        cost: 8.00
+      },
+      {
+        id: 3,
+        station_id: 'STATION001',
+        start_time: new Date(Date.now() - 3600000).toISOString(), // 1 hour ago
+        end_time: null, // active rental
+        cost: 0
+      }
+    ]
+  },
+  '/api/v1/payments': {
+    method: 'GET',
+    response: [
+      {
+        id: 1,
+        amount: 2.50,
+        timestamp: new Date(Date.now() - 1800000).toISOString(),
+        status: 'completed',
+        rental_id: 1
+      },
+      {
+        id: 2,
+        amount: 8.00,
+        timestamp: new Date(Date.now() - 82800000).toISOString(),
+        status: 'completed',
+        rental_id: 2
+      }
+    ]
+  },
+  '/api/v1/users/me/payment-methods': {
+    method: 'GET',
+    response: [
+      {
+        id: 'pm_001',
+        lastFour: '4242',
+        cardType: 'Visa',
+        expiryDate: '12/25'
+      },
+      {
+        id: 'pm_002',
+        lastFour: '1234',
+        cardType: 'Mastercard',
+        expiryDate: '06/26'
+      }
+    ]
   },
   '/api/v1/stations': {
     method: 'GET',
@@ -97,11 +167,35 @@ export const mockApiCall = async (endpoint, options = {}) => {
   }
   
   if (options.method && options.method !== mock.method) {
+    // Handle special cases for profile updates and payments
+    if (endpoint === '/api/v1/users/me' && options.method === 'PUT') {
+      // Return updated user profile
+      const body = JSON.parse(options.body || '{}');
+      return {
+        id: 1,
+        ...body,
+        email: body.email || 'user@example.com',
+        createdAt: new Date().toISOString()
+      };
+    }
+
+    if (endpoint === '/api/v1/users/me/payment-methods' && options.method === 'POST') {
+      // Return success for payment method creation
+      const body = JSON.parse(options.body || '{}');
+      return {
+        id: 'pm_' + Date.now(),
+        lastFour: body.cardNumber?.slice(-4) || '****',
+        cardType: 'Visa',
+        expiryDate: body.expiryDate || '12/25'
+      };
+    }
+
     throw new Error(`Mock API: Method ${options.method} not allowed for ${endpoint}`);
   }
   
   // Simulate authentication check for protected endpoints
-  if (endpoint === '/api/v1/users/me') {
+  const protectedEndpoints = ['/api/v1/users/me', '/api/v1/users/me/rentals', '/api/v1/payments', '/api/v1/users/me/payment-methods'];
+  if (protectedEndpoints.includes(endpoint)) {
     const authHeader = options.headers?.Authorization;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
       const error = new Error('Unauthorized');

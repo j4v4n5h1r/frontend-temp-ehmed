@@ -1,5 +1,4 @@
 import "./globals.css";
-import "./globals.css";
 import { Inter } from "next/font/google";
 import AuthProvider from "../context/AuthContext";
 import { TranslationProvider } from "../context/TranslationContext";

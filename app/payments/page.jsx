@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import cookie from "js-cookie";
+import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useTranslation } from "../../context/TranslationContext";
-
-const BASE_URL = "http://164.90.238.202:8000";
+import { AuthContext } from "../../context/AuthContext";
+import { apiCallWithAuth } from "../../utils/api";
 
 const PaymentsPage = () => {
   const { t } = useTranslation();
+  const { user, loading: authLoading } = useContext(AuthContext);
+  const router = useRouter();
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,91 +18,41 @@ const PaymentsPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
+    // Wait for auth context to load
+    if (authLoading) return;
+
+    // If no user, redirect to login
+    if (!user) {
+      console.log('🔒 Payments: No user found, redirecting to login');
+      router.push("/login");
+      return;
+    }
+
     fetchPayments();
-  }, []);
+  }, [user, authLoading, router]);
 
   const fetchPayments = async () => {
     try {
       setLoading(true);
       setError(null);
-      const token = cookie.get("token");
 
-      console.log("BASE_URL:", BASE_URL);
-      console.log("Token:", token ? "Present" : "Missing");
+      console.log('🔍 Payments: Fetching data with user token:', user.token ? 'Present' : 'Missing');
 
-      // If BASE_URL is not set, use mock data for development
-      if (!BASE_URL) {
-        console.warn("BASE_URL not set, using mock data");
-        const mockPayments = [
-          {
-            id: "PAY001",
-            description: "Power Bank Rental - Station 001",
-            amount: 5.99,
-            status: "completed",
-            type: "charge",
-            createdAt: new Date().toISOString(),
-            rentalId: "REN001",
-          },
-          {
-            id: "PAY002",
-            description: "Power Bank Rental - Station 002",
-            amount: 3.5,
-            status: "pending",
-            type: "charge",
-            createdAt: new Date(Date.now() - 86400000).toISOString(),
-            rentalId: "REN002",
-          },
-          {
-            id: "PAY003",
-            description: "Refund - Power Bank Rental",
-            amount: 5.99,
-            status: "refunded",
-            type: "refund",
-            createdAt: new Date(Date.now() - 172800000).toISOString(),
-            rentalId: "REN003",
-          },
-        ];
-        setTimeout(() => {
-          setPayments(mockPayments);
-          setLoading(false);
-        }, 1000);
-        return;
-      }
+      const response = await apiCallWithAuth("/api/v1/payments", user.token);
 
-      if (!token) {
-        throw new Error(
-          "Authentication token is missing. Please log in again.",
-        );
-      }
-
-      const response = await axios.get(`${BASE_URL}/api/v1/payments`, {
-        headers: { Authorization: `Bearer ${token}` },
-        timeout: 10000,
-      });
-
-      setPayments(response.data || []);
+      console.log('✅ Payments: Data fetched successfully', response);
+      setPayments(response || []);
     } catch (err) {
-      console.error("Error fetching payments:", err);
+      console.error("❌ Payments: Error fetching payments:", err);
 
       let errorMessage = t("payments.failedToLoadPaymentHistory");
 
-      if (err.message.includes("Authentication token")) {
-        errorMessage = err.message;
-      } else if (err.code === "ECONNABORTED") {
-        errorMessage = t("rentals.requestTimeout");
-      } else if (err.response) {
-        console.error("Server error:", err.response.status, err.response.data);
-        if (err.response.status === 401) {
-          errorMessage = t("rentals.authFailed");
-        } else {
-          errorMessage = `${t("rentals.serverError")}: ${err.response.status} - ${err.response.data?.message || t("rentals.unexpectedError")}`;
-        }
-      } else if (err.request) {
-        console.error("Network error:", err.request);
-        errorMessage = t("rentals.networkError");
+      if (err.isNetworkError) {
+        errorMessage = t("errors.networkTimeout");
+      } else if (err.message.includes('401') || err.message.includes('Unauthorized')) {
+        errorMessage = t("errors.sessionExpired");
       } else {
-        console.error("Unexpected error:", err.message);
-        errorMessage = `${t("rentals.unexpectedError")}: ${err.message}`;
+        errorMessage = err.message || t("errors.generic");
       }
 
       setError(errorMessage);
@@ -114,7 +65,7 @@ const PaymentsPage = () => {
     const matchesFilter =
       filter === "all" || payment.status?.toLowerCase() === filter;
     const matchesSearch =
-      payment.id?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      payment.id?.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
       payment.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       payment.amount?.toString().includes(searchTerm);
     return matchesFilter && matchesSearch;
@@ -316,7 +267,7 @@ const PaymentsPage = () => {
         </div>
 
         {/* Loading State */}
-        {loading && (
+        {(authLoading || loading) && (
           <div
             style={{
               display: "flex",
@@ -381,7 +332,7 @@ const PaymentsPage = () => {
         )}
 
         {/* Payments List */}
-        {!loading && !error && (
+        {!authLoading && !loading && !error && (
           <div
             style={{
               background: "white",

@@ -1,17 +1,16 @@
 "use client";
 
 import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import cookie from "js-cookie";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "../../context/AuthContext";
 import { useTranslation } from "../../context/TranslationContext";
-
-const BASE_URL = "http://164.90.238.202:8000";
+import { apiCallWithAuth } from "../../utils/api";
 
 const MyRentalsPage = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading: authLoading } = useContext(AuthContext);
   const { t } = useTranslation();
+  const router = useRouter();
   const [rentals, setRentals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -19,115 +18,29 @@ const MyRentalsPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    fetchRentals();
-  }, []);
+    if (!authLoading) {
+      if (!user) {
+        router.push("/login");
+        return;
+      }
+      fetchRentals();
+    }
+  }, [user, authLoading, router]);
 
   const fetchRentals = async () => {
     try {
       setLoading(true);
       setError(null);
-      const token = cookie.get("token");
 
-      console.log("BASE_URL:", BASE_URL);
-      console.log("Token:", token ? "Present" : "Missing");
-
-      // If BASE_URL is not set, use mock data for development
-      if (!BASE_URL) {
-        console.warn("BASE_URL not set, using mock data");
-        const mockRentals = [
-          {
-            id: "REN001",
-            stationId: "STATION001",
-            stationName: "Central Station",
-            powerbankId: "PB001",
-            status: "active",
-            startTime: new Date(Date.now() - 3600000).toISOString(),
-            endTime: null,
-            totalAmount: 0,
-            duration: "1h 0m",
-            location: "Downtown Mall, Level 1",
-          },
-          {
-            id: "REN002",
-            stationId: "STATION002",
-            stationName: "Airport Terminal",
-            powerbankId: "PB025",
-            status: "completed",
-            startTime: new Date(Date.now() - 86400000).toISOString(),
-            endTime: new Date(Date.now() - 82800000).toISOString(),
-            totalAmount: 5.99,
-            duration: "1h 30m",
-            location: "International Airport, Gate A",
-          },
-          {
-            id: "REN003",
-            stationId: "STATION001",
-            stationName: "Central Station",
-            powerbankId: "PB015",
-            status: "completed",
-            startTime: new Date(Date.now() - 172800000).toISOString(),
-            endTime: new Date(Date.now() - 169200000).toISOString(),
-            totalAmount: 3.5,
-            duration: "45m",
-            location: "Downtown Mall, Level 1",
-          },
-          {
-            id: "REN004",
-            stationId: "STATION003",
-            stationName: "University Campus",
-            powerbankId: "PB032",
-            status: "cancelled",
-            startTime: new Date(Date.now() - 259200000).toISOString(),
-            endTime: new Date(Date.now() - 258900000).toISOString(),
-            totalAmount: 0,
-            duration: "5m",
-            location: "Student Center, Main Floor",
-          },
-        ];
-        setTimeout(() => {
-          setRentals(mockRentals);
-          setLoading(false);
-        }, 1000);
-        return;
+      if (!user || !user.token) {
+        throw new Error("Authentication token is missing. Please log in again.");
       }
 
-      if (!token) {
-        throw new Error(
-          "Authentication token is missing. Please log in again.",
-        );
-      }
-
-      const response = await axios.get(`${BASE_URL}/api/v1/users/me/rentals`, {
-        headers: { Authorization: `Bearer ${token}` },
-        timeout: 10000,
-      });
-
-      setRentals(response.data || []);
+      const response = await apiCallWithAuth("/api/v1/users/me/rentals", user.token);
+      setRentals(response || []);
     } catch (err) {
       console.error("Error fetching rentals:", err);
-
-      let errorMessage = t("rentals.unableToLoadRentals");
-
-      if (err.message.includes("Authentication token")) {
-        errorMessage = err.message;
-      } else if (err.code === "ECONNABORTED") {
-        errorMessage = t("rentals.requestTimeout");
-      } else if (err.response) {
-        console.error("Server error:", err.response.status, err.response.data);
-        if (err.response.status === 401) {
-          errorMessage = t("rentals.authFailed");
-        } else {
-          errorMessage = `${t("rentals.serverError")}: ${err.response.status} - ${err.response.data?.message || t("rentals.unexpectedError")}`;
-        }
-      } else if (err.request) {
-        console.error("Network error:", err.request);
-        errorMessage = t("rentals.networkError");
-      } else {
-        console.error("Unexpected error:", err.message);
-        errorMessage = `${t("rentals.unexpectedError")}: ${err.message}`;
-      }
-
-      setError(errorMessage);
+      setError(err.message || t("rentals.unableToLoadRentals"));
     } finally {
       setLoading(false);
     }
@@ -137,7 +50,7 @@ const MyRentalsPage = () => {
     const matchesFilter =
       filter === "all" || rental.status?.toLowerCase() === filter;
     const matchesSearch =
-      rental.id?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      rental.id?.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
       rental.stationName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       rental.stationId?.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesFilter && matchesSearch;

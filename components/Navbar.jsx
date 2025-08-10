@@ -264,16 +264,17 @@ function ProfileDropdown({ user, logout }) {
       >
         <div className="w-9 h-9 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
           <span className="text-primary-700 font-bold text-sm">
-            {user?.profile?.data?.user?.firstName?.charAt(0) ||
-              user?.profile?.data?.user?.name?.charAt(0) ||
-              user?.profile?.data?.user?.email?.charAt(0) ||
+            {user?.profile?.data?.user?.firstName?.charAt(0)?.toUpperCase() ||
+              user?.profile?.data?.user?.name?.charAt(0)?.toUpperCase() ||
+              user?.profile?.data?.user?.username?.charAt(0)?.toUpperCase() ||
+              user?.profile?.data?.user?.email?.charAt(0)?.toUpperCase() ||
               "U"}
           </span>
         </div>
         <span className="text-sm font-medium text-neutral-700 hidden lg:block">
-          {user?.profile?.data?.user?.username ||
-            user?.profile?.data?.user?.firstName ||
+          {user?.profile?.data?.user?.firstName ||
             user?.profile?.data?.user?.name ||
+            user?.profile?.data?.user?.username ||
             user?.profile?.data?.user?.email ||
             "username"}
         </span>
@@ -298,9 +299,9 @@ function ProfileDropdown({ user, logout }) {
         <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
           <div className="px-4 py-3 border-b border-neutral-100">
             <p className="text-sm font-medium text-neutral-900">
-              {user?.profile?.data?.user?.username ||
-                user?.profile?.data?.user?.firstName ||
+              {user?.profile?.data?.user?.firstName ||
                 user?.profile?.data?.user?.name ||
+                user?.profile?.data?.user?.username ||
                 "username"}{" "}
               {user?.profile?.data?.user?.lastName || ""}
             </p>
@@ -563,17 +564,18 @@ export default function Navbar() {
                   <div className="flex items-center gap-3 px-4 py-3 bg-primary-50 rounded-lg my-4">
                     <div className="w-10 h-10 bg-gradient-to-br from-primary-100 to-primary-200 border-2 border-primary-500 rounded-full flex items-center justify-center">
                       <span className="text-primary-700 font-bold text-sm">
-                        {user?.profile?.data?.user?.firstName?.charAt(0) ||
-                          user?.profile?.data?.user?.name?.charAt(0) ||
-                          user?.profile?.data?.user?.email?.charAt(0) ||
+                        {user?.profile?.data?.user?.firstName?.charAt(0)?.toUpperCase() ||
+                          user?.profile?.data?.user?.name?.charAt(0)?.toUpperCase() ||
+                          user?.profile?.data?.user?.username?.charAt(0)?.toUpperCase() ||
+                          user?.profile?.data?.user?.email?.charAt(0)?.toUpperCase() ||
                           "U"}
                       </span>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="font-semibold text-neutral-900 text-sm truncate">
-                        {user?.profile?.data?.user?.username ||
-                          user?.profile?.data?.user?.firstName ||
+                        {user?.profile?.data?.user?.firstName ||
                           user?.profile?.data?.user?.name ||
+                          user?.profile?.data?.user?.username ||
                           "username"}
                       </div>
                       <div className="text-xs text-neutral-600 truncate">
