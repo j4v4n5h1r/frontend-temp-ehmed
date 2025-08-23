@@ -854,7 +854,7 @@ export default {
     plans: {
       hourly: {
         title: "Saatlıq",
-        price: "2₼",
+        price: "1.5₼",
         period: "saatda",
         description: "Qısa səyahətlər və sürətli şarjlar üçün mükəmməl",
         feature1: "Sürətli şarj kabelləri daxildir",
@@ -865,7 +865,7 @@ export default {
       },
       daily: {
         title: "Günlük",
-        price: "8₼",
+        price: "3.5₼",
         period: "gündə",
         description: "Bütün gün macəraları üçün ən yaxşı dəyər",
         feature1: "Bütün saatlıq xüsusiyyətlər",
@@ -876,7 +876,7 @@ export default {
       },
       weekly: {
         title: "Həftəlik",
-        price: "25₼",
+        price: "14₼",
         period: "həftədə",
         description: "Uzun qalmaq və biznes səyahətləri",
         feature1: "Bütün günlük xüsusiyyətlər",
@@ -892,8 +892,8 @@ export default {
         description: "Sürətli şarj texnologiyası ilə yüksək tutumlu powerbank-lar",
       },
       locations: {
-        title: "500+ Məkan",
-        description: "Dünya üzrə böyük şəhərlərdə geniş stansiya şəbəkəsi",
+        title: "Çoxsaylı Məkan",
+        description: "Geniş stansiya şəbəkəsi",
       },
       returnAnywhere: {
         title: "İstənilən Yerdə Qaytarın",

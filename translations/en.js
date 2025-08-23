@@ -828,7 +828,7 @@ export default {
     plans: {
       hourly: {
         title: "Hourly",
-        price: "$2",
+        price: "1.5₼",
         period: "per hour",
         description: "Perfect for short trips and quick charges",
         feature1: "Fast charging cables included",
@@ -839,7 +839,7 @@ export default {
       },
       daily: {
         title: "Daily",
-        price: "$8",
+        price: "3.5₼",
         period: "per day",
         description: "Best value for all-day adventures",
         feature1: "All hourly features",
@@ -850,7 +850,7 @@ export default {
       },
       weekly: {
         title: "Weekly",
-        price: "$25",
+        price: "14₼",
         period: "per week",
         description: "Extended stays and business trips",
         feature1: "All daily features",
@@ -866,8 +866,8 @@ export default {
         description: "High-capacity power banks with fast charging technology",
       },
       locations: {
-        title: "500+ Locations",
-        description: "Extensive network of stations in major cities worldwide",
+        title: "Multiple Locations",
+        description: "Extensive network of stations",
       },
       returnAnywhere: {
         title: "Return Anywhere",
