@@ -330,7 +330,7 @@ const AboutPage = () => {
         </div>
 
         {/* Timeline */}
-        {/*<div style={{ marginBottom: "4rem" }}>
+        <div style={{ marginBottom: "4rem" }}>
           <h2
             style={{
               fontSize: "2rem",
@@ -399,10 +399,10 @@ const AboutPage = () => {
               </div>
             ))}
           </div>
-        </div>*/}
+        </div>
 
         {/* Team */}
-        {/*<div style={{ marginBottom: "4rem" }}>
+        <div style={{ marginBottom: "4rem" }}>
           <h2
             style={{
               fontSize: "2rem",
@@ -508,7 +508,7 @@ const AboutPage = () => {
               </div>
             ))}
           </div>
-        </div>*/}
+        </div>
 
         {/* CTA Section */}
         <div
