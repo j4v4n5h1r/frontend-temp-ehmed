@@ -14,9 +14,9 @@ export default function LanguageSelector() {
     { value: "en", label: "English", flag: "🇬🇧" },
     { value: "az", label: "Azərbaycan", flag: "🇦🇿" },
     { value: "tr", label: "Türkçe", flag: "🇹🇷" },
-    { value: "ru", label: "Русский", flag: "🇷🇺" },
-    { value: "ar", label: "عربي", flag: "🇸🇦" },
-    { value: "zh", label: "中国人", flag: "🇨🇳" },
+    // { value: "ru", label: "Русский", flag: "🇷🇺" },
+    // { value: "ar", label: "عربي", flag: "🇸🇦" },
+    // { value: "zh", label: "中国人", flag: "🇨🇳" },
   ];
 
   useEffect(() => {
