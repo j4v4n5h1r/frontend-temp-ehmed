@@ -11,12 +11,9 @@ export default function LanguageSelector() {
   const dropdownRef = useRef(null);
 
   const languages = [
-    { value: "en", label: "English", flag: "🇬🇧" },
+    { value: "en", label: "English", flag: "🇺🇸" },
     { value: "az", label: "Azərbaycan", flag: "🇦🇿" },
     { value: "tr", label: "Türkçe", flag: "🇹🇷" },
-    // { value: "ru", label: "Русский", flag: "🇷🇺" },
-    // { value: "ar", label: "عربي", flag: "🇸🇦" },
-    // { value: "zh", label: "中国人", flag: "🇨🇳" },
   ];
 
   useEffect(() => {

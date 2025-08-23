@@ -7,18 +7,12 @@ export const SUPPORTED_LANGUAGES = {
   en: "English",
   az: "Azərbaycan",
   tr: "Türkçe",
-  // ru: "Русский",
-  // ar: "عربي",
-  // zh: "中国人",
 };
 
 export const LANGUAGE_CODES = {
   English: "en",
   Azərbaycan: "az",
   Türkçe: "tr",
-  // Русский: "ru",
-  // عربي: "ar",
-  // 中国人: "zh",
 };
 
 export function TranslationProvider({ children }) {
