@@ -2,7 +2,7 @@ import { logNetworkError } from './networkDebug';
 import { mockApiCall, isMockMode } from './mockApi';
 
 const BASE_URL = "http://164.90.238.202:8000";
-let useMockFallback = true; // Force enable to bypass FullStory interference
+let useMockFallback = false; // Force enable to bypass FullStory interference
 
 // Log mock mode status
 console.log('🔧 API Mode:', useMockFallback ? 'Mock API' : 'Real API');

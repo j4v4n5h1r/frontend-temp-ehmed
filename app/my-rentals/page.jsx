@@ -463,6 +463,7 @@ const MyRentalsPage = () => {
                   background: "white",
                   cursor: "pointer",
                   boxSizing: "border-box",
+                  color: "darkgrey",
                 }}
               >
                 <option value="all">{t("rentals.allStatus")}</option>

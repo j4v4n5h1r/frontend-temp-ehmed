@@ -61,15 +61,15 @@ const PaymentsPage = () => {
     }
   };
 
-  const filteredPayments = payments.filter((payment) => {
+  const filteredPayments = Array.isArray(payments) ? payments.filter((payment) => {
     const matchesFilter =
       filter === "all" || payment.status?.toLowerCase() === filter;
     const matchesSearch =
-      payment.id?.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
+      payment.payment_id?.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
       payment.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       payment.amount?.toString().includes(searchTerm);
     return matchesFilter && matchesSearch;
-  });
+  }) : [];
 
   const getStatusColor = (status) => {
     switch (status?.toLowerCase()) {
@@ -254,6 +254,7 @@ const PaymentsPage = () => {
                   background: "white",
                   cursor: "pointer",
                   boxSizing: "border-box",
+                  color: "darkgrey",
                 }}
               >
                 <option value="all">{t("rentals.allStatus")}</option>

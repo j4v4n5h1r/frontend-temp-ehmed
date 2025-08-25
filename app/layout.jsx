@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
           <AuthProvider>
             <Navbar />
             <DevModeIndicator />
-            <main className="pt-14 sm:pt-16 lg:pt-20 min-h-screen">
+            <main className="pt-14 sm:pt-16 lg:pt-18 min-h-screen">
               {children}
             </main>
           </AuthProvider>
