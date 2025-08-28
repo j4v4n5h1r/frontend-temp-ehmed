@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server'
 
 export async function POST(request) {
-  const token = process.env.WEBHOOK_TOKEN
+  const token = "qMuV&x7N7nP4EUPR!ERvc9K^syP&m!V5"
   const authHeader = request.headers.get('authorization')
   
   if (!authHeader || authHeader !== `Bearer ${token}`) {

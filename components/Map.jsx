@@ -21,57 +21,8 @@ const defaultCenter = {
 
 const defaultZoom = 12;
 
-// Mock station data with coordinates
-const mockStations = [
-  {
-    id: "STATION001",
-    name: "Central Station",
-    location: "Downtown Mall, Level 1",
-    status: "ACTIVE",
-    availablePowerbanks: 8,
-    totalPowerbanks: 12,
-    coordinates: { lat: 40.7505, lng: -73.9934 },
-  },
-  {
-    id: "STATION002",
-    name: "Airport Terminal",
-    location: "International Airport, Gate A",
-    status: "ACTIVE",
-    availablePowerbanks: 5,
-    totalPowerbanks: 10,
-    coordinates: { lat: 40.6892, lng: -74.1745 },
-  },
-  {
-    id: "STATION003",
-    name: "University Campus",
-    location: "Student Center, Main Floor",
-    status: "MAINTENANCE",
-    availablePowerbanks: 0,
-    totalPowerbanks: 8,
-    coordinates: { lat: 40.7282, lng: -73.9942 },
-  },
-  {
-    id: "STATION004",
-    name: "Coffee Shop",
-    location: "Main Street Café",
-    status: "OFFLINE",
-    availablePowerbanks: 0,
-    totalPowerbanks: 6,
-    coordinates: { lat: 40.7614, lng: -73.9776 },
-  },
-  {
-    id: "STATION005",
-    name: "Shopping Center",
-    location: "West Side Mall, Food Court",
-    status: "ACTIVE",
-    availablePowerbanks: 12,
-    totalPowerbanks: 15,
-    coordinates: { lat: 40.7831, lng: -73.9712 },
-  },
-];
-
 const Map = ({
-  stations = mockStations,
+  stations = [],
   showCurrentLocation = true,
   height = "400px",
 }) => {

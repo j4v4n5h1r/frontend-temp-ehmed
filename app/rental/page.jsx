@@ -5,6 +5,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import cookie from "js-cookie";
 import { useTranslation } from "../../context/TranslationContext";
+import { QrReader } from "react-qr-reader"; // Import the QR reader component
 
 const BASE_URL = "http://164.90.238.202:8000";
 
@@ -15,11 +16,13 @@ const RentalPage = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue, // We'll use setValue to set the form value from the scanner
   } = useForm();
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
+  const [scanResult, setScanResult] = useState(""); // State to store the scan result
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -30,7 +33,7 @@ const RentalPage = () => {
       const token = cookie.get("token");
       const payload = {
         stationId: data.stationId,
-        qrCodeData: data.qrCodeData,
+        qrCodeData: data.qrCodeData, // The qrCodeData will now be populated by the scanner
       };
 
       const res = await axios.post(
@@ -42,6 +45,7 @@ const RentalPage = () => {
       if (res.status === 201) {
         setSuccess(true);
         reset();
+        setScanResult(""); // Reset the scan result as well
         setTimeout(() => setSuccess(false), 5000);
       } else {
         throw new Error(t("errors.generic"));
@@ -53,6 +57,19 @@ const RentalPage = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleScan = (data) => {
+    if (data) {
+      setScanResult(data);
+      setValue("qrCodeData", data); // Set the form value
+      setError(null); // Clear any previous errors
+    }
+  };
+
+  const handleError = (err) => {
+    console.error(err);
+    setError("Failed to access QR scanner.");
   };
 
   return (
@@ -402,49 +419,34 @@ const RentalPage = () => {
                   {t("rental.qrCodeData")}
                 </span>
               </label>
-              <textarea
-                id="qrCodeData"
-                rows="3"
-                placeholder={t("rental.qrPlaceholder")}
-                {...register("qrCodeData", {
-                  required: t("rental.qrRequired"),
-                  minLength: {
-                    value: 10,
-                    message: t("rental.qrMinLength"),
-                  },
-                })}
+
+              {/* The QR Scanner component is placed here */}
+              <div
                 style={{
-                  width: "100%",
-                  padding: "0.875rem 1rem",
-                  fontSize: "1rem",
-                  border: errors.qrCodeData
-                    ? "2px solid #ef4444"
-                    : "2px solid #dcfce7",
+                  border: "2px solid #dcfce7",
                   borderRadius: "0.75rem",
-                  background: "white",
-                  color: "#171717",
-                  transition: "all 0.3s ease",
-                  outline: "none",
-                  boxSizing: "border-box",
-                  minWidth: 0,
-                  maxWidth: "100%",
-                  resize: "none",
+                  overflow: "hidden",
+                  width: "100%",
                 }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = "#22c55e";
-                  e.target.style.boxShadow = "0 0 0 4px rgba(34, 197, 94, 0.1)";
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = errors.qrCodeData
-                    ? "#ef4444"
-                    : "#dcfce7";
-                  e.target.style.boxShadow = "none";
-                }}
-              />
-              {errors.qrCodeData && (
+              >
+                <QrReader
+                  onResult={(result, error) => {
+                    if (!!result) {
+                      handleScan(result?.text);
+                    }
+                    if (!!error) {
+                      handleError(error);
+                    }
+                  }}
+                  constraints={{ facingMode: "environment" }}
+                  videoStyle={{ width: "100%" }}
+                  containerStyle={{ width: "100%" }}
+                />
+              </div>
+              {scanResult && (
                 <p
                   style={{
-                    color: "#ef4444",
+                    color: "#16a34a",
                     fontSize: "0.875rem",
                     marginTop: "0.5rem",
                     display: "flex",
@@ -465,12 +467,20 @@ const RentalPage = () => {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  {errors.qrCodeData.message}
+                  QR Code scanned successfully!
                 </p>
               )}
+              <input
+                id="qrCodeData"
+                type="hidden"
+                {...register("qrCodeData", {
+                  required: t("rental.qrRequired"),
+                })}
+                value={scanResult}
+              />
               <p
                 style={{
                   color: "#525252",

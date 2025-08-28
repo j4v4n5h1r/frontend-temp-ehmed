@@ -63,22 +63,7 @@ const ProfilePage = () => {
 
       if (!token) {
         console.warn("No authentication token found");
-        // Use mock payment methods for demo
-        const mockPaymentMethods = [
-          {
-            id: "pm_001",
-            lastFour: "4242",
-            cardType: "Visa",
-            expiryDate: "12/25",
-          },
-          {
-            id: "pm_002",
-            lastFour: "1234",
-            cardType: "Mastercard",
-            expiryDate: "06/26",
-          },
-        ];
-        setPaymentMethods(mockPaymentMethods);
+        setPaymentMethods([]); // Set to empty array if no token
         return;
       }
 
@@ -87,16 +72,8 @@ const ProfilePage = () => {
       console.log("✅ Profile: Payment methods fetched", response);
     } catch (err) {
       console.error("❌ Profile: Error fetching payment methods:", err);
-      // Don't show error for payment methods as it's not critical - use mock data
-      const mockPaymentMethods = [
-        {
-          id: "pm_001",
-          lastFour: "4242",
-          cardType: "Visa",
-          expiryDate: "12/25",
-        },
-      ];
-      setPaymentMethods(mockPaymentMethods);
+      setError(t("errors.failedToFetchPayments"));
+      setPaymentMethods([]); // Set to empty array on error
     }
   };
 
@@ -596,7 +573,7 @@ const ProfilePage = () => {
                           </svg>
                           <div>
                             <p style={{ fontWeight: "600", margin: 0 }}>
-                              ���••• •••• •••• {method.lastFour || "****"}
+                              •••• •••• •••• {method.lastFour || "****"}
                             </p>
                             <p
                               style={{

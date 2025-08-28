@@ -1,19 +1,10 @@
 import { logNetworkError } from './networkDebug';
-import { mockApiCall, isMockMode } from './mockApi';
 
 const BASE_URL = "http://164.90.238.202:8000";
-let useMockFallback = false; // Force enable to bypass FullStory interference
 
-// Log mock mode status
-console.log('🔧 API Mode:', useMockFallback ? 'Mock API' : 'Real API');
+console.log('🌐 API Mode: Real API');
 
 export const apiCall = async (endpoint, options = {}) => {
-  // Check if we should use mock mode or if mock fallback is enabled
-  if (isMockMode() || useMockFallback) {
-    console.log(`🎭 API Call: Using mock API for ${endpoint}`);
-    return mockApiCall(endpoint, options);
-  }
-
   console.log(`🌐 API Call: Using real server for ${endpoint}`);
 
   const url = `${BASE_URL}${endpoint}`;
@@ -44,12 +35,6 @@ export const apiCall = async (endpoint, options = {}) => {
       timeoutPromise
     ]);
 
-    // Reset mock fallback on successful connection
-    if (useMockFallback) {
-      useMockFallback = false;
-      console.log('✅ Real server is back online');
-    }
-
     // Check if response is ok
     if (!response.ok) {
       let errorMessage = `HTTP ${response.status}: ${response.statusText}`;
@@ -76,8 +61,8 @@ export const apiCall = async (endpoint, options = {}) => {
   } catch (error) {
     // Log the error for debugging
     logNetworkError(error, endpoint);
-
-    // Handle various network error scenarios and fallback to mock
+    
+    // Check for network-specific errors
     const isNetworkError =
       (error.name === 'TypeError' && (
         error.message === 'Failed to fetch' ||
@@ -88,16 +73,9 @@ export const apiCall = async (endpoint, options = {}) => {
       error.code === 'NETWORK_ERROR';
 
     if (isNetworkError) {
-      if (!useMockFallback) {
-        console.warn('⚠️ Server unavailable, falling back to mock API for development');
-        useMockFallback = true;
-        // Retry with mock
-        return mockApiCall(endpoint, options);
-      } else {
         const networkError = new Error('Network error: Unable to connect to server. Please check your internet connection and try again.');
         networkError.isNetworkError = true;
         throw networkError;
-      }
     }
 
     // Re-throw other errors
