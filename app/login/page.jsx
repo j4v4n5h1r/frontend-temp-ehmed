@@ -193,6 +193,7 @@ export default function LoginPage() {
           <div className="space-y-3 mb-6">
             <button
               type="button"
+              onClick={() => window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/oauth/google/login`}
               className="w-full flex items-center justify-center gap-3 px-4 py-3 border-2 border-neutral-200 rounded-xl text-neutral-700 font-medium hover:bg-neutral-50 hover:border-neutral-300 transition-all duration-200"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -218,6 +219,7 @@ export default function LoginPage() {
 
             <button
               type="button"
+              onClick={() => window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/oauth/facebook/login`}
               className="w-full flex items-center justify-center gap-3 px-4 py-3 border-2 border-neutral-200 rounded-xl text-neutral-700 font-medium hover:bg-neutral-50 hover:border-neutral-300 transition-all duration-200"
             >
               <svg className="w-5 h-5" fill="#1877f2" viewBox="0 0 24 24">
@@ -228,6 +230,7 @@ export default function LoginPage() {
 
             <button
               type="button"
+              onClick={() => window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/oauth/apple/login`}
               className="w-full flex items-center justify-center gap-3 px-4 py-3 border-2 border-neutral-200 rounded-xl text-neutral-700 font-medium hover:bg-neutral-50 hover:border-neutral-300 transition-all duration-200"
             >
               <svg className="w-5 h-5" fill="#000000" viewBox="0 0 24 24">
@@ -238,6 +241,7 @@ export default function LoginPage() {
 
             <button
               type="button"
+              onClick={() => window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/oauth/instagram/login`}
               className="w-full flex items-center justify-center gap-3 px-4 py-3 border-2 border-neutral-200 rounded-xl text-neutral-700 font-medium hover:bg-neutral-50 hover:border-neutral-300 transition-all duration-200"
             >
               <svg className="w-5 h-5" fill="url(#instagram-gradient)" viewBox="0 0 24 24">

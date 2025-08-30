@@ -1,183 +1,101 @@
 import { NextResponse } from "next/server";
 
-// GET /api/v1/admin/rentals/ - Get all rentals (admin view)
+const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
+// GET /api/v1/admin/rentals/ - Get all rentals
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get("page") || "1");
-    const limit = parseInt(searchParams.get("limit") || "20");
+    const limit = parseInt(searchParams.get("limit") || "10");
+    const search = searchParams.get("search") || "";
     const status = searchParams.get("status") || "";
-    const userId = searchParams.get("userId") || "";
-    const stationId = searchParams.get("stationId") || "";
-    const startDate = searchParams.get("start_date") || "";
-    const endDate = searchParams.get("end_date") || "";
 
     console.log(
-      `Admin: Fetching rentals - Page: ${page}, Status: ${status}, User: ${userId}`,
+      `Admin: Fetching rentals - Page: ${page}, Limit: ${limit}, Search: ${search}, Status: ${status}`,
     );
 
-    // Mock rentals data for admin view
-    const rentals = [
-      {
-        id: "rental_001",
-        userId: "user_001",
-        userDetails: {
-          email: "john.doe@example.com",
-          name: "John Doe",
-          phone: "+1234567890",
-        },
-        powerBankId: "pb_123",
-        status: "completed",
-        startStationId: "st_001",
-        endStationId: "st_001",
-        stationDetails: {
-          startStation: {
-            name: "Downtown Mall Station",
-            address: "123 Main St, Downtown",
-          },
-          endStation: {
-            name: "Downtown Mall Station",
-            address: "123 Main St, Downtown",
-          },
-        },
-        startTime: "2024-01-21T14:30:00Z",
-        endTime: "2024-01-21T16:45:00Z",
-        duration: 135,
-        cost: {
-          amount: 12.5,
-          currency: "USD",
-          breakdown: {
-            baseFee: 1.0,
-            usageFee: 11.5,
-            taxes: 0.0,
-          },
-        },
-        payment: {
-          id: "pay_001",
-          status: "success",
-          processedAt: "2024-01-21T16:45:00Z",
-        },
-        issues: [],
-        adminNotes: null,
-        createdAt: "2024-01-21T14:30:00Z",
-        updatedAt: "2024-01-21T16:45:00Z",
-      },
-      {
-        id: "rental_002",
-        userId: "user_002",
-        userDetails: {
-          email: "jane.smith@example.com",
-          name: "Jane Smith",
-          phone: "+1234567891",
-        },
-        powerBankId: "pb_456",
-        status: "active",
-        startStationId: "st_002",
-        endStationId: null,
-        stationDetails: {
-          startStation: {
-            name: "Airport Terminal 1",
-            address: "Terminal 1, JFK Airport",
-          },
-          endStation: null,
-        },
-        startTime: "2024-01-21T17:00:00Z",
-        endTime: null,
-        duration: Math.floor(
-          (new Date() - new Date("2024-01-21T17:00:00Z")) / (1000 * 60),
-        ),
-        cost: {
-          estimatedAmount: 5.25,
-          currency: "USD",
-        },
-        payment: {
-          id: null,
-          status: "pending",
-        },
-        issues: [],
-        adminNotes: null,
-        createdAt: "2024-01-21T17:00:00Z",
-        updatedAt: "2024-01-21T17:00:00Z",
-      },
-      {
-        id: "rental_003",
-        userId: "user_003",
-        userDetails: {
-          email: "mike.wilson@example.com",
-          name: "Mike Wilson",
-          phone: "+1234567892",
-        },
-        powerBankId: "pb_789",
-        status: "failed",
-        startStationId: "st_001",
-        endStationId: null,
-        stationDetails: {
-          startStation: {
-            name: "Downtown Mall Station",
-            address: "123 Main St, Downtown",
-          },
-          endStation: null,
-        },
-        startTime: "2024-01-21T13:00:00Z",
-        endTime: "2024-01-21T13:02:00Z",
-        duration: 2,
-        cost: {
-          amount: 0,
-          currency: "USD",
-        },
-        payment: {
-          id: null,
-          status: "not_required",
-        },
-        issues: [
-          {
-            type: "dispense_failed",
-            description: "Power bank failed to dispense",
-            reportedAt: "2024-01-21T13:01:00Z",
-          },
-        ],
-        adminNotes: "Station maintenance required - slot 3 malfunction",
-        createdAt: "2024-01-21T13:00:00Z",
-        updatedAt: "2024-01-21T13:05:00Z",
-      },
-    ];
+    // Get authorization header from the request
+    const authHeader = request.headers.get("authorization");
+    
+    if (!authHeader) {
+      return NextResponse.json(
+        { error: "Authorization header required" },
+        { status: 401 },
+      );
+    }
 
-    // Apply filters
-    let filteredRentals = rentals;
+    // Forward the request to the backend
+    const queryParams = new URLSearchParams({
+      skip: ((page - 1) * limit).toString(),
+      limit: limit.toString(),
+      ...(search && { search }),
+    });
 
+    const response = await fetch(`${BACKEND_URL}/api/v1/admin/rentals/?${queryParams}`, {
+      headers: {
+        "Authorization": authHeader,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      return NextResponse.json(
+        { error: errorData.detail || "Failed to fetch rentals" },
+        { status: response.status },
+      );
+    }
+
+    const data = await response.json();
+    
+    // Transform backend data to match frontend expectations
+    const transformedRentals = data.map(rental => ({
+      id: rental.rental_id,
+      userId: rental.user_id,
+      powerBankId: rental.power_bank_id,
+      startStationId: rental.start_station_id,
+      endStationId: rental.end_station_id,
+      startTime: rental.start_time,
+      endTime: rental.end_time,
+      durationMinutes: rental.duration_minutes,
+      totalCost: parseFloat(rental.total_cost),
+      currency: rental.currency,
+      paymentStatus: rental.payment_status,
+      transactionId: rental.transaction_id,
+      // Include related data if available
+      user: rental.user ? {
+        id: rental.user.user_id,
+        name: `${rental.user.first_name} ${rental.user.last_name}`,
+        email: rental.user.email,
+      } : null,
+      powerBank: rental.power_bank ? {
+        id: rental.power_bank.power_bank_id,
+        serialNumber: rental.power_bank.serial_number,
+        batteryLevel: rental.power_bank.battery_level,
+      } : null,
+      startStation: rental.start_station ? {
+        id: rental.start_station.station_id,
+        name: rental.start_station.name,
+        address: rental.start_station.address,
+      } : null,
+      endStation: rental.end_station ? {
+        id: rental.end_station.station_id,
+        name: rental.end_station.name,
+        address: rental.end_station.address,
+      } : null,
+    }));
+
+    // Filter by status if provided
+    let filteredRentals = transformedRentals;
     if (status) {
-      filteredRentals = filteredRentals.filter(
-        (rental) => rental.status === status,
-      );
+      filteredRentals = transformedRentals.filter(rental => rental.paymentStatus === status);
     }
 
-    if (userId) {
-      filteredRentals = filteredRentals.filter(
-        (rental) => rental.userId === userId,
-      );
-    }
-
-    if (stationId) {
-      filteredRentals = filteredRentals.filter(
-        (rental) =>
-          rental.startStationId === stationId ||
-          rental.endStationId === stationId,
-      );
-    }
-
-    if (startDate && endDate) {
-      const start = new Date(startDate);
-      const end = new Date(endDate);
-      filteredRentals = filteredRentals.filter((rental) => {
-        const rentalDate = new Date(rental.startTime);
-        return rentalDate >= start && rentalDate <= end;
-      });
-    }
-
-    const response = {
+    const responseData = {
       success: true,
       data: {
-        rentals: filteredRentals.slice((page - 1) * limit, page * limit),
+        rentals: filteredRentals,
         pagination: {
           currentPage: page,
           totalPages: Math.ceil(filteredRentals.length / limit),
@@ -185,27 +103,10 @@ export async function GET(request) {
           hasNext: page * limit < filteredRentals.length,
           hasPrev: page > 1,
         },
-        summary: {
-          totalRentals: rentals.length,
-          activeRentals: rentals.filter((r) => r.status === "active").length,
-          completedRentals: rentals.filter((r) => r.status === "completed")
-            .length,
-          failedRentals: rentals.filter((r) => r.status === "failed").length,
-          totalRevenue: rentals
-            .filter((r) => r.status === "completed")
-            .reduce((sum, r) => sum + (r.cost.amount || 0), 0),
-          avgRentalDuration: Math.round(
-            rentals
-              .filter((r) => r.status === "completed")
-              .reduce((sum, r) => sum + r.duration, 0) /
-              rentals.filter((r) => r.status === "completed").length,
-          ),
-          issuesCount: rentals.reduce((sum, r) => sum + r.issues.length, 0),
-        },
       },
     };
 
-    return NextResponse.json(response, { status: 200 });
+    return NextResponse.json(responseData, { status: 200 });
   } catch (error) {
     console.error("Admin rentals GET error:", error);
     return NextResponse.json(
@@ -215,80 +116,84 @@ export async function GET(request) {
   }
 }
 
-// POST /api/v1/admin/rentals/ - Create manual rental entry (admin only)
+// POST /api/v1/admin/rentals/ - Create new rental
 export async function POST(request) {
   try {
     const body = await request.json();
-
-    const {
-      userId,
-      powerBankId,
-      startStationId,
-      startTime,
-      endStationId,
-      endTime,
-      status,
-      cost,
-    } = body;
-
-    if (!userId || !powerBankId || !startStationId || !startTime || !status) {
+    const authHeader = request.headers.get("authorization");
+    
+    if (!authHeader) {
       return NextResponse.json(
-        {
-          error:
-            "Missing required fields: userId, powerBankId, startStationId, startTime, status",
-        },
+        { error: "Authorization header required" },
+        { status: 401 },
+      );
+    }
+
+    const { userId, powerBankId, startStationId, endStationId, totalCost, currency } = body;
+
+    if (!powerBankId || !startStationId) {
+      return NextResponse.json(
+        { error: "Missing required fields: powerBankId, startStationId" },
         { status: 400 },
       );
     }
 
-    // Validate status
-    const validStatuses = ["active", "completed", "failed", "cancelled"];
-    if (!validStatuses.includes(status)) {
-      return NextResponse.json(
-        {
-          error: `Invalid status. Must be one of: ${validStatuses.join(", ")}`,
-        },
-        { status: 400 },
-      );
-    }
+    console.log(`Admin: Creating rental - PowerBank: ${powerBankId}, StartStation: ${startStationId}`);
 
-    console.log(
-      `Admin: Creating manual rental - User: ${userId}, PowerBank: ${powerBankId}`,
-    );
+    // Prepare data for backend
+    const rentalData = {
+      user_id: userId || null,
+      power_bank_id: powerBankId,
+      start_station_id: startStationId,
+      end_station_id: endStationId || null,
+      total_cost: totalCost || 0,
+      currency: currency || "USD",
+      payment_status: "PENDING",
+    };
 
-    const rentalId = `rental_admin_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-
-    const newRental = {
-      id: rentalId,
-      userId,
-      powerBankId,
-      status,
-      startStationId,
-      endStationId: endStationId || null,
-      startTime,
-      endTime: endTime || null,
-      duration: endTime
-        ? Math.floor((new Date(endTime) - new Date(startTime)) / (1000 * 60))
-        : null,
-      cost: cost || { amount: 0, currency: "USD" },
-      type: "manual_admin",
-      createdBy: "admin_user_id",
-      createdAt: new Date().toISOString(),
-      adminNotes: "Manually created by admin",
-      issues: [],
-      payment: {
-        id: null,
-        status: status === "completed" ? "pending" : "not_required",
+    // Forward the request to the backend
+    const response = await fetch(`${BACKEND_URL}/api/v1/admin/rentals/`, {
+      method: "POST",
+      headers: {
+        "Authorization": authHeader,
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify(rentalData),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      return NextResponse.json(
+        { error: errorData.detail || "Failed to create rental" },
+        { status: response.status },
+      );
+    }
+
+    const data = await response.json();
+    
+    // Transform backend response to match frontend expectations
+    const transformedRental = {
+      id: data.rental_id,
+      userId: data.user_id,
+      powerBankId: data.power_bank_id,
+      startStationId: data.start_station_id,
+      endStationId: data.end_station_id,
+      startTime: data.start_time,
+      endTime: data.end_time,
+      durationMinutes: data.duration_minutes,
+      totalCost: parseFloat(data.total_cost),
+      currency: data.currency,
+      paymentStatus: data.payment_status,
+      transactionId: data.transaction_id,
     };
 
-    const response = {
+    const responseData = {
       success: true,
-      message: "Manual rental created successfully",
-      data: { rental: newRental },
+      message: "Rental created successfully",
+      data: { rental: transformedRental },
     };
 
-    return NextResponse.json(response, { status: 201 });
+    return NextResponse.json(responseData, { status: 201 });
   } catch (error) {
     console.error("Admin rentals POST error:", error);
     return NextResponse.json(

@@ -2,10 +2,10 @@ import { NextResponse } from "next/server";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
-// GET /api/v1/admin/stations/[stationId] - Get specific station
+// GET /api/v1/admin/users/[id] - Get specific user
 export async function GET(request, { params }) {
   try {
-    const { stationId } = params;
+    const { id } = params;
     const authHeader = request.headers.get("authorization");
     
     if (!authHeader) {
@@ -15,9 +15,9 @@ export async function GET(request, { params }) {
       );
     }
 
-    console.log(`Admin: Fetching station - ID: ${stationId}`);
+    console.log(`Admin: Fetching user - ID: ${id}`);
 
-    const response = await fetch(`${BACKEND_URL}/api/v1/admin/stations/${stationId}`, {
+    const response = await fetch(`${BACKEND_URL}/api/v1/admin/users/${id}`, {
       headers: {
         "Authorization": authHeader,
         "Content-Type": "application/json",
@@ -27,7 +27,7 @@ export async function GET(request, { params }) {
     if (!response.ok) {
       const errorData = await response.json();
       return NextResponse.json(
-        { error: errorData.detail || "Failed to fetch station" },
+        { error: errorData.detail || "Failed to fetch user" },
         { status: response.status },
       );
     }
@@ -35,28 +35,25 @@ export async function GET(request, { params }) {
     const data = await response.json();
     
     // Transform backend data to match frontend expectations
-    const transformedStation = {
-      id: data.station_id,
-      name: data.name,
-      address: data.address,
-      latitude: data.latitude,
-      longitude: data.longitude,
-      totalSlots: data.total_slots,
-      availableSlots: data.available_slots,
-      availableBanks: data.available_banks,
-      status: data.status,
-      lastHeartbeat: data.last_heartbeat,
-      config: data.config || {},
+    const transformedUser = {
+      id: data.user_id,
+      email: data.email,
+      name: `${data.first_name} ${data.last_name}`,
+      phone: data.phone_number,
+      status: "active", // Backend doesn't have status field, defaulting to active
+      registeredAt: data.created_at,
+      lastLogin: data.last_login,
+      role: data.role,
     };
 
     const responseData = {
       success: true,
-      data: { station: transformedStation },
+      data: { user: transformedUser },
     };
 
     return NextResponse.json(responseData, { status: 200 });
   } catch (error) {
-    console.error("Admin station GET error:", error);
+    console.error("Admin user GET error:", error);
     return NextResponse.json(
       { error: "Internal server error", details: error.message },
       { status: 500 },
@@ -64,10 +61,10 @@ export async function GET(request, { params }) {
   }
 }
 
-// PUT /api/v1/admin/stations/[stationId] - Update specific station
+// PUT /api/v1/admin/users/[id] - Update specific user
 export async function PUT(request, { params }) {
   try {
-    const { stationId } = params;
+    const { id } = params;
     const body = await request.json();
     const authHeader = request.headers.get("authorization");
     
@@ -78,34 +75,36 @@ export async function PUT(request, { params }) {
       );
     }
 
-    console.log(`Admin: Updating station - ID: ${stationId}`);
+    console.log(`Admin: Updating user - ID: ${id}`);
 
     // Transform frontend data to backend format
-    const { name, address, latitude, longitude, totalSlots, status, config } = body;
+    const { email, name, phone, role, status } = body;
+    
+    const nameParts = name ? name.trim().split(" ") : [];
+    const firstName = nameParts[0] || "";
+    const lastName = nameParts.slice(1).join(" ") || "";
 
-    const stationData = {
-      name,
-      address,
-      latitude: parseFloat(latitude),
-      longitude: parseFloat(longitude),
-      total_slots: parseInt(totalSlots),
-      status: status || "ONLINE",
-      config: config || {},
+    const userData = {
+      email,
+      first_name: firstName,
+      last_name: lastName,
+      phone_number: phone,
+      role: role || "USER",
     };
 
-    const response = await fetch(`${BACKEND_URL}/api/v1/admin/stations/${stationId}`, {
+    const response = await fetch(`${BACKEND_URL}/api/v1/admin/users/${id}`, {
       method: "PUT",
       headers: {
         "Authorization": authHeader,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(stationData),
+      body: JSON.stringify(userData),
     });
 
     if (!response.ok) {
       const errorData = await response.json();
       return NextResponse.json(
-        { error: errorData.detail || "Failed to update station" },
+        { error: errorData.detail || "Failed to update user" },
         { status: response.status },
       );
     }
@@ -113,29 +112,26 @@ export async function PUT(request, { params }) {
     const data = await response.json();
     
     // Transform backend response to match frontend expectations
-    const transformedStation = {
-      id: data.station_id,
-      name: data.name,
-      address: data.address,
-      latitude: data.latitude,
-      longitude: data.longitude,
-      totalSlots: data.total_slots,
-      availableSlots: data.available_slots,
-      availableBanks: data.available_banks,
-      status: data.status,
-      lastHeartbeat: data.last_heartbeat,
-      config: data.config || {},
+    const transformedUser = {
+      id: data.user_id,
+      email: data.email,
+      name: `${data.first_name} ${data.last_name}`,
+      phone: data.phone_number,
+      status: status || "active",
+      registeredAt: data.created_at,
+      lastLogin: data.last_login,
+      role: data.role,
     };
 
     const responseData = {
       success: true,
-      message: "Station updated successfully",
-      data: { station: transformedStation },
+      message: "User updated successfully",
+      data: { user: transformedUser },
     };
 
     return NextResponse.json(responseData, { status: 200 });
   } catch (error) {
-    console.error("Admin station PUT error:", error);
+    console.error("Admin user PUT error:", error);
     return NextResponse.json(
       { error: "Internal server error", details: error.message },
       { status: 500 },
@@ -143,10 +139,10 @@ export async function PUT(request, { params }) {
   }
 }
 
-// DELETE /api/v1/admin/stations/[stationId] - Delete specific station
+// DELETE /api/v1/admin/users/[id] - Delete specific user
 export async function DELETE(request, { params }) {
   try {
-    const { stationId } = params;
+    const { id } = params;
     const authHeader = request.headers.get("authorization");
     
     if (!authHeader) {
@@ -156,9 +152,9 @@ export async function DELETE(request, { params }) {
       );
     }
 
-    console.log(`Admin: Deleting station - ID: ${stationId}`);
+    console.log(`Admin: Deleting user - ID: ${id}`);
 
-    const response = await fetch(`${BACKEND_URL}/api/v1/admin/stations/${stationId}`, {
+    const response = await fetch(`${BACKEND_URL}/api/v1/admin/users/${id}`, {
       method: "DELETE",
       headers: {
         "Authorization": authHeader,
@@ -169,19 +165,19 @@ export async function DELETE(request, { params }) {
     if (!response.ok) {
       const errorData = await response.json();
       return NextResponse.json(
-        { error: errorData.detail || "Failed to delete station" },
+        { error: errorData.detail || "Failed to delete user" },
         { status: response.status },
       );
     }
 
     const responseData = {
       success: true,
-      message: "Station deleted successfully",
+      message: "User deleted successfully",
     };
 
     return NextResponse.json(responseData, { status: 200 });
   } catch (error) {
-    console.error("Admin station DELETE error:", error);
+    console.error("Admin user DELETE error:", error);
     return NextResponse.json(
       { error: "Internal server error", details: error.message },
       { status: 500 },

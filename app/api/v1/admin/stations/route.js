@@ -1,88 +1,83 @@
 import { NextResponse } from "next/server";
 
+const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
 // GET /api/v1/admin/stations/ - Get all stations
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get("page") || "1");
     const limit = parseInt(searchParams.get("limit") || "10");
-    const status = searchParams.get("status") || "";
+    const search = searchParams.get("search") || "";
 
     console.log(
-      `Admin: Fetching stations - Page: ${page}, Limit: ${limit}, Status: ${status}`,
+      `Admin: Fetching stations - Page: ${page}, Limit: ${limit}, Search: ${search}`,
     );
 
-    // Mock stations data
-    const stations = [
-      {
-        id: "st_001",
-        name: "Downtown Mall Station",
-        location: {
-          address: "123 Main St, Downtown",
-          coordinates: { lat: 40.7128, lng: -74.006 },
-          city: "New York",
-          country: "USA",
-        },
-        status: "online",
-        capacity: 8,
-        availableSlots: 5,
-        powerBanks: ["pb_001", "pb_004", "pb_007"],
-        lastSeen: "2024-01-21T15:30:00Z",
-        signalStrength: 85,
-        revenue: 1250.75,
-        totalRentals: 342,
-      },
-      {
-        id: "st_002",
-        name: "Airport Terminal 1",
-        location: {
-          address: "Terminal 1, JFK Airport",
-          coordinates: { lat: 40.6413, lng: -73.7781 },
-          city: "New York",
-          country: "USA",
-        },
-        status: "maintenance",
-        capacity: 12,
-        availableSlots: 0,
-        powerBanks: ["pb_003", "pb_008"],
-        lastSeen: "2024-01-21T12:15:00Z",
-        signalStrength: 92,
-        revenue: 2180.5,
-        totalRentals: 589,
-      },
-    ];
-
-    // Filter by status if provided
-    let filteredStations = stations;
-    if (status) {
-      filteredStations = stations.filter(
-        (station) => station.status === status,
+    // Get authorization header from the request
+    const authHeader = request.headers.get("authorization");
+    
+    if (!authHeader) {
+      return NextResponse.json(
+        { error: "Authorization header required" },
+        { status: 401 },
       );
     }
 
-    const response = {
+    // Forward the request to the backend
+    const queryParams = new URLSearchParams({
+      skip: ((page - 1) * limit).toString(),
+      limit: limit.toString(),
+      ...(search && { search }),
+    });
+
+    const response = await fetch(`${BACKEND_URL}/api/v1/admin/stations/?${queryParams}`, {
+      headers: {
+        "Authorization": authHeader,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      return NextResponse.json(
+        { error: errorData.detail || "Failed to fetch stations" },
+        { status: response.status },
+      );
+    }
+
+    const data = await response.json();
+    
+    // Transform backend data to match frontend expectations
+    const transformedStations = data.map(station => ({
+      id: station.station_id,
+      name: station.name,
+      address: station.address,
+      latitude: station.latitude,
+      longitude: station.longitude,
+      totalSlots: station.total_slots,
+      availableSlots: station.available_slots,
+      availableBanks: station.available_banks,
+      status: station.status,
+      lastHeartbeat: station.last_heartbeat,
+      config: station.config || {},
+    }));
+
+    const responseData = {
       success: true,
       data: {
-        stations: filteredStations.slice((page - 1) * limit, page * limit),
+        stations: transformedStations,
         pagination: {
           currentPage: page,
-          totalPages: Math.ceil(filteredStations.length / limit),
-          totalStations: filteredStations.length,
-          hasNext: page * limit < filteredStations.length,
+          totalPages: Math.ceil(data.length / limit),
+          totalStations: data.length,
+          hasNext: page * limit < data.length,
           hasPrev: page > 1,
-        },
-        stats: {
-          total: stations.length,
-          online: stations.filter((s) => s.status === "online").length,
-          offline: stations.filter((s) => s.status === "offline").length,
-          maintenance: stations.filter((s) => s.status === "maintenance")
-            .length,
-          totalRevenue: stations.reduce((sum, s) => sum + s.revenue, 0),
         },
       },
     };
 
-    return NextResponse.json(response, { status: 200 });
+    return NextResponse.json(responseData, { status: 200 });
   } catch (error) {
     console.error("Admin stations GET error:", error);
     return NextResponse.json(
@@ -96,57 +91,81 @@ export async function GET(request) {
 export async function POST(request) {
   try {
     const body = await request.json();
+    const authHeader = request.headers.get("authorization");
 
-    const { name, address, coordinates, capacity } = body;
-
-    if (!name || !address || !coordinates || !capacity) {
+    if (!authHeader) {
       return NextResponse.json(
-        {
-          error:
-            "Missing required fields: name, address, coordinates, capacity",
-        },
+        { error: "Authorization header required" },
+        { status: 401 },
+      );
+    }
+
+    const { name, address, latitude, longitude, totalSlots, config } = body;
+
+    if (!name || !address || latitude === undefined || longitude === undefined || !totalSlots) {
+      return NextResponse.json(
+        { error: "Missing required fields: name, address, latitude, longitude, totalSlots" },
         { status: 400 },
       );
     }
 
-    if (capacity < 1 || capacity > 20) {
-      return NextResponse.json(
-        { error: "Capacity must be between 1 and 20" },
-        { status: 400 },
-      );
-    }
+    console.log(`Admin: Creating station - Name: ${name}, Address: ${address}`);
 
-    console.log(
-      `Admin: Creating station - Name: ${name}, Capacity: ${capacity}`,
-    );
-
-    const newStation = {
-      id: `st_${Date.now()}`,
+    // Prepare data for backend
+    const stationData = {
       name,
-      location: {
         address,
-        coordinates,
-        city: body.city || "",
-        country: body.country || "",
-      },
-      status: "offline",
-      capacity,
-      availableSlots: capacity,
-      powerBanks: [],
-      createdAt: new Date().toISOString(),
-      lastSeen: null,
-      signalStrength: 0,
-      revenue: 0,
-      totalRentals: 0,
+      latitude: parseFloat(latitude),
+      longitude: parseFloat(longitude),
+      total_slots: parseInt(totalSlots),
+      available_slots: parseInt(totalSlots), // Initially all slots are available
+      available_banks: 0, // Initially no power banks
+      status: "ONLINE",
+      config: config || {},
     };
 
-    const response = {
+    // Forward the request to the backend
+    const response = await fetch(`${BACKEND_URL}/api/v1/admin/stations/`, {
+      method: "POST",
+      headers: {
+        "Authorization": authHeader,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(stationData),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      return NextResponse.json(
+        { error: errorData.detail || "Failed to create station" },
+        { status: response.status },
+      );
+    }
+
+    const data = await response.json();
+    
+    // Transform backend response to match frontend expectations
+    const transformedStation = {
+      id: data.station_id,
+      name: data.name,
+      address: data.address,
+      latitude: data.latitude,
+      longitude: data.longitude,
+      totalSlots: data.total_slots,
+      availableSlots: data.available_slots,
+      availableBanks: data.available_banks,
+      status: data.status,
+      lastHeartbeat: data.last_heartbeat,
+      config: data.config || {},
+    };
+
+    const responseData = {
       success: true,
       message: "Station created successfully",
-      data: { station: newStation },
+      data: { station: transformedStation },
     };
 
-    return NextResponse.json(response, { status: 201 });
+    return NextResponse.json(responseData, { status: 201 });
   } catch (error) {
     console.error("Admin stations POST error:", error);
     return NextResponse.json(

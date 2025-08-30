@@ -1,150 +1,90 @@
 import { NextResponse } from "next/server";
 
-// GET /api/v1/admin/payments/ - Get all payments (admin view)
+const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
+// GET /api/v1/admin/payments/ - Get all payments
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get("page") || "1");
-    const limit = parseInt(searchParams.get("limit") || "20");
+    const limit = parseInt(searchParams.get("limit") || "10");
+    const search = searchParams.get("search") || "";
     const status = searchParams.get("status") || "";
-    const userId = searchParams.get("userId") || "";
-    const startDate = searchParams.get("start_date") || "";
-    const endDate = searchParams.get("end_date") || "";
-    const minAmount = parseFloat(searchParams.get("min_amount") || "0");
-    const maxAmount = parseFloat(searchParams.get("max_amount") || "0");
 
     console.log(
-      `Admin: Fetching payments - Page: ${page}, Status: ${status}, User: ${userId}`,
+      `Admin: Fetching payments - Page: ${page}, Limit: ${limit}, Search: ${search}, Status: ${status}`,
     );
 
-    // Mock payments data for admin view
-    const payments = [
-      {
-        id: "pay_001",
-        rentalId: "rental_001",
-        userId: "user_001",
-        userEmail: "john.doe@example.com",
-        amount: 12.5,
-        currency: "USD",
-        status: "success",
-        processedAt: "2024-01-21T14:30:00Z",
-        paymentMethod: {
-          type: "card",
-          last4: "4242",
-          brand: "visa",
-          country: "US",
-        },
-        fees: {
-          processingFee: 0.36,
-          platformFee: 0.25,
-        },
-        refunds: [],
-        metadata: {
-          ipAddress: "192.168.1.100",
-          userAgent: "PowerBank Mobile App v1.2.0",
-        },
-      },
-      {
-        id: "pay_002",
-        rentalId: "rental_002",
-        userId: "user_002",
-        userEmail: "jane.smith@example.com",
-        amount: 8.75,
-        currency: "USD",
-        status: "success",
-        processedAt: "2024-01-20T16:45:00Z",
-        paymentMethod: {
-          type: "card",
-          last4: "5555",
-          brand: "mastercard",
-          country: "US",
-        },
-        fees: {
-          processingFee: 0.25,
-          platformFee: 0.18,
-        },
-        refunds: [
-          {
-            id: "ref_001",
-            amount: 2.0,
-            reason: "Service issue",
-            processedAt: "2024-01-20T17:00:00Z",
-          },
-        ],
-        metadata: {
-          ipAddress: "192.168.1.101",
-          userAgent: "PowerBank Web App v2.1.0",
-        },
-      },
-      {
-        id: "pay_003",
-        rentalId: "rental_003",
-        userId: "user_003",
-        userEmail: "mike.wilson@example.com",
-        amount: 15.25,
-        currency: "USD",
-        status: "failed",
-        processedAt: "2024-01-19T10:15:00Z",
-        paymentMethod: {
-          type: "card",
-          last4: "4000",
-          brand: "visa",
-          country: "US",
-        },
-        failureReason: "Insufficient funds",
-        failureCode: "insufficient_funds",
-        fees: {
-          processingFee: 0,
-          platformFee: 0,
-        },
-        refunds: [],
-        metadata: {
-          ipAddress: "192.168.1.102",
-          userAgent: "PowerBank Mobile App v1.1.0",
-        },
-      },
-    ];
+    // Get authorization header from the request
+    const authHeader = request.headers.get("authorization");
+    
+    if (!authHeader) {
+      return NextResponse.json(
+        { error: "Authorization header required" },
+        { status: 401 },
+      );
+    }
 
-    // Apply filters
-    let filteredPayments = payments;
+    // Forward the request to the backend
+    const queryParams = new URLSearchParams({
+      skip: ((page - 1) * limit).toString(),
+      limit: limit.toString(),
+      ...(search && { search }),
+    });
 
+    const response = await fetch(`${BACKEND_URL}/api/v1/admin/payments/?${queryParams}`, {
+      headers: {
+        "Authorization": authHeader,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      return NextResponse.json(
+        { error: errorData.detail || "Failed to fetch payments" },
+        { status: response.status },
+      );
+    }
+
+    const data = await response.json();
+    
+    // Transform backend data to match frontend expectations
+    const transformedPayments = data.map(payment => ({
+      id: payment.payment_id,
+      rentalId: payment.rental_id,
+      userId: payment.user_id,
+      amount: parseFloat(payment.amount),
+      currency: payment.currency,
+      paymentMethod: payment.payment_method,
+      gatewayRefId: payment.gateway_ref_id,
+      status: payment.status,
+      timestamp: payment.timestamp,
+      // Include related data if available
+      rental: payment.rental ? {
+        id: payment.rental.rental_id,
+        startTime: payment.rental.start_time,
+        endTime: payment.rental.end_time,
+        durationMinutes: payment.rental.duration_minutes,
+        totalCost: parseFloat(payment.rental.total_cost),
+      } : null,
+      user: payment.user ? {
+        id: payment.user.user_id,
+        name: `${payment.user.first_name} ${payment.user.last_name}`,
+        email: payment.user.email,
+      } : null,
+    }));
+
+    // Filter by status if provided
+    let filteredPayments = transformedPayments;
     if (status) {
-      filteredPayments = filteredPayments.filter(
-        (payment) => payment.status === status,
-      );
+      filteredPayments = transformedPayments.filter(payment => payment.status === status);
     }
 
-    if (userId) {
-      filteredPayments = filteredPayments.filter(
-        (payment) => payment.userId === userId,
-      );
-    }
-
-    if (startDate && endDate) {
-      const start = new Date(startDate);
-      const end = new Date(endDate);
-      filteredPayments = filteredPayments.filter((payment) => {
-        const paymentDate = new Date(payment.processedAt);
-        return paymentDate >= start && paymentDate <= end;
-      });
-    }
-
-    if (minAmount > 0) {
-      filteredPayments = filteredPayments.filter(
-        (payment) => payment.amount >= minAmount,
-      );
-    }
-
-    if (maxAmount > 0) {
-      filteredPayments = filteredPayments.filter(
-        (payment) => payment.amount <= maxAmount,
-      );
-    }
-
-    const response = {
+    const responseData = {
       success: true,
       data: {
-        payments: filteredPayments.slice((page - 1) * limit, page * limit),
+        payments: filteredPayments,
         pagination: {
           currentPage: page,
           totalPages: Math.ceil(filteredPayments.length / limit),
@@ -152,39 +92,10 @@ export async function GET(request) {
           hasNext: page * limit < filteredPayments.length,
           hasPrev: page > 1,
         },
-        summary: {
-          totalAmount: payments.reduce(
-            (sum, p) => (p.status === "success" ? sum + p.amount : sum),
-            0,
-          ),
-          totalFees: payments.reduce(
-            (sum, p) =>
-              p.status === "success"
-                ? sum + p.fees.processingFee + p.fees.platformFee
-                : sum,
-            0,
-          ),
-          successfulPayments: payments.filter((p) => p.status === "success")
-            .length,
-          failedPayments: payments.filter((p) => p.status === "failed").length,
-          refundedAmount: payments.reduce(
-            (sum, p) =>
-              sum + p.refunds.reduce((refundSum, r) => refundSum + r.amount, 0),
-            0,
-          ),
-          avgPaymentAmount:
-            Math.round(
-              (payments
-                .filter((p) => p.status === "success")
-                .reduce((sum, p) => sum + p.amount, 0) /
-                payments.filter((p) => p.status === "success").length) *
-                100,
-            ) / 100,
-        },
       },
     };
 
-    return NextResponse.json(response, { status: 200 });
+    return NextResponse.json(responseData, { status: 200 });
   } catch (error) {
     console.error("Admin payments GET error:", error);
     return NextResponse.json(
@@ -194,70 +105,81 @@ export async function GET(request) {
   }
 }
 
-// POST /api/v1/admin/payments/ - Create manual payment entry (admin only)
+// POST /api/v1/admin/payments/ - Create new payment
 export async function POST(request) {
   try {
     const body = await request.json();
+    const authHeader = request.headers.get("authorization");
 
-    const { userId, rentalId, amount, currency, reason, paymentMethodId } =
-      body;
-
-    if (!userId || !amount || !currency || !reason) {
+    if (!authHeader) {
       return NextResponse.json(
-        { error: "Missing required fields: userId, amount, currency, reason" },
+        { error: "Authorization header required" },
+        { status: 401 },
+      );
+    }
+
+    const { rentalId, userId, amount, currency, paymentMethod, gatewayRefId, status } = body;
+
+    if (!rentalId || !amount || !paymentMethod) {
+      return NextResponse.json(
+        { error: "Missing required fields: rentalId, amount, paymentMethod" },
         { status: 400 },
       );
     }
 
-    if (amount <= 0) {
-      return NextResponse.json(
-        { error: "Amount must be greater than 0" },
-        { status: 400 },
-      );
-    }
+    console.log(`Admin: Creating payment - Rental: ${rentalId}, Amount: ${amount}`);
 
-    console.log(
-      `Admin: Creating manual payment - User: ${userId}, Amount: ${amount} ${currency}`,
-    );
-
-    // Generate payment ID
-    const paymentId = `pay_admin_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-
-    const newPayment = {
-      id: paymentId,
-      rentalId: rentalId || null,
-      userId,
-      amount,
-      currency,
-      status: "success",
-      type: "manual_admin",
-      reason,
-      processedAt: new Date().toISOString(),
-      processedBy: "admin_user_id",
-      paymentMethod: paymentMethodId
-        ? {
-            id: paymentMethodId,
-            type: "admin_manual",
-            description: "Manual admin payment",
-          }
-        : null,
-      fees: {
-        processingFee: 0,
-        platformFee: 0,
-      },
-      metadata: {
-        createdByAdmin: true,
-        adminReason: reason,
-      },
+    // Prepare data for backend
+    const paymentData = {
+      rental_id: rentalId,
+      user_id: userId || null,
+      amount: parseFloat(amount),
+      currency: currency || "USD",
+      payment_method: paymentMethod,
+      gateway_ref_id: gatewayRefId || null,
+      status: status || "SUCCESS",
     };
 
-    const response = {
+    // Forward the request to the backend
+    const response = await fetch(`${BACKEND_URL}/api/v1/admin/payments/`, {
+      method: "POST",
+      headers: {
+        "Authorization": authHeader,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(paymentData),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      return NextResponse.json(
+        { error: errorData.detail || "Failed to create payment" },
+        { status: response.status },
+      );
+    }
+
+    const data = await response.json();
+    
+    // Transform backend response to match frontend expectations
+    const transformedPayment = {
+      id: data.payment_id,
+      rentalId: data.rental_id,
+      userId: data.user_id,
+      amount: parseFloat(data.amount),
+      currency: data.currency,
+      paymentMethod: data.payment_method,
+      gatewayRefId: data.gateway_ref_id,
+      status: data.status,
+      timestamp: data.timestamp,
+    };
+
+    const responseData = {
       success: true,
-      message: "Manual payment created successfully",
-      data: { payment: newPayment },
+      message: "Payment created successfully",
+      data: { payment: transformedPayment },
     };
 
-    return NextResponse.json(response, { status: 201 });
+    return NextResponse.json(responseData, { status: 201 });
   } catch (error) {
     console.error("Admin payments POST error:", error);
     return NextResponse.json(

@@ -36,15 +36,33 @@ const AdminDashboard = () => {
       const token = user?.token;
       const headers = { Authorization: `Bearer ${token}` };
 
-      // Mock data for now - these would be real API calls
-      setStats({
-        users: { total: 1247, active: 891, new: 23 },
-        stations: { total: 45, online: 42, offline: 3 },
-        rentals: { active: 156, completed: 8934, failed: 89 },
-        revenue: { today: 1240.5, month: 28430.75, total: 156780.25 },
+      // Fetch real data from the backend
+      const response = await fetch("/api/v1/admin/dashboard", {
+        headers,
       });
+
+      if (response.ok) {
+        const data = await response.json();
+        setStats(data.data);
+      } else {
+        console.error("Failed to fetch dashboard stats");
+        // Fallback to empty stats
+        setStats({
+          users: { total: 0, active: 0, new: 0 },
+          stations: { total: 0, online: 0, offline: 0 },
+          rentals: { active: 0, completed: 0, failed: 0 },
+          revenue: { today: 0, month: 0, total: 0 },
+        });
+      }
     } catch (error) {
       console.error("Failed to fetch dashboard stats:", error);
+      // Fallback to empty stats
+      setStats({
+        users: { total: 0, active: 0, new: 0 },
+        stations: { total: 0, online: 0, offline: 0 },
+        rentals: { active: 0, completed: 0, failed: 0 },
+        revenue: { today: 0, month: 0, total: 0 },
+      });
     } finally {
       setIsLoading(false);
     }
