@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import cookie from "js-cookie";
-import { useTranslation } from "../../context/TranslationContext";
+import { useTranslation } from "../../utils/translations";
 import { QrReader } from "react-qr-reader"; // Import the QR reader component
 
 const BASE_URL = "http://164.90.238.202:8000";

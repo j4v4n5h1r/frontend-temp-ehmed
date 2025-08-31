@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useContext, useState, useRef, useEffect } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { useTranslation } from "../context/TranslationContext";
+import { AuthContext } from "../utils/auth";
+import { useTranslation } from "../utils/translations";
 import GlassNav from "./GlassNav";
 import LanguageSelector from "./LanguageSelector";
 

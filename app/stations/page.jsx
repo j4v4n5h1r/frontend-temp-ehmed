@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Map from "../../components/Map";
-import { useTranslation } from "../../context/TranslationContext";
+import { useTranslation } from "../../utils/translations";
 import { apiCall } from "../../utils/api";
 
 const StationsPage = () => {

@@ -4,8 +4,8 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import cookie from "js-cookie";
 import Link from "next/link";
-import { AuthContext } from "../../context/AuthContext";
-import { useTranslation } from "../../context/TranslationContext";
+import { AuthContext } from "../../utils/auth";
+import { useTranslation } from "../../utils/translations";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const BASE_URL = "http://164.90.238.202:8000";

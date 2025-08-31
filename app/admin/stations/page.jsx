@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
-import { AuthContext } from "../../../context/AuthContext";
-import { useTranslation } from "../../../context/TranslationContext";
+import { AuthContext } from "../../../utils/auth";
+import { useTranslation } from "../../../utils/translations";
 import { useRouter } from "next/navigation";
 
 const AdminStations = () => {

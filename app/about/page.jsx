@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { useTranslation } from "../../context/TranslationContext";
+import { useTranslation } from "../../utils/translations";
 
 const AboutPage = () => {
   const { t } = useTranslation();

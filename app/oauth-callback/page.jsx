@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { AuthContext } from "../context/AuthContext";
-import { useTranslation } from "../context/TranslationContext";
+import { AuthContext } from "../../utils/auth";
+import { useTranslation } from "../../utils/translations";
 
-const OAuthCallback = () => {
+function OAuthCallbackContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { login } = useContext(AuthContext);
@@ -115,6 +115,14 @@ const OAuthCallback = () => {
       `}</style>
     </div>
   );
-};
+}
 
-export default OAuthCallback;
+export default function OAuthCallback() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <OAuthCallbackContent />
+    </Suspense>
+  );
+}
+
+

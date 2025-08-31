@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useTranslation } from "../context/TranslationContext";
+import { useTranslation } from "../utils/translations";
 
 export default function GlassNav() {
   const { t } = useTranslation();

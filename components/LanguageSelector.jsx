@@ -1,12 +1,9 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import {
-  useTranslation,
-  SUPPORTED_LANGUAGES,
-} from "../context/TranslationContext";
+import { useTranslation } from "../utils/translations";
 
 export default function LanguageSelector() {
-  const { currentLanguage, changeLanguage } = useTranslation();
+  const { currentLanguage, setLanguage } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -33,12 +30,22 @@ export default function LanguageSelector() {
   }, []);
 
   const handleLanguageSelect = (language) => {
-    changeLanguage(language.value);
+    setLanguage(language.value);
     setIsOpen(false);
+    // Force a page reload to apply the new language
+    window.location.reload();
   };
 
   const getCurrentLanguageLabel = () => {
-    return SUPPORTED_LANGUAGES[currentLanguage] || "English";
+    const languageCodes = {
+      en: "English",
+      ru: "Русский",
+      ar: "العربية",
+      zh: "中国人",
+      tr: "Türkçe",
+      az: "Azərbaycan",
+    };
+    return languageCodes[currentLanguage] || "English";
   };
 
   return (

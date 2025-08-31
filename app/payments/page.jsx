@@ -3,8 +3,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useTranslation } from "../../context/TranslationContext";
-import { AuthContext } from "../../context/AuthContext";
+import { useTranslation } from "../../utils/translations";
+import { AuthContext } from "../../utils/auth";
 import { apiCallWithAuth } from "../../utils/api";
 
 const PaymentsPage = () => {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslation } from "../context/TranslationContext";
+import { useTranslation } from "../../utils/translations";
 import Link from "next/link";
 
 export default function SectorsPage() {

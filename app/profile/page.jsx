@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect, useContext } from "react";
 import cookie from "js-cookie";
-import { AuthContext } from "../../context/AuthContext";
-import { useTranslation } from "../../context/TranslationContext";
+import { AuthContext } from "../../utils/auth";
+import { useTranslation } from "../../utils/translations";
 import { apiCallWithAuth } from "../../utils/api";
 import Link from "next/link";
 

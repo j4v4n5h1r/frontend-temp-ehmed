@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useTranslation } from "../../context/TranslationContext";
+import { useTranslation } from "../../utils/translations";
 
 export default function HowToUsePage() {
   const { t } = useTranslation();

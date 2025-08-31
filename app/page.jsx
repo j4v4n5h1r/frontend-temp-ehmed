@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useTranslation } from "../context/TranslationContext";
+import { useTranslation } from "../utils/translations";
 import Map from "../components/Map";
 
 export default function Home() {

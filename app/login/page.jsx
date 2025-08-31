@@ -3,9 +3,9 @@
 import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../utils/auth";
 
-import { useTranslation } from "../../context/TranslationContext";
+import { useTranslation } from "../../utils/translations";
 
 export default function LoginPage() {
   const router = useRouter();

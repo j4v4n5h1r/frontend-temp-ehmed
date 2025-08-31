@@ -1,7 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import AuthProvider from "../context/AuthContext";
-import { TranslationProvider } from "../context/TranslationContext";
+import { AuthProvider } from "../utils/auth";
 import Navbar from "../components/Navbar";
 import DevModeIndicator from "../components/DevModeIndicator";
 
@@ -19,15 +18,13 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`${inter.className} antialiased`}>
-        <TranslationProvider>
-          <AuthProvider>
-            <Navbar />
-            <DevModeIndicator />
-            <main className="pt-14 sm:pt-16 lg:pt-18 min-h-screen">
-              {children}
-            </main>
-          </AuthProvider>
-        </TranslationProvider>
+        <AuthProvider>
+          <Navbar />
+          <DevModeIndicator />
+          <main className="pt-14 sm:pt-16 lg:pt-18 min-h-screen">
+            {children}
+          </main>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -2,8 +2,8 @@
 
 import { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/navigation";
-import { useTranslation } from "../../context/TranslationContext";
-import { AuthContext } from "../../context/AuthContext";
+import { useTranslation } from "../../utils/translations";
+import { AuthContext } from "../../utils/auth";
 import { apiCallWithAuth } from "../../utils/api";
 
 export default function DashboardPage() {
