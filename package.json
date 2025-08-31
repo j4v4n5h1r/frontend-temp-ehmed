@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "node --max-old-space-size=512 node_modules/.bin/next build --no-lint",
-    "build:server": "node --max-old-space-size=512 node_modules/.bin/next build --no-lint --no-typescript",
+    "build:server": "SKIP_ENV_VALIDATION=true node --max-old-space-size=512 node_modules/.bin/next build --no-lint",
+    "build:minimal": "SKIP_ENV_VALIDATION=true NODE_OPTIONS='--max-old-space-size=256' node_modules/.bin/next build --no-lint",
     "start": "next start",
     "lint": "next lint"
   },
