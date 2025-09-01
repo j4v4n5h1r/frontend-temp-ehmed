@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import cookie from "js-cookie";
 
-const BASE_URL = "http://164.90.238.202:8000";
+const BASE_URL = "https://mypobi.com";
 
 const DebugPage = () => {
   const [results, setResults] = useState({});

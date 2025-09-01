@@ -29,7 +29,7 @@ export function AuthProvider({ children }) {
 
   const login = async (credentials) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,9 +39,50 @@ export function AuthProvider({ children }) {
 
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem('auth_token', data.access_token);
-        localStorage.setItem('user_data', JSON.stringify(data.user));
-        setUser(data.user);
+        localStorage.setItem('auth_token', data.accessToken);
+        localStorage.setItem('refresh_token', data.refreshToken);
+        
+        // Fetch user profile data after successful login
+        try {
+          const profileResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/users/me`, {
+            headers: {
+              'Authorization': `Bearer ${data.accessToken}`,
+              'Content-Type': 'application/json',
+            },
+          });
+          
+          if (profileResponse.ok) {
+            const profileData = await profileResponse.json();
+            const userData = {
+              id: profileData.id || 'temp',
+              email: credentials.email,
+              token: data.accessToken,
+              profile: profileData
+            };
+            localStorage.setItem('user_data', JSON.stringify(userData));
+            setUser(userData);
+          } else {
+            // Fallback if profile fetch fails
+            const userData = {
+              id: 'temp',
+              email: credentials.email,
+              token: data.accessToken
+            };
+            localStorage.setItem('user_data', JSON.stringify(userData));
+            setUser(userData);
+          }
+        } catch (profileError) {
+          console.error('Error fetching user profile:', profileError);
+          // Fallback if profile fetch fails
+          const userData = {
+            id: 'temp',
+            email: credentials.email,
+            token: data.accessToken
+          };
+          localStorage.setItem('user_data', JSON.stringify(userData));
+          setUser(userData);
+        }
+        
         return { success: true };
       } else {
         const error = await response.json();
@@ -60,7 +101,7 @@ export function AuthProvider({ children }) {
 
   const register = async (userData) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

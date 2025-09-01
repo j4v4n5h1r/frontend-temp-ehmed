@@ -26,13 +26,18 @@ export default function DashboardPage() {
       return;
     }
 
-    const fetchData = async () => {
-      try {
-        console.log('🔍 Dashboard: Fetching data with user token:', user.token ? 'Present' : 'Missing');
+          const fetchData = async () => {
+        try {
+          const token = localStorage.getItem('auth_token');
+          console.log('🔍 Dashboard: Fetching data with token:', token ? 'Present' : 'Missing');
 
+          if (!token) {
+            throw new Error('No authentication token found');
+          }
+        
         const [rentalRes, paymentRes] = await Promise.all([
-          apiCallWithAuth("/api/v1/users/me/rentals", user.token),
-          apiCallWithAuth("/api/v1/payments", user.token)
+          apiCallWithAuth("/api/v1/users/me/rentals", token),
+          apiCallWithAuth("/api/v1/payments", token)
         ]);
 
         console.log('✅ Dashboard: Data fetched successfully', { rentals: rentalRes?.length, payments: paymentRes?.length });

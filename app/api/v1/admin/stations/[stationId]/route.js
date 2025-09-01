@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "https://mypobi.com";
 
 // GET /api/v1/admin/stations/[stationId] - Get specific station
 export async function GET(request, { params }) {

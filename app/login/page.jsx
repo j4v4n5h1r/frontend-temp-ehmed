@@ -23,8 +23,12 @@ export default function LoginPage() {
     setError(null);
     setIsLoading(true);
     try {
-      await login(email, password);
-      router.push("/dashboard");
+      const result = await login({ email, password });
+      if (result.success) {
+        router.push("/dashboard");
+      } else {
+        setError(result.error || t("errors.loginFailed"));
+      }
     } catch (err) {
       console.error('Login error:', err);
 

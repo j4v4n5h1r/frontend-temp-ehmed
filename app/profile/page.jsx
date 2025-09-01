@@ -33,31 +33,27 @@ const ProfilePage = () => {
 
   useEffect(() => {
     console.log('🔍 Profile: User data', user);
-    if (user?.profile?.data?.user) {
-      const userData = user.profile.data.user;
+    if (user?.profile) {
+      const userData = user.profile;
       console.log('✅ Profile: Populating form with user data', userData);
       setFirstName(userData.firstName || userData.name || "");
       setLastName(userData.lastName || "");
       setUsername(userData.username || "");
-      setEmail(userData.email || "");
+      setEmail(userData.email || user.email || "");
       setPhone(userData.phone || "");
-    } else if (user?.profile) {
-      // Handle case where profile structure is different
-      console.log('🔄 Profile: Different profile structure', user.profile);
-      setFirstName(user.profile.firstName || "");
-      setLastName(user.profile.lastName || "");
-      setUsername(user.profile.username || "");
-      setEmail(user.profile.email || "");
-      setPhone(user.profile.phone || "");
     } else {
       console.log('⚠️ Profile: No user data available');
+      // Set email from user object if available
+      if (user?.email) {
+        setEmail(user.email);
+      }
     }
     fetchPaymentMethods();
   }, [user]);
 
   const fetchPaymentMethods = async () => {
     try {
-      const token = cookie.get("token");
+      const token = localStorage.getItem('auth_token');
       console.log("🔍 Profile: Fetching payment methods...");
       console.log("Token:", token ? "Present" : "Missing");
 
@@ -85,7 +81,7 @@ const ProfilePage = () => {
     setError(null);
 
     try {
-      const token = cookie.get("token");
+      const token = localStorage.getItem('auth_token');
       console.log("🔍 Profile: Adding payment method", newPaymentMethod);
 
       await apiCallWithAuth("/api/v1/users/me/payment-methods", token, {
@@ -664,6 +660,7 @@ const ProfilePage = () => {
                             fontSize: "1rem",
                             outline: "none",
                             boxSizing: "border-box",
+                            color: "#1f2937",
                           }}
                         />
                       </div>
@@ -697,6 +694,7 @@ const ProfilePage = () => {
                             fontSize: "1rem",
                             outline: "none",
                             boxSizing: "border-box",
+                            color: "#1f2937",
                           }}
                         />
                       </div>
@@ -730,6 +728,7 @@ const ProfilePage = () => {
                             fontSize: "1rem",
                             outline: "none",
                             boxSizing: "border-box",
+                            color: "#1f2937",
                           }}
                         />
                       </div>
@@ -763,6 +762,7 @@ const ProfilePage = () => {
                             fontSize: "1rem",
                             outline: "none",
                             boxSizing: "border-box",
+                            color: "#1f2937",
                           }}
                         />
                       </div>

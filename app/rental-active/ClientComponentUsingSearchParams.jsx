@@ -8,7 +8,7 @@ import { AuthContext } from "../../utils/auth";
 import { useTranslation } from "../../utils/translations";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const BASE_URL = "http://164.90.238.202:8000";
+const BASE_URL = "https://mypobi.com";
 
 export default function ClientComponentUsingSearchParams() {
   const { t } = useTranslation();

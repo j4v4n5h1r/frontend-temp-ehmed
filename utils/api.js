@@ -1,6 +1,6 @@
 import { logNetworkError } from './networkDebug';
 
-const BASE_URL = "http://164.90.238.202:8000";
+const BASE_URL = "https://mypobi.com";
 
 console.log('🌐 API Mode: Real API');
 

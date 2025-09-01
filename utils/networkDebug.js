@@ -1,5 +1,5 @@
 export const testNetworkConnection = async () => {
-  const BASE_URL = "http://164.90.238.202:8000";
+  const BASE_URL = "https://mypobi.com";
 
   try {
     // Create a timeout promise

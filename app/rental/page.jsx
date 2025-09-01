@@ -7,7 +7,7 @@ import cookie from "js-cookie";
 import { useTranslation } from "../../utils/translations";
 import { QrReader } from "react-qr-reader"; // Import the QR reader component
 
-const BASE_URL = "http://164.90.238.202:8000";
+const BASE_URL = "https://mypobi.com";
 
 const RentalPage = () => {
   const { t } = useTranslation();
