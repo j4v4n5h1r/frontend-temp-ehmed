@@ -17,7 +17,27 @@ export function AuthProvider({ children }) {
     
     if (token && userData) {
       try {
-        setUser(JSON.parse(userData));
+        const parsedUserData = JSON.parse(userData);
+        
+        // If user data doesn't have role, try to extract it from JWT token
+        if (!parsedUserData.profile?.role && token) {
+          try {
+            const tokenPayload = token.split('.')[1];
+            const decodedPayload = JSON.parse(atob(tokenPayload));
+            if (decodedPayload.role) {
+              parsedUserData.profile = {
+                ...parsedUserData.profile,
+                role: decodedPayload.role
+              };
+              // Update localStorage with the enhanced user data
+              localStorage.setItem('user_data', JSON.stringify(parsedUserData));
+            }
+          } catch (e) {
+            console.warn('Could not decode JWT payload:', e);
+          }
+        }
+        
+        setUser(parsedUserData);
       } catch (error) {
         console.error('Error parsing user data:', error);
         localStorage.removeItem('auth_token');
@@ -53,11 +73,25 @@ export function AuthProvider({ children }) {
           
           if (profileResponse.ok) {
             const profileData = await profileResponse.json();
+            
+            // Extract role from JWT token (base64 decode the payload)
+            let role = null;
+            try {
+              const tokenPayload = data.accessToken.split('.')[1];
+              const decodedPayload = JSON.parse(atob(tokenPayload));
+              role = decodedPayload.role;
+            } catch (e) {
+              console.warn('Could not decode JWT payload:', e);
+            }
+            
             const userData = {
               id: profileData.user_id || 'temp',
               email: credentials.email,
               token: data.accessToken,
-              profile: profileData
+              profile: {
+                ...profileData,
+                role: role || profileData.role // Use JWT role or fallback to profile role
+              }
             };
             localStorage.setItem('user_data', JSON.stringify(userData));
             setUser(userData);
