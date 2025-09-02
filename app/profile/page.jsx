@@ -66,14 +66,59 @@ const ProfilePage = () => {
       const response = await apiCallWithAuth("/api/v1/users/me/payment-methods", token);
       setPaymentMethods(response || []);
       console.log("✅ Profile: Payment methods fetched", response);
+      // Clear any previous errors since the request succeeded
+      setError(null);
     } catch (err) {
       console.error("❌ Profile: Error fetching payment methods:", err);
-      setError(t("errors.failedToFetchPayments"));
+      // Don't show error for empty payment methods - this is normal
+      if (err.status !== 404 && err.status !== 200) {
+        setError(t("errors.failedToFetchPayments"));
+      }
       setPaymentMethods([]); // Set to empty array on error
     }
   };
 
-  // Profile is read-only, update function removed
+  // Profile update function
+  const updateProfile = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    try {
+      const token = localStorage.getItem('auth_token');
+      console.log("🔍 Profile: Updating profile", { firstName, lastName, phone });
+
+      const updateData = {
+        firstName,
+        lastName,
+        phone
+      };
+
+      await apiCallWithAuth("/api/v1/users/me", token, {
+        method: "PUT",
+        body: JSON.stringify(updateData),
+      });
+
+      console.log("✅ Profile: Profile updated successfully");
+      setSuccess(t("profile.updateSuccess"));
+      setTimeout(() => setSuccess(null), 3000);
+    } catch (err) {
+      console.error("❌ Profile: Error updating profile:", err);
+      let errorMessage = t("errors.failedToUpdateProfile");
+      if (err.message) {
+        errorMessage = err.message;
+      } else if (err.detail) {
+        errorMessage = err.detail;
+      } else if (typeof err === 'string') {
+        errorMessage = err;
+      } else if (err && typeof err === 'object') {
+        errorMessage = JSON.stringify(err);
+      }
+      setError(errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const addPaymentMethod = async (e) => {
     e.preventDefault();
@@ -101,7 +146,18 @@ const ProfilePage = () => {
       setTimeout(() => setSuccess(null), 3000);
     } catch (err) {
       console.error("❌ Profile: Error adding payment method:", err);
-      setError(err.message || t("errors.generic"));
+      // Handle different error formats
+      let errorMessage = t("errors.generic");
+      if (err.message) {
+        errorMessage = err.message;
+      } else if (err.detail) {
+        errorMessage = err.detail;
+      } else if (typeof err === 'string') {
+        errorMessage = err;
+      } else if (err && typeof err === 'object') {
+        errorMessage = JSON.stringify(err);
+      }
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -348,7 +404,7 @@ const ProfilePage = () => {
           <div style={{ padding: "2rem" }}>
             {/* Profile Tab */}
             {activeTab === "profile" && (
-              <div>
+              <form onSubmit={updateProfile}>
                 <div
                   style={{
                     display: "grid",
@@ -369,23 +425,23 @@ const ProfilePage = () => {
                     >
                       {t("profile.firstName")}
                     </label>
-                    <div
+                    <input
+                      type="text"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      placeholder={t("profile.firstName")}
                       style={{
                         width: "100%",
                         padding: "0.75rem",
-                        border: "2px solid #f3f4f6",
+                        border: "2px solid #e5e7eb",
                         borderRadius: "0.5rem",
                         fontSize: "1rem",
+                        outline: "none",
                         boxSizing: "border-box",
-                        backgroundColor: "#f9fafb",
-                        color: "#374151",
-                        minHeight: "3rem",
-                        display: "flex",
-                        alignItems: "center",
+                        color: "#1f2937",
+                        backgroundColor: "white",
                       }}
-                    >
-                      {firstName || t("profile.firstName")}
-                    </div>
+                    />
                   </div>
 
                   <div>
@@ -400,23 +456,23 @@ const ProfilePage = () => {
                     >
                       {t("profile.lastName")}
                     </label>
-                    <div
+                    <input
+                      type="text"
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                      placeholder={t("profile.lastName")}
                       style={{
                         width: "100%",
                         padding: "0.75rem",
-                        border: "2px solid #f3f4f6",
+                        border: "2px solid #e5e7eb",
                         borderRadius: "0.5rem",
                         fontSize: "1rem",
+                        outline: "none",
                         boxSizing: "border-box",
-                        backgroundColor: "#f9fafb",
-                        color: "#374151",
-                        minHeight: "3rem",
-                        display: "flex",
-                        alignItems: "center",
+                        color: "#1f2937",
+                        backgroundColor: "white",
                       }}
-                    >
-                      {lastName || t("profile.lastName")}
-                    </div>
+                    />
                   </div>
 
                   <div>
@@ -431,23 +487,23 @@ const ProfilePage = () => {
                     >
                       Username
                     </label>
-                    <div
+                    <input
+                      type="text"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      placeholder="Username"
                       style={{
                         width: "100%",
                         padding: "0.75rem",
-                        border: "2px solid #f3f4f6",
+                        border: "2px solid #e5e7eb",
                         borderRadius: "0.5rem",
                         fontSize: "1rem",
+                        outline: "none",
                         boxSizing: "border-box",
-                        backgroundColor: "#f9fafb",
-                        color: "#374151",
-                        minHeight: "3rem",
-                        display: "flex",
-                        alignItems: "center",
+                        color: "#1f2937",
+                        backgroundColor: "white",
                       }}
-                    >
-                      {username || "Username"}
-                    </div>
+                    />
                   </div>
 
                   <div>
@@ -493,28 +549,47 @@ const ProfilePage = () => {
                     >
                       {t("profile.phone")}
                     </label>
-                    <div
+                    <input
+                      type="text"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder={t("profile.phone")}
                       style={{
                         width: "100%",
                         padding: "0.75rem",
-                        border: "2px solid #f3f4f6",
+                        border: "2px solid #e5e7eb",
                         borderRadius: "0.5rem",
                         fontSize: "1rem",
+                        outline: "none",
                         boxSizing: "border-box",
-                        backgroundColor: "#f9fafb",
-                        color: "#374151",
-                        minHeight: "3rem",
-                        display: "flex",
-                        alignItems: "center",
+                        color: "#1f2937",
+                        backgroundColor: "white",
                       }}
-                    >
-                      {phone || t("profile.phone")}
-                    </div>
+                    />
                   </div>
                 </div>
 
-                {/* Profile is read-only - no update functionality */}
-              </div>
+                {/* Save Button */}
+                <div style={{ textAlign: "right", marginTop: "1rem" }}>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    style={{
+                      background: "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
+                      color: "white",
+                      padding: "0.75rem 2rem",
+                      border: "none",
+                      borderRadius: "0.5rem",
+                      fontSize: "0.875rem",
+                      fontWeight: "600",
+                      cursor: loading ? "not-allowed" : "pointer",
+                      opacity: loading ? 0.7 : 1,
+                    }}
+                  >
+                    {loading ? t("common.loading") : t("profile.save")}
+                  </button>
+                </div>
+              </form>
             )}
 
             {/* Payment Methods Tab */}

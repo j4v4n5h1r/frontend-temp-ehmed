@@ -372,6 +372,10 @@ export default {
     lastName: "Last Name",
     phone: "Phone Number",
     address: "Address",
+    save: "Save Changes",
+    cancel: "Cancel",
+    updateSuccess: "Profile updated successfully",
+    updateError: "Failed to update profile",
   },
 
   // Payments
@@ -601,6 +605,8 @@ export default {
     sessionExpired: "Your session has expired. Please log in again.",
     loginFailed: "Login failed. Please check your credentials.",
     registrationFailed: "Registration failed. Please try again.",
+    failedToFetchPayments: "Failed to fetch payment methods. Please try again.",
+    failedToUpdateProfile: "Failed to update profile. Please try again.",
   },
 
   // Development
