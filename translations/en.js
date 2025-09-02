@@ -14,7 +14,7 @@ export default {
     register: "Register",
     logout: "Logout",
     rental: "Rental",
-    admin: "Admin",
+    admin: "Admin Panel",
     menu: "Menu",
     b2bPartnership: "B2B Partnership",
     franchise: "Franchise",
