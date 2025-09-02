@@ -200,11 +200,12 @@ function NavigationDropdown({ user }) {
             {t("profile.title", "Profile")}
           </Link>
 
-          {user?.profile?.data?.user?.role === "admin" && (
+          {(user?.profile?.role === "ADMIN" || user?.profile?.role === "admin") && (
             <>
               <div className="border-t border-neutral-100 my-1"></div>
+              
               <Link
-                href="/admin"
+                href="/admin/dashboard"
                 className="flex items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
@@ -218,16 +219,85 @@ function NavigationDropdown({ user }) {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                    d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"
                   />
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    d="M8 5a2 2 0 012-2h4a2 2 0 012 2v1H8V5z"
                   />
                 </svg>
-                Admin
+                Admin Dashboard
+              </Link>
+
+              <Link
+                href="/admin/users"
+                className="flex items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
+                  />
+                </svg>
+                Manage Users
+              </Link>
+
+              <Link
+                href="/admin/stations"
+                className="flex items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                Manage Stations
+              </Link>
+
+              <Link
+                href="/admin/payments"
+                className="flex items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                  />
+                </svg>
+                Manage Payments
               </Link>
             </>
           )}
@@ -365,7 +435,7 @@ function ProfileDropdown({ user, logout }) {
               viewBox="0 0 24 24"
             >
               <path
-                strokeLinecap="round"
+                strokeLinecap="round"j
                 strokeLinejoin="round"
                 strokeWidth={2}
 rom api                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 003 3z"
@@ -375,27 +445,36 @@ rom api                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3
           </Link>
 
           {/* Admin Panel Link */}
-          {user?.profile?.role === "admin" && (
-            <Link
-              href="/admin"
-              className="flex items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-black transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+          {(user?.profile?.role === "ADMIN" || user?.profile?.role === "admin") && (
+            <>
+              <div className="border-t border-neutral-100 my-1"></div>
+              <Link
+                href="/admin/dashboard"
+                className="flex items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors"
+                onClick={() => setIsOpen(false)}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                />
-              </svg>
-              {t("nav.admin", "Admin Panel")}
-            </Link>
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8 5a2 2 0 012-2h4a2 2 0 012 2v1H8V5z"
+                  />
+                </svg>
+                Admin Dashboard
+              </Link>
+            </>
           )}
 
           <div className="border-t border-neutral-100 mt-1">
@@ -487,6 +566,31 @@ export default function Navbar() {
           <div className="hidden md:flex items-center justify-center flex-1">
             <div className="flex items-center gap-3 lg:gap-5">
               <GlassNav />
+              
+              {/* Admin Menu Items - Desktop */}
+              {user && (user?.profile?.role === "ADMIN" || user?.profile?.role === "admin") && (
+                <div className="flex items-center gap-2 border-l border-neutral-200 pl-3">
+                  <Link
+                    href="/admin/dashboard"
+                    className="font-medium text-red-600 hover:text-red-700 px-2 lg:px-3 py-1 rounded-lg transition-all duration-200 text-sm whitespace-nowrap border border-red-200 hover:border-red-300 hover:bg-red-50"
+                  >
+                    Admin Dashboard
+                  </Link>
+                  <Link
+                    href="/admin/users"
+                    className="font-medium text-red-600 hover:text-red-700 px-2 lg:px-3 py-1 rounded-lg transition-all duration-200 text-sm whitespace-nowrap border border-red-200 hover:border-red-300 hover:bg-red-50"
+                  >
+                    Users
+                  </Link>
+                  <Link
+                    href="/admin/stations"
+                    className="font-medium text-red-600 hover:text-red-700 px-2 lg:px-3 py-1 rounded-lg transition-all duration-200 text-sm whitespace-nowrap border border-red-200 hover:border-red-300 hover:bg-red-50"
+                  >
+                    Stations
+                  </Link>
+                </div>
+              )}
+              
               {user ? (
                 <NavigationDropdown user={user} />
               ) : (
@@ -655,14 +759,41 @@ export default function Navbar() {
                       {t("profile.title", "Profile Settings")}
                     </Link>
 
-                    {user?.profile?.role === "admin" && (
-                      <Link
-                        href="/admin"
-                        className="block font-medium text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-4 py-3 rounded-lg transition-all duration-200 mt-2"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {t("nav.admin", "Admin Panel")}
-                      </Link>
+                    {(user?.profile?.role === "ADMIN" || user?.profile?.role === "admin") && (
+                      <>
+                        <div className="border-t border-neutral-200 my-2"></div>
+                        <div className="text-xs font-semibold text-neutral-500 px-4 py-2 uppercase tracking-wider">
+                          Admin Panel
+                        </div>
+                        <Link
+                          href="/admin/dashboard"
+                          className="block font-medium text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-4 py-3 rounded-lg transition-all duration-200"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          Admin Dashboard
+                        </Link>
+                        <Link
+                          href="/admin/users"
+                          className="block font-medium text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-4 py-3 rounded-lg transition-all duration-200"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          Manage Users
+                        </Link>
+                        <Link
+                          href="/admin/stations"
+                          className="block font-medium text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-4 py-3 rounded-lg transition-all duration-200"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          Manage Stations
+                        </Link>
+                        <Link
+                          href="/admin/payments"
+                          className="block font-medium text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-4 py-3 rounded-lg transition-all duration-200"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          Manage Payments
+                        </Link>
+                      </>
                     )}
                   </div>
 
