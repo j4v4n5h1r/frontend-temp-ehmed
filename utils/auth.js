@@ -54,7 +54,7 @@ export function AuthProvider({ children }) {
           if (profileResponse.ok) {
             const profileData = await profileResponse.json();
             const userData = {
-              id: profileData.id || 'temp',
+              id: profileData.user_id || 'temp',
               email: credentials.email,
               token: data.accessToken,
               profile: profileData

@@ -35,15 +35,20 @@ export default function DashboardPage() {
             throw new Error('No authentication token found');
           }
         
-        const [rentalRes, paymentRes] = await Promise.all([
-          apiCallWithAuth("/api/v1/users/me/rentals", token),
-          apiCallWithAuth("/api/v1/payments", token)
-        ]);
-
-        console.log('✅ Dashboard: Data fetched successfully', { rentals: rentalRes?.length, payments: paymentRes?.length });
-
+        // Fetch rentals first
+        const rentalRes = await apiCallWithAuth("/api/v1/users/me/rentals", token);
+        console.log('✅ Dashboard: Rentals fetched successfully', { rentals: rentalRes?.length });
         setRentals(rentalRes || []);
-        setPayments(paymentRes || []);
+
+        // Fetch payments separately to avoid hanging
+        try {
+          const paymentRes = await apiCallWithAuth("/api/v1/payments", token);
+          console.log('✅ Dashboard: Payments fetched successfully', { payments: paymentRes?.length });
+          setPayments(paymentRes || []);
+        } catch (paymentError) {
+          console.warn('⚠️ Dashboard: Payments fetch failed, continuing with rentals only:', paymentError);
+          setPayments([]);
+        }
       } catch (err) {
         console.error("❌ Dashboard fetch error:", err);
         // Show user-friendly error message
