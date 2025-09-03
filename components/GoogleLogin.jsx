@@ -30,8 +30,25 @@ export default function GoogleLogin() {
     }
   }, [googleLogin]);
 
+  // Add a test button to see if our component is working
+  const testGoogleLogin = () => {
+    console.log('🔍 TEST: Google login button clicked - our component is working!');
+    alert('Our GoogleLogin component is working! The issue is elsewhere.');
+  };
+
   useEffect(() => {
     console.log('🔍 GoogleLogin - useEffect starting, loading Google OAuth script...');
+    
+    // Prevent any global event delegation that might be intercepting clicks
+    const preventGlobalOAuth = (e) => {
+      const target = e.target;
+      if (target && target.closest('#google-login-button')) {
+        console.log('🔍 GoogleLogin - Preventing global OAuth interception');
+        e.stopImmediatePropagation();
+      }
+    };
+    
+    document.addEventListener('click', preventGlobalOAuth, true);
     
     // Load Google OAuth script
     const script = document.createElement('script');
@@ -83,6 +100,7 @@ export default function GoogleLogin() {
 
     return () => {
       // Cleanup
+      document.removeEventListener('click', preventGlobalOAuth, true);
       if (document.head.contains(script)) {
         document.head.removeChild(script);
         console.log('🔍 GoogleLogin - Cleanup: Removed Google script');
@@ -93,6 +111,15 @@ export default function GoogleLogin() {
   return (
     <div className="flex flex-col items-center space-y-4">
       <div id="google-login-button"></div>
+      
+      {/* Test button to verify our component is working */}
+      <button 
+        onClick={testGoogleLogin}
+        className="px-4 py-2 bg-blue-500 text-white rounded text-sm"
+      >
+        🔍 Test Google Component
+      </button>
+      
       <p className="text-sm text-neutral-600">
         Or continue with email
       </p>
