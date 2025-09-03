@@ -93,6 +93,7 @@ export function AuthProvider({ children }) {
                 role: role || profileData.role // Use JWT role or fallback to profile role
               }
             };
+            console.log('🔍 Auth Debug - Setting user data:', userData);
             localStorage.setItem('user_data', JSON.stringify(userData));
             setUser(userData);
           } else {

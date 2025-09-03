@@ -516,6 +516,7 @@ export default function Navbar() {
   
   // Debug logging for admin role detection
   useEffect(() => {
+    console.log('🔍 Navbar Debug - useEffect triggered, user:', user);
     if (user) {
       console.log('🔍 Navbar Debug - User data:', {
         user: user,
@@ -523,6 +524,8 @@ export default function Navbar() {
         role: user.profile?.role,
         isAdmin: user.profile?.role === "ADMIN" || user.profile?.role === "admin"
       });
+    } else {
+      console.log('🔍 Navbar Debug - No user found');
     }
   }, [user]);
 
@@ -580,7 +583,11 @@ export default function Navbar() {
               <GlassNav />
               
               {/* Admin Menu Items - Desktop */}
-              {user && (user?.profile?.role === "ADMIN" || user?.profile?.role === "admin") && (
+              {(() => {
+                const isAdmin = user && (user?.profile?.role === "ADMIN" || user?.profile?.role === "admin");
+                console.log('🔍 Navbar Debug - Admin check:', { user: !!user, role: user?.profile?.role, isAdmin });
+                return isAdmin;
+              })() && (
                 <div className="flex items-center gap-2 border-l border-neutral-200 pl-3">
                   <Link
                     href="/admin/dashboard"
