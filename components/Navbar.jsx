@@ -513,6 +513,18 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
+  
+  // Debug logging for admin role detection
+  useEffect(() => {
+    if (user) {
+      console.log('🔍 Navbar Debug - User data:', {
+        user: user,
+        profile: user.profile,
+        role: user.profile?.role,
+        isAdmin: user.profile?.role === "ADMIN" || user.profile?.role === "admin"
+      });
+    }
+  }, [user]);
 
   // Scroll handling disabled to keep navbar always visible
   // useEffect(() => {
