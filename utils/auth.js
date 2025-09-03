@@ -134,6 +134,87 @@ export function AuthProvider({ children }) {
     setUser(null);
   };
 
+  // Google OAuth login
+  const googleLogin = async (googleToken) => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/google`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: googleToken }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem('auth_token', data.accessToken);
+        localStorage.setItem('refresh_token', data.refreshToken);
+        
+        // Fetch user profile data after successful Google login
+        try {
+          const profileResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/users/me`, {
+            headers: {
+              'Authorization': `Bearer ${data.accessToken}`,
+              'Content-Type': 'application/json',
+            },
+          });
+          
+          if (profileResponse.ok) {
+            const profileData = await profileResponse.json();
+            
+            // Extract role from JWT token
+            let role = null;
+            try {
+              const tokenPayload = data.accessToken.split('.')[1];
+              const decodedPayload = JSON.parse(atob(tokenPayload));
+              role = decodedPayload.role;
+            } catch (e) {
+              console.warn('Could not decode JWT payload:', e);
+            }
+            
+            const userData = {
+              id: profileData.user_id || 'temp',
+              email: profileData.email || 'google-user',
+              token: data.accessToken,
+              profile: {
+                ...profileData,
+                role: role || profileData.role
+              }
+            };
+            console.log('🔍 Auth Debug - Setting Google user data:', userData);
+            localStorage.setItem('user_data', JSON.stringify(userData));
+            setUser(userData);
+          } else {
+            // Fallback if profile fetch fails
+            const userData = {
+              id: 'temp',
+              email: 'google-user',
+              token: data.accessToken
+            };
+            localStorage.setItem('user_data', JSON.stringify(userData));
+            setUser(userData);
+          }
+        } catch (profileError) {
+          console.error('Error fetching user profile after Google login:', profileError);
+          const userData = {
+            id: 'temp',
+            email: 'google-user',
+            token: data.accessToken
+          };
+          localStorage.setItem('user_data', JSON.stringify(userData));
+          setUser(userData);
+        }
+        
+        return { success: true };
+      } else {
+        const error = await response.json();
+        return { success: false, error: error.detail || 'Google login failed' };
+      }
+    } catch (error) {
+      return { success: false, error: 'Network error' };
+    }
+  };
+
   const register = async (userData) => {
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/register`, {
@@ -162,7 +243,46 @@ export function AuthProvider({ children }) {
     login,
     logout,
     register,
+    googleLogin,
   };
+
+  // Restore user data from localStorage on mount
+  useEffect(() => {
+    const token = localStorage.getItem('auth_token');
+    const userData = localStorage.getItem('user_data');
+    
+    if (token && userData) {
+      try {
+        const parsedUserData = JSON.parse(userData);
+        
+        // If user data doesn't have role, try to extract it from JWT token
+        if (!parsedUserData.profile?.role && token) {
+          try {
+            const tokenPayload = token.split('.')[1];
+            const decodedPayload = JSON.parse(atob(tokenPayload));
+            if (decodedPayload.role) {
+              parsedUserData.profile = {
+                ...parsedUserData.profile,
+                role: decodedPayload.role
+              };
+              // Update localStorage with the enhanced user data
+              localStorage.setItem('user_data', JSON.stringify(parsedUserData));
+            }
+          } catch (e) {
+            console.warn('Could not decode JWT payload:', e);
+          }
+        }
+        
+        console.log('🔍 Auth Debug - Restoring user from localStorage:', parsedUserData);
+        setUser(parsedUserData);
+      } catch (error) {
+        console.error('Error parsing user data from localStorage:', error);
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('user_data');
+      }
+    }
+    setLoading(false);
+  }, []);
 
   return (
     <AuthContext.Provider value={value}>
